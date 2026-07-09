@@ -10,16 +10,17 @@ export const site = {
 };
 
 export const hero = {
-  headline: "Not Just a Course. A Turning Point.",
+  badge: "10,000+ Students Already Enrolled",
+  headlinePlain: "From Doubting Ohm's Law to",
+  headlineAccent: "Building Real Embedded Systems",
   subline:
-    "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
+    "10 foundation courses, taught by a 40+ year industry veteran, doubts cleared directly on WhatsApp.",
   trustPoints: [
     "Watch anytime, pre-recorded",
     "Doubts cleared directly on WhatsApp",
   ],
   ctaLabel: "Enroll Today",
 };
-
 export type Testimonial = {
   name: string;
   title: string;
@@ -344,7 +345,7 @@ export const audienceSegments = [
       "This course builds skills, it does not provide placement or guaranteed employment.",
   },
   { label: "Higher Secondary Students" },
-  { label: "Students Who Just Finished Schooling" },
+  { label: "Students Who Just Finished 12th Standard" },
   { label: "Professionals Planning to Switch Their Career to Embedded Systems" },
 ];
 
