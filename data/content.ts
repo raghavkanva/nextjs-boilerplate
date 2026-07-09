@@ -29,13 +29,14 @@ export type Testimonial = {
 };
 
 export const testimonialsTop: Testimonial[] = [
-  {
-    name: "Adnan Huss",
-    title: "Not Just a Course, A Turning Point",
+    {
+    name: "IECC BIT Sathy",
+    title: "A Roadmap Every Embedded Engineer Needs",
     quote:
-      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
+      "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
+    context: "Session feedback, BIT Sathy",
     link:
-      "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
     name: "B. Chandana",
@@ -48,14 +49,13 @@ export const testimonialsTop: Testimonial[] = [
 ];
 
 export const testimonialsBottom: Testimonial[] = [
-  {
-    name: "IECC BIT Sathy",
-    title: "A Roadmap Every Embedded Engineer Needs",
+    {
+    name: "Adnan Huss",
+    title: "Not Just a Course, A Turning Point",
     quote:
-      "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
-    context: "Session feedback, BIT Sathy",
+      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
     link:
-      "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
     name: "Monicka Balaji",
@@ -69,7 +69,7 @@ export const testimonialsBottom: Testimonial[] = [
 ];
 
 export const instructor = {
-  name: "Balajee Seshadri",
+  name: "Mr Balajee Seshadri",
   photoFormal: "/images/balajee-formal.png",
   photoCasual: "/images/balajee-casual.png",
   yearsExperience: "40+",
