@@ -54,7 +54,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         href={plan.checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] bg-amber text-bg"
+        className="w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] bg-amber text-onAccent"
       >
         Enroll, {plan.name}
       </a>

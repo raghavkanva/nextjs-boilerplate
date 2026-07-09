@@ -1,10 +1,12 @@
 import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
 import PromoCodeBox from "@/components/PromoCodeBox";
+import StickyOfferBar from "@/components/StickyOfferBar";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
 import InstructorStrip from "@/components/InstructorStrip";
 import PlatformFeatures from "@/components/PlatformFeatures";
-import CourseList from "@/components/CourseList";
+import CourseCarousel from "@/components/CourseCarousel";
+import WhoIsThisFor from "@/components/WhoIsThisFor";
 import Prerequisites from "@/components/Prerequisites";
 import InstructorBio from "@/components/InstructorBio";
 import FAQ from "@/components/FAQ";
@@ -69,7 +71,7 @@ function PromoOfferBlock() {
         href={promoOffer.checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block px-8 py-4 rounded-md bg-amber text-bg font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02] mb-4"
+        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02] mb-4"
       >
         Enroll Now, Rs. 99
       </a>
@@ -83,14 +85,15 @@ function PromoOfferBlock() {
 
 export default function OfferPage() {
   return (
-    <main>
+    <main className="pb-24">
       <BrandStrip />
       <Hero />
       <TestimonialLight items={testimonialsTop} />
       <InstructorStrip />
       <PlatformFeatures />
-      <CourseList />
+      <CourseCarousel />
       <PromoOfferBlock />
+      <WhoIsThisFor />
       <Prerequisites />
       <TestimonialDetailed items={testimonialsBottom} />
       <PromoOfferBlock />
@@ -99,6 +102,7 @@ export default function OfferPage() {
       <AssessmentNote />
       <FinalCta />
       <Footer />
+      <StickyOfferBar />
     </main>
   );
 }

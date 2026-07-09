@@ -9,14 +9,16 @@ html {
 
 body {
   font-feature-settings: "ss01";
+  background-image: radial-gradient(circle, #E1D8C7 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 .glow-amber {
-  box-shadow: 0 0 0 1px rgba(232, 150, 60, 0.35), 0 0 40px -8px rgba(232, 150, 60, 0.45);
+  box-shadow: 0 0 0 1px rgba(194, 101, 10, 0.3), 0 0 32px -10px rgba(194, 101, 10, 0.4);
 }
 
 .glow-ember {
-  box-shadow: 0 0 0 1px rgba(217, 72, 31, 0.4), 0 0 48px -6px rgba(217, 72, 31, 0.55);
+  box-shadow: 0 0 0 1px rgba(193, 57, 26, 0.3), 0 0 32px -10px rgba(193, 57, 26, 0.4);
 }
 
 :focus-visible {

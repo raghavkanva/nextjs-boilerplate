@@ -7,15 +7,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: "#14100C",
-        surface: "#1F1912",
-        surfaceRaised: "#271F16",
-        line: "#3A2F22",
-        text: "#F5EDE1",
-        muted: "#B8A890",
-        mutedDim: "#8A7A62",
-        amber: "#E8963C",
-        ember: "#D9481F",
+        bg: "#FCFBF8",
+        surface: "#F5F1E9",
+        surfaceRaised: "#EFE8DB",
+        line: "#E1D8C7",
+        text: "#211C15",
+        muted: "#6B6153",
+        mutedDim: "#948A78",
+        amber: "#C2650A",
+        ember: "#C1391A",
+        onAccent: "#FCFBF8",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],

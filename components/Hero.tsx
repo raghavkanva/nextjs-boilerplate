@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
       <a
         href="#plans"
-        className="inline-block px-8 py-4 rounded-md bg-amber text-bg font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
+        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
       >
         {hero.ctaLabel}
       </a>

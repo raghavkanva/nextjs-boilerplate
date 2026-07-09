@@ -1,12 +1,12 @@
 import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
-import InstructorStrip from "@/components/InstructorStrip";
+import InstructorCard from "@/components/InstructorCard";
 import PlatformFeatures from "@/components/PlatformFeatures";
-import CourseList from "@/components/CourseList";
+import CourseCarousel from "@/components/CourseCarousel";
+import WhoIsThisFor from "@/components/WhoIsThisFor";
 import PlansGrid from "@/components/Plans";
 import Prerequisites from "@/components/Prerequisites";
-import InstructorBio from "@/components/InstructorBio";
 import FAQ from "@/components/FAQ";
 import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
@@ -22,21 +22,22 @@ export default function Home() {
       <BrandStrip />
       <Hero />
       <TestimonialLight items={testimonialsTop} />
-      <InstructorStrip />
+      <InstructorCard />
       <PlatformFeatures />
-      <CourseList />
+      <CourseCarousel />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
+      <WhoIsThisFor />
       <Prerequisites />
       <TestimonialDetailed items={testimonialsBottom} />
       <PlansGrid
         heading="Ready to Start?"
         subline="Pick your plan and get access to everything above."
       />
-      <InstructorBio />
+      <InstructorCard />
       <FAQ />
       <AssessmentNote />
       <FinalCta />

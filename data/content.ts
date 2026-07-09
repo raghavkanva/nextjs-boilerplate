@@ -107,6 +107,7 @@ export const coursesIntro =
 
 export type Course = {
   number: number;
+  tag: string;
   title: string;
   sections: string[];
   note?: string;
@@ -115,6 +116,7 @@ export type Course = {
 export const courses: Course[] = [
   {
     number: 1,
+    tag: "Electronics",
     title: "Electronics Foundation Course",
     sections: [
       "Electrical Fundamentals",
@@ -125,6 +127,7 @@ export const courses: Course[] = [
   },
   {
     number: 2,
+    tag: "Programming",
     title: "C Programming Foundation Course",
     sections: [
       "Introduction to Programming",
@@ -139,6 +142,7 @@ export const courses: Course[] = [
   },
   {
     number: 3,
+    tag: "Hardware",
     title: "Embedded Hardware Foundation Course",
     sections: [
       "Microprocessor",
@@ -150,6 +154,7 @@ export const courses: Course[] = [
   },
   {
     number: 4,
+    tag: "GPIO",
     title: "Embedded Software Foundation Course, GPIO",
     sections: [
       "Introduction",
@@ -162,6 +167,7 @@ export const courses: Course[] = [
   },
   {
     number: 5,
+    tag: "Controllers",
     title: "Embedded Software Foundation Course, Controllers",
     sections: [
       "LED Controller",
@@ -176,11 +182,13 @@ export const courses: Course[] = [
   },
   {
     number: 6,
+    tag: "Protocols",
     title: "Embedded Software Foundation Course, Interface Protocols",
     sections: ["Introduction to BUS", "UART", "I2C", "SPI"],
   },
   {
     number: 7,
+    tag: "Internals",
     title: "Microprocessor Internals Foundation Course",
     sections: [
       "Internals of the microprocessor",
@@ -190,6 +198,7 @@ export const courses: Course[] = [
   },
   {
     number: 8,
+    tag: "Microprocessor",
     title: "8085 Microprocessor Foundation Course",
     sections: [
       "8085 Introduction",
@@ -200,6 +209,7 @@ export const courses: Course[] = [
   },
   {
     number: 9,
+    tag: "ARM",
     title: "ARM Controller Foundation Course",
     sections: [
       "Why the ARM Processor came to be",
@@ -209,6 +219,7 @@ export const courses: Course[] = [
   },
   {
     number: 10,
+    tag: "Networking",
     title: "Networking Concepts Foundation Course",
     sections: [
       "Serial Communication",
@@ -277,6 +288,30 @@ export const plans: Plan[] = [
   },
 ];
 
+export const whoIsThisFor = [
+  {
+    emoji: "🎓",
+    title: "College Students",
+  },
+  {
+    emoji: "💼",
+    title: "Actively Job Searching",
+    note: "This course does not guarantee or provide employment",
+  },
+  {
+    emoji: "🔄",
+    title: "Professionals Switching Careers to Embedded Systems",
+  },
+  {
+    emoji: "🏫",
+    title: "Higher Secondary Students",
+  },
+  {
+    emoji: "🎒",
+    title: "Students Who Just Finished Schooling",
+  },
+];
+
 export const faqs = [
   {
     q: "How long do I have access to the course?",
@@ -298,6 +333,20 @@ export const faqs = [
 
 export const assessmentNote =
   "Embrace the opportunity to tackle your assessments on your own, without relying on the internet or outside assistance. This is a valuable chance for you to demonstrate your skills and knowledge. If you find yourself needing support, remember that we're just a message away to help you navigate any challenges. You have what it takes, and we believe in your potential.";
+
+export const audienceSegments = [
+  { label: "College Students" },
+  { label: "Final-Year Students" },
+  { label: "Recent Graduates" },
+  {
+    label: "Actively Job-Searching",
+    disclaimer:
+      "This course builds skills, it does not provide placement or guaranteed employment.",
+  },
+  { label: "Higher Secondary Students" },
+  { label: "Students Who Just Finished Schooling" },
+  { label: "Professionals Planning to Switch Their Career to Embedded Systems" },
+];
 
 export const promoOffer = {
   headline: "Your First Month, Rs. 99",
