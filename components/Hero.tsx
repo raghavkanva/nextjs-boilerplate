@@ -9,10 +9,7 @@ export default function Hero() {
       <h1 className="font-display font-semibold text-4xl md:text-6xl leading-[1.1] mb-6 text-text">
         {hero.headline}
       </h1>
-      <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-8 leading-relaxed">
-        {hero.subline}
-      </p>
-      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm md:text-base text-muted mb-8">
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base md:text-lg text-muted mb-8">
         {hero.trustPoints.map((point, i) => (
           <span key={i} className="flex items-center gap-2">
             {i > 0 && <span className="text-line">·</span>}

@@ -6,7 +6,7 @@ export default function CourseList() {
       <p className="text-lg md:text-xl text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
         {coursesIntro}
       </p>
-      <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-2">
+      <h2 className="font-display font-semibold text-3xl md:text-4xl text-text text-center mb-2">
         Courses Covered by This Purchase
       </h2>
       <p className="text-base md:text-lg text-muted text-center mb-12">
