@@ -29,14 +29,13 @@ export type Testimonial = {
 };
 
 export const testimonialsTop: Testimonial[] = [
-    {
-    name: "Monicka Balaji",
-    title: "Learning from 40+ Years of Industry Excellence",
+  {
+    name: "Adnan Huss",
+    title: "Not Just a Course, A Turning Point",
     quote:
-      "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
-    context: "ECE, semiconductor, and embedded systems session feedback",
+      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
     link:
-      "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
     name: "B. Chandana",
@@ -49,15 +48,7 @@ export const testimonialsTop: Testimonial[] = [
 ];
 
 export const testimonialsBottom: Testimonial[] = [
-    {
-    name: "Adnan Huss",
-    title: "Not Just a Course, A Turning Point",
-    quote:
-      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
-    link:
-      "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
-  },
-      {
+  {
     name: "IECC BIT Sathy",
     title: "A Roadmap Every Embedded Engineer Needs",
     quote:
@@ -66,11 +57,19 @@ export const testimonialsBottom: Testimonial[] = [
     link:
       "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
-
+  {
+    name: "Monicka Balaji",
+    title: "Learning from 40+ Years of Industry Excellence",
+    quote:
+      "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
+    context: "ECE, semiconductor, and embedded systems session feedback",
+    link:
+      "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+  },
 ];
 
 export const instructor = {
-  name: "Mr Balajee Seshadri",
+  name: "Balajee Seshadri",
   photoFormal: "/images/balajee-formal.png",
   photoCasual: "/images/balajee-casual.png",
   yearsExperience: "40+",
@@ -299,6 +298,21 @@ export const faqs = [
 
 export const assessmentNote =
   "Embrace the opportunity to tackle your assessments on your own, without relying on the internet or outside assistance. This is a valuable chance for you to demonstrate your skills and knowledge. If you find yourself needing support, remember that we're just a message away to help you navigate any challenges. You have what it takes, and we believe in your potential.";
+
+export const promoOffer = {
+  headline: "Your First Month, Rs. 99",
+  subline: "Regular price Rs. 999. Use the code below at checkout.",
+  promoCode: "ETALVIS_PROMO",
+  regularPrice: 999,
+  offerPrice: 99,
+  expiryText: "Offer ends July 31",
+  checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
+  steps: [
+    "Click Enroll Now below",
+    "On the checkout page, enter the code ETALVIS_PROMO in the coupon field",
+    "Your total updates to Rs. 99",
+  ],
+};
 
 export const finalCta = {
   heading: "10,000+ students already enrolled. Your turning point starts today.",
