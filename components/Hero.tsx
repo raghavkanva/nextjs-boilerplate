@@ -3,7 +3,7 @@ import { hero } from "@/data/content";
 export default function Hero() {
   return (
     <section className="max-w-4xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 text-center">
-      <div className="inline-block text-xs px-3 py-1 rounded-full border border-line text-amber font-mono mb-8 tracking-wide">
+      <div className="inline-block text-sm md:text-base px-4 py-1.5 rounded-full border border-line text-amber font-mono mb-8 tracking-wide">
         embedded systems foundation courses
       </div>
       <h1 className="font-display font-semibold text-4xl md:text-6xl leading-[1.1] mb-6 text-text">

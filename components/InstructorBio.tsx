@@ -4,6 +4,9 @@ import { instructor } from "@/data/content";
 export default function InstructorBio() {
   return (
     <section className="max-w-3xl mx-auto px-6 py-16">
+      <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
+        Meet the Instructor
+      </h2>
       <div className="flex flex-col md:flex-row gap-8 items-start">
         <div className="w-32 h-32 rounded-full overflow-hidden border border-line shrink-0 mx-auto md:mx-0">
           <Image

@@ -36,7 +36,6 @@ function PlanCard({ plan }: { plan: Plan }) {
           {plan.tag}
         </div>
       )}
-      <div className="text-xs text-mutedDim font-mono mb-1">{plan.code}</div>
       <h3 className="font-display font-semibold text-xl text-text mb-1">
         {plan.name}
       </h3>
@@ -55,13 +54,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         href={plan.checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={`w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] ${
-          highlight
-            ? "bg-ember text-bg"
-            : isBestSeller
-            ? "bg-amber text-bg"
-            : "border border-line text-text"
-        }`}
+        className="w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] bg-amber text-bg"
       >
         Enroll, {plan.name}
       </a>
