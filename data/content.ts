@@ -30,13 +30,13 @@ export type Testimonial = {
 
 export const testimonialsTop: Testimonial[] = [
     {
-    name: "IECC BIT Sathy",
-    title: "A Roadmap Every Embedded Engineer Needs",
+    name: "Monicka Balaji",
+    title: "Learning from 40+ Years of Industry Excellence",
     quote:
-      "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
-    context: "Session feedback, BIT Sathy",
+      "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
+    context: "ECE, semiconductor, and embedded systems session feedback",
     link:
-      "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
     name: "B. Chandana",
@@ -57,15 +57,16 @@ export const testimonialsBottom: Testimonial[] = [
     link:
       "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
-  {
-    name: "Monicka Balaji",
-    title: "Learning from 40+ Years of Industry Excellence",
+      {
+    name: "IECC BIT Sathy",
+    title: "A Roadmap Every Embedded Engineer Needs",
     quote:
-      "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
-    context: "ECE, semiconductor, and embedded systems session feedback",
+      "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
+    context: "Session feedback, BIT Sathy",
     link:
-      "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
+
 ];
 
 export const instructor = {
