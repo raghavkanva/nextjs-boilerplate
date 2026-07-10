@@ -1,6 +1,7 @@
 import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
 import PromoCodeBox from "@/components/PromoCodeBox";
+import EnrollButton from "@/components/EnrollButton";
 import StickyOfferBar from "@/components/StickyOfferBar";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
 import InstructorStrip from "@/components/InstructorStrip";
@@ -67,14 +68,11 @@ function PromoOfferBlock() {
         ))}
       </div>
 
-      <a
+      <EnrollButton
         href={promoOffer.checkoutUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        label="Enroll Now, Rs. 99"
         className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02] mb-4"
-      >
-        Enroll Now, Rs. 99
-      </a>
+      />
 
       <p className="text-sm text-mutedDim">
         Remember to enter {promoOffer.promoCode} on the checkout page

@@ -1,4 +1,5 @@
 import { promoOffer } from "@/data/content";
+import EnrollButton from "@/components/EnrollButton";
 
 export default function StickyOfferBar() {
   return (
@@ -22,14 +23,11 @@ export default function StickyOfferBar() {
           <span className="hidden sm:inline-flex items-center text-xs font-mono font-semibold tracking-wide px-3 py-1.5 rounded-full bg-ember/15 text-ember">
             LIMITED TIME
           </span>
-          <a
+          <EnrollButton
             href={promoOffer.checkoutUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            label="Enroll Now"
             className="px-6 py-3 rounded-md bg-amber text-onAccent font-display font-semibold text-base glow-amber transition-transform hover:scale-[1.02]"
-          >
-            Enroll Now
-          </a>
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Plan, planFeatures, plans } from "@/data/content";
+import EnrollButton from "@/components/EnrollButton";
 
 function FeatureSwitch({ label }: { label: string }) {
   return (
@@ -50,14 +51,11 @@ function PlanCard({ plan }: { plan: Plan }) {
           <FeatureSwitch key={i} label={f} />
         ))}
       </div>
-      <a
+      <EnrollButton
         href={plan.checkoutUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        label={`Enroll, ${plan.name}`}
         className="w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] bg-amber text-onAccent"
-      >
-        Enroll, {plan.name}
-      </a>
+      />
     </div>
   );
 }
