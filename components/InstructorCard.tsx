@@ -43,8 +43,8 @@ export default function InstructorCard() {
         onClick={handleToggle}
         className="w-full max-w-5xl mx-auto px-6 py-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-left"
       >
-        <div className="flex items-center gap-6">
-          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border border-line shrink-0">
+        <div className="flex flex-wrap items-center gap-4 md:gap-6">
+          <div className="w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border border-line shrink-0">
             <Image
               src={instructor.photoFormal}
               alt={instructor.name}
@@ -54,27 +54,31 @@ export default function InstructorCard() {
             />
           </div>
           <div>
-            <span className="font-display font-semibold text-3xl md:text-4xl text-text leading-tight">
+            <span className="font-display font-semibold text-2xl md:text-4xl text-text leading-tight">
               {instructor.name}
             </span>
-            <p className="text-base md:text-lg text-muted mt-1">
+            <p className="text-sm md:text-lg text-muted mt-1">
               {instructor.yearsExperience} years in the Electronics Industry
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-8">
           <div className="text-center">
-            <div className="font-display font-semibold text-2xl text-amber">
+            <div className="font-display font-semibold text-xl md:text-2xl text-amber whitespace-nowrap">
               {instructor.studentsEnrolled}
             </div>
-            <div className="text-sm text-muted">students enrolled</div>
+            <div className="text-xs md:text-sm text-muted whitespace-nowrap">
+              students enrolled
+            </div>
           </div>
           <div className="text-center">
-            <div className="font-display font-semibold text-2xl text-amber">
+            <div className="font-display font-semibold text-xl md:text-2xl text-amber whitespace-nowrap">
               {instructor.followers}
             </div>
-            <div className="text-sm text-muted">LinkedIn followers</div>
+            <div className="text-xs md:text-sm text-muted whitespace-nowrap">
+              LinkedIn followers
+            </div>
           </div>
           <ChevronDown open={open} />
         </div>
