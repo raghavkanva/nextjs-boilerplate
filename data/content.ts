@@ -268,7 +268,7 @@ export const plans: Plan[] = [
     code: "EF-06",
     price: 2999,
     duration: "6 months access",
-    tag: null,
+    tag: "Semester - Pack",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca",
   },
   {
@@ -276,7 +276,7 @@ export const plans: Plan[] = [
     code: "EF-12",
     price: 4999,
     duration: "12 months access",
-    tag: null,
+    tag: "Yearly Value",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a439983717f947846a80a40",
   },
   {
