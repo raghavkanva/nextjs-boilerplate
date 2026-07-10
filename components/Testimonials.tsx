@@ -25,7 +25,11 @@ function LinkedinIcon() {
 
 export function TestimonialLight({ items }: { items: Testimonial[] }) {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-6">
+    <section className="max-w-5xl mx-auto px-6 py-16">
+      <h2 className="font-display font-bold text-2xl md:text-3xl text-text text-center mb-10">
+        What Our Students Are Saying
+      </h2>
+      <div className="grid md:grid-cols-2 gap-6">
       {items.map((t, i) => (
         <div
           key={i}
@@ -48,6 +52,7 @@ export function TestimonialLight({ items }: { items: Testimonial[] }) {
           </div>
         </div>
       ))}
+      </div>
     </section>
   );
 }

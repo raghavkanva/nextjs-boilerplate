@@ -13,14 +13,16 @@ export const hero = {
   badge: "10,000+ Students Already Enrolled",
   headlinePlain: "From Doubting Ohm's Law to",
   headlineAccent: "Building Real Embedded Systems",
-  subline:
-    "10 foundation courses, taught by a 40+ year industry veteran, doubts cleared directly on WhatsApp.",
+  sublineBefore: "10 foundation courses, taught by a ",
+  sublineHighlight: "40+ year industry veteran",
+  sublineAfter: ", doubts cleared directly on WhatsApp.",
   trustPoints: [
     "Watch anytime, pre-recorded",
     "Doubts cleared directly on WhatsApp",
   ],
   ctaLabel: "Enroll Today",
 };
+
 export type Testimonial = {
   name: string;
   title: string;
@@ -345,7 +347,7 @@ export const audienceSegments = [
       "This course builds skills, it does not provide placement or guaranteed employment.",
   },
   { label: "Higher Secondary Students" },
-  { label: "Students Who Just Finished 12th Standard" },
+  { label: "Students Who Just Finished Schooling" },
   { label: "Professionals Planning to Switch Their Career to Embedded Systems" },
 ];
 

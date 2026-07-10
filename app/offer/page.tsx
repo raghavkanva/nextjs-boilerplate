@@ -88,13 +88,13 @@ export default function OfferPage() {
       <Hero />
       <TestimonialLight items={testimonialsTop} />
       <InstructorStrip />
-      <PlatformFeatures />
-      <CourseCarousel />
       <PromoOfferBlock />
+      <CourseCarousel />
       <WhoIsThisFor />
       <Prerequisites />
       <TestimonialDetailed items={testimonialsBottom} />
       <PromoOfferBlock />
+      <PlatformFeatures />
       <InstructorBio />
       <FAQ />
       <AssessmentNote />

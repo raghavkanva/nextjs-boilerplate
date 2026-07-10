@@ -23,13 +23,12 @@ export default function Home() {
       <Hero />
       <TestimonialLight items={testimonialsTop} />
       <InstructorCard />
-      <PlatformFeatures />
-      <CourseCarousel />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
+      <CourseCarousel />
       <WhoIsThisFor />
       <Prerequisites />
       <TestimonialDetailed items={testimonialsBottom} />
@@ -37,6 +36,7 @@ export default function Home() {
         heading="Ready to Start?"
         subline="Pick your plan and get access to everything above."
       />
+      <PlatformFeatures />
       <InstructorCard />
       <FAQ />
       <AssessmentNote />

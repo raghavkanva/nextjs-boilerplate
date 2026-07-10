@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Sora, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import {
   buildOrganizationSchema,
@@ -9,10 +9,10 @@ import {
   buildFaqSchema,
 } from "@/lib/schema";
 
-const fraunces = Fraunces({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
+        className={`${sora.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
       >
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
