@@ -5,10 +5,19 @@ import { faqs } from "@/data/content";
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
+
+  const handleToggle = () => {
+    const next = !open;
+    setOpen(next);
+    if (next && typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "faq_expand", { question: q });
+    }
+  };
+
   return (
     <div className="border-b border-line">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={handleToggle}
         className="w-full flex items-center justify-between py-5 text-left"
       >
         <span className="font-display font-medium text-lg md:text-xl text-text pr-4">

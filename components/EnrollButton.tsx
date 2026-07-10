@@ -1,11 +1,5 @@
 "use client";
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
-
 export default function EnrollButton({
   href,
   label,
@@ -18,6 +12,9 @@ export default function EnrollButton({
   const handleClick = () => {
     if (typeof window !== "undefined" && window.fbq) {
       window.fbq("track", "InitiateCheckout");
+    }
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "initiate_checkout", { plan_name: label });
     }
   };
 

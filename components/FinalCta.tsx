@@ -1,3 +1,5 @@
+"use client";
+
 import { finalCta } from "@/data/content";
 
 export default function FinalCta() {
@@ -11,6 +13,11 @@ export default function FinalCta() {
       </p>
       <a
         href="#plans"
+        onClick={() =>
+          typeof window !== "undefined" &&
+          window.gtag &&
+          window.gtag("event", "cta_click", { location: "final_cta" })
+        }
         className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
       >
         {finalCta.ctaLabel}

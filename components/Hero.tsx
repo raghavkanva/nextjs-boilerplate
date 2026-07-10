@@ -1,3 +1,5 @@
+"use client";
+
 import { hero } from "@/data/content";
 
 function PlayIcon() {
@@ -61,6 +63,11 @@ export default function Hero() {
 
       <a
         href="#plans"
+        onClick={() =>
+          typeof window !== "undefined" &&
+          window.gtag &&
+          window.gtag("event", "cta_click", { location: "hero" })
+        }
         className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
       >
         {hero.ctaLabel}

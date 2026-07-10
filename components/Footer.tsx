@@ -1,6 +1,14 @@
+"use client";
+
 import { site } from "@/data/content";
 
 export default function Footer() {
+  const trackWhatsapp = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "whatsapp_click", { location: "footer" });
+    }
+  };
+
   return (
     <footer className="border-t border-line py-8">
       <div className="max-w-5xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-mutedDim">
@@ -12,6 +20,7 @@ export default function Footer() {
           href={site.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={trackWhatsapp}
           className="hover:text-amber transition-colors"
         >
           WhatsApp Support

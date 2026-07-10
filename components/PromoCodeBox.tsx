@@ -9,6 +9,9 @@ export default function PromoCodeBox({ code }: { code: string }) {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "promo_code_copy");
+      }
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // Clipboard access can fail in some browsers, code is still visible to copy manually

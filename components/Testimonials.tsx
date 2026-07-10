@@ -1,3 +1,5 @@
+"use client";
+
 import { Testimonial } from "@/data/content";
 
 function QuoteIcon() {
@@ -45,6 +47,11 @@ export function TestimonialLight({ items }: { items: Testimonial[] }) {
               href={t.link}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                typeof window !== "undefined" &&
+                window.gtag &&
+                window.gtag("event", "testimonial_link_click", { student: t.name })
+              }
               className="flex items-center gap-1.5 text-xs text-amber"
             >
               <LinkedinIcon /> View on LinkedIn
@@ -88,6 +95,11 @@ export function TestimonialDetailed({ items }: { items: Testimonial[] }) {
                 href={t.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  typeof window !== "undefined" &&
+                  window.gtag &&
+                  window.gtag("event", "testimonial_link_click", { student: t.name })
+                }
                 className="flex items-center gap-1.5 text-xs text-amber"
               >
                 <LinkedinIcon /> View on LinkedIn
