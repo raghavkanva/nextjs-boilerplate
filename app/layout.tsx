@@ -77,6 +77,18 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-986DLXGDMD"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-986DLXGDMD');
+          `}
+        </Script>
         {schemas.map((schema, i) => (
           <script
             key={i}
