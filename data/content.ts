@@ -240,13 +240,6 @@ export const prerequisites = [
   "Basic English Reading Skills and Understanding Skills",
 ];
 
-export const planFeatures = [
-  "All 10 foundation courses included",
-  "Pre-recorded, watch anytime, at your own pace",
-  "Hands-on practice exercises",
-  "Doubts cleared directly by Balajee sir on WhatsApp",
-];
-
 export type Plan = {
   name: string;
   code: string;
@@ -254,32 +247,53 @@ export type Plan = {
   duration: string;
   tag: "Best Seller" | "Best Value" | null;
   checkoutUrl: string;
+  features: string[];
 };
 
 export const plans: Plan[] = [
   {
-    name: "1 Month",
+    name: "Starter",
     code: "EF-01",
     price: 999,
     duration: "1 month access",
     tag: "Best Seller",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
+    features: [
+      "All 10 foundation courses included",
+      "Pre-recorded, watch anytime, at your own pace",
+      "Practice exercises",
+    ],
   },
   {
-    name: "6 Months",
+    name: "Semester",
     code: "EF-06",
     price: 2999,
     duration: "6 months access",
     tag: null,
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca",
+    features: [
+      "All 10 foundation courses included",
+      "Pre-recorded, watch anytime, at your own pace",
+      "Practice exercises",
+      "Doubts cleared directly by Balajee sir on WhatsApp",
+      "No-cost EMI available",
+    ],
   },
   {
-    name: "12 Months",
+    name: "Annual",
     code: "EF-12",
     price: 4999,
     duration: "12 months access",
     tag: null,
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a439983717f947846a80a40",
+    features: [
+      "All 10 foundation courses included",
+      "Pre-recorded, watch anytime, at your own pace",
+      "Practice exercises",
+      "Doubts cleared directly by Balajee sir on WhatsApp",
+      "No-cost EMI available",
+      "Online Discussion Sessions",
+    ],
   },
   {
     name: "Lifetime",
@@ -288,6 +302,15 @@ export const plans: Plan[] = [
     duration: "Lifetime access",
     tag: "Best Value",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69cc63a722f6a817da84251e",
+    features: [
+      "All 10 foundation courses included",
+      "Pre-recorded, watch anytime, at your own pace",
+      "Practice exercises",
+      "Doubts cleared directly by Balajee sir on WhatsApp",
+      "No-cost EMI available",
+      "Online Discussion Sessions",
+      "Extra Courses Offered",
+    ],
   },
 ];
 
@@ -318,7 +341,7 @@ export const whoIsThisFor = [
 export const faqs = [
   {
     q: "How long do I have access to the course?",
-    a: "Depends on the plan you choose, 1 month, 6 months, 12 months, or lifetime. All plans unlock the same 10 courses.",
+    a: "Depends on the plan you choose, Starter, Semester, Annual, or Lifetime. All plans unlock the same 10 courses.",
   },
   {
     q: "Do I need prior programming experience?",
@@ -332,7 +355,21 @@ export const faqs = [
     q: "Are the classes live or recorded?",
     a: "Pre-recorded. Watch anytime, rewatch anytime, at whatever pace fits your schedule.",
   },
+  {
+    q: "Is EMI available?",
+    a: "Yes, no-cost EMI is available starting from the Semester plan onward.",
+  },
 ];
+
+export const featuredTestimonial = {
+  title: "From High-Level Code to Bare-Metal Understanding",
+  quote:
+    "I used to rely on high-level programming with Arduino, STM, and ESP boards, but your teachings helped me understand how things actually work under the hood.",
+  name: "Tarang Srivas",
+  credentials:
+    "M.Tech, VLSI Design & Embedded Systems, IIT Jammu, now Engineer 1 at Silicon Labs",
+  link: "https://www.linkedin.com/in/tarang-srivas-b192ab213/",
+};
 
 export const assessmentNote =
   "Embrace the opportunity to tackle your assessments on your own, without relying on the internet or outside assistance. This is a valuable chance for you to demonstrate your skills and knowledge. If you find yourself needing support, remember that we're just a message away to help you navigate any challenges. You have what it takes, and we believe in your potential.";

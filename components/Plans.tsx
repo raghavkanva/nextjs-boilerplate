@@ -1,4 +1,4 @@
-import { Plan, planFeatures, plans } from "@/data/content";
+import { Plan, plans } from "@/data/content";
 import EnrollButton from "@/components/EnrollButton";
 
 function FeatureSwitch({ label }: { label: string }) {
@@ -47,7 +47,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         </span>
       </div>
       <div className="flex flex-col gap-3 mb-8 flex-1">
-        {planFeatures.map((f, i) => (
+        {plan.features.map((f, i) => (
           <FeatureSwitch key={i} label={f} />
         ))}
       </div>

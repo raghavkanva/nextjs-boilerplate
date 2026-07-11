@@ -1,5 +1,6 @@
 import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
+import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import PromoCodeBox from "@/components/PromoCodeBox";
 import EnrollButton from "@/components/EnrollButton";
 import StickyOfferBar from "@/components/StickyOfferBar";
@@ -86,6 +87,7 @@ export default function OfferPage() {
     <main className="pb-24">
       <BrandStrip />
       <Hero />
+      <FeaturedTestimonial />
       <TestimonialLight items={testimonialsTop} />
       <InstructorStrip />
       <PromoOfferBlock />

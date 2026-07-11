@@ -1,5 +1,6 @@
 import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
+import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
 import InstructorCard from "@/components/InstructorCard";
 import PlatformFeatures from "@/components/PlatformFeatures";
@@ -21,6 +22,7 @@ export default function Home() {
     <main>
       <BrandStrip />
       <Hero />
+      <FeaturedTestimonial />
       <TestimonialLight items={testimonialsTop} />
       <InstructorCard />
       <PlansGrid
