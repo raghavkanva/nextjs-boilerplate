@@ -26,9 +26,12 @@ function ChatIcon() {
 }
 
 export default function Hero() {
+  const seoSubhead =
+    hero.seoSubhead ||
+    "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.";
+
   return (
     <section className="max-w-4xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 text-center">
-      {/* Eyebrow badge — now animated: fade-in, pulse dot, shimmer */}
       <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber text-onAccent font-display font-bold text-sm md:text-base mb-8 animate-eyebrow-in shadow-sm">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
@@ -39,16 +42,13 @@ export default function Hero() {
         </span>
       </div>
 
-      {/* H1 — completely unchanged */}
       <h1 className="font-display font-extrabold text-4xl md:text-6xl leading-[1.15] mb-4 text-text">
         {hero.headlinePlain}{" "}
         <span className="text-amber">{hero.headlineAccent}</span>
       </h1>
 
-      {/* New SEO subhead — add `seoSubhead` to your hero content object, or edit the fallback text below */}
       <p className="max-w-2xl mx-auto text-base md:text-lg text-muted mb-6">
-        {hero.seoSubhead ??
-          "Online embedded systems course for beginners in India — 10 foundation courses, taught by a 40+ year industry veteran."}
+        {seoSubhead}
       </p>
 
       <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-line bg-surface px-6 py-5">
