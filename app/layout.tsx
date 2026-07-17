@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Sora, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import {
@@ -55,6 +54,33 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
       >
+        <noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-NW77K92B"
+    height="0"
+    width="0"
+    style={{
+      display: "none",
+      visibility: "hidden",
+    }}
+  />
+</noscript>
+
+<Script id="gtm" strategy="afterInteractive">
+  {`
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW77K92B');
+  `}
+</Script>
         {/* Facebook Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
@@ -118,8 +144,6 @@ export default function RootLayout({
         {children}
       </body>
 
-      {/* Google Tag Manager */}
-      <GoogleTagManager gtmId="GTM-NW77K92B" />
     </html>
   );
 }
