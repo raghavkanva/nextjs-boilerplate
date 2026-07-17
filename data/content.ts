@@ -22,6 +22,17 @@ export const hero = {
   ],
   ctaLabel: "Enroll Today",
 };
+export const hero = {
+  badge: "...",
+  headlinePlain: "...",
+  headlineAccent: "...",
+  sublineBefore: "...",
+  sublineHighlight: "...",
+  sublineAfter: "...",
+  trustPoints: [...],
+  ctaLabel: "...",
+  seoSubhead: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.",
+};
 
 export type Testimonial = {
   name: string;
@@ -249,6 +260,7 @@ export type Plan = {
   checkoutUrl: string;
   features: string[];
 };
+
 
 export const plans: Plan[] = [
   {
