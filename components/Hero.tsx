@@ -44,12 +44,12 @@ export default function Hero() {
         </span>
       </div>
 
-      <h1 className="font-display font-extrabold text-4xl md:text-6xl leading-[1.15] mb-4 text-text">
+      <h1 className="font-display font-extrabold text-2xl md:text-4xl leading-[1.15] mb-4 text-text">
         {hero.headlinePlain}{" "}
         <span className="text-amber">{hero.headlineAccent}</span>
       </h1>
 
-      <p className="max-w-2xl mx-auto text-base md:text-lg text-muted mb-6">
+      <p className="max-w-2xl mx-auto text-xl md:text-3xl font-semibold text-text mb-6">
         {hero.seoSubhead}
       </p>
 
