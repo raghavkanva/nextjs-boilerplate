@@ -21,17 +21,8 @@ export const hero = {
     "Doubts cleared directly on WhatsApp",
   ],
   ctaLabel: "Enroll Today",
-};
-export const hero = {
-  badge: "...",
-  headlinePlain: "...",
-  headlineAccent: "...",
-  sublineBefore: "...",
-  sublineHighlight: "...",
-  sublineAfter: "...",
-  trustPoints: [...],
-  ctaLabel: "...",
-  seoSubhead: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.",
+  seoSubhead:
+    "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.",
 };
 
 export type Testimonial = {

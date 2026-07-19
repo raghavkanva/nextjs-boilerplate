@@ -1,6 +1,6 @@
 "use client";
 
-import { hero } from "@/data/content";
+import { hero, site } from "@/data/content";
 
 function PlayIcon() {
   return (
@@ -32,10 +32,6 @@ function handleHeroCtaClick() {
 }
 
 export default function Hero() {
-  const seoSubhead =
-    hero.seoSubhead ||
-    "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.";
-
   return (
     <section className="max-w-4xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 text-center">
       <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber text-onAccent font-display font-bold text-sm md:text-base mb-8 animate-eyebrow-in shadow-sm">
@@ -44,7 +40,7 @@ export default function Hero() {
           <span className="relative inline-flex h-2 w-2 rounded-full bg-onAccent" />
         </span>
         <span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
-          {hero.badge}
+          {site.brandTagline}
         </span>
       </div>
 
@@ -54,7 +50,7 @@ export default function Hero() {
       </h1>
 
       <p className="max-w-2xl mx-auto text-base md:text-lg text-muted mb-6">
-        {seoSubhead}
+        {hero.seoSubhead}
       </p>
 
       <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-line bg-surface px-6 py-5">
@@ -81,11 +77,15 @@ export default function Hero() {
         </span>
       </div>
 
+      <div className="mb-6 text-sm font-medium text-muted">
+        {hero.badge}
+      </div>
+
       
         href="#plans"
         onClick={handleHeroCtaClick}
         className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
-      <a>
+      >
         {hero.ctaLabel}
       </a>
     </section>
