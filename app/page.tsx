@@ -19,7 +19,6 @@ import {
 export default function Home() {
   return (
     <main>
-      <BrandStrip />
       <Hero />
       <FeaturedTestimonial />
       <TestimonialLight items={testimonialsTop} />

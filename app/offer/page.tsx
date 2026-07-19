@@ -84,7 +84,6 @@ function PromoOfferBlock() {
 export default function OfferPage() {
   return (
     <main className="pb-24">
-      <BrandStrip />
       <Hero />
       <FeaturedTestimonial />
       <TestimonialLight items={testimonialsTop} />
