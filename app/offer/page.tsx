@@ -9,7 +9,6 @@ import PlatformFeatures from "@/components/PlatformFeatures";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import Prerequisites from "@/components/Prerequisites";
-import InstructorBio from "@/components/InstructorBio";
 import FAQ from "@/components/FAQ";
 import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
@@ -95,7 +94,6 @@ export default function OfferPage() {
       <TestimonialDetailed items={testimonialsBottom} />
       <PromoOfferBlock />
       <PlatformFeatures />
-      <InstructorBio />
       <FAQ />
       <AssessmentNote />
       <FinalCta />
