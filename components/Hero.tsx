@@ -34,10 +34,10 @@ function handleHeroCtaClick() {
 export default function Hero() {
   return (
     <section className="max-w-4xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 text-center">
-      <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber text-onAccent font-display font-bold text-sm md:text-base mb-8 animate-eyebrow-in shadow-sm">
-        <span className="relative flex h-2 w-2">
+      <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-amber text-onAccent font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
+        <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-onAccent" />
+          <span className="relative inline-flex h-3 w-3 rounded-full bg-onAccent" />
         </span>
         <span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
           {site.brandTagline}
@@ -77,17 +77,18 @@ export default function Hero() {
         </span>
       </div>
 
-      <div className="mb-6 text-sm font-medium text-muted">
-        {hero.badge}
+      <div className="mb-8 animate-fade-up">
+        <span className="inline-block text-2xl md:text-4xl font-display font-extrabold text-amber animate-shimmer bg-[length:200%_auto] bg-clip-text">
+          {hero.badge}
+        </span>
       </div>
 
-      
-        <a href="#plans"
-          onClick={handleHeroCtaClick}
-          className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
-        >
-          {hero.ctaLabel}
-        </a>
+      <a href="#plans"
+        onClick={handleHeroCtaClick}
+        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
+      >
+        {hero.ctaLabel}
+      </a>
     </section>
   );
 }

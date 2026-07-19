@@ -1,4 +1,3 @@
-import BrandStrip from "@/components/BrandStrip";
 import Hero from "@/components/Hero";
 import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
