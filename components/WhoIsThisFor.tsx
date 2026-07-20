@@ -102,12 +102,17 @@ export default function WhoIsThisFor() {
                   {icons[i]}
                 </svg>
               </span>
-              <div>
+               <div>
                 <span className="font-display font-semibold text-lg md:text-xl text-text leading-snug">
                   {segment.label}
                 </span>
-                {segment.disclaimer && (
+                {segment.line && (
                   <p className="text-base text-muted leading-relaxed mt-1.5">
+                    {segment.line}
+                  </p>
+                )}
+                {segment.disclaimer && (
+                  <p className="text-sm text-muted/80 italic leading-relaxed mt-1.5">
                     {segment.disclaimer}
                   </p>
                 )}

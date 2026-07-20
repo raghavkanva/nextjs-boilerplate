@@ -33,7 +33,7 @@ function handleHeroCtaClick() {
 
 export default function Hero() {
   return (
-    <section className="max-w-4xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 text-center">
+    <section className="max-w-4xl mx-auto px-6 pt-6 pb-14 sm:pt-8 md:pt-10 md:pb-20 text-center">
       <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-amber text-onAccent font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
         <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
@@ -44,13 +44,13 @@ export default function Hero() {
         </span>
       </div>
 
-      <h1 className="font-display font-extrabold text-2xl md:text-4xl leading-[1.15] mb-4 text-text">
+      <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.15] mb-4 text-text">
         {hero.headlinePlain}{" "}
         <span className="text-amber">{hero.headlineAccent}</span>
       </h1>
 
 <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5 glow-popular">
-  <p className="text-xl md:text-2xl text-muted leading-relaxed">
+  <p className="text-base md:text-lg text-muted leading-relaxed">
     {hero.sublineBefore}
     <span
       className="font-semibold text-ember"

@@ -1,9 +1,8 @@
 import Hero from "@/components/Hero";
-import FeaturedTestimonial from "@/components/FeaturedTestimonial";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import PromoCodeBox from "@/components/PromoCodeBox";
 import EnrollButton from "@/components/EnrollButton";
 import StickyOfferBar from "@/components/StickyOfferBar";
-import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
 import InstructorStrip from "@/components/InstructorStrip";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import CourseCarousel from "@/components/CourseCarousel";
@@ -84,15 +83,16 @@ export default function OfferPage() {
   return (
     <main className="pb-24">
       <Hero />
-      <FeaturedTestimonial />
-      <TestimonialLight items={testimonialsTop} />
+      <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PromoOfferBlock />
       <CourseCarousel />
       <WhoIsThisFor />
       <Prerequisites />
-      <TestimonialDetailed items={testimonialsBottom} />
-      <PromoOfferBlock />
+      <TestimonialSlider
+        items={testimonialsBottom}
+        heading="Real Stories. Real Results."
+      />
       <PlatformFeatures />
       <FAQ />
       <AssessmentNote />

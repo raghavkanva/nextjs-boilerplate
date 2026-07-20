@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
-import FeaturedTestimonial from "@/components/FeaturedTestimonial";
-import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import InstructorStrip from "@/components/InstructorStrip";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import CourseCarousel from "@/components/CourseCarousel";
@@ -11,17 +10,13 @@ import FAQ from "@/components/FAQ";
 import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
-import {
-  testimonialsTop,
-  testimonialsBottom,
-} from "@/data/content";
+import { testimonialsTop, testimonialsBottom } from "@/data/content";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <FeaturedTestimonial />
-      <TestimonialLight items={testimonialsTop} />
+      <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PlansGrid
         id="plans"
@@ -31,13 +26,15 @@ export default function Home() {
       <CourseCarousel />
       <WhoIsThisFor />
       <Prerequisites />
-      <TestimonialDetailed items={testimonialsBottom} />
+      <TestimonialSlider
+        items={testimonialsBottom}
+        heading="Real Stories. Real Results."
+      />
+      <PlatformFeatures />
       <PlansGrid
         heading="Ready to Start?"
         subline="Pick your plan and get access to everything above."
       />
-      <PlatformFeatures />
-      <InstructorStrip />
       <FAQ />
       <AssessmentNote />
       <FinalCta />

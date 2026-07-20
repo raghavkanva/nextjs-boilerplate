@@ -65,7 +65,6 @@ export default function InstructorStrip() {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-amber ..."
         >
           View LinkedIn Profile
-          View LinkedIn Profile
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

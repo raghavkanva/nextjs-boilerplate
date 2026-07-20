@@ -13,11 +13,11 @@ export const hero = {
   badge: "10,000+ Students Already Enrolled",
   headlinePlain: "From Doubting Ohm's Law to",
   headlineAccent: "Building Real Embedded Systems",
-  sublineBefore: "10 foundation courses, taught by a ",
+  sublineBefore: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a ",
   sublineHighlight: "40+ year industry veteran",
-  sublineAfter: ", doubts cleared directly on WhatsApp.",
+  sublineAfter: "",
   trustPoints: [
-    "Watch anytime, pre-recorded",
+    "Watch anytime, pre-recorded Online Sessions",
     "Doubts cleared directly on WhatsApp",
   ],
   ctaLabel: "Enroll Today",
@@ -35,41 +35,65 @@ export type Testimonial = {
 
 export const testimonialsTop: Testimonial[] = [
   {
-    name: "Adnan Huss",
-    title: "Not Just a Course, A Turning Point",
+    name: "Swapnil Gade",
+    title: "Senior Software Engineer, Cybersecurity, Danfoss Power Solutions",
     quote:
-      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
-    link:
-      "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "A simple explanation from Balajee sir on Quora sparked my interest in embedded systems, and that curiosity has stayed with me ever since.",
+    link: "https://www.linkedin.com/in/swapnil-gade-danfoss/", // confirm actual profile URL
   },
   {
-    name: "B. Chandana",
-    title: "Do You Really Understand Ohm's Law?",
+    name: "Tarang Srivas",
+    title: "M.Tech, VLSI Design & Embedded Systems, IIT Jammu, now Engineer 1 at Silicon Labs",
     quote:
-      "He knew the formula V equals IR, but couldn't solve real problems. This journey reveals why true understanding goes beyond memorizing laws.",
-    link:
-      "https://www.linkedin.com/posts/b-chandana-2885a2333_ohms-law-activity-7454177004234612736-vl5_?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+      "I used to rely on high-level programming with Arduino, STM, and ESP boards, but your teachings helped me understand how things actually work under the hood.",
+    link: "https://www.linkedin.com/in/tarang-srivas-b192ab213/",
+  },
+  {
+    name: "Raghu Prakash",
+    title: "Course graduate",
+    quote:
+      "Balajee sir delivered clear, well-organized online sessions that built a strong and practical understanding of C programming, electronics, and embedded concepts.",
+    link: "https://www.linkedin.com/posts/raghu-prakash-775331380_i-successfully-completed-the-etalvis-c-activity-7416447756665270272-XWXK/?skipRedirect=true",
+  },
+  {
+    name: "Adnan Huss",
+    title: "Course graduate",
+    quote:
+      "From doubt to building a 4-byte RAM, this journey will change how you see electronics.",
+    link: "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
 ];
 
 export const testimonialsBottom: Testimonial[] = [
   {
     name: "IECC BIT Sathy",
-    title: "A Roadmap Every Embedded Engineer Needs",
+    title: "Session feedback, BIT Sathy",
     quote:
       "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
     context: "Session feedback, BIT Sathy",
-    link:
-      "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+    link: "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
     name: "Monicka Balaji",
-    title: "Learning from 40+ Years of Industry Excellence",
+    title: "ECE, semiconductor, and embedded systems session feedback",
     quote:
       "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
     context: "ECE, semiconductor, and embedded systems session feedback",
-    link:
-      "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+    link: "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+  },
+  {
+    name: "B. Chandana",
+    title: "Course graduate",
+    quote:
+      "He knew the formula V equals IR, but couldn't solve real problems. This journey reveals why true understanding goes beyond memorizing laws.",
+    link: "https://www.linkedin.com/posts/b-chandana-2885a2333_ohms-law-activity-7454177004234612736-vl5_?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+  },
+  {
+    name: "Arivenkkataram ASJ",
+    title: "Course graduate",
+    quote:
+      "The Balajee Seshadri embedded systems course gave me the initial spark to explore embedded systems more deeply and to start thinking beyond ready-made libraries.",
+    link: "https://www.linkedin.com/in/arivenkkataram-asj/",
   },
 ];
 
@@ -318,23 +342,38 @@ export const whoIsThisFor = [
   {
     emoji: "🎓",
     title: "College Students",
+    line: "Build a real foundation in electronics, not just what your syllabus covers.",
+  },
+  {
+    emoji: "📘",
+    title: "Final-Year Students",
+    line: "Understand how the concepts you've studied actually work in practice.",
+  },
+  {
+    emoji: "🎓",
+    title: "Recent Graduates",
+    line: "Close the gap between textbook electronics and how systems are actually built.",
   },
   {
     emoji: "💼",
     title: "Actively Job Searching",
+    line: "Strengthen your grip on the fundamentals at your own pace.",
     note: "This course does not guarantee or provide employment",
-  },
-  {
-    emoji: "🔄",
-    title: "Professionals Switching Careers to Embedded Systems",
   },
   {
     emoji: "🏫",
     title: "Higher Secondary Students",
+    line: "Start electronics early, with a real foundation instead of just theory.",
   },
   {
     emoji: "🎒",
     title: "Students Who Just Finished Schooling",
+    line: "Use this time to build a genuine understanding of electronics.",
+  },
+  {
+    emoji: "🔄",
+    title: "Professionals Switching Careers to Embedded Systems",
+    line: "Learn the fundamentals embedded systems work actually depends on.",
   },
 ];
 
@@ -360,16 +399,6 @@ export const faqs = [
     a: "Yes, no-cost EMI is available starting from the Semester plan onward.",
   },
 ];
-
-export const featuredTestimonial = {
-  title: "From High-Level Code to Bare-Metal Understanding",
-  quote:
-    "I used to rely on high-level programming with Arduino, STM, and ESP boards, but your teachings helped me understand how things actually work under the hood.",
-  name: "Tarang Srivas",
-  credentials:
-    "M.Tech, VLSI Design & Embedded Systems, IIT Jammu, now Engineer 1 at Silicon Labs",
-  link: "https://www.linkedin.com/in/tarang-srivas-b192ab213/",
-};
 
 export const assessmentNote =
   "Embrace the opportunity to tackle your assessments on your own, without relying on the internet or outside assistance. This is a valuable chance for you to demonstrate your skills and knowledge. If you find yourself needing support, remember that we're just a message away to help you navigate any challenges. You have what it takes, and we believe in your potential.";
