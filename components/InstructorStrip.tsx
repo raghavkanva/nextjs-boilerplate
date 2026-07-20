@@ -3,7 +3,7 @@ import { instructor } from "@/data/content";
 
 export default function InstructorStrip() {
   return (
-    <section className="border-y border-line bg-surface">
+    <section id="instructor" className="border-y border-line bg-surface scroll-mt-24">
       <div className="max-w-3xl mx-auto px-6 py-10 md:py-12 text-center">
         <div className="relative inline-block mb-6">
           <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-amber to-ember opacity-40 blur-xl" />

@@ -33,9 +33,11 @@ function ChevronRight() {
 export default function TestimonialSlider({
   items,
   heading,
+  id,
 }: {
   items: Testimonial[];
   heading?: string;
+  id?: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -91,7 +93,7 @@ export default function TestimonialSlider({
   }, []);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-10 md:py-12">
+    <section id={id} className="max-w-6xl mx-auto px-6 py-6 md:py-8 scroll-mt-24">
       {heading && (
         <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
           {heading}
