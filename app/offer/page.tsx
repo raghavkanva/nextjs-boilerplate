@@ -83,6 +83,10 @@ export default function OfferPage() {
   return (
     <main className="pb-24">
       <Hero />
+      <TestimonialSlider
+  items={testimonialsTop}
+  heading="What Our Students Are Saying"
+/>
       <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PromoOfferBlock />

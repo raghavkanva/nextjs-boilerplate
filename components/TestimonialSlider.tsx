@@ -39,6 +39,20 @@ export default function TestimonialSlider({
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const checkOverflow = () => {
+      setIsOverflowing(track.scrollWidth > track.clientWidth + 4);
+    };
+
+    checkOverflow();
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [items]);
 
   const scrollToIndex = (index: number) => {
     const track = trackRef.current;
@@ -113,8 +127,8 @@ export default function TestimonialSlider({
               <div className="mt-auto">
                 <p className="font-display font-semibold text-amber">{item.name}</p>
                 <p className="text-sm text-muted mt-1">{item.title}</p>
-                
-                 <a href={item.link}
+
+                <a href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 text-sm text-amber underline underline-offset-2 hover:text-ember transition-colors"
@@ -126,41 +140,45 @@ export default function TestimonialSlider({
           ))}
         </div>
 
-        {/* Nav arrows, hidden on mobile since swipe works natively */}
-        <button
-          onClick={handlePrev}
-          disabled={activeIndex === 0}
-          aria-label="Previous testimonial"
-          className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={activeIndex === items.length - 1}
-          aria-label="Next testimonial"
-          className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronRight />
-        </button>
+        {isOverflowing && (
+          <>
+            <button
+              onClick={handlePrev}
+              disabled={activeIndex === 0}
+              aria-label="Previous testimonial"
+              className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            >
+              <ChevronLeft />
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={activeIndex === items.length - 1}
+              aria-label="Next testimonial"
+              className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            >
+              <ChevronRight />
+            </button>
+          </>
+        )}
       </div>
 
-      {/* Dots indicator */}
-      <div className="flex justify-center gap-2 mt-6">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setActiveIndex(i);
-              scrollToIndex(i);
-            }}
-            aria-label={`Go to testimonial ${i + 1}`}
-            className={`h-2 rounded-full transition-all ${
-              i === activeIndex ? "w-6 bg-amber" : "w-2 bg-line"
-            }`}
-          />
-        ))}
-      </div>
+      {isOverflowing && (
+        <div className="flex justify-center gap-2 mt-6">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setActiveIndex(i);
+                scrollToIndex(i);
+              }}
+              aria-label={`Go to testimonial ${i + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                i === activeIndex ? "w-6 bg-amber" : "w-2 bg-line"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

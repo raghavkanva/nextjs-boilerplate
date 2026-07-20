@@ -16,6 +16,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <TestimonialSlider
+        items={testimonialsTop}
+        heading="What Our Students Are Saying"
+      />
       <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PlansGrid

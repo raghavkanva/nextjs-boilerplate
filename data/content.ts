@@ -38,8 +38,8 @@ export const testimonialsTop: Testimonial[] = [
     name: "Swapnil Gade",
     title: "Senior Software Engineer, Cybersecurity, Danfoss Power Solutions",
     quote:
-      "A simple explanation from Balajee sir on Quora sparked my interest in embedded systems, and that curiosity has stayed with me ever since.",
-    link: "https://www.linkedin.com/in/swapnil-gade-danfoss/", // confirm actual profile URL
+      "Balajee sir's teaching connects the fundamentals to how embedded systems actually work in the field, not just theory.",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7451543195655581696/?skipRedirect=true",
   },
   {
     name: "Tarang Srivas",
