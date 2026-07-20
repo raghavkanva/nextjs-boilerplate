@@ -1,85 +1,160 @@
-import { Plan, plans } from "@/data/content";
-import EnrollButton from "@/components/EnrollButton";
+"use client";
 
-function FeatureSwitch({ label }: { label: string }) {
+import { plans, type Plan } from "@/data/content";
+
+function BookIcon() {
   return (
-    <div className="flex items-center gap-3">
-      <div className="relative w-8 h-4 rounded-sm border border-amber flex items-center px-0.5 justify-end bg-amber/10 shrink-0">
-        <div className="w-3 h-3 rounded-[1px] bg-amber" />
-      </div>
-      <span className="text-sm md:text-base text-text leading-snug">
-        {label}
-      </span>
-    </div>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 
-function PlanCard({ plan }: { plan: Plan }) {
-  const highlight = plan.tag === "Best Value";
-  const isBestSeller = plan.tag === "Best Seller";
-  const glowClass = highlight ? "glow-ember" : isBestSeller ? "glow-amber" : "";
-  const borderClass = highlight
-    ? "border-ember"
-    : isBestSeller
-    ? "border-amber"
-    : "border-line";
-
+function PlayCircleIcon() {
   return (
-    <div
-      className={`rounded-lg border ${borderClass} ${glowClass} bg-surface p-6 flex flex-col`}
-    >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function PencilIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ChatIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <path d="M4 12a8 8 0 1114.9 4.1L20 20l-4-1.1A8 8 0 014 12z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function CreditCardIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M2 10h20" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M16 3v4M8 3v4M3 10h18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PlusCircleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function getFeatureIcon(feature: string) {
+  if (feature.includes("foundation courses")) return <BookIcon />;
+  if (feature.includes("Pre-recorded")) return <PlayCircleIcon />;
+  if (feature.includes("Practice exercises")) return <PencilIcon />;
+  if (feature.includes("Doubts cleared")) return <ChatIcon />;
+  if (feature.includes("EMI")) return <CreditCardIcon />;
+  if (feature.includes("meetup sessions")) return <CalendarIcon />;
+  if (feature.includes("Extra Courses")) return <PlusCircleIcon />;
+  return <BookIcon />;
+}
+
+function handlePlanClick(planName: string) {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "plan_enroll_click", { plan: planName });
+  }
+}
+
+function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
+  return (
+    <div className="relative flex flex-col h-full rounded-2xl border border-line bg-surface p-6 md:p-8">
       {plan.tag && (
-        <div
-          className={`text-xs inline-block px-2.5 py-1 rounded-full mb-4 w-fit font-mono ${
-            highlight ? "bg-ember/15 text-ember" : "bg-amber/15 text-amber"
-          }`}
-        >
+        <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-amber text-onAccent text-xs font-display font-bold">
           {plan.tag}
-        </div>
-      )}
-      <h3 className="font-display font-semibold text-xl text-text mb-1">
-        {plan.name}
-      </h3>
-      <p className="text-sm text-muted mb-4">{plan.duration}</p>
-      <div className="mb-6">
-        <span className="font-display font-semibold text-3xl text-text">
-          Rs. {plan.price}
         </span>
+      )}
+
+      <h3 className="font-display font-bold text-2xl text-text mb-1">{plan.name}</h3>
+      <p className="text-muted text-sm mb-4">{plan.duration}</p>
+      <div className="font-display font-extrabold text-3xl text-text mb-6">
+        Rs. {plan.price.toLocaleString("en-IN")}
       </div>
-      <div className="flex flex-col gap-3 mb-8 flex-1">
-        {plan.features.map((f, i) => (
-          <FeatureSwitch key={i} label={f} />
+
+      {previousPlanName && (
+        <p className="text-sm font-semibold text-muted mb-3">
+          All of {previousPlanName}, and:
+        </p>
+      )}
+
+      <ul className="space-y-3 mb-6 flex-1">
+        {plan.features.map((feature, i) => (
+          <li key={i} className="flex items-start gap-2 text-sm text-muted">
+            {getFeatureIcon(feature)}
+            <span>{feature}</span>
+          </li>
         ))}
-      </div>
-      <EnrollButton
+      </ul>
+
+      {plan.highlights?.map((h, i) => (
+        <div key={i} className="mb-4 rounded-xl border-2 border-amber bg-amber/5 p-4">
+          <div className="flex items-start gap-2">
+            {h.title.includes("EMI") ? <CreditCardIcon /> : <ChatIcon />}
+            <div>
+              <p className="font-display font-semibold text-amber text-sm">{h.title}</p>
+              <p className="text-xs text-muted mt-1">{h.subtitle}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      
         href={plan.checkoutUrl}
-        label={`Enroll, ${plan.name}`}
-        className="w-full py-3 rounded-md font-display font-semibold text-sm text-center transition-transform hover:scale-[1.02] bg-amber text-onAccent"
-      />
+        onClick={() => handlePlanClick(plan.name)}
+        className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+      >
+        Enroll, {plan.name}
+      </a>
     </div>
   );
 }
 
-export default function PlansGrid({
-  heading,
-  subline,
-  id,
-}: {
-  heading: string;
-  subline: string;
+type PlansGridProps = {
   id?: string;
-}) {
+  heading: string;
+  subline?: string;
+};
+
+export default function PlansGrid({ id, heading, subline }: PlansGridProps) {
   return (
     <section id={id} className="max-w-6xl mx-auto px-6 py-16">
-      <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-3">
+      <h2 className="font-display font-bold text-3xl md:text-4xl text-text text-center mb-2">
         {heading}
       </h2>
-      <p className="text-base md:text-lg text-muted text-center mb-12">
-        {subline}
-      </p>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {plans.map((plan) => (
-          <PlanCard key={plan.code} plan={plan} />
+      {subline && (
+        <p className="text-muted text-center mb-10">{subline}</p>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {plans.map((plan, i) => (
+          <PlanCard
+            key={plan.code}
+            plan={plan}
+            previousPlanName={i > 0 ? plans[i - 1].name : undefined}
+          />
         ))}
       </div>
     </section>

@@ -247,9 +247,10 @@ export type Plan = {
   code: string;
   price: number;
   duration: string;
-  tag: "Best Seller" | "Best Value" | null;
+  tag: "Popular" | "Best Value" | null;
   checkoutUrl: string;
   features: string[];
+  highlights?: { title: string; subtitle: string }[];
 };
 
 
@@ -259,11 +260,11 @@ export const plans: Plan[] = [
     code: "EF-01",
     price: 999,
     duration: "1 month access",
-    tag: "Best Seller",
+    tag: null,
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
     features: [
       "All 10 foundation courses included",
-      "Pre-recorded, watch anytime, at your own pace",
+      "Pre-recorded online sessions, watch anytime, at your own pace",
       "Practice exercises",
     ],
   },
@@ -272,14 +273,23 @@ export const plans: Plan[] = [
     code: "EF-06",
     price: 2999,
     duration: "6 months access",
-    tag: null,
+    tag: "Popular",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca",
     features: [
       "All 10 foundation courses included",
-      "Pre-recorded, watch anytime, at your own pace",
+      "Pre-recorded online sessions, watch anytime, at your own pace",
       "Practice exercises",
-      "Doubts cleared directly by Balajee sir on WhatsApp",
-      "No-cost EMI available",
+      "2 free online monthly meetup sessions",
+    ],
+    highlights: [
+      {
+        title: "Doubts cleared directly by Balajee sir on WhatsApp",
+        subtitle: "Direct access to Balajee sir, not a support ticket queue",
+      },
+      {
+        title: "No-cost EMI available",
+        subtitle: "Split your payment with no added cost",
+      },
     ],
   },
   {
@@ -291,11 +301,11 @@ export const plans: Plan[] = [
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a439983717f947846a80a40",
     features: [
       "All 10 foundation courses included",
-      "Pre-recorded, watch anytime, at your own pace",
+      "Pre-recorded online sessions, watch anytime, at your own pace",
       "Practice exercises",
       "Doubts cleared directly by Balajee sir on WhatsApp",
       "No-cost EMI available",
-      "Online Discussion Sessions",
+      "6 free online monthly meetup sessions",
     ],
   },
   {
@@ -307,11 +317,11 @@ export const plans: Plan[] = [
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69cc63a722f6a817da84251e",
     features: [
       "All 10 foundation courses included",
-      "Pre-recorded, watch anytime, at your own pace",
+      "Pre-recorded online sessions, watch anytime, at your own pace",
       "Practice exercises",
       "Doubts cleared directly by Balajee sir on WhatsApp",
       "No-cost EMI available",
-      "Online Discussion Sessions",
+      "10 free online monthly meetup sessions",
       "Extra Courses Offered",
     ],
   },

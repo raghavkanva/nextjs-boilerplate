@@ -1,10 +1,12 @@
+// components/InstructorCard.tsx
 import Image from "next/image";
 import { instructor } from "@/data/content";
 
-export default function InstructorStrip() {
+export default function InstructorCard() {
   return (
     <section className="border-y border-line bg-surface">
       <div className="max-w-3xl mx-auto px-6 py-16 text-center">
+        {/* Photo with glowing border */}
         <div className="relative inline-block mb-6">
           <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-amber to-ember opacity-40 blur-xl" />
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-bg shadow-lg mx-auto">
@@ -22,19 +24,15 @@ export default function InstructorStrip() {
           Meet Your Instructor
         </p>
 
-        
-        <a href={instructor.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-display font-extrabold text-3xl md:text-4xl text-text mb-1 inline-block hover:text-amber transition-colors"
-                >
-                  {instructor.name}
-        </a>
+        <h2 className="font-display font-extrabold text-3xl md:text-4xl text-text mb-1">
+          {instructor.name}
+        </h2>
 
         <p className="text-muted text-lg mb-6">
           {instructor.yearsExperience} years in the Electronics Industry
         </p>
 
+        {/* Stats */}
         <div className="flex justify-center gap-10 mb-8">
           <div>
             <div className="font-display font-extrabold text-2xl md:text-3xl text-amber">
@@ -50,10 +48,12 @@ export default function InstructorStrip() {
           </div>
         </div>
 
+        {/* Full bio, always visible */}
         <p className="text-base md:text-lg text-muted leading-relaxed mb-5 text-left md:text-center">
           {instructor.bio}
         </p>
 
+        {/* Tagline as pull-quote */}
         <div className="border-l-4 border-amber pl-4 py-1 mb-6 text-left max-w-xl mx-auto">
           <p className="font-display font-semibold text-text italic">
             {instructor.tagline}

@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import { TestimonialLight, TestimonialDetailed } from "@/components/Testimonials";
-import InstructorCard from "@/components/InstructorCard";
+import InstructorStrip from "@/components/InstructorStrip";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
@@ -22,7 +22,7 @@ export default function Home() {
       <Hero />
       <FeaturedTestimonial />
       <TestimonialLight items={testimonialsTop} />
-      <InstructorCard />
+      <InstructorStrip />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"
@@ -37,7 +37,7 @@ export default function Home() {
         subline="Pick your plan and get access to everything above."
       />
       <PlatformFeatures />
-      <InstructorCard />
+      <InstructorStrip />
       <FAQ />
       <AssessmentNote />
       <FinalCta />
