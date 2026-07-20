@@ -115,7 +115,6 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
               Rs. 99
             </span>
           </div>
-          <p className="text-xs text-muted mt-1">Use code ETALVIS_PROMO at checkout</p>
         </div>
       ) : (
         <div className="font-display font-extrabold text-3xl text-text mb-6">
