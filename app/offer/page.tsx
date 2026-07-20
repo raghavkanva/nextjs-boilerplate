@@ -87,7 +87,6 @@ export default function OfferPage() {
   items={testimonialsTop}
   heading="What Our Students Are Saying"
 />
-      <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PromoOfferBlock />
       <CourseCarousel />

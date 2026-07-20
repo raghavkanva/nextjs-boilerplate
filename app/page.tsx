@@ -20,7 +20,6 @@ export default function Home() {
         items={testimonialsTop}
         heading="What Our Students Are Saying"
       />
-      <TestimonialSlider items={testimonialsTop} />
       <InstructorStrip />
       <PlansGrid
         id="plans"
