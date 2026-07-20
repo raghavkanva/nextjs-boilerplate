@@ -114,7 +114,7 @@ export default function TestimonialSlider({
                 <p className="font-display font-semibold text-amber">{item.name}</p>
                 <p className="text-sm text-muted mt-1">{item.title}</p>
                 
-                  href={item.link}
+                 <a href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 text-sm text-amber underline underline-offset-2 hover:text-ember transition-colors"
