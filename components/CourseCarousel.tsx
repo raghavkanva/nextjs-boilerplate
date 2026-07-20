@@ -2,7 +2,7 @@ import { courses, coursesIntro } from "@/data/content";
 
 export default function CourseCarousel() {
   return (
-    <section className="py-16">
+    <section className="py-10 md:py-12">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-lg md:text-xl text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
           {coursesIntro}

@@ -4,7 +4,7 @@ import { instructor } from "@/data/content";
 export default function InstructorStrip() {
   return (
     <section className="border-y border-line bg-surface">
-      <div className="max-w-3xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-6 py-10 md:py-12 text-center">
         <div className="relative inline-block mb-6">
           <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-amber to-ember opacity-40 blur-xl" />
           <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-bg shadow-lg mx-auto">

@@ -323,6 +323,12 @@ export const plans: Plan[] = [
     features: [
       "6 free online monthly meetup sessions",
     ],
+        highlights: [
+      {
+        title: "One Time Resume Preparation Help",
+        subtitle: "A one-time service to structure and polish your resume."
+      }
+    ],
   },
   {
     name: "Lifetime",
@@ -333,8 +339,15 @@ export const plans: Plan[] = [
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69cc63a722f6a817da84251e",
     features: [
       "10 free online monthly meetup sessions",
+      "Two - Times Resume Preparation Help",
       "Extra Courses Offered",
     ],
+    highlights: [
+      {
+        title: "1 Mock Interview",
+        subtitle: "A single mock interview to practice under real pressure and get honest feedback afterward."
+      }
+    ]
   },
 ];
 

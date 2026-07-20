@@ -2,7 +2,7 @@ import { platformFeatures } from "@/data/content";
 
 export default function PlatformFeatures() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
+    <section className="max-w-5xl mx-auto px-6 py-10 md:py-12">
       <div className="text-center mb-12">
         <h2 className="font-display font-semibold text-2xl md:text-3xl text-text mb-3">
           {platformFeatures.heading}

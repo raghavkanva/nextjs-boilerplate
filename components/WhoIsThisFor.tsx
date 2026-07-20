@@ -75,7 +75,7 @@ const icons: JSX.Element[] = [
 
 export default function WhoIsThisFor() {
   return (
-    <section className="bg-bg py-16">
+    <section className="bg-bg py-10 md:py-12">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="font-display font-semibold text-3xl md:text-4xl text-text text-center mb-4">
           Who Is <span className="text-amber">This For?</span>

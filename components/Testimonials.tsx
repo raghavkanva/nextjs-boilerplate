@@ -27,7 +27,7 @@ function LinkedinIcon() {
 
 export function TestimonialLight({ items }: { items: Testimonial[] }) {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
+    <section className="max-w-5xl mx-auto px-6 py-10 md:py-12">
       <h2 className="font-display font-bold text-2xl md:text-3xl text-text text-center mb-10">
         What Our Students Are Saying
       </h2>
@@ -66,7 +66,7 @@ export function TestimonialLight({ items }: { items: Testimonial[] }) {
 
 export function TestimonialDetailed({ items }: { items: Testimonial[] }) {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
+    <section className="max-w-5xl mx-auto px-6 py-10 md:py-12">
       <div className="text-center mb-12">
         <h2 className="font-display font-semibold text-2xl md:text-3xl text-text mb-3">
           Real Stories. Real Results.

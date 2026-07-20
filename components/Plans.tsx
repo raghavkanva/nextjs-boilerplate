@@ -145,7 +145,7 @@ type PlansGridProps = {
 
 export default function PlansGrid({ id, heading, subline }: PlansGridProps) {
   return (
-    <section id={id} className="max-w-6xl mx-auto px-6 py-16">
+    <section id={id} className="max-w-6xl mx-auto px-6 py-10 md:py-12">
       <h2 className="font-display font-bold text-3xl md:text-4xl text-text text-center mb-2">
         {heading}
       </h2>

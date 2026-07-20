@@ -49,7 +49,7 @@ export default function Hero() {
         <span className="text-amber">{hero.headlineAccent}</span>
       </h1>
 
-<div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5 glow-popular">
+<div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5">
   <p className="text-base md:text-lg text-muted leading-relaxed">
     {hero.sublineBefore}
     <span
@@ -61,17 +61,6 @@ export default function Hero() {
     {hero.sublineAfter}
   </p>
 </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg md:text-xl text-muted mb-8">
-        <span className="flex items-center gap-2">
-          <PlayIcon />
-          {hero.trustPoints[0]}
-        </span>
-        <span className="flex items-center gap-2">
-          <ChatIcon />
-          {hero.trustPoints[1]}
-        </span>
-      </div>
 
       <div className="mb-8 animate-fade-up">
         <span className="inline-block text-2xl md:text-4xl font-display font-extrabold text-amber animate-shimmer bg-[length:200%_auto] bg-clip-text">

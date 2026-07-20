@@ -91,7 +91,7 @@ export default function TestimonialSlider({
   }, []);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="max-w-6xl mx-auto px-6 py-10 md:py-12">
       {heading && (
         <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
           {heading}

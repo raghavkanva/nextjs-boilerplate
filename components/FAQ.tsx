@@ -15,7 +15,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section className="max-w-3xl mx-auto px-6 py-16">
+    <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
       <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
         Questions Before You Enroll
       </h2>
