@@ -458,7 +458,7 @@ export const promoOffer = {
   regularPrice: 999,
   offerPrice: 99,
   expiryText: "Offer ends July 31",
-  checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
+  checkoutUrl: "https://learn.etalvis.com/web/checkout/6a5da2d97296ab39d9404518",
   steps: [
     "Click Enroll Now below",
     "On the checkout page, enter the code ETALVIS_PROMO in the coupon field",
