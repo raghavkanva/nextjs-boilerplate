@@ -1,4 +1,4 @@
-import { audienceSegments } from "@/data/content";
+import { whoIsThisFor } from "@/data/content";
 
 const icons: JSX.Element[] = [
   // College Students, graduation cap
@@ -86,7 +86,7 @@ export default function WhoIsThisFor() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {audienceSegments.map((segment, i) => (
+          {whoIsThisFor.map((segment, i) => (
             <div
               key={i}
               className="flex items-start gap-4 rounded-xl border border-line bg-surface px-6 py-5"
@@ -102,18 +102,18 @@ export default function WhoIsThisFor() {
                   {icons[i]}
                 </svg>
               </span>
-               <div>
+              <div>
                 <span className="font-display font-semibold text-lg md:text-xl text-text leading-snug">
-                  {segment.label}
+                  {segment.title}
                 </span>
                 {segment.line && (
                   <p className="text-base text-muted leading-relaxed mt-1.5">
                     {segment.line}
                   </p>
                 )}
-                {segment.disclaimer && (
+                {segment.note && (
                   <p className="text-sm text-muted/80 italic leading-relaxed mt-1.5">
-                    {segment.disclaimer}
+                    {segment.note}
                   </p>
                 )}
               </div>
