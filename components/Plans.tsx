@@ -85,12 +85,12 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
   const isStarterDeal = plan.name === "Starter";
 
   return (
-    <div
-      id={plan.name.toLowerCase()}
-      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface scroll-mt-24 ${
-        isPopular ? "border-amber glow-popular" : "border-line"
-      }`}
-    >
+<div
+  id={isStarterDeal ? "offer" : plan.name.toLowerCase()}
+  className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface scroll-mt-24 ${
+    isPopular ? "border-amber glow-popular" : "border-line"
+  }`}
+>
       {plan.tag && (
         <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-amber text-onAccent text-xs font-display font-bold">
           {plan.tag}
