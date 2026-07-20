@@ -41,11 +41,11 @@ export default function DealCountdown({ targetDate }: { targetDate: string }) {
   if (timeLeft.total <= 0) return null;
 
   return (
-    <div className="rounded-lg border border-ember bg-ember/5 px-2.5 py-2 mb-4 w-full overflow-hidden">
-      <p className="text-[9px] sm:text-[10px] font-display font-bold text-ember uppercase tracking-wide mb-1.5 flex items-center gap-1">
-        <span className="relative flex h-1.5 w-1.5 shrink-0">
+    <div className="rounded-lg border border-ember bg-ember/5 px-2.5 py-2.5 mb-4 w-full overflow-hidden">
+      <p className="text-xs sm:text-sm font-display font-bold text-ember uppercase tracking-wide mb-2 flex items-center gap-1.5">
+        <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-ember opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-ember" />
         </span>
         Deal ends in
       </p>
