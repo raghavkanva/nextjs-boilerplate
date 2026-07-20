@@ -121,13 +121,12 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         </div>
       ))}
 
-      
-        href={plan.checkoutUrl}
-        onClick={() => handlePlanClick(plan.name)}
-        className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
-      >
-        Enroll, {plan.name}
-      </a>
+      <a href={plan.checkoutUrl}
+              onClick={() => handlePlanClick(plan.name)}
+              className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+            >
+              Enroll, {plan.name}
+            </a>
     </div>
   );
 }
