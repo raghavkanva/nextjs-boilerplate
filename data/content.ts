@@ -348,7 +348,11 @@ export const plans: Plan[] = [
       {
         title: "One Time Resume Preparation Help",
         subtitle: "A one-time service to structure and polish your resume."
-      }
+      },
+      {
+        title: "15 Minutes Career Guidance Session",
+        subtitle: "One time 15 minutes Career Guidance session by Balajee Seshadri",
+      },
     ],
   },
   {
