@@ -80,8 +80,14 @@ function handlePlanClick(planName: string) {
 }
 
 function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
+  const isPopular = plan.tag === "Popular";
+
   return (
-    <div className="relative flex flex-col h-full rounded-2xl border border-line bg-surface p-6 md:p-8">
+    <div
+      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface ${
+        isPopular ? "border-amber glow-popular" : "border-line"
+      }`}
+    >
       {plan.tag && (
         <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-amber text-onAccent text-xs font-display font-bold">
           {plan.tag}

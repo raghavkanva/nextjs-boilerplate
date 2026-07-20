@@ -49,22 +49,18 @@ export default function Hero() {
         <span className="text-amber">{hero.headlineAccent}</span>
       </h1>
 
-      <p className="max-w-2xl mx-auto text-xl md:text-3xl font-semibold text-text mb-6">
-        {hero.seoSubhead}
-      </p>
-
-      <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-line bg-surface px-6 py-5">
-        <p className="text-xl md:text-2xl text-muted leading-relaxed">
-          {hero.sublineBefore}
-          <span
-            className="font-semibold text-ember"
-            style={{ textShadow: "0 0 18px rgba(193,57,26,0.45)" }}
-          >
-            {hero.sublineHighlight}
-          </span>
-          {hero.sublineAfter}
-        </p>
-      </div>
+<div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5 glow-popular">
+  <p className="text-xl md:text-2xl text-muted leading-relaxed">
+    {hero.sublineBefore}
+    <span
+      className="font-semibold text-ember"
+      style={{ textShadow: "0 0 18px rgba(193,57,26,0.45)" }}
+    >
+      {hero.sublineHighlight}
+    </span>
+    {hero.sublineAfter}
+  </p>
+</div>
 
       <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg md:text-xl text-muted mb-8">
         <span className="flex items-center gap-2">
