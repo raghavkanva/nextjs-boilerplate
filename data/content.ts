@@ -138,6 +138,7 @@ export type Course = {
   number: number;
   tag: string;
   title: string;
+  description?: string;
   sections: string[];
   note?: string;
 };
@@ -305,7 +306,7 @@ export const plans: Plan[] = [
     price: 999,
     duration: "1 month access",
     tag: null,
-    checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
+    checkoutUrl: "https://learn.etalvis.com/web/checkout/6a5da2d97296ab39d9404518",
     features: [
       "All 10 foundation courses included",
       "Pre-recorded online sessions, watch anytime, at your own pace",
