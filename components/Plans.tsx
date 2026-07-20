@@ -86,7 +86,8 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
 
   return (
     <div
-      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface ${
+      id={plan.name.toLowerCase()}
+      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface scroll-mt-24 ${
         isPopular ? "border-amber glow-popular" : "border-line"
       }`}
     >
