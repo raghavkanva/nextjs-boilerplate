@@ -79,32 +79,65 @@ function handlePlanClick(planName: string) {
     window.gtag("event", "plan_enroll_click", { plan: planName });
   }
 }
+function DocumentIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9l-6-6z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M14 3v6h6M9 13h6M9 17h6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function CompassIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M14.5 9.5l-1.8 4.8-4.7 1.8 1.8-4.8 4.7-1.8z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MicIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0 mt-0.5">
+      <rect x="9" y="2" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function getHighlightIcon(title: string) {
+  if (title.includes("WhatsApp")) return <ChatIcon />;
+  if (title.includes("EMI")) return <CreditCardIcon />;
+  if (title.includes("Resume")) return <DocumentIcon />;
+  if (title.includes("Career Guidance")) return <CompassIcon />;
+  if (title.includes("Mock Interview")) return <MicIcon />;
+  return <ChatIcon />;
+}
 
 function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
   const isPopular = plan.tag === "Popular";
   const isStarterDeal = plan.name === "Starter";
 
   return (
-<div
-  id={isStarterDeal ? "offer" : plan.name.toLowerCase()}
-  className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface scroll-mt-24 ${
-    isPopular ? "border-amber glow-popular" : "border-line"
-  }`}
->
+    <div
+      id={isStarterDeal ? "offer" : plan.name.toLowerCase()}
+      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface scroll-mt-24 ${
+        isPopular ? "border-amber glow-popular" : "border-line"
+      }`}
+    >
       {plan.tag && (
-        <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-amber text-onAccent text-xs font-display font-bold">
+        <span
+          className={`absolute -top-3 left-6 px-3 py-1 rounded-full text-onAccent text-xs font-display font-bold ${
+            isStarterDeal ? "bg-ember" : isPopular ? "bg-amber" : "bg-text"
+          }`}
+        >
           {plan.tag}
         </span>
       )}
 
-      {isStarterDeal && (
-        <span className="absolute -top-3 right-6 px-3 py-1 rounded-full bg-ember text-onAccent text-xs font-display font-bold">
-          Limited Time
-        </span>
-      )}
-
       <h3 className="font-display font-bold text-2xl text-text mb-1">{plan.name}</h3>
-      <p className="text-muted text-sm mb-4">{plan.duration}</p>
+      <p className="text-muted text-base mb-4">{plan.duration}</p>
 
       {isStarterDeal ? (
         <div className="mb-4">
@@ -126,35 +159,46 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
       {isStarterDeal && <DealCountdown targetDate="2026-07-31T23:59:59" />}
 
       {previousPlanName && (
-        <p className="text-sm font-semibold text-muted mb-3">
+        <p className="text-base font-semibold text-muted mb-3">
           All of {previousPlanName}, and:
         </p>
       )}
 
-      <ul className="space-y-3 mb-6 flex-1">
+      <ul className="space-y-3 mb-5">
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-muted">
+          <li key={i} className="flex items-start gap-2.5 text-base text-muted">
             {getFeatureIcon(feature)}
             <span>{feature}</span>
           </li>
         ))}
       </ul>
 
-      {plan.highlights?.map((h, i) => (
-        <div key={i} className="mb-4 rounded-xl border-2 border-amber bg-amber/5 p-4">
-          <div className="flex items-start gap-2">
-            {h.title.includes("EMI") ? <CreditCardIcon /> : <ChatIcon />}
-            <div>
-              <p className="font-display font-semibold text-amber text-sm">{h.title}</p>
-              <p className="text-xs text-muted mt-1">{h.subtitle}</p>
+      {plan.highlights && plan.highlights.length > 0 && (
+        <div className="flex flex-col gap-3 mb-5">
+          {plan.highlights.map((h, i) => (
+            <div
+              key={i}
+              className="rounded-xl border-2 border-amber bg-amber/5 p-4"
+            >
+              <div className="flex items-start gap-2.5">
+                {getHighlightIcon(h.title)}
+                <div>
+                  <p className="font-display font-semibold text-amber text-base leading-snug">
+                    {h.title}
+                  </p>
+                  <p className="text-sm text-muted mt-1 leading-relaxed">
+                    {h.subtitle}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      )}
 
       <a href={plan.checkoutUrl}
         onClick={() => handlePlanClick(plan.name)}
-        className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+        className="mt-auto inline-block text-center px-6 py-3.5 rounded-md bg-amber text-onAccent font-display font-bold text-base hover:scale-[1.02] transition-transform"
       >
         Enroll, {plan.name}
       </a>
