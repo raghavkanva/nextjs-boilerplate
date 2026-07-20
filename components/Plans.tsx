@@ -1,6 +1,7 @@
 "use client";
 
 import { plans, type Plan } from "@/data/content";
+import DealCountdown from "./DealCountdown";
 
 function BookIcon() {
   return (
@@ -81,6 +82,7 @@ function handlePlanClick(planName: string) {
 
 function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
   const isPopular = plan.tag === "Popular";
+  const isStarterDeal = plan.name === "Starter";
 
   return (
     <div
@@ -94,11 +96,34 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         </span>
       )}
 
+      {isStarterDeal && (
+        <span className="absolute -top-3 right-6 px-3 py-1 rounded-full bg-ember text-onAccent text-xs font-display font-bold">
+          Limited Time
+        </span>
+      )}
+
       <h3 className="font-display font-bold text-2xl text-text mb-1">{plan.name}</h3>
       <p className="text-muted text-sm mb-4">{plan.duration}</p>
-      <div className="font-display font-extrabold text-3xl text-text mb-6">
-        Rs. {plan.price.toLocaleString("en-IN")}
-      </div>
+
+      {isStarterDeal ? (
+        <div className="mb-4">
+          <div className="flex items-center gap-3">
+            <span className="text-lg text-mutedDim line-through font-display">
+              Rs. 999
+            </span>
+            <span className="font-display font-extrabold text-3xl text-ember">
+              Rs. 99
+            </span>
+          </div>
+          <p className="text-xs text-muted mt-1">Use code ETALVIS_PROMO at checkout</p>
+        </div>
+      ) : (
+        <div className="font-display font-extrabold text-3xl text-text mb-6">
+          Rs. {plan.price.toLocaleString("en-IN")}
+        </div>
+      )}
+
+      {isStarterDeal && <DealCountdown targetDate="2026-07-31T23:59:59" />}
 
       {previousPlanName && (
         <p className="text-sm font-semibold text-muted mb-3">
@@ -128,11 +153,11 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
       ))}
 
       <a href={plan.checkoutUrl}
-              onClick={() => handlePlanClick(plan.name)}
-              className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
-            >
-              Enroll, {plan.name}
-            </a>
+        onClick={() => handlePlanClick(plan.name)}
+        className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+      >
+        Enroll, {plan.name}
+      </a>
     </div>
   );
 }

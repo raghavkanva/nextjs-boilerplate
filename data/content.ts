@@ -147,6 +147,8 @@ export const courses: Course[] = [
     number: 1,
     tag: "Electronics",
     title: "Electronics Foundation Course",
+    description:
+      "Covers electrical and electronics fundamentals, number systems, and digital electronics to build a base for embedded systems work.",
     sections: [
       "Electrical Fundamentals",
       "Electronics Fundamentals",
@@ -158,6 +160,8 @@ export const courses: Course[] = [
     number: 2,
     tag: "Programming",
     title: "C Programming Foundation Course",
+    description:
+      "Teaches C programming from the basics through arrays, structures, and storage classes, with 200+ practice problems.",
     sections: [
       "Introduction to Programming",
       "Introduction to C Programming",
@@ -173,6 +177,8 @@ export const courses: Course[] = [
     number: 3,
     tag: "Hardware",
     title: "Embedded Hardware Foundation Course",
+    description:
+      "Introduces microprocessors, memory maps, controllers, and microcontrollers as the hardware foundation for embedded systems.",
     sections: [
       "Microprocessor",
       "Memory Map",
@@ -185,6 +191,8 @@ export const courses: Course[] = [
     number: 4,
     tag: "GPIO",
     title: "Embedded Software Foundation Course, GPIO",
+    description:
+      "Covers GPIO programming, including controlling LEDs, displays, push buttons, keypads, and dot-matrix modules.",
     sections: [
       "Introduction",
       "Controlling LEDs",
@@ -198,6 +206,8 @@ export const courses: Course[] = [
     number: 5,
     tag: "Controllers",
     title: "Embedded Software Foundation Course, Controllers",
+    description:
+      "Covers LED, LCD, timer, interrupt, DMA, DAC, ADC, and PWM controllers, plus controlling relays and motors, across 18 chapters.",
     sections: [
       "LED Controller",
       "LCD Controller",
@@ -213,12 +223,16 @@ export const courses: Course[] = [
     number: 6,
     tag: "Protocols",
     title: "Embedded Software Foundation Course, Interface Protocols",
+    description:
+      "Introduces communication protocols including BUS, UART, I2C, and SPI used in embedded systems.",
     sections: ["Introduction to BUS", "UART", "I2C", "SPI"],
   },
   {
     number: 7,
     tag: "Internals",
     title: "Microprocessor Internals Foundation Course",
+    description:
+      "A fully animated, exclusive course explaining the internal workings of a microprocessor and how instructions are decoded.",
     sections: [
       "Internals of the microprocessor",
       "How an instruction is decoded",
@@ -229,6 +243,8 @@ export const courses: Course[] = [
     number: 8,
     tag: "Microprocessor",
     title: "8085 Microprocessor Foundation Course",
+    description:
+      "Covers the 8085 microprocessor, its software, peripheral interfacing, and includes an assessment.",
     sections: [
       "8085 Introduction",
       "8085 Software",
@@ -240,6 +256,8 @@ export const courses: Course[] = [
     number: 9,
     tag: "ARM",
     title: "ARM Controller Foundation Course",
+    description:
+      "Explains why the ARM processor was developed and covers ARM microprocessor and microcontroller fundamentals.",
     sections: [
       "Why the ARM Processor came to be",
       "ARM Microprocessor",
@@ -250,6 +268,8 @@ export const courses: Course[] = [
     number: 10,
     tag: "Networking",
     title: "Networking Concepts Foundation Course",
+    description:
+      "Covers serial and synchronous communication, Ethernet, PHY, MAC, IP, TCP, and core networking hardware concepts.",
     sections: [
       "Serial Communication",
       "Synchronous Communication",

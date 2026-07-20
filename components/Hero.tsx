@@ -33,7 +33,7 @@ function handleHeroCtaClick() {
 
 export default function Hero() {
   return (
-    <section className="max-w-4xl mx-auto px-6 pt-6 pb-14 sm:pt-8 md:pt-10 md:pb-20 text-center">
+    <section className="max-w-4xl mx-auto px-6 pt-6 pb-6 sm:pt-8 md:pt-10 md:pb-8 text-center">
       <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-amber text-onAccent font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
         <span className="relative flex h-3 w-3">
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
