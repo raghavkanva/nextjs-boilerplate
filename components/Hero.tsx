@@ -79,7 +79,7 @@ export default function Hero({
         )}
       </div>
 
-      <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.35] mb-4 text-text">
+      <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.5] mb-4 text-text">
         {content.headlinePlain}{" "}
         <span className="text-amber">{content.headlineAccent}</span>
       </h1>
@@ -99,16 +99,13 @@ export default function Hero({
         </div>
       )}
 
-      {isSession && (
-        <div className="max-w-2xl mx-auto mb-8">
-          <p className="font-display font-extrabold text-3xl md:text-4xl text-amber mb-3">
-            Register for Rs. 99
-          </p>
-          <span className="inline-block px-4 py-2 rounded-full border border-amber bg-amber/10 text-sm md:text-base font-semibold text-text">
-            Includes a free Starter plan worth Rs. 999
-          </span>
-        </div>
-      )}
+{isSession && (
+  <div className="max-w-2xl mx-auto mb-8">
+    <span className="inline-block px-4 py-2 rounded-full border border-amber bg-amber/10 text-sm md:text-base font-semibold text-text">
+      Includes a free Starter plan worth Rs. 999
+    </span>
+  </div>
+)}
 
       {!isSession && (
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg md:text-xl text-muted mb-8">
