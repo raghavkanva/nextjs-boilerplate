@@ -33,15 +33,19 @@ export default function WhoIsThisFor({
           This is for you if you're a:
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {data.map((segment, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-4 rounded-xl border border-line bg-surface px-6 py-5"
-            >
-              <span className="shrink-0 w-12 h-12 rounded-full bg-amber/15 flex items-center justify-center text-2xl">
-                {segment.emoji}
-              </span>
+<div className="grid md:grid-cols-2 gap-4 md:gap-5">
+  {data.map((segment, i) => (
+    <div
+      key={i}
+      className="flex items-start gap-3 md:gap-4 rounded-xl border border-line bg-surface px-4 md:px-6 py-4 md:py-5 min-w-0"
+    >
+      <span className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-amber/15 flex items-center justify-center text-xl md:text-2xl">
+        {segment.emoji}
+      </span>
+      <div className="min-w-0">
+        <span className="font-display font-semibold text-base md:text-xl text-text leading-snug break-words">
+          {segment.title}
+        </span>
               <div>
                 <span className="font-display font-semibold text-lg md:text-xl text-text leading-snug">
                   {segment.title}
