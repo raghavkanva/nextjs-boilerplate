@@ -28,7 +28,13 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
   );
 }
 
-export default function DealCountdown({ targetDate }: { targetDate: string }) {
+export default function DealCountdown({
+  targetDate,
+  label = "Deal ends in",
+}: {
+  targetDate: string;
+  label?: string;
+}) {
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(targetDate));
 
   useEffect(() => {
@@ -47,7 +53,7 @@ export default function DealCountdown({ targetDate }: { targetDate: string }) {
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-ember opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-ember" />
         </span>
-        Deal ends in
+        {label}
       </p>
       <div className="flex items-stretch gap-1 w-full">
         <TimeUnit value={timeLeft.days} label="Days" />

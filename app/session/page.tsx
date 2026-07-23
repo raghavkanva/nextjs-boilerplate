@@ -7,7 +7,8 @@ import WhoIsThisFor from "@/components/WhoIsThisFor";
 import FAQ from "@/components/FAQ";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
-import { sessionOffer } from "@/data/content";
+import DealCountdown from "@/components/DealCountdown";
+import { sessionOffer, sessionAudience, sessionFaqs } from "@/data/content";
 
 export const metadata = {
   title: "Demystifying the Myths of the Core Electronics Industry Career",
@@ -17,10 +18,7 @@ export const metadata = {
 
 function RegistrationBlock() {
   return (
-    <section
-      id="register"
-      className="max-w-2xl mx-auto px-6 py-16 text-center"
-    >
+    <section id="register" className="max-w-2xl mx-auto px-6 py-16 text-center">
       <div className="inline-block text-sm md:text-base px-4 py-1.5 rounded-full border border-line text-amber font-mono mb-8 tracking-wide">
         registration open
       </div>
@@ -29,13 +27,19 @@ function RegistrationBlock() {
         Register for Rs. 99
       </h2>
 
-      <p className="text-muted mb-8">
+      <p className="text-muted mb-6">
         Includes a free Starter plan worth Rs. 999
       </p>
 
-      
-        <a href={sessionOffer.checkoutUrl}
-        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
+      <div className="max-w-xs mx-auto mb-8">
+        <DealCountdown
+          targetDate="2026-07-26T10:00:00"
+          label="Registration closes in"
+        />
+      </div>
+
+      <a href={sessionOffer.checkoutUrl}
+        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
       >
         Register Now, Rs. 99
       </a>
@@ -81,14 +85,14 @@ export default function SessionPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
       />
-      <Hero />
+      <Hero variant="session" />
       <SessionDetails />
       <InstructorStrip />
       <MythBusting />
       <WhatYouGet />
-      <WhoIsThisFor />
+      <WhoIsThisFor items={sessionAudience} heading="Who Is This For?" />
       <RegistrationBlock />
-      <FAQ />
+      <FAQ items={sessionFaqs} heading="Questions Before You Register" />
       <FinalCta />
       <Footer />
     </main>
