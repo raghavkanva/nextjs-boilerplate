@@ -89,8 +89,9 @@ export default function SessionPage() {
       <InstructorStrip />
       <MythBusting />
       <WhoIsThisFor items={sessionAudience} heading="Who Is This For?" />
-      <WhatYouGet />
       <RegistrationBlock />
+      <WhatYouGet />
+      
         <FAQ items={sessionFaqs} heading="Questions Before You Register" />
         <Footer />
     </main>
