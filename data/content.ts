@@ -16,33 +16,7 @@ export const metadata = {
     "Live online session for EEE, ECE, EIE, BME, and Mechatronics students. Register for Rs. 99 and get a free Starter plan worth Rs. 999.",
 };
 
-function RegistrationBlock() {
-  return (
-    <section id="register" className="max-w-2xl mx-auto px-6 py-16 text-center">
-      <div className="inline-block text-sm md:text-base px-4 py-1.5 rounded-full border border-line text-amber font-mono mb-8 tracking-wide">
-        registration open
-      </div>
 
-      <h2 className="font-display font-semibold text-3xl md:text-5xl leading-[1.1] mb-4 text-text">
-        Register for Rs. 99
-      </h2>
-
-      <p className="text-muted mb-6">
-        Includes a free Starter plan worth Rs. 999
-      </p>
-
-      <div className="max-w-xs mx-auto mb-8">
-        <DealCountdown targetDate="2026-07-26T10:00:00" />
-      </div>
-
-      <a href={sessionOffer.checkoutUrl}
-        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
-      >
-        Register Now, Rs. 99
-      </a>
-    </section>
-  );
-}
 
 export default function SessionPage() {
   const eventSchema = {
@@ -88,7 +62,6 @@ export default function SessionPage() {
       <MythBusting />
       <WhatYouGet />
       <WhoIsThisFor items={sessionAudience} heading="Who Is This For?" />
-      <RegistrationBlock />
       <FAQ items={sessionFaqs} heading="Questions Before You Register" />
       <FinalCta />
       <Footer />
