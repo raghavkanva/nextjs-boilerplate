@@ -2,11 +2,10 @@ import Hero from "@/components/Hero";
 import SessionDetails from "@/components/SessionDetails";
 import InstructorStrip from "@/components/InstructorStrip";
 import MythBusting from "@/components/MythBusting";
-import WhatYouGet from "@/components/WhatYouGet";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import DealCountdown from "@/components/DealCountdown";
+import RegisterAndWhatYouGet from "@/components/RegisterAndWhatYouGet";
 import { sessionOffer, sessionAudience, sessionFaqs } from "@/data/content";
 
 export const metadata = {

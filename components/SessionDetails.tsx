@@ -50,22 +50,28 @@ const icons = [CalendarIcon, ClockIcon, PlayCircleIcon, AlertIcon, GroupIcon];
 export default function SessionDetails() {
   return (
     <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
-      <div className="rounded-2xl border border-amber bg-surface p-6 md:p-8 glow-amber-soft">
-        <h2 className="font-display font-bold text-2xl text-text text-center mb-6">
+      <div className="rounded-2xl border-2 border-line bg-surface p-6 md:p-10">
+        <h2 className="font-display font-bold text-2xl md:text-3xl text-text text-center mb-8">
           Session Details
         </h2>
-        <div className="flex flex-col divide-y divide-line">
+
+        <div className="flex flex-col gap-4">
           {sessionDetails.map((detail, i) => {
             const Icon = icons[i];
             return (
-              <div key={i} className="flex items-start gap-3 py-3.5">
-                <Icon />
-                <div>
-                  <p className="text-sm font-semibold text-muted uppercase tracking-wide">
+              <div
+                key={i}
+                className="rounded-xl border-2 border-line bg-bg px-5 py-4"
+              >
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Icon />
+                  <span className="text-xs font-display font-bold text-amber uppercase tracking-wide">
                     {detail.label}
-                  </p>
-                  <p className="text-base text-text mt-0.5">{detail.value}</p>
+                  </span>
                 </div>
+                <p className="text-lg md:text-xl font-display font-bold text-text pl-7">
+                  {detail.value}
+                </p>
               </div>
             );
           })}
