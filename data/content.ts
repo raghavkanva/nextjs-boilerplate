@@ -478,7 +478,7 @@ export const finalCta = {
 };
 
 export const sessionDetails = [
-  { label: "Date", value: "July 26, 2026" },
+  { label: "Date", value: "July 26, 2026, Sunday" },
   { label: "Time", value: "11 AM – 1 PM" },
   { label: "Format", value: "Live online session" },
   { label: "Registration closes", value: "July 26, 10 AM" },
