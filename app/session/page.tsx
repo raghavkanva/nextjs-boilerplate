@@ -34,7 +34,7 @@ function RegistrationBlock() {
       </p>
 
       
-        href={sessionOffer.checkoutUrl}
+        <a href={sessionOffer.checkoutUrl}
         className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
       >
         Register Now, Rs. 99
