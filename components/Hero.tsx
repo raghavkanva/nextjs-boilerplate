@@ -50,9 +50,21 @@ export default function Hero() {
           <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
           <span className="relative inline-flex h-3 w-3 rounded-full bg-onAccent" />
         </span>
-        <span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
-          {site.brandTagline}
-        </span>
+<span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
+  We make{" "}
+  <span className="text-amber font-extrabold drop-shadow-[0_0_10px_rgba(194,101,10,0.7)]">
+    E
+  </span>
+  lectronics Student's{" "}
+  <span className="text-amber font-extrabold drop-shadow-[0_0_10px_rgba(194,101,10,0.7)]">
+    Tal
+  </span>
+  ent{" "}
+  <span className="text-amber font-extrabold drop-shadow-[0_0_10px_rgba(194,101,10,0.7)]">
+    Vis
+  </span>
+  ible to Industry!
+</span>
       </div>
 
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.15] mb-4 text-text">

@@ -476,3 +476,46 @@ export const finalCta = {
     "Pre-recorded, so you begin the moment you enroll. Doubts cleared directly by Balajee sir on WhatsApp, not a support queue.",
   ctaLabel: "Enroll Today",
 };
+
+export const sessionDetails = [
+  { label: "Date", value: "July 26, 2026" },
+  { label: "Time", value: "11 AM – 1 PM" },
+  { label: "Format", value: "Live online session" },
+  { label: "Registration closes", value: "July 26, 10 AM" },
+  { label: "Who it's for", value: "EEE, ECE, EIE, BME, and Mechatronics students, any year, and recent graduates" },
+];
+
+export type Myth = {
+  myth: string;
+  reality: string;
+};
+
+export const coreMyths: Myth[] = [
+  {
+    myth: "Core jobs are vanishing, everyone ends up in IT",
+    reality: "Demand for hardware engineers is rising with 6G, IoT, AI chips, and EVs.",
+  },
+  {
+    myth: "You need a Master's degree to get a core job",
+    reality: "Many top hardware companies actively hire skilled Bachelor's graduates with strong project experience.",
+  },
+  {
+    myth: "Electronics is strictly hardware, CSE is strictly software",
+    reality: "Core engineers regularly write code for chip design and embedded systems.",
+  },
+  {
+    myth: "Core salaries are stagnant and lower than IT",
+    reality: "Specialized domains like VLSI, analog/RF design, and semiconductor engineering command premium pay that scales with experience.",
+  },
+  {
+    myth: "Core jobs don't exist in India",
+    reality: "India has a booming hardware ecosystem with major government investment and global companies setting up R&D and manufacturing here.",
+  },
+];
+
+export const sessionOffer = {
+  title: "Demystifying the Myths of the Core Electronics Industry Career",
+  price: 99,
+  checkoutUrl: "https://learn.etalvis.com/web/checkout/6a53b5028d2de3dfcd013426",
+  starterPlanValue: 999,
+};
