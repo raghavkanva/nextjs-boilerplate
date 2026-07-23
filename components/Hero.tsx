@@ -79,7 +79,7 @@ export default function Hero({
         )}
       </div>
 
-      <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.15] mb-4 text-text">
+      <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.35] mb-4 text-text">
         {content.headlinePlain}{" "}
         <span className="text-amber">{content.headlineAccent}</span>
       </h1>

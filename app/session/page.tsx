@@ -5,7 +5,6 @@ import MythBusting from "@/components/MythBusting";
 import WhatYouGet from "@/components/WhatYouGet";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import FAQ from "@/components/FAQ";
-import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import DealCountdown from "@/components/DealCountdown";
 import { sessionOffer, sessionAudience, sessionFaqs } from "@/data/content";
@@ -15,26 +14,6 @@ export const metadata = {
   description:
     "Live online session for EEE, ECE, EIE, BME, and Mechatronics students. Register for Rs. 99 and get a free Starter plan worth Rs. 999.",
 };
-
-function CompactRegisterCta() {
-  return (
-    <section className="max-w-xl mx-auto px-6 py-8 text-center">
-      <div className="rounded-xl border border-amber bg-amber/5 p-6">
-        <p className="font-display font-bold text-2xl text-text mb-1">
-          Rs. 99
-        </p>
-        <p className="text-sm text-muted mb-4">
-          Includes a free Starter plan worth Rs. 999
-        </p>
-        <a href={sessionOffer.checkoutUrl}
-          className="inline-block px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
-        >
-          Register Now
-        </a>
-      </div>
-    </section>
-  );
-}
 
 function RegistrationBlock() {
   return (
@@ -110,12 +89,10 @@ export default function SessionPage() {
       <InstructorStrip />
       <MythBusting />
       <WhoIsThisFor items={sessionAudience} heading="Who Is This For?" />
-      <CompactRegisterCta />
       <WhatYouGet />
       <RegistrationBlock />
-      <FAQ items={sessionFaqs} heading="Questions Before You Register" />
-      <FinalCta />
-      <Footer />
+        <FAQ items={sessionFaqs} heading="Questions Before You Register" />
+        <Footer />
     </main>
   );
 }
