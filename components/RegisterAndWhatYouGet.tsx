@@ -48,7 +48,7 @@ export default function RegisterAndWhatYouGet() {
 
           <div className="max-w-xs mx-auto mb-6">
             <DealCountdown
-              targetDate="2026-07-26T10:00:00"
+              targetDate="2026-07-31T23:59:59"
               label="Registration closes in"
             />
           </div>
