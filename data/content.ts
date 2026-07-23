@@ -523,10 +523,7 @@ export const sessionOffer = {
 export const sessionHeroContent = {
   headlinePlain: "Demystifying the Myths of the",
   headlineAccent: "Core Electronics Industry Career",
-  sublineBefore: "Register for Rs. 99 and get a free Starter plan worth ",
-  sublineHighlight: "Rs. 999",
-  sublineAfter: ", included.",
-  badge: "Register Before July 26, 10 AM",
+  badge: "Get Clarity on Core Industry",
   ctaLabel: "Register Now, Rs. 99",
   ctaHref: "#register",
 };

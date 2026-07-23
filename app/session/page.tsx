@@ -16,6 +16,26 @@ export const metadata = {
     "Live online session for EEE, ECE, EIE, BME, and Mechatronics students. Register for Rs. 99 and get a free Starter plan worth Rs. 999.",
 };
 
+function CompactRegisterCta() {
+  return (
+    <section className="max-w-xl mx-auto px-6 py-8 text-center">
+      <div className="rounded-xl border border-amber bg-amber/5 p-6">
+        <p className="font-display font-bold text-2xl text-text mb-1">
+          Rs. 99
+        </p>
+        <p className="text-sm text-muted mb-4">
+          Includes a free Starter plan worth Rs. 999
+        </p>
+        <a href={sessionOffer.checkoutUrl}
+          className="inline-block px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+        >
+          Register Now
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function RegistrationBlock() {
   return (
     <section id="register" className="max-w-2xl mx-auto px-6 py-16 text-center">
@@ -89,8 +109,9 @@ export default function SessionPage() {
       <SessionDetails />
       <InstructorStrip />
       <MythBusting />
-      <WhatYouGet />
       <WhoIsThisFor items={sessionAudience} heading="Who Is This For?" />
+      <CompactRegisterCta />
+      <WhatYouGet />
       <RegistrationBlock />
       <FAQ items={sessionFaqs} heading="Questions Before You Register" />
       <FinalCta />

@@ -1,7 +1,7 @@
 "use client";
 
-import { hero, site, sessionHeroContent } from "@/data/content";
 import Image from "next/image";
+import { hero, site, sessionHeroContent } from "@/data/content";
 
 function PlayIcon() {
   return (
@@ -42,17 +42,14 @@ export default function Hero({
 
   return (
     <section className="max-w-4xl mx-auto px-6 pt-6 pb-6 sm:pt-8 md:pt-10 md:pb-8 text-center">
-      <div className="relative flex justify-center mb-6">
-        <div className="absolute inset-0 flex justify-center items-center">
-          <div className="w-40 h-20 md:w-52 md:h-24 rounded-full bg-gradient-to-r from-amber via-ember to-amber opacity-30 blur-2xl animate-shimmer bg-[length:200%_auto]" />
-        </div>
+      <div className="flex justify-center mb-6">
         <Image
           src="/images/icon.png"
           alt="eTalVis logo"
           width={96}
           height={96}
           priority
-          className="relative h-16 w-auto md:h-20 mx-auto drop-shadow-[0_0_18px_rgba(194,101,10,0.5)]"
+          className="h-16 w-auto md:h-20 mx-auto"
         />
       </div>
 
@@ -103,17 +100,13 @@ export default function Hero({
       )}
 
       {isSession && (
-        <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5">
-          <p className="text-base md:text-lg text-muted leading-relaxed">
-            {sessionHeroContent.sublineBefore}
-            <span
-              className="font-semibold text-ember"
-              style={{ textShadow: "0 0 18px rgba(193,57,26,0.45)" }}
-            >
-              {sessionHeroContent.sublineHighlight}
-            </span>
-            {sessionHeroContent.sublineAfter}
+        <div className="max-w-2xl mx-auto mb-8">
+          <p className="font-display font-extrabold text-3xl md:text-4xl text-amber mb-3">
+            Register for Rs. 99
           </p>
+          <span className="inline-block px-4 py-2 rounded-full border border-amber bg-amber/10 text-sm md:text-base font-semibold text-text">
+            Includes a free Starter plan worth Rs. 999
+          </span>
         </div>
       )}
 
