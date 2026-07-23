@@ -478,10 +478,10 @@ export const finalCta = {
 };
 
 export const sessionDetails = [
-  { label: "Date", value: "July 26, 2026, Sunday" },
-  { label: "Time", value: "11 AM – 1 PM" },
+  { label: "Date", value: "August 1, 2026, Saturday" },
+  { label: "Time", value: "7 PM – 9 PM" },
   { label: "Format", value: "Live online session" },
-  { label: "Registration closes", value: "July 26, 10 AM" },
+  { label: "Registration closes", value: "July 31, 11 : 59 PM" },
   { label: "Who it's for", value: "EEE, ECE, EIE, BME, and Mechatronics students, any year, and recent graduates" },
 ];
 
