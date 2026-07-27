@@ -869,7 +869,8 @@ function TextSection({
   trackId: string;
 }) {
   return (
-    <section className={`${bg} py-10 md:py-14`}>
+    <section className={`${bg} py-10 md:py-14 relative overflow-hidden border-t border-white/10`}>
+      <GridOverlay />
       <div className="max-w-[800px] mx-auto px-6">
         <h2
           className="font-bold text-white mb-6"
@@ -1152,8 +1153,17 @@ function FaqSection() {
 // ---------- Footer ----------
 function CgFooter() {
   return (
-    <footer className="bg-[#16283D] pt-14 pb-44 sm:pb-36 md:pb-28 px-6 relative overflow-hidden">
-      <GridOverlay />
+    <footer className="bg-[#16283D] pt-14 pb-44 sm:pb-36 md:pb-28 px-6 relative">
+      <div className="absolute inset-0 opacity-[0.07] pointer-events-none overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+            backgroundSize: "44px 44px",
+          }}
+        />
+      </div>
       <div className="max-w-[1000px] mx-auto text-center">
         <Image src="/images/icon.png" alt="eTalVis" width={88} height={88} className="h-20 w-auto mx-auto mb-4" />
         <p className="text-white font-semibold mb-1">Core Electronics Career Guidance</p>
@@ -1187,14 +1197,15 @@ function CgFooter() {
         </div>
 
         <p className="text-[#526176] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
-        <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
-          Landing page, SEO & AI Discoverability by{" "}
+        <p className="text-[#7A8CA3] text-sm sm:text-base font-medium leading-relaxed">
+          Landing page, SEO & AI Discoverability by
+          <br />
           <a
             href="https://www.linkedin.com/in/raghavkanva"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("footer_credit_link_click")}
-            className="text-[#4A5568] hover:text-[#F97316] transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"
+            className="text-[#9CA8B8] hover:text-[#F97316] transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)] font-semibold"
           >
             Raghav Kanva
           </a>
