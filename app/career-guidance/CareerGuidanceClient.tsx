@@ -1072,7 +1072,7 @@ function CgFooter() {
         <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
           Landing page, SEO & AI Discoverability by{" "}
           <a
-            href="https://raghavkanva.com"
+            href="https://linkedin.com/in/raghavkanva"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("footer_credit_link_click")}
