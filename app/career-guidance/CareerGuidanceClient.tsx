@@ -1197,6 +1197,7 @@ export default function CareerGuidanceClient() {
 
       <Header />
       <Hero />
+      <QuestionsSection />
       <TestimonialsSection />
 
       <TextSection
@@ -1208,7 +1209,6 @@ export default function CareerGuidanceClient() {
       />
 
       <StageCardsSection />
-      <QuestionsSection />
 
       <TextSection
         heading={cgSpecialization.heading}
