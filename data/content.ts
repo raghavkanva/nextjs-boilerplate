@@ -573,3 +573,12 @@ export const sessionFaqs = [
     a: "The recorded session is available for one month from July 27, 2026.",
   },
 ];
+export const upcomingEvent = {
+  eyebrow: "Upcoming Live Session",
+  title: "Core Electronics Career Guidance",
+  subtitle: "Sunday, August 2, 2026 · 11:00 AM–1:00 PM IST",
+  description:
+    "A live session on jobs, salary, specialization, interviews, and AI in Core Electronics. Register for Rs. 99.",
+  ctaLabel: "See Session Details",
+  ctaHref: "https://courses.etalvis.com/career-guidance",
+};

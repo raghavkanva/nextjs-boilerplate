@@ -27,8 +27,12 @@ import {
 } from "@/data/careerSession";
 
 function track(event: string) {
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag("event", event, { session: "career-guidance-aug2" });
+  if (typeof window !== "undefined") {
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event,
+      session: "career-guidance-aug2",
+    });
   }
 }
 
@@ -322,7 +326,15 @@ function Hero() {
 
         <div className="flex justify-center">
           <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-md overflow-hidden border-2 border-white/20">
-            <Image src={cgInstructor.photo} alt="Balajee Seshadri" fill className="object-cover" priority />
+            <Image
+              src={cgInstructor.photo}
+              alt="Balajee Seshadri"
+              fill
+              sizes="(max-width: 640px) 224px, 288px"
+              quality={75}
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
       </div>
@@ -629,6 +641,8 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
           alt={`${card.name} LinkedIn post`}
           fill
           loading="lazy"
+          sizes="(max-width: 640px) 82vw, (max-width: 1024px) 46vw, 30vw"
+          quality={70}
           className="object-cover"
         />
       </div>
@@ -738,7 +752,7 @@ function FoundationCoursesSlider() {
   const scroll = (dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
-    el.scrollBy({ left: dir * 320, behavior: "smooth" });
+    el.scrollBy({ left: dir * 340, behavior: "smooth" });
   };
 
   return (
@@ -747,7 +761,7 @@ function FoundationCoursesSlider() {
         {cgFoundationCourses.map((course) => (
           <div
             key={course.number}
-            className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-[34%] min-h-[360px] rounded-md border border-[#E5E0D8] bg-[#F4EFE6] p-6 flex flex-col"
+            className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-[34%] rounded-md border border-[#E5E0D8] bg-[#F4EFE6] p-6 flex flex-col"
           >
             <div className="flex items-start justify-between mb-4">
               <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#C2650A] text-xs font-bold uppercase">
@@ -757,8 +771,29 @@ function FoundationCoursesSlider() {
                 {String(course.number).padStart(2, "0")}
               </span>
             </div>
-            <h3 className="font-bold text-lg text-[#142033] mb-2">{course.title}</h3>
-            <p className="text-[#526176] text-sm leading-relaxed">{course.description}</p>
+            <h3
+              className="font-bold text-lg text-[#142033] mb-2"
+              style={{
+                minHeight: "56px",
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {course.title}
+            </h3>
+            <p
+              className="text-[#526176] text-sm leading-relaxed"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {course.description}
+            </p>
           </div>
         ))}
       </div>
@@ -817,7 +852,15 @@ function InstructorSection() {
       <div className="max-w-[900px] mx-auto px-6">
         <div className="grid md:grid-cols-[240px_1fr] gap-8 items-start">
           <div className="relative w-full aspect-square rounded-md overflow-hidden border-2 border-white/20 mx-auto md:mx-0 max-w-[240px]">
-            <Image src={cgInstructor.photo} alt={cgInstructor.name} fill loading="lazy" className="object-cover" />
+            <Image
+              src={cgInstructor.photo}
+              alt={cgInstructor.name}
+              fill
+              loading="lazy"
+              sizes="240px"
+              quality={75}
+              className="object-cover"
+            />
           </div>
           <div>
             <p className="text-[#F97316] font-bold text-sm uppercase tracking-wide mb-2">Meet the Instructor</p>
@@ -1193,6 +1236,22 @@ function CgFooter() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 text-xs text-[#8393A6] mb-6">
+          <a
+            href="https://courses.etalvis.com"
+            onClick={() => track("footer_etalvis_home_click")}
+            className="hover:text-white"
+          >
+            eTalVis Home
+          </a>
+          <span>·</span>
+          <a
+            href="https://courses.etalvis.com/#plans"
+            onClick={() => track("footer_all_plans_click")}
+            className="hover:text-white"
+          >
+            All Plans
+          </a>
+          <span>·</span>
           <a href="/privacy-policy" onClick={() => track("privacy_policy_click")} className="hover:text-white">Privacy Policy</a>
         </div>
 
