@@ -15,11 +15,11 @@ export default function UpcomingEvent() {
           {upcomingEvent.description}
         </p>
         
-          href={upcomingEvent.ctaHref}
-          className="inline-block px-7 py-3.5 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
-        >
-          {upcomingEvent.ctaLabel}
-        </a>
+<a href={upcomingEvent.ctaHref}
+  className="inline-block px-7 py-3.5 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+>
+  {upcomingEvent.ctaLabel}
+</a>
       </div>
     </section>
   );
