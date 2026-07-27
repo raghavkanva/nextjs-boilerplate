@@ -246,7 +246,7 @@ function Header() {
     >
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Image src="/images/icon.png" alt="eTalVis" width={32} height={32} className="h-8 w-auto" />
+          <Image src="/images/icon.png" alt="eTalVis" width={56} height={56} className="h-12 md:h-14 w-auto" />
         </div>
         <a
           href={cgEvent.checkoutUrl}
@@ -301,7 +301,20 @@ function Hero() {
             className="rounded-lg border border-white/10 bg-white/[0.03] px-5 py-4 mb-3 cg-animate-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
-            <p className="text-white font-semibold text-base md:text-lg leading-snug">{cgHero.audienceLine}</p>
+            <p className="text-[#F97316] font-bold text-xs uppercase tracking-wide mb-2.5">This is for you if you are</p>
+            <ul className="flex flex-col gap-2.5">
+              {[
+                { icon: IconBriefcase, text: "Final-year students" },
+                { icon: IconGraduationCap, text: "Students who just finished 12th, joining ECE, EEE, EIE, BME or Mechatronics" },
+                { icon: IconTrophy, text: "Recent graduates" },
+                { icon: IconBook, text: "2nd and 3rd year students" },
+              ].map(({ icon: Icon, text }, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="mt-0.5"><Icon /></span>
+                  <span className="text-white font-semibold text-base md:text-lg leading-snug">{text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div
             className="rounded-lg border border-[#F97316]/30 bg-[#F97316]/10 px-5 py-4 mb-8 cg-animate-fade-up"
@@ -681,6 +694,7 @@ function StudentLinkedInProofSection() {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("student_linkedin_post_click")}
                 className="text-[#1677FF] text-sm font-semibold hover:text-[#0B5ED7]"
               >
                 View post →
@@ -722,6 +736,7 @@ function TestimonialsSection() {
                 href={t.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("testimonial_linkedin_click")}
                 className="text-[#1677FF] text-xs font-semibold hover:text-[#0B5ED7]"
               >
                 View on LinkedIn
@@ -842,14 +857,14 @@ function FoundationCoursesSlider() {
           </div>
 
           <button
-            onClick={() => scroll(-1)}
+            onClick={() => { scroll(-1); track("foundation_slider_prev_click"); }}
             aria-label="Previous course"
             className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#D5DEE8] items-center justify-center text-[#142033] hover:bg-[#1677FF] hover:text-white transition-colors shadow"
           >
             ←
           </button>
           <button
-            onClick={() => scroll(1)}
+            onClick={() => { scroll(1); track("foundation_slider_next_click"); }}
             aria-label="Next course"
             className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#D5DEE8] items-center justify-center text-[#142033] hover:bg-[#1677FF] hover:text-white transition-colors shadow"
           >
@@ -952,7 +967,11 @@ function FaqSection() {
           {cgFaqs.map((faq, i) => (
             <div key={i} className="rounded-lg border border-[#D5DEE8] bg-white overflow-hidden">
               <button
-                onClick={() => setOpen(open === i ? null : i)}
+                onClick={() => {
+                  const next = open === i ? null : i;
+                  setOpen(next);
+                  if (next !== null) track(`faq_toggle_open_q${i + 1}`);
+                }}
                 aria-expanded={open === i}
                 className="w-full flex items-center justify-between px-5 py-4 text-left"
               >
@@ -1018,7 +1037,7 @@ function CgFooter() {
   return (
     <footer className="bg-[#081525] pt-14 pb-44 sm:pb-36 md:pb-28 px-6">
       <div className="max-w-[1000px] mx-auto text-center">
-        <Image src="/images/icon.png" alt="eTalVis" width={40} height={40} className="h-10 w-auto mx-auto mb-4" />
+        <Image src="/images/icon.png" alt="eTalVis" width={64} height={64} className="h-16 w-auto mx-auto mb-4" />
         <p className="text-white font-semibold mb-1">Core Electronics Career Guidance</p>
         <p className="text-[#8393A6] text-sm mb-1">Conducted by Balajee Seshadri</p>
         <p className="text-[#8393A6] text-sm mb-6">
@@ -1027,13 +1046,18 @@ function CgFooter() {
 
         <div className="flex flex-col items-center gap-1 mb-6 text-sm">
           <p className="text-[#8393A6]">Registration Support</p>
-          <a href={cgEvent.whatsappLink} className="text-white hover:text-[#F97316]">
+          <a
+            href={cgEvent.whatsappLink}
+            onClick={() => track("whatsapp_support_click")}
+            className="text-white hover:text-[#F97316]"
+          >
             WhatsApp: {cgEvent.whatsapp}
           </a>
           <a
             href={cgEvent.instructorLinkedin}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track("instructor_linkedin_footer_click")}
             className="text-white hover:text-[#F97316]"
           >
             Balajee Seshadri's LinkedIn Profile
@@ -1041,18 +1065,14 @@ function CgFooter() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 text-xs text-[#8393A6] mb-6">
-          <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
-          <span>·</span>
-          <a href="/terms" className="hover:text-white">Terms and Conditions</a>
-          <span>·</span>
-          <a href="/refund-policy" className="hover:text-white">Refund Policy</a>
+          <a href="/privacy-policy" onClick={() => track("privacy_policy_click")} className="hover:text-white">Privacy Policy</a>
         </div>
 
         <p className="text-[#526176] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
         <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
           Landing page, SEO & AI Discoverability by{" "}
           <a
-            href="https://www.linkedin.com/in/raghavkanva/"
+            href="https://raghavkanva.com"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("footer_credit_link_click")}
