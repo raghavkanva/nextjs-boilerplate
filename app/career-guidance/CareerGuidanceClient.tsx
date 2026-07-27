@@ -217,19 +217,8 @@ function GridOverlay() {
 
 // ---------- Header ----------
 function Header() {
-  const [solid, setSolid] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        solid ? "bg-[#16283D] shadow-lg" : "bg-transparent"
-      }`}
-    >
+    <header className="relative z-40 bg-[#16283D]">
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image src="/images/icon.png" alt="eTalVis" width={72} height={72} className="h-16 md:h-[72px] w-auto" />
@@ -249,7 +238,7 @@ function Header() {
 // ---------- Hero (stacked, no side-by-side, photo after all text) ----------
 function Hero() {
   return (
-    <section className="relative bg-[#16283D] pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <section className="relative bg-[#16283D] pt-8 pb-16 md:pt-10 md:pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
         <div
           className="absolute inset-0"
@@ -761,20 +750,19 @@ function FoundationCoursesSlider() {
         {cgFoundationCourses.map((course) => (
           <div
             key={course.number}
-            className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-[34%] rounded-md border border-[#E5E0D8] bg-[#F4EFE6] p-6 flex flex-col"
+            className="snap-center shrink-0 w-[70%] sm:w-[42%] lg:w-[28%] rounded-md border border-[#E5E0D8] bg-[#F4EFE6] p-4"
           >
-            <div className="flex items-start justify-between mb-4">
-              <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#C2650A] text-xs font-bold uppercase">
-                {course.tag}
-              </span>
-              <span className="text-4xl font-extrabold text-[#E5DDD0]" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg font-extrabold text-[#D9CFC0]" style={{ fontFamily: "var(--font-display)" }}>
                 {String(course.number).padStart(2, "0")}
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-[#F97316]/10 text-[#C2650A] text-[10px] font-bold uppercase">
+                {course.tag}
               </span>
             </div>
             <h3
-              className="font-bold text-lg text-[#142033] mb-2"
+              className="font-bold text-sm text-[#142033] mb-1.5 leading-snug"
               style={{
-                minHeight: "56px",
                 display: "-webkit-box",
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: "vertical",
@@ -784,10 +772,10 @@ function FoundationCoursesSlider() {
               {course.title}
             </h3>
             <p
-              className="text-[#526176] text-sm leading-relaxed"
+              className="text-[#526176] text-xs leading-snug"
               style={{
                 display: "-webkit-box",
-                WebkitLineClamp: 4,
+                WebkitLineClamp: 2,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
               }}
@@ -1237,6 +1225,14 @@ function CgFooter() {
 
         <div className="flex flex-wrap justify-center gap-4 text-xs text-[#8393A6] mb-6">
           <a
+            href="https://etalvis.com"
+            onClick={() => track("footer_etalvis_com_click")}
+            className="hover:text-white"
+          >
+            eTalVis.com
+          </a>
+          <span>·</span>
+          <a
             href="https://courses.etalvis.com"
             onClick={() => track("footer_etalvis_home_click")}
             className="hover:text-white"
@@ -1256,7 +1252,7 @@ function CgFooter() {
         </div>
 
         <p className="text-[#526176] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
-        <p className="text-[#7A8CA3] text-sm sm:text-base font-medium leading-relaxed">
+        <p className="text-[#7A8CA3] text-sm sm:text-base font-medium leading-tight">
           Landing page, SEO & AI Discoverability by
           <br />
           <a
@@ -1275,11 +1271,15 @@ function CgFooter() {
 }
 
 // ---------- Sticky bottom bar ----------
-function CountdownUnit({ value, label }: { value: number; label: string }) {
+function CountdownUnit({ value, label, size = "md" }: { value: number; label: string; size?: "md" | "xs" }) {
+  const boxClass =
+    size === "xs"
+      ? "text-sm px-1.5 py-1 border-[#EAB308]/60"
+      : "text-xl md:text-2xl px-2.5 py-1.5 border-white/20";
   return (
     <div className="flex flex-col items-center min-w-0">
       <div
-        className="bg-[#0A1628] text-white font-bold rounded-md text-xl md:text-2xl px-2.5 py-1.5 tabular-nums border-2 border-white/20"
+        className={`bg-[#0A1628] text-white font-bold rounded-md tabular-nums border-2 ${boxClass}`}
         style={{ fontFamily: "var(--font-plex-mono), monospace" }}
       >
         {String(value).padStart(2, "0")}
@@ -1335,28 +1335,28 @@ function StickyBar() {
         </div>
 
         {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
+        <div className="md:hidden flex flex-col gap-1.5">
           <p className="text-white font-bold text-xs text-center">
             CORE ELECTRONICS CAREER GUIDANCE
             <br />
             {cgEvent.date} · {cgEvent.time}
           </p>
-          <div className="flex items-center justify-center gap-1">
-            <CountdownUnit value={time.days} label="Days" />
-            <span className="text-white/30 -mt-2">:</span>
-            <CountdownUnit value={time.hours} label="Hrs" />
-            <span className="text-white/30 -mt-2">:</span>
-            <CountdownUnit value={time.minutes} label="Min" />
-            <span className="text-white/30 -mt-2">:</span>
-            <CountdownUnit value={time.seconds} label="Sec" />
-          </div>
           <p
-            className="text-center text-[#F97316] text-xs font-bold uppercase tracking-wide cg-animate-pulse-dot"
-            style={{ textShadow: "0 0 12px rgba(249,115,22,0.7)" }}
+            className="text-center text-[#EAB308] text-xs font-bold uppercase tracking-wide"
+            style={{ textShadow: "0 0 10px rgba(234,179,8,0.6)" }}
           >
-            Registration Closes Soon
+            Registration Closes In
           </p>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-center gap-1">
+            <CountdownUnit value={time.days} label="Days" size="xs" />
+            <span className="text-white/30">:</span>
+            <CountdownUnit value={time.hours} label="Hrs" size="xs" />
+            <span className="text-white/30">:</span>
+            <CountdownUnit value={time.minutes} label="Min" size="xs" />
+            <span className="text-white/30">:</span>
+            <CountdownUnit value={time.seconds} label="Sec" size="xs" />
+          </div>
+          <div className="flex items-center justify-between gap-3 mt-1">
             <span className="text-[#F97316] font-extrabold text-xl">₹{cgEvent.price}</span>
             <a
               href={cgEvent.checkoutUrl}
