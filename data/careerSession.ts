@@ -184,15 +184,113 @@ export const cgSessionNotFor = {
 
 // ---------- Merged slider: 8 topic-explainer cards + 8 student review cards ----------
 
-export type ExplainerCard = {
-  type: "explainer";
+export type TopicSection = {
   heading: string;
-  body: string;
+  paragraphs: string[];
   ctaLabel: string;
+  layout: "text" | "twoColumn";
+  columns?: { title: string; body: string }[];
 };
 
+export const cgTopicSectionsHeading = "Straight Answers, One at a Time";
+
+export const cgTopicSections: TopicSection[] = [
+  {
+    heading: "Is AI Going to Take Your Job Before You Even Start?",
+    layout: "text",
+    paragraphs: [
+      "AI is changing engineering work. Some tasks get faster. Some things get automated. What's expected from a fresh graduate is shifting too.",
+      "But what does this actually mean for you? Which jobs are likely to change? Which skills become more valuable, not less? Should you be learning to use AI tools yourself? Can AI replace strong Electronics fundamentals and real engineering judgment?",
+      "Balajee Seshadri will address this from the perspective of someone who's actually worked in the industry, not from a headline.",
+    ],
+    ctaLabel: "Understand the Future Without the Fear",
+  },
+  {
+    heading: "Which Specialization Is Right for You?",
+    layout: "text",
+    paragraphs: [
+      "Not every Electronics student needs to walk the same path. What works for one student may not work for another.",
+      "A trending topic on social media shouldn't decide your specialization. A training institute's ad shouldn't decide it either. Neither should your friend's choice.",
+      "The right call depends on the kind of work you want, the fundamentals you'll need, your interest, your ability, and how much time you actually have to prepare.",
+      "This session will help you start choosing with real understanding, not a guess.",
+    ],
+    ctaLabel: "Choose With Understanding",
+  },
+  {
+    heading: "Electronics Fundamentals, Modern Electronics, and Your Career",
+    layout: "twoColumn",
+    columns: [
+      {
+        title: "The Confusion",
+        body: "Students hear a lot of technical terms thrown around. What's harder to find is a clear answer on what to learn first. Why do some students clear tough subjects but fail basic interview questions?",
+      },
+      {
+        title: "The Framework",
+        body: "Balajee Seshadri regularly breaks this down into four levels: Fundamental Electronics, Traditional Electronics, Modern Electronics, and Advanced Electronics. What should be learned first, and practiced daily, gets addressed in the session.",
+      },
+    ],
+    paragraphs: [],
+    ctaLabel: "Understand the Correct Learning Direction",
+  },
+  {
+    heading: "What Does the Industry Actually Reward?",
+    layout: "text",
+    paragraphs: [
+      "Students are told to learn every tool, finish every course, collect every certificate.",
+      "But what does the industry actually pay for? Is it knowledge? Problem solving? Programming? Circuit understanding? Debugging? Communication? The ability to learn fast and become useful quickly?",
+      "The session addresses which of these actually gets rewarded, and why it's worth practicing early instead of later.",
+    ],
+    ctaLabel: "Discover What the Industry Values",
+  },
+  {
+    heading: "Can a Tier 3 College Student Get a Core Electronics Job?",
+    layout: "text",
+    paragraphs: [
+      "A lot of students lose confidence because of their college's name. Maybe there's no strong placement support. Maybe there's little industry exposure. Maybe it feels like good Core Electronics opportunities only go to students from top-tier colleges.",
+      "Should your college's tier decide your entire career? What extra effort does a Tier 3 student actually need to put in? How do you become visible to companies beyond your campus placement drive?",
+      "This gets addressed honestly in the session.",
+    ],
+    ctaLabel: "Don't Let Your College's Tier End Your Hope",
+  },
+  {
+    heading: "I'm Not Fluent in English",
+    layout: "text",
+    paragraphs: [
+      "Plenty of students understand the technical material fine but lose confidence the moment an interview starts. Some believe they need flawless English or a certain accent to land a good job.",
+      "What level of communication does the industry actually expect? How much does clearly explaining a technical idea matter, compared to how polished it sounds? Can you improve this alongside your technical prep, not instead of it?",
+      "This gets addressed in the session.",
+    ],
+    ctaLabel: "Understand What Companies Actually Expect",
+  },
+  {
+    heading: "Is Private Coaching Necessary?",
+    layout: "twoColumn",
+    columns: [
+      {
+        title: "When Coaching Helps",
+        body: "Some courses genuinely offer structure, feedback, and accountability. That's worth paying for if disciplined self-study isn't working for you.",
+      },
+      {
+        title: "When It's Just a Certificate",
+        body: "Every other ad online claims to be the only path to a Core Electronics job. Some offer a certificate and not much else. The session covers what to check before your next training decision.",
+      },
+    ],
+    paragraphs: [],
+    ctaLabel: "Understand Before Choosing a Course",
+  },
+  {
+    heading: "Internship, or Just an Internship Certificate?",
+    layout: "text",
+    paragraphs: [
+      "A lot of students look for an internship purely for the certificate. But an internship is supposed to give you more than a piece of paper.",
+      "How should you prepare before joining one? When are you actually ready? How do you pick the right one, and use it properly once you're in it?",
+      "Balajee Seshadri has written about this directly, pointing out that many students approach companies asking for an internship without knowing how to show they're ready for real industry experience, not just theory. The session will unpack this in more detail.",
+    ],
+    ctaLabel: "Prepare for a Meaningful Internship",
+  },
+];
+
 export type ReviewCard = {
-  type: "review";
   name: string;
   designation: string;
   shortSummary: string;
@@ -201,62 +299,8 @@ export type ReviewCard = {
   url: string;
 };
 
-export type SliderCard = ExplainerCard | ReviewCard;
-
-const explainerCards: ExplainerCard[] = [
+export const cgReviewCards: ReviewCard[] = [
   {
-    type: "explainer",
-    heading: "Is AI Going to Take Your Job Before You Even Start?",
-    body: "AI is changing engineering work, but not the way most students fear. The session covers which skills matter more, not less.",
-    ctaLabel: "Understand the Future Without the Fear",
-  },
-  {
-    type: "explainer",
-    heading: "Which Specialization Is Right for You?",
-    body: "Not every Electronics student needs the same path. The right call depends on your interest, ability, and time to prepare, not a trend.",
-    ctaLabel: "Choose With Understanding",
-  },
-  {
-    type: "explainer",
-    heading: "Electronics Fundamentals, Modern Electronics, and Your Career",
-    body: "Fundamental, Traditional, Modern, and Advanced Electronics all matter, but in a specific order. The session covers what to learn first.",
-    ctaLabel: "Understand the Correct Learning Direction",
-  },
-  {
-    type: "explainer",
-    heading: "What Does the Industry Actually Reward?",
-    body: "Knowledge, problem solving, programming, communication. The session covers which of these actually gets rewarded, and why.",
-    ctaLabel: "Discover What the Industry Values",
-  },
-  {
-    type: "explainer",
-    heading: "Can a Tier 3 College Student Get a Core Electronics Job?",
-    body: "Your college's tier shouldn't decide your entire career. The session covers what extra effort actually helps.",
-    ctaLabel: "Don't Let Your College's Tier End Your Hope",
-  },
-  {
-    type: "explainer",
-    heading: "I'm Not Fluent in English",
-    body: "Clearly explaining a technical idea matters more than how polished it sounds. The session covers what companies actually expect.",
-    ctaLabel: "Understand What Companies Actually Expect",
-  },
-  {
-    type: "explainer",
-    heading: "Is Private Coaching Necessary?",
-    body: "Some coaching genuinely helps. Some is just a certificate. The session covers what to check before you pay for another course.",
-    ctaLabel: "Understand Before Choosing a Course",
-  },
-  {
-    type: "explainer",
-    heading: "Internship, or Just an Internship Certificate?",
-    body: "An internship should give you more than a piece of paper. The session covers how to prepare, choose, and use one properly.",
-    ctaLabel: "Prepare for a Meaningful Internship",
-  },
-];
-
-const reviewCards: ReviewCard[] = [
-  {
-    type: "review",
     name: "Tarang Srivas",
     designation: "M.Tech, VLSI Design & Embedded Systems, IIT Jammu, now Engineer 1 at Silicon Labs",
     shortSummary: "On moving from high-level board programming to real hardware understanding.",
@@ -266,7 +310,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/posts/tarang-srivas-b192ab213_siliconlabs-embeddedsystems-engineer-activity-7481286507979255809-nY98",
   },
   {
-    type: "review",
     name: "IECC BIT Sathy",
     designation: "Session feedback, BIT Sathy",
     shortSummary: "On the clear roadmap and real-world direction the session gave students.",
@@ -276,7 +319,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-share-7450584647996035073-XmY7/",
   },
   {
-    type: "review",
     name: "Monicka Balaji",
     designation: "ECE, semiconductor, and embedded systems session feedback",
     shortSummary: "On the real-world insights and clear career direction from the session.",
@@ -286,7 +328,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/",
   },
   {
-    type: "review",
     name: "Arivenkkataram ASJ",
     designation: "Course graduate",
     shortSummary: "On the spark to explore embedded systems beyond ready-made libraries.",
@@ -296,7 +337,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7418715680449122304/",
   },
   {
-    type: "review",
     name: "Swapnil Gade",
     designation: "Senior Software Engineer, Cybersecurity, Danfoss Power Solutions",
     shortSummary: "On how the teaching connects fundamentals to real field work.",
@@ -306,7 +346,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/feed/update/urn:li:activity:7451543195655581696/",
   },
   {
-    type: "review",
     name: "Raghu Prakash",
     designation: "Course graduate",
     shortSummary: "On completing the eTalVis C Programming course.",
@@ -316,7 +355,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/posts/raghuprakash56_i-successfully-completed-the-etalvis-c-ugcPost-7416447755549687808-nHlb/",
   },
   {
-    type: "review",
     name: "Adnan Hussain",
     designation: "Course graduate",
     shortSummary: "On going from doubt to building a 4-byte RAM.",
@@ -326,7 +364,6 @@ const reviewCards: ReviewCard[] = [
     url: "https://www.linkedin.com/posts/adnanhuss53_electronicsengineering-careerinelectronics-ugcPost-7392646227038814208-_qIv/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
   },
   {
-    type: "review",
     name: "B. Chandana",
     designation: "Course graduate",
     shortSummary: "On the gap between memorizing a formula and real understanding.",
@@ -337,9 +374,75 @@ const reviewCards: ReviewCard[] = [
   },
 ];
 
-export const cgSliderCards: SliderCard[] = [...explainerCards, ...reviewCards];
+export const cgFoundationCourses = [
+  {
+    number: 1,
+    tag: "Electronics",
+    title: "Electronics Foundation Course",
+    description: "Electrical Fundamentals, Electronics Fundamentals, Number Systems, Digital Electronics.",
+  },
+  {
+    number: 2,
+    tag: "Programming",
+    title: "C Programming Foundation Course",
+    description:
+      "Introduction to Programming, Introduction to C Programming, Simple Programming Practice, Decision Making and Loops, Arrays, Strings, and Pointers, Structures, Storage Class. 200+ problems to solve.",
+  },
+  {
+    number: 3,
+    tag: "Hardware",
+    title: "Embedded Hardware Foundation Course",
+    description: "Microprocessor, Memory Map, Controller, Microcontroller, Introduction to Embedded Systems.",
+  },
+  {
+    number: 4,
+    tag: "GPIO",
+    title: "Embedded Software Foundation Course, GPIO",
+    description:
+      "Introduction, Controlling LEDs, Controlling 7 Segment Displays, Monitoring Push Button Switches, Reading Keypad Matrix, Controlling Dot-Matrix.",
+  },
+  {
+    number: 5,
+    tag: "Controllers",
+    title: "Embedded Software Foundation Course, Controllers",
+    description:
+      "LED Controller, LCD Controller, Timer Controller, Interrupt Controller, DMA, DAC, ADC Controllers, PWM, Controlling Relays and Motors. 18 chapters in total.",
+  },
+  {
+    number: 6,
+    tag: "Protocols",
+    title: "Embedded Software Foundation Course, Interface Protocols",
+    description: "Introduction to BUS, UART, I2C, SPI.",
+  },
+  {
+    number: 7,
+    tag: "Internals",
+    title: "Microprocessor Internals Foundation Course",
+    description:
+      "Internals of the microprocessor, How an instruction is decoded. Exclusive to the eTalVis platform, 2.5 hours, fully animated.",
+  },
+  {
+    number: 8,
+    tag: "Microprocessor",
+    title: "8085 Microprocessor Foundation Course",
+    description: "8085 Introduction, 8085 Software, 8085 Peripheral Interface, Assessment.",
+  },
+  {
+    number: 9,
+    tag: "ARM",
+    title: "ARM Controller Foundation Course",
+    description: "Why the ARM Processor came to be, ARM Microprocessor, ARM Microcontroller.",
+  },
+  {
+    number: 10,
+    tag: "Networking",
+    title: "Networking Concepts Foundation Course",
+    description:
+      "Serial Communication, Synchronous Communication, Introduction to Ethernet, PHY, MAC, IP, TCP, Hub, Switch, Router, Gateway, ARP and NAT.",
+  },
+];
 
-// ---------- Merged offer + foundation courses section ----------
+// ---------- Offer section (foundation courses now shown via their own slider) ----------
 
 export const cgWhatYouGet = {
   heading: "What You ",

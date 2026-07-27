@@ -14,7 +14,10 @@ import {
   cgConfusions,
   cgInstructor,
   cgSessionNotFor,
-  cgSliderCards,
+  cgTopicSectionsHeading,
+  cgTopicSections,
+  cgReviewCards,
+  cgFoundationCourses,
   cgWhatYouGet,
   cgTrustStatement,
   cgHowToRegister,
@@ -163,7 +166,7 @@ const stageIconMap = {
   check: IconCheckStage,
 };
 
-function HandDrawnUnderline() {
+function HandDrawnUnderline({ color = "#4ADE80" }: { color?: string }) {
   return (
     <svg
       className="absolute left-0 -bottom-1.5 w-full h-3 pointer-events-none"
@@ -174,7 +177,7 @@ function HandDrawnUnderline() {
     >
       <path
         d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
-        stroke="#4ADE80"
+        stroke={color}
         strokeWidth="3.5"
         strokeLinecap="round"
         pathLength={1}
@@ -183,11 +186,11 @@ function HandDrawnUnderline() {
   );
 }
 
-function Underline({ children }: { children: React.ReactNode }) {
+function Underline({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
     <span className="relative inline-block whitespace-nowrap">
       {children}
-      <HandDrawnUnderline />
+      <HandDrawnUnderline color={color} />
     </span>
   );
 }
@@ -219,7 +222,7 @@ function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        solid ? "bg-[#1D3350] shadow-lg" : "bg-transparent"
+        solid ? "bg-[#16283D] shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
@@ -241,7 +244,7 @@ function Header() {
 // ---------- Hero (stacked, no side-by-side, photo after all text) ----------
 function Hero() {
   return (
-    <section className="relative bg-[#1D3350] pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <section className="relative bg-[#16283D] pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
         <div
           className="absolute inset-0"
@@ -270,7 +273,7 @@ function Hero() {
           "Mr. Balajee Sir will answer{" "}
           <span className="relative inline-block whitespace-nowrap not-italic font-semibold text-white">
             10+ important doubts
-            <HandDrawnUnderline />
+            <HandDrawnUnderline color="#F97316" />
           </span>{" "}
           regarding Core Electronics Industry career."
         </p>
@@ -396,7 +399,7 @@ function QuestionsSection() {
 // ---------- Why This Session Exists ----------
 function WhySessionExistsSection() {
   return (
-    <section className="bg-[#1D3350] py-16 md:py-28 relative overflow-hidden">
+    <section className="bg-[#16283D] py-16 md:py-28 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[720px] mx-auto px-6">
         <h2
@@ -417,7 +420,7 @@ function WhySessionExistsSection() {
           {cgWhySessionExists.stageLines.map((line, i) => (
             <p key={i} className="text-white text-lg md:text-xl leading-relaxed text-center">
               {line.before}
-              <Underline>{line.underline}</Underline>
+              <Underline color="#3B82F6">{line.underline}</Underline>
               {line.after}
             </p>
           ))}
@@ -428,13 +431,16 @@ function WhySessionExistsSection() {
         </p>
 
         <div className="flex flex-col gap-4 mb-14">
-          {cgWhySessionExists.reassuranceLines.map((line, i) => (
-            <p key={i} className="text-white text-base md:text-lg leading-relaxed text-center">
-              {line.before}
-              <Underline>{line.underline}</Underline>
-              {line.after}
-            </p>
-          ))}
+          {cgWhySessionExists.reassuranceLines.map((line, i) => {
+            const colors = ["#FACC15", "#3B82F6", "#F97316", "#4ADE80"];
+            return (
+              <p key={i} className="text-white text-base md:text-lg leading-relaxed text-center">
+                {line.before}
+                <Underline color={colors[i]}>{line.underline}</Underline>
+                {line.after}
+              </p>
+            );
+          })}
         </div>
 
         <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed text-center mb-10">
@@ -504,7 +510,7 @@ function YourStartingLineSection() {
 // ---------- What This Session Will Help You Solve ----------
 function ConfusionsSection() {
   return (
-    <section className="bg-[#1D3350] py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[1000px] mx-auto px-6">
         <h2
@@ -545,50 +551,53 @@ function ConfusionsSection() {
   );
 }
 
-// ---------- Merged slider: What Students Say (explainers + review cards) ----------
-function ExplainerSliderCard({ card, index }: { card: Extract<typeof cgSliderCards[number], { type: "explainer" }>; index: number }) {
-  return (
-    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
-      <h3 className="font-display font-bold text-lg text-white mb-3 leading-snug">{card.heading}</h3>
-      <p className="text-[#B8C4D3] text-sm leading-relaxed mb-5 flex-1">{card.body}</p>
-      <a
-        href={cgEvent.checkoutUrl}
-        onClick={() => track(`slider_explainer_${index}_cta_click`)}
-        className="text-[#1677FF] font-bold text-sm hover:text-[#0B5ED7] transition-colors"
-      >
-        {card.ctaLabel} →
-      </a>
-    </div>
-  );
-}
-
-function ReviewSliderCard({ card, index }: { card: Extract<typeof cgSliderCards[number], { type: "review" }>; index: number }) {
+// ---------- What Students Say (review-only slider) ----------
+function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number]; index: number }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
-      <div className="flex items-center gap-1.5 mb-0.5">
-        <span className="font-bold text-white text-base">{card.name}</span>
+      <div className="flex items-center gap-1.5 mb-0.5 min-h-[24px]">
+        <span
+          className="font-bold text-white text-base"
+          style={{ display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+        >
+          {card.name}
+        </span>
         <IconVerified />
       </div>
-      <p className="text-[#8393A6] text-xs mb-3">{card.designation}</p>
-
-      <p className="text-[#D8E0EA] text-sm leading-relaxed mb-2">
-        {expanded ? card.fullSummary : card.shortSummary}
-        {!expanded && (
-          <button
-            onClick={() => {
-              setExpanded(true);
-              track(`student_proof_read_more_click_${index + 1}`);
-            }}
-            className="text-[#F97316] font-semibold ml-1 hover:underline"
-          >
-            Read more...
-          </button>
-        )}
+      <p
+        className="text-[#8393A6] text-xs mb-3"
+        style={{ minHeight: "32px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+      >
+        {card.designation}
       </p>
 
-      <div className="relative w-full aspect-square rounded-lg overflow-hidden border border-white/10 my-3">
+      <div className="mb-2" style={{ minHeight: "84px" }}>
+        <p
+          className="text-[#D8E0EA] text-sm leading-relaxed"
+          style={
+            expanded
+              ? undefined
+              : { display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }
+          }
+        >
+          {expanded ? card.fullSummary : card.shortSummary}
+          {!expanded && (
+            <button
+              onClick={() => {
+                setExpanded(true);
+                track(`student_proof_read_more_click_${index + 1}`);
+              }}
+              className="text-[#F97316] font-semibold ml-1 hover:underline"
+            >
+              Read more...
+            </button>
+          )}
+        </p>
+      </div>
+
+      <div className="relative w-full aspect-square rounded-lg overflow-hidden border border-white/10 mb-3">
         <Image
           src={card.image}
           alt={`${card.name} LinkedIn post`}
@@ -623,8 +632,6 @@ function ReviewSliderCard({ card, index }: { card: Extract<typeof cgSliderCards[
 }
 
 function WhatStudentsSaySection() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
   return (
     <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
@@ -635,27 +642,125 @@ function WhatStudentsSaySection() {
         >
           What Students Say
         </h2>
-        <div
-          ref={trackRef}
-          className="flex gap-5 overflow-x-auto snap-x snap-mandatory cg-scrollbar-hide pb-4"
-        >
-          {cgSliderCards.map((card, i) =>
-            card.type === "explainer" ? (
-              <ExplainerSliderCard key={i} card={card} index={i} />
-            ) : (
-              <ReviewSliderCard key={i} card={card} index={i} />
-            )
-          )}
+        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory cg-scrollbar-hide pb-4">
+          {cgReviewCards.map((card, i) => (
+            <ReviewSliderCard key={i} card={card} index={i} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
+// ---------- Straight Answers, One at a Time (8 standalone topic sections) ----------
+function TopicSectionBlock({ topic, index }: { topic: (typeof cgTopicSections)[number]; index: number }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 mb-6">
+      <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-4">{topic.heading}</h3>
+
+      {topic.layout === "twoColumn" && topic.columns ? (
+        <div className="grid md:grid-cols-2 gap-5 mb-5">
+          {topic.columns.map((col, i) => (
+            <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
+              <h4 className="font-bold text-[#F97316] text-sm uppercase tracking-wide mb-2">{col.title}</h4>
+              <p className="text-[#B8C4D3] text-base leading-relaxed">{col.body}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-3 mb-5">
+          {topic.paragraphs.map((p, i) => (
+            <p key={i} className="text-[#B8C4D3] text-base leading-relaxed">
+              {p}
+            </p>
+          ))}
+        </div>
+      )}
+
+      <a
+        href={cgEvent.checkoutUrl}
+        onClick={() => track(`topic_section_${index}_cta_click`)}
+        className="text-[#1677FF] font-bold text-sm hover:text-[#0B5ED7] transition-colors"
+      >
+        {topic.ctaLabel} →
+      </a>
+    </div>
+  );
+}
+
+function TopicSectionsGroup() {
+  return (
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
+      <GridOverlay />
+      <div className="max-w-[800px] mx-auto px-6">
+        <h2
+          className="font-bold text-white text-center mb-10"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
+        >
+          {cgTopicSectionsHeading}
+        </h2>
+        {cgTopicSections.map((topic, i) => (
+          <TopicSectionBlock key={i} topic={topic} index={i} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ---------- Foundation Courses slider ----------
+function FoundationCoursesSlider() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * 320, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative mt-4">
+      <div ref={trackRef} className="flex gap-5 overflow-x-auto snap-x snap-mandatory cg-scrollbar-hide pb-4">
+        {cgFoundationCourses.map((course) => (
+          <div
+            key={course.number}
+            className="snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[31%] rounded-2xl border border-white/10 bg-white/5 p-6"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase">
+                {course.tag}
+              </span>
+              <span className="text-4xl font-extrabold text-white/10" style={{ fontFamily: "var(--font-display)" }}>
+                {String(course.number).padStart(2, "0")}
+              </span>
+            </div>
+            <h3 className="font-bold text-lg text-white mb-2">{course.title}</h3>
+            <p className="text-[#B8C4D3] text-sm leading-relaxed">{course.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <button
+        onClick={() => { scroll(-1); track("foundation_slider_prev_click"); }}
+        aria-label="Previous course"
+        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 border border-white/15 items-center justify-center text-white hover:bg-[#1677FF] transition-colors shadow"
+      >
+        ←
+      </button>
+      <button
+        onClick={() => { scroll(1); track("foundation_slider_next_click"); }}
+        aria-label="Next course"
+        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 border border-white/15 items-center justify-center text-white hover:bg-[#1677FF] transition-colors shadow"
+      >
+        →
+      </button>
+    </div>
+  );
+}
+
 // ---------- This Session Isn't For Everyone ----------
 function SessionNotForSection() {
   return (
-    <section className="bg-[#1D3350] py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[700px] mx-auto px-6 text-center">
         <h2
@@ -696,11 +801,11 @@ function InstructorSection() {
               className="font-bold text-white mb-4"
               style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 36px)" }}
             >
-              <Underline>Balajee Seshadri</Underline>
+              <Underline color="#F97316">Balajee Seshadri</Underline>
             </h2>
             <p className="text-[#B8C4D3] text-base leading-relaxed mb-4">
-              <Underline>40+ years</Underline> in the Electronics Industry. Professional experience in India, plus
-              work in the <Underline>USA</Underline>, <Underline>Germany</Underline>, and <Underline>Canada</Underline>.
+              <Underline color="#3B82F6">40+ years</Underline> in the Electronics Industry. Professional experience in India, plus
+              work in the <Underline color="#4ADE80">USA</Underline>, <Underline color="#4ADE80">Germany</Underline>, and <Underline color="#4ADE80">Canada</Underline>.
             </p>
             <p className="text-[#B8C4D3] text-base leading-relaxed mb-4">
               Balajee Seshadri writes regularly about Electronics careers, industry expectations, fundamentals,
@@ -809,7 +914,7 @@ function InterviewSplitSection() {
 // ---------- Stage markers (When Should You Start Preparing) ----------
 function StageMarkersSection() {
   return (
-    <section className="bg-[#1D3350] py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[900px] mx-auto px-6">
         <h2
@@ -852,7 +957,7 @@ function WhatYouGetSection() {
   return (
     <section id="register" className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
-      <div className="max-w-[720px] mx-auto px-6">
+      <div className="max-w-[1100px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
@@ -860,26 +965,31 @@ function WhatYouGetSection() {
           {cgWhatYouGet.heading}
           <span className="relative inline-block text-[#F97316]">
             {cgWhatYouGet.headingHighlight}
-            <HandDrawnUnderline />
+            <HandDrawnUnderline color="#F97316" />
           </span>
           {cgWhatYouGet.headingAfter}
         </h2>
 
-        <div className="flex flex-col gap-4 mb-10">
-          {cgWhatYouGet.items.map((item, i) => (
-            <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6">
-              <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
-              <p className="text-[#B8C4D3] text-base leading-relaxed">{item.body}</p>
-            </div>
-          ))}
+        <div className="max-w-[720px] mx-auto">
+          <div className="flex flex-col gap-4 mb-10">
+            {cgWhatYouGet.items.map((item, i) => (
+              <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6">
+                <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
+                <p className="text-[#B8C4D3] text-base leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-6 mb-6">
+            <h3 className="font-bold text-white text-lg mb-2">{cgWhatYouGet.subsectionHeading}</h3>
+            <p className="text-[#B8C4D3] text-base leading-relaxed">{cgWhatYouGet.subsectionBody}</p>
+          </div>
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-white/5 p-6 mb-10">
-          <h3 className="font-bold text-white text-lg mb-2">{cgWhatYouGet.subsectionHeading}</h3>
-          <p className="text-[#B8C4D3] text-base leading-relaxed">{cgWhatYouGet.subsectionBody}</p>
-        </div>
+        <p className="text-center text-white font-semibold text-lg mb-2">All 10 Foundation Courses Included</p>
+        <FoundationCoursesSlider />
 
-        <div className="text-center">
+        <div className="text-center mt-10">
           <p className="font-display font-extrabold text-[#F97316] mb-1" style={{ fontSize: "48px" }}>
             ₹{cgEvent.price}
           </p>
@@ -902,7 +1012,7 @@ function WhatYouGetSection() {
 // ---------- Trust statement ----------
 function TrustStatementSection() {
   return (
-    <section className="bg-[#1D3350] py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[800px] mx-auto px-6 text-center">
         <h2
@@ -969,7 +1079,7 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#1D3350] py-10 md:py-14 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[800px] mx-auto px-6">
         <h2
@@ -1209,7 +1319,7 @@ export default function CareerGuidanceClient() {
   };
 
   return (
-    <main className="bg-[#1D3350]">
+    <main className="bg-[#16283D]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
@@ -1219,18 +1329,19 @@ export default function CareerGuidanceClient() {
       <QuestionsSection />
       <WhySessionExistsSection />
       <YourStartingLineSection />
-      <ConfusionsSection />
       <WhatStudentsSaySection />
+      <ConfusionsSection />
+      <TopicSectionsGroup />
+      <InterviewSplitSection />
       <SessionNotForSection />
       <InstructorSection />
       <TextSection
         heading={cgSection2.heading}
         paragraphs={cgSection2.paragraphs}
         ctaLabel={cgSection2.ctaLabel}
-        bg="bg-[#1D3350]"
+        bg="bg-[#16283D]"
         trackId="next_step"
       />
-      <InterviewSplitSection />
       <StageMarkersSection />
       <WhatYouGetSection />
       <TrustStatementSection />
