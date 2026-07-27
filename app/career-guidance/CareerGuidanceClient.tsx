@@ -28,7 +28,7 @@ import {
   cgTrustStatement,
   cgHowToRegister,
   cgFaqs,
-  cgFinalCta,
+  cgWhySessionExists,
   cgFoundationCourses,
 } from "@/data/careerSession";
 
@@ -270,23 +270,11 @@ function HandDrawnUnderline() {
       fill="none"
       aria-hidden="true"
     >
-      {/* soft blurred glow pass behind the stroke */}
-      <path
-        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
-        stroke="#22C55E"
-        strokeWidth="7"
-        strokeLinecap="round"
-        opacity="0.5"
-        style={{ filter: "blur(3px)" }}
-        pathLength={1}
-      />
-      {/* crisp hand-drawn stroke on top */}
       <path
         d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
         stroke="#4ADE80"
         strokeWidth="3.5"
         strokeLinecap="round"
-        style={{ filter: "drop-shadow(0 0 6px rgba(74,222,128,0.9))" }}
         pathLength={1}
       />
     </svg>
@@ -309,7 +297,7 @@ function Hero() {
       </div>
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#1677FF] opacity-10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
 
-      <div className="relative max-w-[1200px] mx-auto px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-start">
+      <div className="relative max-w-[1200px] mx-auto px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center">
         <div className="cg-animate-fade-up">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#F97316]/40 bg-[#F97316]/10 text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-wide mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] cg-animate-pulse-dot" />
@@ -335,13 +323,6 @@ function Hero() {
             regarding Core Electronics Industry career."
           </p>
 
-          <p
-            className="text-[#B8C4D3] text-base md:text-lg leading-relaxed mb-8 cg-animate-fade-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            {cgHero.subhead}
-          </p>
-
           <div
             className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 mb-8 max-w-md cg-animate-fade-up"
             style={{ animationDelay: "0.4s" }}
@@ -360,6 +341,13 @@ function Hero() {
             <p className="text-[#8393A6] text-sm mb-2">{cgEvent.format}</p>
             <p className="text-[#F97316] font-bold text-lg">Registration Fee: ₹{cgEvent.price}</p>
           </div>
+
+          <p
+            className="text-[#D8E0EA] text-lg md:text-xl font-semibold leading-relaxed mb-8 cg-animate-fade-up"
+            style={{ animationDelay: "0.45s" }}
+          >
+            {cgHero.subhead}
+          </p>
 
           <a
             href={cgEvent.checkoutUrl}
@@ -1040,35 +1028,52 @@ function FaqSection() {
   );
 }
 
-// ---------- Final CTA ----------
-function FinalCtaSection() {
+// ---------- Why This Session Exists ----------
+function WhySessionExistsSection() {
   return (
-    <section className="bg-[#081525] py-16 md:py-24">
-      <div className="max-w-[800px] mx-auto px-6 text-center">
+    <section className="bg-[#081525] py-16 md:py-28">
+      <div className="max-w-[720px] mx-auto px-6">
         <h2
-          className="font-bold text-white mb-8"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px, 5vw, 44px)" }}
+          className="font-bold text-white mb-6 text-center"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 38px)" }}
         >
-          {cgFinalCta.heading}
+          {cgWhySessionExists.heading}
         </h2>
-        {cgFinalCta.paragraphs.map((p, i) => (
-          <p key={i} className="text-[#B8C4D3] text-base md:text-lg leading-relaxed mb-3">
-            {p}
-          </p>
-        ))}
-        <div className="rounded-xl border border-white/10 bg-white/5 p-6 my-8 max-w-md mx-auto">
-          <p className="text-white font-semibold">{cgEvent.date}</p>
-          <p className="text-white font-semibold">{cgEvent.time}</p>
-          <p className="text-[#8393A6] text-sm mt-1">{cgEvent.format}</p>
-          <p className="text-[#F97316] font-bold text-lg mt-2">Registration Fee: ₹{cgEvent.price}</p>
-        </div>
-        <a
-          href={cgEvent.checkoutUrl}
-          onClick={() => track("final_cta_click")}
-          className="cg-cta-glow inline-block px-10 py-4 rounded-md bg-[#1677FF] hover:bg-[#0B5ED7] text-white font-bold text-lg transition-colors"
+
+        <p
+          className="text-white font-semibold text-center mb-14"
+          style={{ fontSize: "clamp(20px, 2.6vw, 26px)", lineHeight: 1.5 }}
         >
-          {cgFinalCta.ctaLabel}
-        </a>
+          {cgWhySessionExists.openingStatement}
+        </p>
+
+        <div className="flex flex-col gap-5 mb-12">
+          {cgWhySessionExists.stageLines.map((line, i) => (
+            <p key={i} className="text-[#D8E0EA] text-lg md:text-xl leading-relaxed text-center">
+              {line}
+            </p>
+          ))}
+        </div>
+
+        <p className="text-[#B8C4D3] text-base md:text-lg leading-relaxed text-center mb-12 max-w-xl mx-auto">
+          {cgWhySessionExists.intro}
+        </p>
+
+        <div className="flex flex-col gap-4 mb-14">
+          {cgWhySessionExists.reassuranceLines.map((line, i) => (
+            <p key={i} className="text-[#C9AE8C] text-base md:text-lg leading-relaxed text-center">
+              {line}
+            </p>
+          ))}
+        </div>
+
+        <p className="text-white text-xl md:text-2xl font-semibold leading-relaxed text-center">
+          {cgWhySessionExists.closingBefore}
+          <span className="text-[#F97316]">{cgWhySessionExists.closingHighlight1}</span>
+          {cgWhySessionExists.closingMid}
+          <span className="text-[#F97316]">{cgWhySessionExists.closingHighlight2}</span>
+          {cgWhySessionExists.closingAfter}
+        </p>
       </div>
     </section>
   );
@@ -1262,6 +1267,7 @@ export default function CareerGuidanceClient() {
       <Hero />
       <QuestionsSection />
       <TestimonialsSection />
+      <WhySessionExistsSection />
 
       <TextSection
         heading={cgSection2.heading}
@@ -1357,7 +1363,6 @@ export default function CareerGuidanceClient() {
       <HowToRegisterSection />
       <InterviewSplitSection />
       <FaqSection />
-      <FinalCtaSection />
       <CgFooter />
       <StickyBar />
     </main>

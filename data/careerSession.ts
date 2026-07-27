@@ -20,8 +20,7 @@ export const cgEvent = {
 export const cgHero = {
   label: "LIVE ONLINE SESSION",
   headline: "Demystifying the Myths of the Core Electronics Industry Career",
-  subhead:
-    "Job opportunities, starting pay, choosing a specialization, getting an internship, clearing interviews, and where Artificial Intelligence fits in. Straight talk, not motivation.",
+  subhead: "Jobs, pay, specialization, internships, interviews, and AI. Straight talk, not motivation.",
   audienceLine:
     "For final-year students, students who just finished 12th and chose ECE, EEE, EIE, BME or Mechatronics, recent graduates, and 2nd and 3rd year students.",
   instructorLine:
@@ -236,7 +235,7 @@ export const cgConfusions: string[] = [
 
 export const cgInstructor = {
   name: "Balajee Seshadri",
-  photo: "/images/balajee-casual.png",
+  photo: "/images/balajee-formal.png",
   bio: [
     "40+ years in the Electronics Industry. Professional experience in India, plus work in the USA, Germany, and Canada.",
     "Balajee Seshadri writes regularly about Electronics careers, industry expectations, fundamentals, modern skills, internships, interviews, and the real problems students face.",
@@ -297,6 +296,7 @@ export const cgTestimonials = [
     quote:
       "I used to rely on high-level programming with Arduino, STM, and ESP boards, but your teachings helped me understand how things actually work under the hood.",
     link: "https://www.linkedin.com/in/tarang-srivas-b192ab213/",
+    screenshot: "/images/testimonials/tarang-srivas.png",
   },
   {
     name: "IECC BIT Sathy",
@@ -304,6 +304,7 @@ export const cgTestimonials = [
     quote:
       "An insightful session that gave students a clear roadmap, practical skills, and real-world direction to build a successful career in embedded systems.",
     link: "https://www.linkedin.com/posts/iecc-bit_bitsathy-ieccbit-bitsathy-activity-7450584649317154816-dbIZ?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+    screenshot: "/images/testimonials/iecc-bit-sathy.png",
   },
   {
     name: "Monicka Balaji",
@@ -311,6 +312,7 @@ export const cgTestimonials = [
     quote:
       "An inspiring interaction with a highly experienced industry expert, offering students real-world insights and clear direction for their future careers.",
     link: "https://www.linkedin.com/posts/monicka-balaji-314a96326_ece-semiconductor-embeddedsystems-share-7448544821004353536-Dnu8/?utm_source=share&utm_medium=member_android&rcm=ACoAAACrmmAB1CnpWBfLMw9RgOnMilkUlTLbRts",
+    screenshot: "/images/testimonials/monicka-balaji.png",
   },
   {
     name: "Arivenkkataram ASJ",
@@ -318,6 +320,7 @@ export const cgTestimonials = [
     quote:
       "The Balajee Seshadri embedded systems course gave me the initial spark to explore embedded systems more deeply and to start thinking beyond ready-made libraries.",
     link: "https://www.linkedin.com/in/arivenkkataram-asj/",
+    screenshot: "/images/testimonials/arivenkkataram-asj.png",
   },
   {
     name: "Swapnil Gade",
@@ -325,6 +328,7 @@ export const cgTestimonials = [
     quote:
       "Balajee sir's teaching connects the fundamentals to how embedded systems actually work in the field, not just theory.",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7451543195655581696/?skipRedirect=true",
+    screenshot: "/images/testimonials/swapnil-gade.png",
   },
 ];
 
@@ -416,18 +420,28 @@ export const cgFaqs = [
   },
 ];
 
-export const cgFinalCta = {
-  heading: "Understand the Industry Before Choosing Your Next Step",
-  paragraphs: [
+export const cgWhySessionExists = {
+  heading: "Why This Session Exists",
+  openingStatement:
+    "Most Electronics students don't get a clear picture of the industry until it's too late to act on it. This session exists to close that gap early, with real industry perspective, not motivation.",
+  stageLines: [
     "You may be in your final year, feeling the pressure already.",
     "You may have just finished 12th and chosen an Electronics branch.",
     "You may have graduated and be searching for your first real opportunity.",
     "You may be in second or third year, still deciding your path.",
-    "Wherever you are, you still need to understand the industry, understand where you stand, and understand what to do next.",
-    "Don't lose hope because of your college's tier. Don't lose hope because your English isn't perfect. Don't lose hope because you started late. Don't make a random decision just because AI is changing the industry.",
-    "Understand first. Then choose. Then prepare.",
   ],
-  ctaLabel: "Register Now for ₹99",
+  intro: "Wherever you are, you still need to understand the industry, understand where you stand, and understand what to do next.",
+  reassuranceLines: [
+    "Don't lose hope because of your college's tier.",
+    "Don't lose hope because your English isn't perfect.",
+    "Don't lose hope because you started late.",
+    "Don't make a random decision just because AI is changing the industry.",
+  ],
+  closingBefore: "Understand first. Then ",
+  closingHighlight1: "choose",
+  closingMid: ". Then ",
+  closingHighlight2: "prepare",
+  closingAfter: ". Here's what that looks like, depending on where you are.",
 };
 
 // Foundation courses for the slider (reusing existing course data structure)
