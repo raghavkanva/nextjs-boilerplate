@@ -382,11 +382,11 @@ function TextSection({
   icon?: () => JSX.Element;
 }) {
   return (
-    <section className={`${bg ?? (dark ? "bg-[#0A1628]" : "bg-[#F7FAFC]")} py-10 md:py-14`}>
+    <section className={`${bg ?? (dark ? "bg-[#0A1628]" : "bg-[#081525]")} py-10 md:py-14`}>
       <div className="max-w-[800px] mx-auto px-6">
         {icon && <SectionIcon icon={icon} />}
         <h2
-          className={`font-bold mb-6 cg-animate-fade-up ${dark ? "text-white" : "text-[#142033]"}`}
+          className={`font-bold mb-6 cg-animate-fade-up ${dark ? "text-white" : "text-white"}`}
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 3.6vw, 36px)" }}
         >
           {heading}
@@ -395,7 +395,7 @@ function TextSection({
           {paragraphs.map((p, i) => (
             <p
               key={i}
-              className={`text-base md:text-lg leading-relaxed ${dark ? "text-[#B8C4D3]" : "text-[#526176]"}`}
+              className={`text-base md:text-lg leading-relaxed ${dark ? "text-[#B8C4D3]" : "text-[#B8C4D3]"}`}
             >
               {p}
             </p>
@@ -416,10 +416,10 @@ function TextSection({
 // ---------- Section 3: Stage cards ----------
 function StageCardsSection() {
   return (
-    <section className="bg-[#F7FAFC] py-12 md:py-16">
+    <section className="bg-[#081525] py-12 md:py-16">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           This Session Is Relevant to Your Present Stage
@@ -428,13 +428,13 @@ function StageCardsSection() {
           {cgStageCards.map((card, i) => (
             <div
               key={i}
-              className={`cg-tilt-hover rounded-xl border border-[#D5DEE8] bg-white p-6 flex flex-col cg-animate-fade-up ${
+              className={`cg-tilt-hover rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col cg-animate-fade-up ${
                 i === 0 ? "border-2 border-[#F97316]/40" : ""
               }`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
-              <h3 className="font-bold text-lg md:text-xl text-[#142033] mb-2">{card.title}</h3>
-              <p className="text-[#526176] text-sm md:text-base leading-relaxed mb-5 flex-1">{card.body}</p>
+              <h3 className="font-bold text-lg md:text-xl text-white mb-2">{card.title}</h3>
+              <p className="text-[#B8C4D3] text-sm md:text-base leading-relaxed mb-5 flex-1">{card.body}</p>
               <a
                 href={cgEvent.checkoutUrl}
                 onClick={() => track(`stage_card_${i}_cta_click`)}
@@ -553,11 +553,11 @@ function InterviewSplitSection() {
 // ---------- Section 9: Stage markers ----------
 function StageMarkersSection() {
   return (
-    <section className="bg-[#F7FAFC] py-10 md:py-14">
+    <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[900px] mx-auto px-6">
         <div className="flex justify-center"><SectionIcon icon={IconArrowRight} /></div>
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgWhenToStart.heading}
@@ -565,15 +565,15 @@ function StageMarkersSection() {
         <div className="flex flex-wrap justify-center gap-3 mb-8">
           {cgStages.map((s, i) => (
             <div key={i} className="flex items-center gap-3">
-              <span className="px-4 py-2 rounded-full border border-[#D5DEE8] bg-white text-[#142033] font-semibold text-sm md:text-base">
+              <span className="px-4 py-2 rounded-full border border-white/15 bg-white/10 text-white font-semibold text-sm md:text-base">
                 {s}
               </span>
-              {i < cgStages.length - 1 && <span className="text-[#D5DEE8]">→</span>}
+              {i < cgStages.length - 1 && <span className="text-white/20">→</span>}
             </div>
           ))}
         </div>
         {cgWhenToStart.paragraphs.map((p, i) => (
-          <p key={i} className="text-[#526176] text-base md:text-lg leading-relaxed text-center mb-3">
+          <p key={i} className="text-[#B8C4D3] text-base md:text-lg leading-relaxed text-center mb-3">
             {p}
           </p>
         ))}
@@ -594,10 +594,10 @@ function StageMarkersSection() {
 // ---------- Section 15: Confusions grid ----------
 function ConfusionsSection() {
   return (
-    <section className="bg-[#F4F8FC] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-10 md:py-14">
       <div className="max-w-[1000px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           What This Session Will Help You Solve
@@ -606,18 +606,18 @@ function ConfusionsSection() {
           {cgConfusions.map((c, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 rounded-lg border border-[#D5DEE8] bg-white px-4 py-3 cg-animate-fade-up"
+              className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 cg-animate-fade-up"
               style={{ animationDelay: `${i * 0.04}s` }}
             >
               <IconX />
-              <span className="text-[#142033] text-sm md:text-base">{c}</span>
+              <span className="text-white text-sm md:text-base">{c}</span>
             </div>
           ))}
         </div>
-        <p className="text-[#526176] text-center mb-2">
+        <p className="text-[#B8C4D3] text-center mb-2">
           This session will not decide your complete career for you.
         </p>
-        <p className="text-[#526176] text-center mb-8">
+        <p className="text-[#B8C4D3] text-center mb-8">
           It will help you understand the questions you should ask before making that decision.
         </p>
         <div className="text-center">
@@ -637,22 +637,22 @@ function ConfusionsSection() {
 // ---------- Section 16: Instructor ----------
 function InstructorSection() {
   return (
-    <section className="bg-[#F7FAFC] py-10 md:py-14">
+    <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[900px] mx-auto px-6">
         <div className="grid md:grid-cols-[240px_1fr] gap-8 items-start">
-          <div className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-[#D5DEE8] mx-auto md:mx-0 max-w-[240px]">
+          <div className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-white/10 mx-auto md:mx-0 max-w-[240px]">
             <Image src={cgInstructor.photo} alt={cgInstructor.name} fill className="object-cover" />
           </div>
           <div>
             <p className="text-[#F97316] font-bold text-sm uppercase tracking-wide mb-2">Meet the Instructor</p>
             <h2
-              className="font-bold text-[#142033] mb-4"
+              className="font-bold text-white mb-4"
               style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 36px)" }}
             >
               {cgInstructor.name}
             </h2>
             {cgInstructor.bio.map((p, i) => (
-              <p key={i} className="text-[#526176] text-base leading-relaxed mb-4">
+              <p key={i} className="text-[#B8C4D3] text-base leading-relaxed mb-4">
                 {p}
               </p>
             ))}
@@ -673,23 +673,23 @@ function InstructorSection() {
 // ---------- Section 18: Student LinkedIn testimonial proof (separate) ----------
 function StudentLinkedInProofSection() {
   return (
-    <section className="bg-[#F7FAFC] py-10 md:py-14">
+    <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[1000px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-3"
+          className="font-bold text-white text-center mb-3"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           Students Sharing Their Own Experience
         </h2>
-        <p className="text-[#526176] text-center max-w-2xl mx-auto mb-10">
+        <p className="text-[#B8C4D3] text-center max-w-2xl mx-auto mb-10">
           Real posts from students who've taken eTalVis courses, shared on their own LinkedIn profiles.
         </p>
         <div className="grid md:grid-cols-3 gap-5">
           {cgStudentLinkedInProof.map((post, i) => (
-            <div key={i} className="rounded-xl border border-[#D5DEE8] bg-white p-5 flex flex-col">
+            <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5 flex flex-col">
               <IconLinkedIn />
-              <p className="font-bold text-[#142033] text-sm mt-3 mb-1">{post.name}</p>
-              <p className="text-[#526176] text-sm leading-relaxed mb-4 flex-1">{post.summary}</p>
+              <p className="font-bold text-white text-sm mt-3 mb-1">{post.name}</p>
+              <p className="text-[#B8C4D3] text-sm leading-relaxed mb-4 flex-1">{post.summary}</p>
               <a
                 href={post.url}
                 target="_blank"
@@ -712,10 +712,10 @@ function TestimonialsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-[#F4F8FC] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-10 md:py-14">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           What Students Say
@@ -727,10 +727,10 @@ function TestimonialsSection() {
           {cgTestimonials.map((t, i) => (
             <div
               key={i}
-              className="snap-center shrink-0 w-[85%] sm:w-[45%] lg:w-[31%] rounded-xl border border-[#D5DEE8] bg-white p-6 flex flex-col"
+              className="snap-center shrink-0 w-[85%] sm:w-[45%] lg:w-[31%] rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col"
             >
-              <p className="text-[#526176] text-sm md:text-base leading-relaxed mb-4 flex-1">"{t.quote}"</p>
-              <p className="font-bold text-[#142033] text-sm">{t.name}</p>
+              <p className="text-[#B8C4D3] text-sm md:text-base leading-relaxed mb-4 flex-1">"{t.quote}"</p>
+              <p className="font-bold text-white text-sm">{t.name}</p>
               <p className="text-[#8393A6] text-xs mb-2">{t.title}</p>
               <a
                 href={t.link}
@@ -761,11 +761,11 @@ function TestimonialsSection() {
 // ---------- Section 20: Offer ----------
 function OfferSection() {
   return (
-    <section id="register" className="bg-[#F7FAFC] py-10 md:py-14">
+    <section id="register" className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[700px] mx-auto px-6">
-        <div className="rounded-2xl border-2 border-[#081525] bg-white p-6 md:p-10 shadow-lg">
+        <div className="rounded-2xl border-2 border-[#F97316]/40 bg-white/5 p-6 md:p-10 shadow-lg">
           <h2
-            className="font-bold text-[#142033] text-center mb-8"
+            className="font-bold text-white text-center mb-8"
             style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 36px)" }}
           >
             {cgOffer.heading}
@@ -774,7 +774,7 @@ function OfferSection() {
             {cgOffer.items.map((item, i) => (
               <div key={i} className="flex items-start gap-3">
                 <IconCheck />
-                <span className="text-[#142033] text-base">{item}</span>
+                <span className="text-white text-base">{item}</span>
               </div>
             ))}
           </div>
@@ -797,7 +797,7 @@ function OfferSection() {
             >
               {cgOffer.ctaLabel}
             </a>
-            <p className="text-[#526176] text-sm">
+            <p className="text-[#B8C4D3] text-sm">
               {cgEvent.date} · {cgEvent.time} · {cgEvent.format}
             </p>
           </div>
@@ -818,16 +818,16 @@ function FoundationCoursesSlider() {
   };
 
   return (
-    <section className="bg-[#F4F8FC] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-10 md:py-14">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-3"
+          className="font-bold text-white text-center mb-3"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgWhyFoundation.heading}
         </h2>
         {cgWhyFoundation.paragraphs.map((p, i) => (
-          <p key={i} className="text-[#526176] text-center max-w-2xl mx-auto mb-3">
+          <p key={i} className="text-[#B8C4D3] text-center max-w-2xl mx-auto mb-3">
             {p}
           </p>
         ))}
@@ -840,18 +840,18 @@ function FoundationCoursesSlider() {
             {cgFoundationCourses.map((course) => (
               <div
                 key={course.number}
-                className="cg-tilt-hover snap-center shrink-0 w-[80%] sm:w-[46%] lg:w-[31%] rounded-2xl border border-[#D5DEE8] bg-white p-6"
+                className="cg-tilt-hover snap-center shrink-0 w-[80%] sm:w-[46%] lg:w-[31%] rounded-2xl border border-white/10 bg-white/5 p-6"
               >
                 <div className="flex items-start justify-between mb-4">
                   <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase">
                     {course.tag}
                   </span>
-                  <span className="text-4xl font-extrabold text-[#E8EDF3]" style={{ fontFamily: "var(--font-display)" }}>
+                  <span className="text-4xl font-extrabold text-white/10" style={{ fontFamily: "var(--font-display)" }}>
                     {String(course.number).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="font-bold text-lg text-[#142033] mb-2">{course.title}</h3>
-                <p className="text-[#526176] text-sm leading-relaxed">{course.description}</p>
+                <h3 className="font-bold text-lg text-white mb-2">{course.title}</h3>
+                <p className="text-[#B8C4D3] text-sm leading-relaxed">{course.description}</p>
               </div>
             ))}
           </div>
@@ -859,14 +859,14 @@ function FoundationCoursesSlider() {
           <button
             onClick={() => { scroll(-1); track("foundation_slider_prev_click"); }}
             aria-label="Previous course"
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#D5DEE8] items-center justify-center text-[#142033] hover:bg-[#1677FF] hover:text-white transition-colors shadow"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 border border-white/15 items-center justify-center text-white hover:bg-[#1677FF] transition-colors shadow"
           >
             ←
           </button>
           <button
             onClick={() => { scroll(1); track("foundation_slider_next_click"); }}
             aria-label="Next course"
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-[#D5DEE8] items-center justify-center text-[#142033] hover:bg-[#1677FF] hover:text-white transition-colors shadow"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 border border-white/15 items-center justify-center text-white hover:bg-[#1677FF] transition-colors shadow"
           >
             →
           </button>
@@ -918,10 +918,10 @@ function TrustStatementSection() {
 // ---------- Section 23: How to register ----------
 function HowToRegisterSection() {
   return (
-    <section className="bg-[#F7FAFC] py-10 md:py-14">
+    <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[700px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           How to Register
@@ -932,7 +932,7 @@ function HowToRegisterSection() {
               <span className="shrink-0 w-8 h-8 rounded-full bg-[#1677FF] text-white font-bold text-sm flex items-center justify-center">
                 {i + 1}
               </span>
-              <p className="text-[#142033] text-base leading-relaxed pt-1">{step}</p>
+              <p className="text-white text-base leading-relaxed pt-1">{step}</p>
             </div>
           ))}
         </div>
@@ -955,17 +955,17 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#F4F8FC] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-10 md:py-14">
       <div className="max-w-[800px] mx-auto px-6">
         <h2
-          className="font-bold text-[#142033] text-center mb-10"
+          className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           Frequently Asked Questions
         </h2>
         <div className="flex flex-col gap-3 mb-8">
           {cgFaqs.map((faq, i) => (
-            <div key={i} className="rounded-lg border border-[#D5DEE8] bg-white overflow-hidden">
+            <div key={i} className="rounded-lg border border-white/10 bg-white/5 overflow-hidden">
               <button
                 onClick={() => {
                   const next = open === i ? null : i;
@@ -975,11 +975,11 @@ function FaqSection() {
                 aria-expanded={open === i}
                 className="w-full flex items-center justify-between px-5 py-4 text-left"
               >
-                <span className="font-semibold text-[#142033] text-sm md:text-base pr-4">{faq.q}</span>
+                <span className="font-semibold text-white text-sm md:text-base pr-4">{faq.q}</span>
                 <span className="text-[#1677FF] text-xl shrink-0">{open === i ? "−" : "+"}</span>
               </button>
               {open === i && (
-                <p className="px-5 pb-4 text-[#526176] text-sm md:text-base leading-relaxed">{faq.a}</p>
+                <p className="px-5 pb-4 text-[#B8C4D3] text-sm md:text-base leading-relaxed">{faq.a}</p>
               )}
             </div>
           ))}
@@ -1068,11 +1068,11 @@ function CgFooter() {
           <a href="/privacy-policy" onClick={() => track("privacy_policy_click")} className="hover:text-white">Privacy Policy</a>
         </div>
 
-        <p className="text-[#526176] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
+        <p className="text-[#B8C4D3] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
         <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
           Landing page, SEO & AI Discoverability by{" "}
           <a
-            href="https://linkedin.com/in/raghavkanva"
+            href="https://raghavkanva.com"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("footer_credit_link_click")}
@@ -1211,7 +1211,7 @@ export default function CareerGuidanceClient() {
   };
 
   return (
-    <main className="bg-[#F7FAFC]">
+    <main className="bg-[#081525]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
@@ -1235,7 +1235,7 @@ export default function CareerGuidanceClient() {
         heading={cgSpecialization.heading}
         paragraphs={cgSpecialization.paragraphs}
         ctaLabel={cgSpecialization.ctaLabel}
-        bg="bg-[#F7FAFC]"
+        bg="bg-[#081525]"
         trackId="specialization"
         icon={IconCompass}
       />
@@ -1244,7 +1244,7 @@ export default function CareerGuidanceClient() {
         heading={cgFundamentals.heading}
         paragraphs={cgFundamentals.paragraphs}
         ctaLabel={cgFundamentals.ctaLabel}
-        bg="bg-[#F4F8FC]"
+        bg="bg-[#0A1628]"
         trackId="fundamentals"
         icon={IconBook}
       />
@@ -1264,7 +1264,7 @@ export default function CareerGuidanceClient() {
         heading={cgTier3.heading}
         paragraphs={cgTier3.paragraphs}
         ctaLabel={cgTier3.ctaLabel}
-        bg="bg-[#F4F8FC]"
+        bg="bg-[#0A1628]"
         trackId="tier3"
         icon={IconBuilding}
       />
@@ -1273,7 +1273,7 @@ export default function CareerGuidanceClient() {
         heading={cgEnglish.heading}
         paragraphs={cgEnglish.paragraphs}
         ctaLabel={cgEnglish.ctaLabel}
-        bg="bg-[#F7FAFC]"
+        bg="bg-[#081525]"
         trackId="english"
         icon={IconChatBubble}
       />
@@ -1282,7 +1282,7 @@ export default function CareerGuidanceClient() {
         heading={cgCoaching.heading}
         paragraphs={cgCoaching.paragraphs}
         ctaLabel={cgCoaching.ctaLabel}
-        bg="bg-[#F4F8FC]"
+        bg="bg-[#0A1628]"
         trackId="coaching"
         icon={IconGraduationCap}
       />
@@ -1291,7 +1291,7 @@ export default function CareerGuidanceClient() {
         heading={cgInternship.heading}
         paragraphs={cgInternship.paragraphs}
         ctaLabel={cgInternship.ctaLabel}
-        bg="bg-[#F7FAFC]"
+        bg="bg-[#081525]"
         trackId="internship"
         icon={IconBriefcase}
       />
