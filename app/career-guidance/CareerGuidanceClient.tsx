@@ -260,41 +260,6 @@ function Header() {
   );
 }
 
-// ---------- Hero ----------
-function HandDrawnUnderline() {
-  return (
-    <svg
-      className="absolute left-0 -bottom-1.5 w-full h-3 pointer-events-none"
-      viewBox="0 0 200 12"
-      preserveAspectRatio="none"
-      fill="none"
-      aria-hidden="true"
-    >
-      {/* soft blurred glow pass behind the stroke */}
-      <path
-        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
-        stroke="#22C55E"
-        strokeWidth="7"
-        strokeLinecap="round"
-        opacity="0.5"
-        style={{ filter: "blur(3px)" }}
-        pathLength={1}
-        className="cg-underline-path"
-      />
-      {/* crisp hand-drawn stroke on top */}
-      <path
-        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
-        stroke="#4ADE80"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        style={{ filter: "drop-shadow(0 0 6px rgba(74,222,128,0.9))" }}
-        pathLength={1}
-        className="cg-underline-path"
-      />
-    </svg>
-  );
-}
-
 function HandDrawnUnderline() {
   return (
     <svg
