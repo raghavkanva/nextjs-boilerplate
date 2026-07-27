@@ -167,3 +167,42 @@ body {
     opacity: 1;
   }
 }
+/* Career Guidance Session page tokens */
+.cg-font-mono {
+  font-family: var(--font-plex-mono), monospace;
+}
+
+@keyframes cg-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cg-animate-fade-up {
+  animation: cg-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cg-pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.cg-animate-pulse-dot {
+  animation: cg-pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes cg-flip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); opacity: 0.5; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+.cg-animate-flip {
+  animation: cg-flip 0.5s ease-in-out;
+}
+
+.cg-scrollbar-hide::-webkit-scrollbar { display: none; }
+.cg-scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-animate-fade-up, .cg-animate-pulse-dot, .cg-animate-flip {
+    animation: none;
+    opacity: 1;
+  }
+}
