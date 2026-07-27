@@ -19,20 +19,25 @@ export const cgEvent = {
 
 export const cgHero = {
   label: "LIVE ONLINE SESSION",
-  headline: "Demystifying the Myths of the Core Electronics Industry Career",
-  subhead: "Jobs, salary, specialization, interviews, and AI. Straight talk, no motivation speech.",
-  audienceLine: "For final-year, first-year, recent graduates, and 2nd/3rd year Electronics students.",
-  instructorLine: "By Balajee Seshadri. 40+ years in Electronics, across India, USA, Germany, and Canada.",
+  headline: "Your Core Electronics Career Questions, Answered Honestly",
+  subhead:
+    "Job opportunities, starting pay, choosing a specialization, getting an internship, clearing interviews, and where Artificial Intelligence fits in. Straight talk, not motivation.",
+  audienceLine:
+    "For final-year students, students who just finished 12th and chose ECE, EEE, EIE, BME or Mechatronics, recent graduates, and 2nd and 3rd year students.",
+  instructorLine:
+    "Conducted by Balajee Seshadri. 40+ years in the Electronics Industry, including work in the USA, Germany, and Canada.",
   ctaLabel: "Register for the ₹99 Session",
-  benefitLine: "1-month recording + 1-month Foundation course worth ₹999, both included.",
+  benefitLine:
+    "One-time fee · 1-month recording access included · 1-month Electronics Foundation course access worth ₹999 included",
 };
 
 export const cgSection2 = {
   heading: "You Chose Electronics. What Should You Do Next?",
   paragraphs: [
-    "Most students enter an Electronics branch without a clear picture of the industry waiting for them.",
-    "First year feels early. There's time, so it waits. Second year gets busy with subjects and exams. Third year brings the first thoughts about internships. Final year brings the pressure, all at once. After graduation, many students start asking what they should have done two years earlier.",
-    "You don't have to wait until final year to understand this. You don't have to lose hope if you're already in final year. You don't have to give up if you've already graduated without the right guidance.",
+    "If you're in final year, the pressure has already started. What matters now is understanding exactly what's missing and fixing it in the time you have left, not panicking.",
+    "If you just finished 12th or you're in first year, you have the most time and the least idea of what to do with it. That's normal. It's also your biggest advantage if you use it.",
+    "If you've already graduated, you're probably asking what you should have done two years earlier. That question is useful only if it leads to action now.",
+    "If you're in second or third year, this is exactly when specialization decisions and internship prep should begin, not final year.",
     "What you do next depends on where you're standing right now.",
   ],
   ctaLabel: "Understand Your Next Step",

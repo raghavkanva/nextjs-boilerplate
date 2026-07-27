@@ -21,7 +21,6 @@ import {
   cgAI,
   cgConfusions,
   cgInstructor,
-  cgInstructorLinkedInPosts,
   cgStudentLinkedInProof,
   cgTestimonials,
   cgOffer,
@@ -109,6 +108,98 @@ function IconLinkedIn() {
   );
 }
 
+function IconCompass() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M14.5 9.5l-1.8 4.8-4.7 1.8 1.8-4.8 4.7-1.8z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconBook() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconTrophy() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7 6H4a3 3 0 003 3M17 6h3a3 3 0 01-3 3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconMap() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <path d="M9 4v14M15 6v14" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconBuilding() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <rect x="4" y="3" width="16" height="18" rx="1" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconChatBubble() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M4 12a8 8 0 1114.9 4.1L20 20l-4-1.1A8 8 0 014 12z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconGraduationCap() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M12 3L2 8l10 5 10-5-10-5zM6 11v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconBriefcase() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconCpu() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <rect x="7" y="7" width="10" height="10" rx="1" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M7 3v2M17 3v2M7 19v2M17 19v2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+function IconArrowRight() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconShield() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#F97316] shrink-0">
+      <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SectionIcon({ icon: Icon }: { icon: () => JSX.Element }) {
+  return (
+    <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[#F97316]/10 mb-4">
+      <Icon />
+    </span>
+  );
+}
+
 // ---------- Countdown display (digit-flip style) ----------
 function CountdownUnit({ value, label, size = "md" }: { value: number; label: string; size?: "md" | "sm" }) {
   const [prev, setPrev] = useState(value);
@@ -186,8 +277,8 @@ function Hero() {
       </div>
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#1677FF] opacity-10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
 
-      <div className="relative max-w-[1200px] mx-auto px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center">
-        <div className="cg-animate-fade-up order-2 lg:order-1">
+      <div className="relative max-w-[1200px] mx-auto px-6 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-start">
+        <div className="cg-animate-fade-up">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#F97316]/40 bg-[#F97316]/10 text-[#F97316] text-xs md:text-sm font-bold uppercase tracking-wide mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] cg-animate-pulse-dot" />
             {cgHero.label}
@@ -200,9 +291,24 @@ function Hero() {
             {cgHero.headline}
           </h1>
 
-          <p className="text-[17px] md:text-lg text-[#B8C4D3] leading-relaxed mb-4">{cgHero.subhead}</p>
-          <p className="text-sm md:text-base text-[#8393A6] leading-relaxed mb-6">{cgHero.audienceLine}</p>
-          <p className="text-sm md:text-base text-white font-semibold mb-8">{cgHero.instructorLine}</p>
+          <div
+            className="rounded-lg border border-white/15 bg-white/[0.06] px-5 py-4 mb-3 cg-animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <p className="text-white font-bold text-lg md:text-xl leading-snug">{cgHero.subhead}</p>
+          </div>
+          <div
+            className="rounded-lg border border-white/10 bg-white/[0.03] px-5 py-4 mb-3 cg-animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <p className="text-white font-semibold text-base md:text-lg leading-snug">{cgHero.audienceLine}</p>
+          </div>
+          <div
+            className="rounded-lg border border-[#F97316]/30 bg-[#F97316]/10 px-5 py-4 mb-8 cg-animate-fade-up"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <p className="text-white font-bold text-base md:text-lg leading-snug">{cgHero.instructorLine}</p>
+          </div>
 
           <div className="rounded-xl border border-white/10 bg-white/5 p-5 mb-8 max-w-sm">
             <div className="flex items-center gap-2 text-white mb-2">
@@ -228,7 +334,7 @@ function Hero() {
           <p className="text-sm text-[#8393A6] leading-relaxed">{cgHero.benefitLine}</p>
         </div>
 
-        <div className="cg-animate-fade-up order-1 lg:order-2 flex justify-center lg:justify-end" style={{ animationDelay: "0.2s" }}>
+        <div className="cg-animate-fade-up flex justify-center lg:justify-end pt-2" style={{ animationDelay: "0.25s" }}>
           <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-white/10">
             <Image
               src={cgInstructor.photo}
@@ -252,6 +358,7 @@ function TextSection({
   dark = false,
   bg,
   trackId,
+  icon,
 }: {
   heading: string;
   paragraphs: string[];
@@ -259,10 +366,12 @@ function TextSection({
   dark?: boolean;
   bg?: string;
   trackId: string;
+  icon?: () => JSX.Element;
 }) {
   return (
     <section className={`${bg ?? (dark ? "bg-[#0A1628]" : "bg-[#F7FAFC]")} py-10 md:py-14`}>
       <div className="max-w-[800px] mx-auto px-6">
+        {icon && <SectionIcon icon={icon} />}
         <h2
           className={`font-bold mb-6 cg-animate-fade-up ${dark ? "text-white" : "text-[#142033]"}`}
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 3.6vw, 36px)" }}
@@ -311,11 +420,6 @@ function StageCardsSection() {
               }`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
-              {i === 0 && (
-                <span className="inline-block w-fit px-2.5 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase mb-3">
-                  Priority
-                </span>
-              )}
               <h3 className="font-bold text-lg md:text-xl text-[#142033] mb-2">{card.title}</h3>
               <p className="text-[#526176] text-sm md:text-base leading-relaxed mb-5 flex-1">{card.body}</p>
               <a
@@ -375,7 +479,7 @@ function QuestionsSection() {
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-white text-base leading-snug pt-0.5">{q}</p>
+              <p className="text-white text-lg md:text-xl font-semibold leading-snug pt-0.5">{q}</p>
             </div>
           ))}
         </div>
@@ -399,6 +503,7 @@ function InterviewSplitSection() {
   return (
     <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[1100px] mx-auto px-6">
+        <div className="flex justify-center"><SectionIcon icon={IconChatBubble} /></div>
         <h2
           className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
@@ -437,6 +542,7 @@ function StageMarkersSection() {
   return (
     <section className="bg-[#F7FAFC] py-10 md:py-14">
       <div className="max-w-[900px] mx-auto px-6">
+        <div className="flex justify-center"><SectionIcon icon={IconArrowRight} /></div>
         <h2
           className="font-bold text-[#142033] text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
@@ -545,67 +651,6 @@ function InstructorSection() {
               {cgInstructor.ctaLabel}
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- Section 17: Balajee's LinkedIn proof ----------
-function LinkedInProofSection() {
-  return (
-    <section className="bg-[#0A1628] py-10 md:py-14">
-      <div className="max-w-[1000px] mx-auto px-6">
-        <h2
-          className="font-bold text-white text-center mb-3"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
-        >
-          Balajee Seshadri on LinkedIn
-        </h2>
-        <p className="text-[#B8C4D3] text-center max-w-2xl mx-auto mb-10">
-          Balajee Seshadri shares practical, first-hand observations on Core Electronics careers,
-          fundamentals, internships, interviews, and how AI is changing the field.
-        </p>
-
-        {/* Profile screenshot placeholder */}
-        <div className="rounded-xl border border-white/10 bg-white/5 aspect-[16/5] flex items-center justify-center mb-8 text-[#8393A6] text-sm">
-          [ LinkedIn profile screenshot + follower count — place image at /public/images/balajee-linkedin-profile.png ]
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5 mb-8">
-          {cgInstructorLinkedInPosts.map((post, i) => (
-            <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5 flex flex-col">
-              <IconLinkedIn />
-              <p className="text-[#B8C4D3] text-sm leading-relaxed mt-3 mb-4 flex-1">{post.summary}</p>
-              <a
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F97316] text-sm font-semibold hover:text-[#F97316]/80"
-              >
-                View post →
-              </a>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col items-center gap-4">
-          <a
-            href={cgEvent.instructorLinkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("linkedin_profile_click")}
-            className="text-[#B8C4D3] text-sm underline underline-offset-2 hover:text-white"
-          >
-            View Balajee Seshadri's LinkedIn Profile
-          </a>
-          <a
-            href={cgEvent.checkoutUrl}
-            onClick={() => track("linkedin_proof_cta_click")}
-            className="inline-block px-7 py-3.5 rounded-md bg-[#1677FF] hover:bg-[#0B5ED7] text-white font-bold text-base transition-colors"
-          >
-            Register for the Live Session
-          </a>
         </div>
       </div>
     </section>
@@ -831,6 +876,7 @@ function TrustStatementSection() {
   return (
     <section className="bg-[#081525] py-10 md:py-14">
       <div className="max-w-[800px] mx-auto px-6 text-center">
+        <div className="flex justify-center"><SectionIcon icon={IconShield} /></div>
         <h2
           className="font-bold text-white mb-6"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
@@ -1055,14 +1101,21 @@ function StickyBar() {
         </div>
 
         {/* Mobile */}
-        <div className="md:hidden flex flex-col gap-2">
-          <div className="flex items-center justify-between text-xs">
-            <span className="text-white font-semibold">
+        <div className="md:hidden flex flex-col gap-2.5">
+          <div className="flex items-center justify-between">
+            <span className="text-white font-semibold text-xs">
               {cgEvent.date.replace(", 2026", "")} · {cgEvent.time.split("–")[0].trim()}
             </span>
-            <span className="text-[#F97316] font-semibold" style={{ fontFamily: "var(--font-plex-mono), monospace" }}>
-              {time.days}d {time.hours}h {time.minutes}m {time.seconds}s
-            </span>
+            <span className="text-[#F97316] text-[10px] font-bold uppercase tracking-wide">Closes In</span>
+          </div>
+          <div className="flex items-center justify-center gap-1">
+            <CountdownUnit value={time.days} label="Days" size="sm" />
+            <span className="text-white/30 -mt-2">:</span>
+            <CountdownUnit value={time.hours} label="Hrs" size="sm" />
+            <span className="text-white/30 -mt-2">:</span>
+            <CountdownUnit value={time.minutes} label="Min" size="sm" />
+            <span className="text-white/30 -mt-2">:</span>
+            <CountdownUnit value={time.seconds} label="Sec" size="sm" />
           </div>
           <div className="flex items-center justify-between gap-3">
             <span className="text-[#F97316] font-extrabold text-xl">₹{cgEvent.price}</span>
@@ -1130,17 +1183,18 @@ export default function CareerGuidanceSessionPage() {
 
       <Header />
       <Hero />
+      <TestimonialsSection />
 
       <TextSection
         heading={cgSection2.heading}
         paragraphs={cgSection2.paragraphs}
         ctaLabel={cgSection2.ctaLabel}
         trackId="next_step"
+        icon={IconMap}
       />
 
       <StageCardsSection />
       <QuestionsSection />
-      <InterviewSplitSection />
 
       <TextSection
         heading={cgSpecialization.heading}
@@ -1148,6 +1202,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgSpecialization.ctaLabel}
         bg="bg-[#F7FAFC]"
         trackId="specialization"
+        icon={IconCompass}
       />
 
       <TextSection
@@ -1156,6 +1211,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgFundamentals.ctaLabel}
         bg="bg-[#F4F8FC]"
         trackId="fundamentals"
+        icon={IconBook}
       />
 
       <TextSection
@@ -1164,6 +1220,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgRewardedSkill.ctaLabel}
         dark
         trackId="rewarded_skill"
+        icon={IconTrophy}
       />
 
       <StageMarkersSection />
@@ -1174,6 +1231,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgTier3.ctaLabel}
         bg="bg-[#F4F8FC]"
         trackId="tier3"
+        icon={IconBuilding}
       />
 
       <TextSection
@@ -1182,6 +1240,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgEnglish.ctaLabel}
         bg="bg-[#F7FAFC]"
         trackId="english"
+        icon={IconChatBubble}
       />
 
       <TextSection
@@ -1190,6 +1249,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgCoaching.ctaLabel}
         bg="bg-[#F4F8FC]"
         trackId="coaching"
+        icon={IconGraduationCap}
       />
 
       <TextSection
@@ -1198,6 +1258,7 @@ export default function CareerGuidanceSessionPage() {
         ctaLabel={cgInternship.ctaLabel}
         bg="bg-[#F7FAFC]"
         trackId="internship"
+        icon={IconBriefcase}
       />
 
       <TextSection
@@ -1207,17 +1268,17 @@ export default function CareerGuidanceSessionPage() {
         dark
         bg="bg-[#081525]"
         trackId="ai_future"
+        icon={IconCpu}
       />
 
       <ConfusionsSection />
       <InstructorSection />
-      <LinkedInProofSection />
       <StudentLinkedInProofSection />
-      <TestimonialsSection />
       <OfferSection />
       <FoundationCoursesSlider />
       <TrustStatementSection />
       <HowToRegisterSection />
+      <InterviewSplitSection />
       <FaqSection />
       <FinalCtaSection />
       <CgFooter />
