@@ -236,7 +236,7 @@ export const cgConfusions: string[] = [
 
 export const cgInstructor = {
   name: "Balajee Seshadri",
-  photo: "/images/balajee-formal.png",
+  photo: "/images/balajee-casual.png",
   bio: [
     "40+ years in the Electronics Industry. Professional experience in India, plus work in the USA, Germany, and Canada.",
     "Balajee Seshadri writes regularly about Electronics careers, industry expectations, fundamentals, modern skills, internships, interviews, and the real problems students face.",

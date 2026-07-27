@@ -259,3 +259,20 @@ body {
     clip-path: none;
   }
 }
+
+@keyframes cg-underline-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.cg-underline-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cg-underline-draw 1s cubic-bezier(0.65, 0, 0.35, 1) 0.9s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-underline-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

@@ -261,6 +261,62 @@ function Header() {
 }
 
 // ---------- Hero ----------
+function HandDrawnUnderline() {
+  return (
+    <svg
+      className="absolute left-0 -bottom-1.5 w-full h-3 pointer-events-none"
+      viewBox="0 0 200 12"
+      preserveAspectRatio="none"
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* soft blurred glow pass behind the stroke */}
+      <path
+        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
+        stroke="#22C55E"
+        strokeWidth="7"
+        strokeLinecap="round"
+        opacity="0.5"
+        style={{ filter: "blur(3px)" }}
+        pathLength={1}
+        className="cg-underline-path"
+      />
+      {/* crisp hand-drawn stroke on top */}
+      <path
+        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
+        stroke="#4ADE80"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        style={{ filter: "drop-shadow(0 0 6px rgba(74,222,128,0.9))" }}
+        pathLength={1}
+        className="cg-underline-path"
+      />
+    </svg>
+  );
+}
+
+function HandDrawnUnderline() {
+  return (
+    <svg
+      className="absolute left-0 -bottom-1.5 w-full h-3"
+      viewBox="0 0 200 12"
+      preserveAspectRatio="none"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        className="cg-underline-path"
+        pathLength="1"
+        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
+        stroke="#22C55E"
+        strokeWidth="4"
+        strokeLinecap="round"
+        style={{ filter: "drop-shadow(0 0 6px rgba(34,197,94,0.9))" }}
+      />
+    </svg>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative bg-[#081525] pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
@@ -291,39 +347,32 @@ function Hero() {
             {cgHero.headline}
           </h1>
 
-          <div
-            className="rounded-lg border border-white/15 bg-white/[0.06] px-5 py-4 mb-3 cg-animate-fade-up"
+          <p
+            className="text-[#D8E0EA] italic text-lg md:text-2xl font-medium leading-snug mb-4 cg-animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
-            <p className="text-white font-bold text-lg md:text-xl leading-snug">{cgHero.subhead}</p>
-          </div>
-          <div
-            className="rounded-lg border border-white/10 bg-white/[0.03] px-5 py-4 mb-3 cg-animate-fade-up"
+            "Mr. Balajee Sir will answer{" "}
+            <span className="relative inline-block whitespace-nowrap not-italic font-semibold text-white">
+              10+ important doubts
+              <HandDrawnUnderline />
+            </span>{" "}
+            regarding Core Electronics Industry career."
+          </p>
+
+          <p
+            className="text-[#B8C4D3] text-base md:text-lg leading-relaxed mb-8 cg-animate-fade-up"
             style={{ animationDelay: "0.3s" }}
           >
-            <p className="text-[#F97316] font-bold text-xs uppercase tracking-wide mb-2.5">This is for you if you are</p>
-            <ul className="flex flex-col gap-2.5">
-              {[
-                { icon: IconBriefcase, text: "Final-year students" },
-                { icon: IconGraduationCap, text: "Students who just finished 12th, joining ECE, EEE, EIE, BME or Mechatronics" },
-                { icon: IconTrophy, text: "Recent graduates" },
-                { icon: IconBook, text: "2nd and 3rd year students" },
-              ].map(({ icon: Icon, text }, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <span className="mt-0.5"><Icon /></span>
-                  <span className="text-white font-semibold text-base md:text-lg leading-snug">{text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {cgHero.subhead}
+          </p>
+
           <div
-            className="rounded-lg border border-[#F97316]/30 bg-[#F97316]/10 px-5 py-4 mb-8 cg-animate-fade-up"
+            className="rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 mb-8 max-w-md cg-animate-fade-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <p className="text-white font-bold text-base md:text-lg leading-snug">{cgHero.instructorLine}</p>
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-white/5 p-5 mb-8 max-w-sm">
+            <p className="text-white font-semibold text-sm md:text-base leading-snug mb-4">
+              {cgHero.instructorLine}
+            </p>
             <div className="flex items-center gap-2 text-white mb-2">
               <IconCalendar />
               <span className="font-semibold text-sm md:text-base">{cgEvent.date}</span>
@@ -332,8 +381,8 @@ function Hero() {
               <IconClock />
               <span className="font-semibold text-sm md:text-base">{cgEvent.time}</span>
             </div>
-            <p className="text-[#8393A6] text-sm">{cgEvent.format}</p>
-            <p className="text-[#F97316] font-bold text-lg mt-2">Registration Fee: ₹{cgEvent.price}</p>
+            <p className="text-[#8393A6] text-sm mb-2">{cgEvent.format}</p>
+            <p className="text-[#F97316] font-bold text-lg">Registration Fee: ₹{cgEvent.price}</p>
           </div>
 
           <a
