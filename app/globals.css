@@ -313,3 +313,21 @@ body {
     box-shadow: 0 0 0 3px #F97316;
   }
 }
+/* Add will-change hints so the browser proactively GPU-promotes these,
+   instead of Lighthouse flagging them as main-thread work */
+.cg-animate-fade-up,
+.cg-animate-blur-in,
+.cg-animate-clip-reveal,
+.cg-question-number,
+.cg-tilt-hover {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after the one-shot entrance animations finish,
+   so the browser doesn't keep an unnecessary GPU layer alive forever */
+.cg-animate-fade-up,
+.cg-animate-blur-in,
+.cg-animate-clip-reveal,
+.cg-question-number {
+  animation-fill-mode: forwards;
+}
