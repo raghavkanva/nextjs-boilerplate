@@ -19,16 +19,12 @@ export const cgEvent = {
 
 export const cgHero = {
   label: "LIVE ONLINE SESSION",
-  headline: "Demystifying the Myths of the Core Electronics Industry Career",,
-  subhead:
-    "Job opportunities, starting pay, choosing a specialization, getting an internship, clearing interviews, and where Artificial Intelligence fits in. Straight talk, not motivation.",
-  audienceLine:
-    "For final-year students, students who just finished 12th and chose ECE, EEE, EIE, BME or Mechatronics, recent graduates, and 2nd and 3rd year students.",
-  instructorLine:
-    "Conducted by Balajee Seshadri. 40+ years in the Electronics Industry, including work in the USA, Germany, and Canada.",
+  headline: "Demystifying the Myths of the Core Electronics Industry Career",
+  subhead: "Jobs, salary, specialization, interviews, and AI. Straight talk, no motivation speech.",
+  audienceLine: "For final-year, first-year, recent graduates, and 2nd/3rd year Electronics students.",
+  instructorLine: "By Balajee Seshadri. 40+ years in Electronics, across India, USA, Germany, and Canada.",
   ctaLabel: "Register for the ₹99 Session",
-  benefitLine:
-    "One-time fee · 1-month recording access included · 1-month Electronics Foundation course access worth ₹999 included",
+  benefitLine: "1-month recording + 1-month Foundation course worth ₹999, both included.",
 };
 
 export const cgSection2 = {
