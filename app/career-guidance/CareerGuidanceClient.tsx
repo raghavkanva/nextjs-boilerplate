@@ -1153,7 +1153,7 @@ function FaqSection() {
 // ---------- Footer ----------
 function CgFooter() {
   return (
-    <footer className="bg-[#16283D] pt-14 pb-44 sm:pb-36 md:pb-28 px-6 relative">
+    <footer className="bg-[#16283D] pt-14 pb-96 sm:pb-80 md:pb-28 px-6 relative">
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none overflow-hidden">
         <div
           className="absolute inset-0"
