@@ -279,7 +279,7 @@ function Hero() {
           regarding Core Electronics Industry career."
         </p>
 
-        <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-5 md:p-6 mb-6 max-w-md mx-auto text-left">
+        <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] p-5 md:p-6 mb-6 max-w-md mx-auto text-left">
           <p className="text-white font-semibold text-sm md:text-base leading-snug mb-4">
             {cgHero.instructorLine}
           </p>
@@ -366,7 +366,7 @@ function QuestionsSection() {
             return (
               <div
                 key={i}
-                className={`cg-tilt-hover cg-question-box group flex items-start gap-4 rounded-lg border bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] px-5 py-4 cg-animate-clip-reveal ${
+                className={`cg-tilt-hover cg-question-box group flex items-start gap-4 rounded-lg border bg-[#0F1D2E] px-5 py-4 cg-animate-clip-reveal ${
                   isEdge ? "border-[#F97316]/40 shadow-[0_0_24px_-10px_rgba(249,115,22,0.5)]" : "border-white/10"
                 }`}
                 style={{ animationDelay: `${clusterDelay}s` }}
@@ -509,7 +509,7 @@ function YourStartingLineSection() {
             return (
               <div
                 key={i}
-                className={`cg-tilt-hover snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 flex flex-col cg-animate-fade-up ${
+                className={`cg-tilt-hover snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 flex flex-col cg-animate-fade-up ${
                   i === 0 ? "border-2 border-[#F97316]/40" : ""
                 }`}
                 style={{ animationDelay: `${i * 0.06}s` }}
@@ -549,7 +549,7 @@ function ConfusionsSection() {
           {cgConfusions.map((c, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 rounded-lg border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] px-4 py-3 cg-animate-fade-up"
+              className="flex items-center gap-3 rounded-lg border-2 border-white/20 bg-[#0F1D2E] px-4 py-3 cg-animate-fade-up"
               style={{ animationDelay: `${i * 0.04}s` }}
             >
               <IconX />
@@ -582,7 +582,7 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 flex flex-col">
+    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 flex flex-col">
       <div className="flex items-center gap-1.5 mb-0.5 min-h-[24px]">
         <span
           className="font-bold text-white text-base"
@@ -681,7 +681,7 @@ function WhatStudentsSaySection() {
 // ---------- Straight Answers, One at a Time (8 standalone topic sections) ----------
 function TopicSectionBlock({ topic, index }: { topic: (typeof cgTopicSections)[number]; index: number }) {
   return (
-    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 flex flex-col">
+    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 flex flex-col">
       <h3 className="font-display font-bold text-lg text-white mb-3 leading-snug">{topic.heading}</h3>
 
       <div className="flex flex-col gap-3 mb-5 flex-1">
@@ -910,7 +910,7 @@ function InterviewSplitSection() {
         </h2>
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {cgInterviewSplit.columns.map((col, i) => (
-            <div key={i} className="rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 md:p-8">
+            <div key={i} className="rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 md:p-8">
               <h3 className="font-bold text-[#F97316] text-lg md:text-xl mb-3 uppercase tracking-wide">
                 {col.title}
               </h3>
@@ -982,7 +982,7 @@ function WhatYouGetSection() {
     <section id="register" className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[1100px] mx-auto px-6">
-        <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 md:p-10">
+        <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 md:p-10">
           <h2
             className="font-bold text-white text-center mb-10"
             style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
@@ -998,14 +998,14 @@ function WhatYouGetSection() {
           <div className="max-w-[720px] mx-auto">
             <div className="flex flex-col gap-4 mb-10">
               {cgWhatYouGet.items.map((item, i) => (
-                <div key={i} className="rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6">
+                <div key={i} className="rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6">
                   <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
                   <p className="text-[#B8C4D3] text-base leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] p-6 mb-6">
+            <div className="rounded-md border-2 border-white/20 bg-[#0F1D2E] p-6 mb-6">
               <h3 className="font-bold text-white text-lg mb-2">{cgWhatYouGet.subsectionHeading}</h3>
               <p className="text-[#B8C4D3] text-base leading-relaxed">{cgWhatYouGet.subsectionBody}</p>
             </div>
@@ -1116,7 +1116,7 @@ function FaqSection() {
         </h2>
         <div className="flex flex-col gap-3 mb-8">
           {cgFaqs.map((faq, i) => (
-            <div key={i} className="rounded-lg border-2 border-white/20 bg-[#0F1D2E] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden">
+            <div key={i} className="rounded-lg border-2 border-white/20 bg-[#0F1D2E] overflow-hidden">
               <button
                 onClick={() => {
                   const next = open === i ? null : i;
