@@ -1052,7 +1052,7 @@ function CgFooter() {
         <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
           Landing page, SEO & AI Discoverability by{" "}
           <a
-            href="https://raghavkanva.com"
+            href="https://www.linkedin.com/in/raghavkanva/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#4A5568] hover:text-[#F97316] transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"
