@@ -19,7 +19,7 @@ export const cgEvent = {
 
 export const cgHero = {
   label: "LIVE ONLINE SESSION",
-  headline: "Your Core Electronics Career Questions, Answered Honestly",
+  headline: "Demystifying the Myths of the Core Electronics Industry Career",
   subhead:
     "Job opportunities, starting pay, choosing a specialization, getting an internship, clearing interviews, and where Artificial Intelligence fits in. Straight talk, not motivation.",
   audienceLine:

@@ -1048,7 +1048,18 @@ function CgFooter() {
           <a href="/refund-policy" className="hover:text-white">Refund Policy</a>
         </div>
 
-        <p className="text-[#526176] text-xs">© 2026 eTalVis. All rights reserved.</p>
+        <p className="text-[#526176] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
+        <p className="text-[#4A5568] text-[11px]">
+          SEO & AI Discoverability, Landing page by{" "}
+          <a
+            href="https://www.linkedin.com/in/raghavkanva/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#4A5568] hover:text-[#F97316] transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"
+          >
+            Raghav Kanva
+          </a>
+        </p>
       </div>
     </footer>
   );
@@ -1102,11 +1113,8 @@ function StickyBar() {
 
         {/* Mobile */}
         <div className="md:hidden flex flex-col gap-2.5">
-          <div className="flex items-center justify-between">
-            <span className="text-white font-semibold text-xs">
-              {cgEvent.date.replace(", 2026", "")} · {cgEvent.time.split("–")[0].trim()}
-            </span>
-            <span className="text-[#F97316] text-[10px] font-bold uppercase tracking-wide">Closes In</span>
+          <div className="text-white font-semibold text-xs">
+            {cgEvent.date.replace(", 2026", "")} · {cgEvent.time.split("–")[0].trim()}
           </div>
           <div className="flex items-center justify-center gap-1">
             <CountdownUnit value={time.days} label="Days" size="sm" />
@@ -1117,6 +1125,12 @@ function StickyBar() {
             <span className="text-white/30 -mt-2">:</span>
             <CountdownUnit value={time.seconds} label="Sec" size="sm" />
           </div>
+          <p
+            className="text-center text-[#F97316] text-xs font-bold uppercase tracking-wide cg-animate-pulse-dot"
+            style={{ textShadow: "0 0 12px rgba(249,115,22,0.7)" }}
+          >
+            Registration Closes Soon
+          </p>
           <div className="flex items-center justify-between gap-3">
             <span className="text-[#F97316] font-extrabold text-xl">₹{cgEvent.price}</span>
             <a
