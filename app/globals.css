@@ -293,3 +293,23 @@ body {
     transform: none;
   }
 }
+@keyframes cg-border-cycle {
+  0%   { box-shadow: 0 0 0 3px #F97316; }
+  14%  { box-shadow: 0 0 0 3px #EF4444; }
+  28%  { box-shadow: 0 0 0 3px #F59E0B; }
+  42%  { box-shadow: 0 0 0 3px #22C55E; }
+  57%  { box-shadow: 0 0 0 3px #EAB308; }
+  71%  { box-shadow: 0 0 0 3px #3B82F6; }
+  85%  { box-shadow: 0 0 0 3px #0891B2; }
+  100% { box-shadow: 0 0 0 3px #F97316; }
+}
+.cg-border-cycle {
+  animation: cg-border-cycle 3.5s steps(7) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-border-cycle {
+    animation: none;
+    box-shadow: 0 0 0 3px #F97316;
+  }
+}
