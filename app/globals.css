@@ -206,3 +206,56 @@ body {
     opacity: 1;
   }
 }
+@keyframes cg-blur-in {
+  from { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+.cg-animate-blur-in {
+  animation: cg-blur-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cg-clip-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.cg-animate-clip-reveal {
+  animation: cg-clip-reveal 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.cg-tilt-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.cg-tilt-hover:hover {
+  transform: perspective(600px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(8, 21, 37, 0.25);
+}
+
+.cg-cta-glow {
+  position: relative;
+}
+.cg-cta-glow::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 8px;
+  border: 2px solid #1677FF;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.cg-cta-glow:hover::after {
+  opacity: 0.5;
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-animate-blur-in, .cg-animate-clip-reveal, .cg-tilt-hover, .cg-cta-glow::after {
+    animation: none;
+    transition: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}
