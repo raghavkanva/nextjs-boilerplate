@@ -299,12 +299,12 @@ body {
   28%  { box-shadow: 0 0 0 3px #F59E0B; }
   42%  { box-shadow: 0 0 0 3px #22C55E; }
   57%  { box-shadow: 0 0 0 3px #EAB308; }
-  71%  { box-shadow: 0 0 0 3px #173b75; }
+  71%  { box-shadow: 0 0 0 3px #3B82F6; }
   85%  { box-shadow: 0 0 0 3px #0891B2; }
   100% { box-shadow: 0 0 0 3px #F97316; }
 }
 .cg-border-cycle {
-  animation: cg-border-cycle 14s steps(7) infinite;
+  animation: cg-border-cycle 28s steps(7) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
