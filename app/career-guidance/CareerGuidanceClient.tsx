@@ -14,6 +14,7 @@ import {
   cgConfusions,
   cgInstructor,
   cgSessionNotFor,
+  cgWhoIsThisFor,
   cgTopicSectionsHeading,
   cgTopicSections,
   cgReviewCards,
@@ -273,7 +274,7 @@ function Hero() {
           "Mr. Balajee Sir will answer{" "}
           <span className="relative inline-block whitespace-nowrap not-italic font-semibold text-white">
             10+ important doubts
-            <HandDrawnUnderline color="#F97316" />
+            <HandDrawnUnderline color="#4ADE80" />
           </span>{" "}
           regarding Core Electronics Industry career."
         </p>
@@ -399,7 +400,7 @@ function QuestionsSection() {
 // ---------- Why This Session Exists ----------
 function WhySessionExistsSection() {
   return (
-    <section className="bg-[#16283D] py-16 md:py-28 relative overflow-hidden">
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[720px] mx-auto px-6">
         <h2
@@ -466,6 +467,31 @@ function WhySessionExistsSection() {
 }
 
 // ---------- Your Starting Line (renamed Stage Cards) ----------
+// ---------- Who Is This For? ----------
+function WhoIsThisForSection() {
+  return (
+    <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
+      <GridOverlay />
+      <div className="max-w-[700px] mx-auto px-6 text-center">
+        <h2
+          className="font-bold text-white mb-8"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
+        >
+          {cgWhoIsThisFor.heading}
+        </h2>
+        <ul className="flex flex-col gap-4 text-left max-w-lg mx-auto">
+          {cgWhoIsThisFor.points.map((point, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <IconCheck />
+              <span className="text-white text-base md:text-lg">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function YourStartingLineSection() {
   return (
     <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
@@ -477,13 +503,13 @@ function YourStartingLineSection() {
         >
           Your Starting Line
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory cg-scrollbar-hide pb-4">
           {cgStageCards.map((card, i) => {
             const Icon = stageIconMap[card.icon];
             return (
               <div
                 key={i}
-                className={`cg-tilt-hover rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col cg-animate-fade-up ${
+                className={`cg-tilt-hover snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[30%] rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col cg-animate-fade-up ${
                   i === 0 ? "border-2 border-[#F97316]/40" : ""
                 }`}
                 style={{ animationDelay: `${i * 0.06}s` }}
@@ -655,27 +681,23 @@ function WhatStudentsSaySection() {
 // ---------- Straight Answers, One at a Time (8 standalone topic sections) ----------
 function TopicSectionBlock({ topic, index }: { topic: (typeof cgTopicSections)[number]; index: number }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 mb-6">
-      <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-4">{topic.heading}</h3>
+    <div className="snap-center shrink-0 w-[82%] sm:w-[46%] lg:w-[30%] rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col">
+      <h3 className="font-display font-bold text-lg text-white mb-3 leading-snug">{topic.heading}</h3>
 
-      {topic.layout === "twoColumn" && topic.columns ? (
-        <div className="grid md:grid-cols-2 gap-5 mb-5">
-          {topic.columns.map((col, i) => (
-            <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
-              <h4 className="font-bold text-[#F97316] text-sm uppercase tracking-wide mb-2">{col.title}</h4>
-              <p className="text-[#B8C4D3] text-base leading-relaxed">{col.body}</p>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col gap-3 mb-5">
-          {topic.paragraphs.map((p, i) => (
-            <p key={i} className="text-[#B8C4D3] text-base leading-relaxed">
-              {p}
-            </p>
-          ))}
-        </div>
-      )}
+      <div className="flex flex-col gap-3 mb-5 flex-1">
+        {topic.layout === "twoColumn" && topic.columns
+          ? topic.columns.map((col, i) => (
+              <p key={i} className="text-[#B8C4D3] text-sm leading-relaxed">
+                <span className="font-bold text-[#F97316]">{col.title}: </span>
+                {col.body}
+              </p>
+            ))
+          : topic.paragraphs.map((p, i) => (
+              <p key={i} className="text-[#B8C4D3] text-sm leading-relaxed">
+                {p}
+              </p>
+            ))}
+      </div>
 
       <a
         href={cgEvent.checkoutUrl}
@@ -692,16 +714,18 @@ function TopicSectionsGroup() {
   return (
     <section className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
-      <div className="max-w-[800px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgTopicSectionsHeading}
         </h2>
-        {cgTopicSections.map((topic, i) => (
-          <TopicSectionBlock key={i} topic={topic} index={i} />
-        ))}
+        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory cg-scrollbar-hide pb-4">
+          {cgTopicSections.map((topic, i) => (
+            <TopicSectionBlock key={i} topic={topic} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -723,18 +747,18 @@ function FoundationCoursesSlider() {
         {cgFoundationCourses.map((course) => (
           <div
             key={course.number}
-            className="snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[31%] rounded-2xl border border-white/10 bg-white/5 p-6"
+            className="snap-center shrink-0 w-[78%] sm:w-[46%] lg:w-[31%] rounded-2xl border border-[#E5E0D8] bg-[#F4EFE6] p-6"
           >
             <div className="flex items-start justify-between mb-4">
-              <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase">
+              <span className="px-3 py-1 rounded-full bg-[#F97316]/10 text-[#C2650A] text-xs font-bold uppercase">
                 {course.tag}
               </span>
-              <span className="text-4xl font-extrabold text-white/10" style={{ fontFamily: "var(--font-display)" }}>
+              <span className="text-4xl font-extrabold text-[#E5DDD0]" style={{ fontFamily: "var(--font-display)" }}>
                 {String(course.number).padStart(2, "0")}
               </span>
             </div>
-            <h3 className="font-bold text-lg text-white mb-2">{course.title}</h3>
-            <p className="text-[#B8C4D3] text-sm leading-relaxed">{course.description}</p>
+            <h3 className="font-bold text-lg text-[#142033] mb-2">{course.title}</h3>
+            <p className="text-[#526176] text-sm leading-relaxed">{course.description}</p>
           </div>
         ))}
       </div>
@@ -958,51 +982,53 @@ function WhatYouGetSection() {
     <section id="register" className="bg-[#16283D] py-10 md:py-14 relative overflow-hidden">
       <GridOverlay />
       <div className="max-w-[1100px] mx-auto px-6">
-        <h2
-          className="font-bold text-white text-center mb-10"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
-        >
-          {cgWhatYouGet.heading}
-          <span className="relative inline-block text-[#F97316]">
-            {cgWhatYouGet.headingHighlight}
-            <HandDrawnUnderline color="#F97316" />
-          </span>
-          {cgWhatYouGet.headingAfter}
-        </h2>
-
-        <div className="max-w-[720px] mx-auto">
-          <div className="flex flex-col gap-4 mb-10">
-            {cgWhatYouGet.items.map((item, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6">
-                <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
-                <p className="text-[#B8C4D3] text-base leading-relaxed">{item.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-white/5 p-6 mb-6">
-            <h3 className="font-bold text-white text-lg mb-2">{cgWhatYouGet.subsectionHeading}</h3>
-            <p className="text-[#B8C4D3] text-base leading-relaxed">{cgWhatYouGet.subsectionBody}</p>
-          </div>
-        </div>
-
-        <p className="text-center text-white font-semibold text-lg mb-2">All 10 Foundation Courses Included</p>
-        <FoundationCoursesSlider />
-
-        <div className="text-center mt-10">
-          <p className="font-display font-extrabold text-[#F97316] mb-1" style={{ fontSize: "48px" }}>
-            ₹{cgEvent.price}
-          </p>
-          <p className="text-[#8393A6] text-sm uppercase tracking-wide font-semibold mb-6">
-            One-Time Session Registration
-          </p>
-          <a
-            href={cgEvent.checkoutUrl}
-            onClick={() => track("what_you_get_cta_click")}
-            className="cg-cta-glow inline-block w-full sm:w-auto px-10 py-4 rounded-md bg-[#1677FF] hover:bg-[#0B5ED7] text-white font-bold text-lg transition-colors"
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-10">
+          <h2
+            className="font-bold text-white text-center mb-10"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
           >
-            {cgWhatYouGet.ctaLabel}
-          </a>
+            {cgWhatYouGet.heading}
+            <span className="relative inline-block text-[#F97316]">
+              {cgWhatYouGet.headingHighlight}
+              <HandDrawnUnderline color="#F97316" />
+            </span>
+            {cgWhatYouGet.headingAfter}
+          </h2>
+
+          <div className="max-w-[720px] mx-auto">
+            <div className="flex flex-col gap-4 mb-10">
+              {cgWhatYouGet.items.map((item, i) => (
+                <div key={i} className="rounded-xl border border-white/10 bg-white/[0.06] p-6">
+                  <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
+                  <p className="text-[#B8C4D3] text-base leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-white/[0.06] p-6 mb-6">
+              <h3 className="font-bold text-white text-lg mb-2">{cgWhatYouGet.subsectionHeading}</h3>
+              <p className="text-[#B8C4D3] text-base leading-relaxed">{cgWhatYouGet.subsectionBody}</p>
+            </div>
+          </div>
+
+          <p className="text-center text-white font-semibold text-lg mb-2">All 10 Foundation Courses Included</p>
+          <FoundationCoursesSlider />
+
+          <div className="text-center mt-10">
+            <p className="font-display font-extrabold text-[#F97316] mb-1" style={{ fontSize: "48px" }}>
+              ₹{cgEvent.price}
+            </p>
+            <p className="text-[#8393A6] text-sm uppercase tracking-wide font-semibold mb-6">
+              One-Time Session Registration
+            </p>
+            <a
+              href={cgEvent.checkoutUrl}
+              onClick={() => track("what_you_get_cta_click")}
+              className="cg-cta-glow inline-block w-full sm:w-auto px-10 py-4 rounded-md bg-[#1677FF] hover:bg-[#0B5ED7] text-white font-bold text-lg transition-colors"
+            >
+              {cgWhatYouGet.ctaLabel}
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1164,7 +1190,7 @@ function CgFooter() {
         <p className="text-[#7A8CA3] text-sm sm:text-base font-medium">
           Landing page, SEO & AI Discoverability by{" "}
           <a
-            href="https://raghavkanva.com"
+            href="https://www.linkedin.com/in/raghavkanva"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("footer_credit_link_click")}
@@ -1328,6 +1354,7 @@ export default function CareerGuidanceClient() {
       <Hero />
       <QuestionsSection />
       <WhySessionExistsSection />
+      <WhoIsThisForSection />
       <YourStartingLineSection />
       <WhatStudentsSaySection />
       <ConfusionsSection />

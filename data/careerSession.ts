@@ -168,6 +168,16 @@ export const cgInstructor = {
   ctaLabel: "Learn From 40+ Years of Industry Experience",
 };
 
+export const cgWhoIsThisFor = {
+  heading: "Who Is This For?",
+  points: [
+    "Final-year students preparing for placements",
+    "Students who just finished 12th and chose ECE, EEE, EIE, BME, or Mechatronics",
+    "First, second, and third-year Electronics students",
+    "Recent graduates searching for Core Electronics opportunities",
+  ],
+};
+
 export const cgSessionNotFor = {
   heading: "This Session Isn't For Everyone",
   intro:
