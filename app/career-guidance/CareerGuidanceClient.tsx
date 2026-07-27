@@ -246,7 +246,7 @@ function Header() {
     >
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Image src="/images/icon.png" alt="eTalVis" width={56} height={56} className="h-12 md:h-14 w-auto" />
+          <Image src="/images/icon.png" alt="eTalVis" width={72} height={72} className="h-16 md:h-[72px] w-auto" />
         </div>
         <a
           href={cgEvent.checkoutUrl}
@@ -260,23 +260,34 @@ function Header() {
   );
 }
 
+// ---------- Hero ----------
 function HandDrawnUnderline() {
   return (
     <svg
-      className="absolute left-0 -bottom-1.5 w-full h-3"
+      className="absolute left-0 -bottom-1.5 w-full h-3 pointer-events-none"
       viewBox="0 0 200 12"
       preserveAspectRatio="none"
       fill="none"
       aria-hidden="true"
     >
+      {/* soft blurred glow pass behind the stroke */}
       <path
-        className="cg-underline-path"
-        pathLength="1"
         d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
         stroke="#22C55E"
-        strokeWidth="4"
+        strokeWidth="7"
         strokeLinecap="round"
-        style={{ filter: "drop-shadow(0 0 6px rgba(34,197,94,0.9))" }}
+        opacity="0.5"
+        style={{ filter: "blur(3px)" }}
+        pathLength={1}
+      />
+      {/* crisp hand-drawn stroke on top */}
+      <path
+        d="M2 8 C 40 3, 80 10, 120 5 C 150 2, 175 9, 198 6"
+        stroke="#4ADE80"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        style={{ filter: "drop-shadow(0 0 6px rgba(74,222,128,0.9))" }}
+        pathLength={1}
       />
     </svg>
   );
@@ -284,7 +295,7 @@ function HandDrawnUnderline() {
 
 function Hero() {
   return (
-    <section className="relative bg-[#081525] pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
+    <section className="relative bg-[#081525] pt-28 pb-12 md:pt-32 md:pb-10 overflow-hidden">
       {/* subtle background details */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div
@@ -306,14 +317,14 @@ function Hero() {
           </span>
 
           <h1
-            className="text-white font-extrabold leading-[1.2] mb-5 cg-animate-blur-in"
+            className="text-white font-extrabold leading-[1.2] mb-3 cg-animate-blur-in"
             style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px, 4.2vw, 52px)", animationDelay: "0.1s" }}
           >
             {cgHero.headline}
           </h1>
 
           <p
-            className="text-[#D8E0EA] italic text-lg md:text-2xl font-medium leading-snug mb-4 cg-animate-fade-up"
+            className="text-[#D8E0EA] italic text-lg md:text-2xl font-medium leading-snug mb-3 cg-animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
             "Mr. Balajee Sir will answer{" "}
@@ -358,7 +369,18 @@ function Hero() {
             {cgHero.ctaLabel}
           </a>
 
-          <p className="text-sm text-[#8393A6] leading-relaxed">{cgHero.benefitLine}</p>
+          <ul className="flex flex-col gap-2">
+            {[
+              "One-time fee, no hidden charges",
+              "1-month recording access included",
+              "1-month Foundation course access worth ₹999 included",
+            ].map((item, i) => (
+              <li key={i} className="flex items-center gap-2.5">
+                <IconCheck />
+                <span className="text-white font-bold text-sm md:text-base">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="cg-animate-fade-up flex justify-center lg:justify-end pt-2" style={{ animationDelay: "0.25s" }}>
@@ -396,7 +418,7 @@ function TextSection({
   icon?: () => JSX.Element;
 }) {
   return (
-    <section className={`${bg ?? (dark ? "bg-[#0A1628]" : "bg-[#081525]")} py-10 md:py-14`}>
+    <section className={`${bg ?? (dark ? "bg-[#0A1628]" : "bg-[#081525]")} py-6 md:py-9`}>
       <div className="max-w-[800px] mx-auto px-6">
         {icon && <SectionIcon icon={icon} />}
         <h2
@@ -430,7 +452,7 @@ function TextSection({
 // ---------- Section 3: Stage cards ----------
 function StageCardsSection() {
   return (
-    <section className="bg-[#081525] py-12 md:py-16">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
@@ -467,7 +489,7 @@ function StageCardsSection() {
 // ---------- Section 4: Questions ----------
 function QuestionsSection() {
   return (
-    <section className="bg-[#081525] py-12 md:py-16 relative overflow-hidden">
+    <section className="bg-[#081525] py-6 md:py-9 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <div
           className="absolute inset-0"
@@ -479,7 +501,7 @@ function QuestionsSection() {
         />
       </div>
       <div className="relative max-w-[1000px] mx-auto px-6">
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#F97316]/40 bg-[#F97316]/10 text-[#F97316] text-xs font-bold uppercase tracking-wide mb-5">
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#F97316]/40 bg-[#F97316]/10 text-[#F97316] text-sm md:text-base font-bold uppercase tracking-wide mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] cg-animate-pulse-dot" />
           17 questions, one session
         </span>
@@ -487,28 +509,34 @@ function QuestionsSection() {
           className="font-bold text-white mb-3"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 42px)" }}
         >
-          This Session Addresses the Questions Students Commonly Ask
+          The Questions Every Electronics Student Asks
         </h2>
         <p className="text-[#B8C4D3] text-base md:text-lg mb-10 max-w-2xl">
           You've probably heard different answers to most of these already. Here's what actually gets covered.
         </p>
 
         <div className="grid md:grid-cols-2 gap-3 mb-10">
-          {cgQuestions.map((q, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.04] px-5 py-4 cg-animate-clip-reveal"
-              style={{ animationDelay: `${i * 0.05}s` }}
-            >
-              <span
-                className="font-bold text-[#F97316] text-lg shrink-0"
-                style={{ fontFamily: "var(--font-plex-mono), monospace" }}
+          {cgQuestions.map((q, i) => {
+            const isEdge = i === 0 || i === cgQuestions.length - 1;
+            const clusterDelay = Math.floor(i / 4) * 0.25 + (i % 4) * 0.08;
+            return (
+              <div
+                key={i}
+                className={`cg-tilt-hover cg-question-box group flex items-start gap-4 rounded-lg border bg-white/[0.04] px-5 py-4 cg-animate-clip-reveal ${
+                  isEdge ? "border-[#F97316]/40 shadow-[0_0_24px_-10px_rgba(249,115,22,0.5)]" : "border-white/10"
+                }`}
+                style={{ animationDelay: `${clusterDelay}s` }}
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-white text-lg md:text-xl font-semibold leading-snug pt-0.5">{q}</p>
-            </div>
-          ))}
+                <span
+                  className="cg-question-number font-bold text-[#F97316] text-lg shrink-0 group-hover:text-[#FDBA74] transition-colors duration-300"
+                  style={{ fontFamily: "var(--font-plex-mono), monospace", animationDelay: `${clusterDelay + 0.15}s` }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="text-white text-lg md:text-xl font-semibold leading-snug pt-0.5">{q}</p>
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center">
@@ -528,7 +556,7 @@ function QuestionsSection() {
 // ---------- Section 5: Interview split ----------
 function InterviewSplitSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[1100px] mx-auto px-6">
         <div className="flex justify-center"><SectionIcon icon={IconChatBubble} /></div>
         <h2
@@ -567,7 +595,7 @@ function InterviewSplitSection() {
 // ---------- Section 9: Stage markers ----------
 function StageMarkersSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[900px] mx-auto px-6">
         <div className="flex justify-center"><SectionIcon icon={IconArrowRight} /></div>
         <h2
@@ -608,7 +636,7 @@ function StageMarkersSection() {
 // ---------- Section 15: Confusions grid ----------
 function ConfusionsSection() {
   return (
-    <section className="bg-[#0A1628] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-6 md:py-9">
       <div className="max-w-[1000px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
@@ -651,7 +679,7 @@ function ConfusionsSection() {
 // ---------- Section 16: Instructor ----------
 function InstructorSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[900px] mx-auto px-6">
         <div className="grid md:grid-cols-[240px_1fr] gap-8 items-start">
           <div className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-white/10 mx-auto md:mx-0 max-w-[240px]">
@@ -687,7 +715,7 @@ function InstructorSection() {
 // ---------- Section 18: Student LinkedIn testimonial proof (separate) ----------
 function StudentLinkedInProofSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[1000px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-3"
@@ -726,7 +754,7 @@ function TestimonialsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-[#0A1628] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-6 md:py-9">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
@@ -775,7 +803,7 @@ function TestimonialsSection() {
 // ---------- Section 20: Offer ----------
 function OfferSection() {
   return (
-    <section id="register" className="bg-[#081525] py-10 md:py-14">
+    <section id="register" className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[700px] mx-auto px-6">
         <div className="rounded-2xl border-2 border-[#F97316]/40 bg-white/5 p-6 md:p-10 shadow-lg">
           <h2
@@ -832,7 +860,7 @@ function FoundationCoursesSlider() {
   };
 
   return (
-    <section className="bg-[#0A1628] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-6 md:py-9">
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-3"
@@ -903,7 +931,7 @@ function FoundationCoursesSlider() {
 // ---------- Section 22: Trust statement ----------
 function TrustStatementSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[800px] mx-auto px-6 text-center">
         <div className="flex justify-center"><SectionIcon icon={IconShield} /></div>
         <h2
@@ -932,7 +960,7 @@ function TrustStatementSection() {
 // ---------- Section 23: How to register ----------
 function HowToRegisterSection() {
   return (
-    <section className="bg-[#081525] py-10 md:py-14">
+    <section className="bg-[#081525] py-6 md:py-9">
       <div className="max-w-[700px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
@@ -969,7 +997,7 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#0A1628] py-10 md:py-14">
+    <section className="bg-[#0A1628] py-6 md:py-9">
       <div className="max-w-[800px] mx-auto px-6">
         <h2
           className="font-bold text-white text-center mb-10"
@@ -1051,7 +1079,7 @@ function CgFooter() {
   return (
     <footer className="bg-[#081525] pt-14 pb-44 sm:pb-36 md:pb-28 px-6">
       <div className="max-w-[1000px] mx-auto text-center">
-        <Image src="/images/icon.png" alt="eTalVis" width={64} height={64} className="h-16 w-auto mx-auto mb-4" />
+        <Image src="/images/icon.png" alt="eTalVis" width={88} height={88} className="h-20 w-auto mx-auto mb-4" />
         <p className="text-white font-semibold mb-1">Core Electronics Career Guidance</p>
         <p className="text-[#8393A6] text-sm mb-1">Conducted by Balajee Seshadri</p>
         <p className="text-[#8393A6] text-sm mb-6">
