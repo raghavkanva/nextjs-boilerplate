@@ -164,38 +164,64 @@ function Header() {
 }
 
 // ---------- Hero ----------
+function AnimatedUnderline() {
+  return (
+    <svg
+      className="absolute left-0 -bottom-2 w-full h-3 pointer-events-none"
+      viewBox="0 0 200 10"
+      preserveAspectRatio="none"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        className="cg-underline-draw"
+        d="M2 6 C 50 2, 100 8, 150 4 C 170 2, 185 6, 198 5"
+        stroke="#16A34A"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        pathLength={1}
+      />
+    </svg>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative bg-white pt-24 pb-14 md:pt-28 md:pb-16 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
-        <div className="flex justify-center mb-5">
+        <div className="flex justify-center mb-5 cg-hero-step-1">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-xs font-bold uppercase tracking-wide">
             <span className="w-2 h-2 rounded-full bg-white" />
             {cgHero.attendLiveBadge}
           </span>
         </div>
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8 cg-hero-step-1" style={{ animationDelay: "0.15s" }}>
           <span className="inline-block px-5 py-2.5 rounded-full bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-black">
             {cgHero.announcement}
           </span>
         </div>
 
         <h1
-          className="text-[#111827] font-bold text-center leading-[1.15] mb-5"
+          className="text-[#111827] font-bold text-center leading-[1.15] mb-5 cg-hero-step-2"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(30px, 4.5vw, 54px)" }}
         >
           {cgHero.headlinePlain}
-          <span className="text-[#16A34A]">{cgHero.headlineAccent}</span>
+          <span className="relative inline-block text-[#16A34A] cg-glow-sweep">
+            {cgHero.headlineAccent}
+            <AnimatedUnderline />
+          </span>
         </h1>
 
-        <p className="text-[#4B5563] text-lg md:text-xl text-center max-w-2xl mx-auto mb-2 leading-relaxed">
+        <p className="text-[#4B5563] text-lg md:text-xl text-center max-w-2xl mx-auto mb-2 leading-relaxed cg-hero-step-3">
           {cgHero.subhead}
         </p>
-        <p className="text-[#111827] font-semibold text-center mb-10">{cgHero.subline}</p>
+        <p className="text-[#111827] font-semibold text-center mb-10 cg-hero-step-3" style={{ animationDelay: "0.55s" }}>
+          {cgHero.subline}
+        </p>
 
-        <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center max-w-[950px] mx-auto">
+        <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center max-w-[950px] mx-auto cg-hero-step-4">
           <div className="flex flex-col items-center">
             <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-[6px]"
               style={{ borderImage: "linear-gradient(135deg, #D1D5DB, #16A34A) 1", borderStyle: "solid" }}
@@ -248,7 +274,7 @@ function Hero() {
               ))}
             </ul>
 
-            <CtaButton trackId="hero" className="w-full text-center" />
+            <CtaButton trackId="hero" className="w-full text-center cg-hero-step-5" />
             <p className="text-[#6B7280] text-xs text-center mt-3">{cgHero.microcopy}</p>
           </div>
         </div>
@@ -264,7 +290,7 @@ function QuestionsSection() {
       <GridBg />
       <div className="relative max-w-[1000px] mx-auto px-6">
         <h2
-          className="font-bold text-[#111827] text-center mb-3"
+          className="font-bold text-[#111827] text-center mb-3 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           The Questions Every Electronics Student Eventually Asks
@@ -275,7 +301,7 @@ function QuestionsSection() {
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {cgQuestionGroups.map((group, gi) => (
-            <div key={gi} className="rounded-2xl border-2 border-[#111827] bg-white p-6">
+            <div key={gi} className="rounded-2xl border-2 border-[#111827] bg-white p-6 cg-card-fade" style={{ animationDelay: `${gi * 0.1}s` }}>
               <h3 className="font-bold text-[#16A34A] text-sm uppercase tracking-wide mb-4">{group.heading}</h3>
               <ul className="flex flex-col gap-3">
                 {group.questions.map((q, qi) => (
@@ -304,14 +330,14 @@ function AudienceSection() {
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <h2
-          className="font-bold text-[#111827] text-center mb-10"
+          className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           The Right Answer Depends on Where You're Starting
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {cgAudienceRelevance.map((item, i) => (
-            <div key={i} className="rounded-2xl border-2 border-[#111827] bg-white p-6">
+            <div key={i} className="rounded-2xl border-2 border-[#111827] bg-white p-6 cg-card-fade" style={{ animationDelay: `${i * 0.08}s` }}>
               <h3 className="font-bold text-[#111827] text-base mb-2">{item.title}</h3>
               <p className="text-[#4B5563] text-sm leading-relaxed">{item.body}</p>
             </div>
@@ -335,7 +361,7 @@ function OutcomesSection() {
       <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
         <h2
-          className="font-bold text-[#111827] mb-8"
+          className="font-bold text-[#111827] mb-8 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgOutcomes.heading}
@@ -482,7 +508,7 @@ function ReviewsSection() {
       <GridBg />
       <div className="relative max-w-[1200px] mx-auto px-6">
         <h2
-          className="font-bold text-[#111827] text-center mb-10"
+          className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           What Students Say About Learning From Balajee Seshadri
@@ -566,7 +592,7 @@ function OfferSection() {
       <div className="relative max-w-[1100px] mx-auto px-6">
         <div className="rounded-2xl border-2 border-[#111827] bg-white p-6 md:p-10">
           <h2
-            className="font-bold text-[#111827] text-center mb-10"
+            className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
             style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
           >
             {cgOffer.heading}
@@ -606,7 +632,7 @@ function TrustStatementSection() {
       <GridBg />
       <div className="relative max-w-[700px] mx-auto px-6 text-center">
         <h2
-          className="font-bold text-[#111827] mb-6"
+          className="font-bold text-[#111827] mb-6 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgTrustStatement.heading}
@@ -636,7 +662,7 @@ function FaqSection() {
       <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6">
         <h2
-          className="font-bold text-[#111827] text-center mb-10"
+          className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           Frequently Asked Questions
@@ -680,7 +706,7 @@ function FinalCtaSection() {
           {cgFinalCta.attendLiveBadge}
         </span>
         <h2
-          className="font-bold text-[#111827] mb-6"
+          className="font-bold text-[#111827] mb-6 cg-section-fade"
           style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4.5vw, 42px)" }}
         >
           {cgFinalCta.heading}

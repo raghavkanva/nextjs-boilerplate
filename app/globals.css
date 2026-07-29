@@ -331,3 +331,75 @@ body {
 .cg-question-number {
   animation-fill-mode: forwards;
 }
+
+/* Hero 5-step entrance sequence */
+@keyframes cg-fade-up-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cg-hero-step-1 {
+  animation: cg-fade-up-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cg-hero-step-2 {
+  animation: cg-fade-up-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.25s;
+}
+.cg-hero-step-3 {
+  animation: cg-fade-up-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.45s;
+}
+.cg-hero-step-4 {
+  animation: cg-fade-up-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.6s;
+}
+.cg-hero-step-5 {
+  opacity: 0;
+  animation: cg-fade-up-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.85s;
+}
+
+/* Step 2b: glow sweep across the accent headline text */
+@keyframes cg-glow-sweep-anim {
+  0% { text-shadow: 0 0 0 rgba(22,163,74,0); }
+  50% { text-shadow: 0 0 18px rgba(22,163,74,0.5); }
+  100% { text-shadow: 0 0 0 rgba(22,163,74,0); }
+}
+.cg-glow-sweep {
+  animation: cg-glow-sweep-anim 1.4s ease-out both;
+  animation-delay: 0.4s;
+}
+
+/* Step 2c: underline draws in under the accent text */
+.cg-underline-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cg-underline-draw-anim 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.7s;
+}
+@keyframes cg-underline-draw-anim {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Section and card entrance, used throughout the rest of the page */
+@keyframes cg-section-fade-anim {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cg-section-fade {
+  animation: cg-section-fade-anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cg-card-fade {
+  opacity: 0;
+  animation: cg-section-fade-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cg-hero-step-1, .cg-hero-step-2, .cg-hero-step-3, .cg-hero-step-4, .cg-hero-step-5,
+  .cg-glow-sweep, .cg-underline-draw, .cg-section-fade, .cg-card-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+    text-shadow: none !important;
+  }
+}
