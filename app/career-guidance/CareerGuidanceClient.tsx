@@ -224,7 +224,7 @@ function Hero() {
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center max-w-[950px] mx-auto cg-hero-step-4">
           <div className="flex flex-col items-center">
-            <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#16A34A]">
+            <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden">
               <Image
                 src={cgInstructor.photo}
                 alt="Balajee Seshadri"
