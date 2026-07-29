@@ -1001,7 +1001,7 @@ export default function CareerGuidanceClientV2() {
   };
 
   return (
-    <main className="bg-white">
+    <main className="bg-white text-[1.2rem] md:text-[1rem]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
