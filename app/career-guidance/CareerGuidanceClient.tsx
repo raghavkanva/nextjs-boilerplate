@@ -963,7 +963,7 @@ export default function CareerGuidanceClientV2() {
   // so this page runs at the standard 100% and restores 120% on unmount.
   useEffect(() => {
     const prev = document.documentElement.style.fontSize;
-    document.documentElement.style.fontSize = "100%";
+    document.documentElement.style.fontSize = "110%";
     return () => {
       document.documentElement.style.fontSize = prev;
     };
