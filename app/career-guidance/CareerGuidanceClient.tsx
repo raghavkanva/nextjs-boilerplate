@@ -946,7 +946,7 @@ function StickyBar() {
               onClick={() => track("sticky_bar_mobile_cta_click")}
               className="flex-1 text-center px-4 py-2.5 rounded-full bg-[#FFC400] text-black font-bold text-sm border-2 border-black"
             >
-              Reserve Seat
+              Reserve My Seat
             </a>
           </div>
         </div>
@@ -957,6 +957,18 @@ function StickyBar() {
 
 // ---------- Page ----------
 export default function CareerGuidanceClientV2() {
+  // Route-scoped override: globals.css sets html { font-size: 120% } for the
+  // rest of the site, which makes every rem-based size render 20% larger.
+  // Inside Instagram's narrow in-app browser this reads as oversized text,
+  // so this page runs at the standard 100% and restores 120% on unmount.
+  useEffect(() => {
+    const prev = document.documentElement.style.fontSize;
+    document.documentElement.style.fontSize = "100%";
+    return () => {
+      document.documentElement.style.fontSize = prev;
+    };
+  }, []);
+
   const eventSchema = {
     "@context": "https://schema.org",
     "@type": "Event",
