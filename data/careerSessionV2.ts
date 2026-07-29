@@ -40,7 +40,7 @@ export const cgHero = {
 export const cgPainPoints = {
   heading: "Sound Like You?",
   points: [
-    "Everyone says core is dying, but nobody actually explains why.",
+    "Everyone says core is dying, but what is the actual situation?",
     "I picked a specialization and now I'm not even sure it was the right one.",
     "I've applied everywhere. No calls. I don't even know what I'm doing wrong.",
     "I clear some interviews, fail others, and there's no pattern I can figure out.",

@@ -160,35 +160,6 @@ function CtaButton({ trackId, className = "" }: { trackId: string; className?: s
   );
 }
 
-// ---------- Header ----------
-function Header() {
-  const [solid, setSolid] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-shadow duration-300 bg-white ${
-        solid ? "shadow-md" : ""
-      }`}
-    >
-      <div className="max-w-[1200px] mx-auto px-6 py-3 flex items-center justify-between">
-        <Image src="/images/icon.png" alt="eTalVis" width={64} height={64} className="h-12 w-auto" />
-        <a
-          href={cgEvent.checkoutUrl}
-          onClick={() => track("header_cta_click")}
-          className="px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-[#FFC400] text-black font-bold text-sm md:text-base border-2 border-black hover:bg-[#111827] hover:text-white transition-colors"
-        >
-          Reserve Seat, Rs. 99
-        </a>
-      </div>
-    </header>
-  );
-}
-
 // ---------- Hero ----------
 function AnimatedUnderline() {
   return (
@@ -213,19 +184,19 @@ function AnimatedUnderline() {
 
 function Hero() {
   return (
-    <section className="relative bg-white pt-24 pb-14 md:pt-28 md:pb-16 overflow-hidden">
+    <section className="relative bg-white pt-0 pb-14 md:pb-16 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
-        <div className="flex justify-center mb-5 cg-hero-step-1">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-xs font-bold uppercase tracking-wide">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            {cgHero.attendLiveBadge}
+        <div className="flex justify-center cg-hero-step-1">
+          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-t-0 border-black">
+            {cgHero.announcement}
           </span>
         </div>
 
-        <div className="flex justify-center mb-8 cg-hero-step-1" style={{ animationDelay: "0.15s" }}>
-          <span className="inline-block px-5 py-2.5 rounded-full bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-black">
-            {cgHero.announcement}
+        <div className="flex justify-center mt-5 mb-6 cg-hero-step-1" style={{ animationDelay: "0.15s" }}>
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-xs font-bold uppercase tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-white" />
+            {cgHero.attendLiveBadge}
           </span>
         </div>
 
@@ -245,10 +216,7 @@ function Hero() {
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center max-w-[950px] mx-auto cg-hero-step-4">
           <div className="flex flex-col items-center">
-            <div
-              className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-[6px]"
-              style={{ borderImage: "linear-gradient(135deg, #D1D5DB, #16A34A) 1", borderStyle: "solid" }}
-            >
+            <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#16A34A]">
               <Image
                 src={cgInstructor.photo}
                 alt="Balajee Seshadri"
@@ -338,7 +306,7 @@ function SoundLikeYouSection() {
               style={{ animationDelay: `${i * 0.06}s` }}
             >
               <IconThought />
-              <p className="text-[#111827] text-sm md:text-base italic">"{point}"</p>
+              <p className="text-[#111827] text-base md:text-lg font-bold leading-snug">{point}</p>
             </div>
           ))}
         </div>
@@ -467,10 +435,7 @@ function InstructorSection() {
       <div className="relative max-w-[900px] mx-auto px-6">
         <div className="grid md:grid-cols-[220px_1fr] gap-8 items-start">
           <div className="flex flex-col items-center">
-            <div
-              className="relative w-48 h-48 rounded-full overflow-hidden border-[6px]"
-              style={{ borderImage: "linear-gradient(135deg, #D1D5DB, #16A34A) 1", borderStyle: "solid" }}
-            >
+            <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#16A34A]">
               <Image src={cgInstructor.photo} alt={cgInstructor.name} fill sizes="192px" quality={80} loading="lazy" className="object-cover" />
             </div>
           </div>
@@ -863,7 +828,7 @@ function FinalCtaSection() {
 // ---------- Footer ----------
 function CgFooter() {
   return (
-    <footer className="relative bg-white pt-14 pb-96 sm:pb-80 md:pb-28 px-6 overflow-hidden border-t border-[#E5E7EB]">
+    <footer className="relative bg-white pt-14 pb-32 md:pb-28 px-6 overflow-hidden border-t border-[#E5E7EB]">
       <GridBg />
       <div className="relative max-w-[1000px] mx-auto text-center">
         <Image src="/images/icon.png" alt="eTalVis" width={80} height={80} className="h-16 w-auto mx-auto mb-4" />
@@ -964,24 +929,16 @@ function StickyBar() {
           </div>
         </div>
 
-        <div className="md:hidden flex flex-col gap-2.5">
-          <p className="text-[#111827] font-bold text-xs text-center">
-            CORE ELECTRONICS CAREER GUIDANCE
-            <br />
-            {cgEvent.date} &middot; {cgEvent.time}
-          </p>
-          <div className="flex items-center justify-center gap-1">
-            <CountdownUnit value={time.days} label="Days" />
-            <span className="text-[#9CA3AF] -mt-2">:</span>
-            <CountdownUnit value={time.hours} label="Hrs" />
-            <span className="text-[#9CA3AF] -mt-2">:</span>
-            <CountdownUnit value={time.minutes} label="Min" />
-            <span className="text-[#9CA3AF] -mt-2">:</span>
-            <CountdownUnit value={time.seconds} label="Sec" />
+        <div className="md:hidden flex flex-col gap-2">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <p className="text-[#DC2626] text-[11px] font-bold uppercase tracking-wide">
+              Registration Closes In
+            </p>
+            <span className="text-[#111827] font-bold text-sm tabular-nums">
+              {String(time.days).padStart(2, "0")}d : {String(time.hours).padStart(2, "0")}h :{" "}
+              {String(time.minutes).padStart(2, "0")}m : {String(time.seconds).padStart(2, "0")}s
+            </span>
           </div>
-          <p className="text-center text-[#DC2626] text-xs font-bold uppercase tracking-wide">
-            Registration Closes Soon
-          </p>
           <div className="flex items-center justify-between gap-3">
             <span className="text-[#16A34A] font-extrabold text-xl">Rs. {cgEvent.price}</span>
             <a
@@ -1036,7 +993,6 @@ export default function CareerGuidanceClientV2() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <Header />
       <Hero />
       <SoundLikeYouSection />
       <AudienceSection />
