@@ -200,7 +200,7 @@ function Hero() {
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <div className="flex justify-center cg-hero-step-1">
-          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-xs md:text-base font-bold border-2 border-t-0 border-black">
+          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-t-0 border-black">
             {cgHero.announcement}
           </span>
         </div>
@@ -302,7 +302,7 @@ function SoundLikeYouSection() {
       <div className="relative max-w-[1000px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgPainPoints.heading}
         </h2>
@@ -329,7 +329,7 @@ function SoundLikeYouSection() {
 
         <h3
           className="font-bold text-[#111827] text-center mb-8"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(22px, 3vw, 30px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 3vw, 30px)" }}
         >
           {cgPainPoints.questionsSubheading}
         </h3>
@@ -385,7 +385,7 @@ function AudienceSection() {
       <div className="relative max-w-[1100px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgAudience.heading}
         </h2>
@@ -421,7 +421,7 @@ function OutcomesSection() {
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
         <h2
           className="font-bold text-[#111827] mb-8 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgOutcomes.heading}
         </h2>
@@ -456,7 +456,7 @@ function InstructorSection() {
             <p className="text-[#16A34A] font-bold text-sm uppercase tracking-wide mb-2">Meet the Instructor</p>
             <h2
               className="font-bold text-[#111827] mb-4"
-              style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(26px, 4vw, 34px)" }}
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 34px)" }}
             >
               {cgInstructor.heading}
             </h2>
@@ -565,7 +565,7 @@ function ReviewsSection() {
       <div className="relative max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           What Students Say About Learning From Balajee Seshadri
         </h2>
@@ -627,7 +627,7 @@ function FoundationCoursesSlider() {
               </span>
               <span
                 className="text-4xl font-extrabold text-[#E5E7EB]"
-                style={{ fontFamily: "var(--font-headline, var(--font-display))" }}
+                style={{ fontFamily: "var(--font-display)" }}
               >
                 {String(course.number).padStart(2, "0")}
               </span>
@@ -700,7 +700,7 @@ function OfferSection() {
         <div className="rounded-2xl border-2 border-[#111827] bg-white p-6 md:p-10">
           <h2
             className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
-            style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
           >
             {cgOffer.heading}
           </h2>
@@ -725,7 +725,7 @@ function OfferSection() {
           <div className="text-center mt-10">
             <p
               className="font-bold text-[#16A34A] mb-1"
-              style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "48px" }}
+              style={{ fontFamily: "var(--font-display)", fontSize: "48px" }}
             >
               Rs. {cgOffer.price}
             </p>
@@ -748,7 +748,7 @@ function TrustStatementSection() {
       <div className="relative max-w-[700px] mx-auto px-6 text-center">
         <h2
           className="font-bold text-[#111827] mb-6 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           {cgTrustStatement.heading}
         </h2>
@@ -778,7 +778,7 @@ function FaqSection() {
       <div className="relative max-w-[800px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4vw, 40px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
         >
           Frequently Asked Questions
         </h2>
@@ -822,7 +822,7 @@ function FinalCtaSection() {
         </span>
         <h2
           className="font-bold text-[#111827] mb-6 cg-section-fade"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(28px, 4.5vw, 42px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4.5vw, 42px)" }}
         >
           {cgFinalCta.heading}
         </h2>
@@ -844,7 +844,7 @@ function FinalCtaSection() {
 // ---------- Footer ----------
 function CgFooter() {
   return (
-    <footer className="relative bg-white pt-14 pb-32 md:pb-28 px-6 overflow-hidden border-t border-[#E5E7EB]">
+    <footer className="relative bg-white pt-14 pb-32 md:pb-44 px-6 overflow-hidden border-t border-[#E5E7EB]">
       <GridBg />
       <div className="relative max-w-[1000px] mx-auto text-center">
         <Image src="/images/icon.png" alt="eTalVis" width={80} height={80} className="h-16 w-auto mx-auto mb-4" />
