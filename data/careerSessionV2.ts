@@ -37,7 +37,7 @@ export const cgHero = {
 };
 
 export const cgPainPoints = {
-  heading: "Sound Like You?",
+  heading: "Sounds Like You?",
   points: [
     "Everyone says core is dying, but what is the actual situation?",
     "I chose my specialization, but I'm not sure it fits where the core industry is going.",
