@@ -8,7 +8,14 @@ import {
   buildCourseSchema,
   buildFaqSchema,
 } from "@/lib/schema";
+import { Fredoka } from "next/font/google";
 
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  variable: "--font-headline",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-display",
