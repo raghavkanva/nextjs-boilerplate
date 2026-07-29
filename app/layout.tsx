@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sora.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
+        className={`${fredoka.variable} ${sora.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
       >
         <noscript>
           <iframe
@@ -70,6 +70,16 @@ export default function RootLayout({
               display: "none",
               visibility: "hidden",
             }}
+          />
+        </noscript>
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1385045223537164&ev=PageView&noscript=1"
+            alt=""
           />
         </noscript>
 
@@ -86,6 +96,21 @@ export default function RootLayout({
               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-NW77K92B');
+          `}
+        </Script>
+
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1385045223537164');
+            fbq('track', 'PageView');
           `}
         </Script>
 
