@@ -25,10 +25,15 @@ import {
 // accent green: #16A34A, dark green: #15803D
 // CTA yellow: #FFC400, text black, border black
 
-function track(event: string) {
+function track(event: string, params: Record<string, string | number> = {}) {
   if (typeof window !== "undefined") {
     (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({ event, session: "career-guidance-v2" });
+    (window as any).dataLayer.push({
+      event,
+      session: "career-guidance-v2",
+      page_path: window.location.pathname,
+      ...params,
+    });
   }
 }
 
@@ -152,7 +157,14 @@ function CtaButton({ trackId, className = "" }: { trackId: string; className?: s
   return (
     <a
       href={cgEvent.checkoutUrl}
-      onClick={() => track(`${trackId}_cta_click`)}
+      onClick={() =>
+        track("reserve_cta_click", {
+          cta_location: trackId,
+          cta_label: CTA_LABEL,
+          price: cgEvent.price,
+          currency: "INR",
+        })
+      }
       className={`inline-block px-8 py-4 rounded-full bg-[#FFC400] text-black font-bold text-base md:text-lg border-2 border-black hover:bg-[#111827] hover:text-white transition-colors ${className}`}
     >
       {CTA_LABEL}
@@ -329,7 +341,8 @@ function SoundLikeYouSection() {
                 onClick={() => {
                   const next = openGroup === gi ? null : gi;
                   setOpenGroup(next);
-                  if (next !== null) track(`pain_questions_group_open_${gi + 1}`);
+                  if (next !== null)
+                    track("questions_group_open", { group_index: gi + 1, group_name: group.heading });
                 }}
                 aria-expanded={openGroup === gi}
                 className="w-full flex items-center justify-between px-5 py-4 text-left"
@@ -500,7 +513,7 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
             <button
               onClick={() => {
                 setExpanded(true);
-                track(`student_proof_read_more_click_${index + 1}`);
+                track("review_read_more_click", { review_index: index + 1, reviewer: card.name });
               }}
               className="text-[#16A34A] font-semibold ml-1 hover:underline"
             >
@@ -526,7 +539,7 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
         href={card.url}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => track(`slider_review_${index}_linkedin_click`)}
+        onClick={() => track("review_linkedin_click", { review_index: index + 1, reviewer: card.name })}
         className="flex items-center gap-1.5 text-[#16A34A] text-sm font-semibold hover:underline mt-auto"
       >
         <IconLinkedIn /> View on LinkedIn
@@ -648,7 +661,10 @@ function FoundationCoursesSlider() {
         {cgFoundationCourses.map((_, i) => (
           <button
             key={i}
-            onClick={() => scrollToIndex(i)}
+            onClick={() => {
+              scrollToIndex(i);
+              track("foundation_slider_dot_click", { course_index: i + 1 });
+            }}
             aria-label={`Go to course ${i + 1}`}
             className={`h-2 rounded-full transition-all ${
               active === i ? "w-6 bg-[#16A34A]" : "w-2 bg-[#D1D5DB]"
@@ -773,7 +789,7 @@ function FaqSection() {
                 onClick={() => {
                   const next = open === i ? null : i;
                   setOpen(next);
-                  if (next !== null) track(`faq_toggle_open_q${i + 1}`);
+                  if (next !== null) track("faq_open", { faq_index: i + 1, faq_question: faq.q });
                 }}
                 aria-expanded={open === i}
                 className="w-full flex items-center justify-between px-5 py-4 text-left"
@@ -943,7 +959,14 @@ function StickyBar() {
             <span className="text-[#16A34A] font-extrabold text-xl">Rs. {cgEvent.price}</span>
             <a
               href={cgEvent.checkoutUrl}
-              onClick={() => track("sticky_bar_mobile_cta_click")}
+              onClick={() =>
+                track("reserve_cta_click", {
+                  cta_location: "sticky_bar_mobile",
+                  cta_label: "Reserve Seat",
+                  price: cgEvent.price,
+                  currency: "INR",
+                })
+              }
               className="flex-1 text-center px-4 py-2.5 rounded-full bg-[#FFC400] text-black font-bold text-sm border-2 border-black"
             >
               Reserve Seat
