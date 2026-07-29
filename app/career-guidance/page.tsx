@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import CareerGuidanceClient from "./CareerGuidanceClient";
 
 export const metadata: Metadata = {
-  title: "Core Electronics Career Guidance Session, Rs. 99, eTalVis",
+  title: "Demystifying the Myths of the Core Electronics Industry Career",
   description:
-    "Live online session with Balajee Seshadri. Jobs, salary, specialization, interviews, and AI in Core Electronics. Register for Rs. 99, includes a free Foundation course worth Rs. 999.",
+    "Live with Balajee Seshadri. 40+ years in the electronics industry, work across India, USA, Germany, and Canada. 57,000+ followers on LinkedIn",
   openGraph: {
-    title: "Core Electronics Career Guidance Session, Rs. 99",
+    title: "Demystifying the Myths of the Core Electronics Industry Career",
     description:
-      "Live online session with Balajee Seshadri. Straight talk on jobs, salary, specialization, interviews, and AI in Core Electronics.",
+      "Live with Balajee Seshadri. 40+ years in the electronics industry, work across India, USA, Germany, and Canada.",
     images: [
       {
         // Replace with the final OG image once ready, recommended size 1200x630
