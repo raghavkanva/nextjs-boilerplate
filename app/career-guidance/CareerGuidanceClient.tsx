@@ -214,7 +214,7 @@ function Hero() {
 
         <h1
           className="text-[#111827] font-bold text-center leading-[1.15] mb-8 cg-hero-step-2"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(24px, 3.5vw, 42px)" }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3.5vw, 42px)" }}
         >
           <span className="relative inline-block">
             {cgHero.headline}
