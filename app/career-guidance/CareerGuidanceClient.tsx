@@ -201,18 +201,14 @@ function Hero() {
         </div>
 
         <h1
-          className="text-[#111827] font-bold text-center leading-[1.15] mb-5 cg-hero-step-2"
-          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(30px, 4.5vw, 54px)" }}
+          className="text-[#111827] font-bold text-center leading-[1.15] mb-8 cg-hero-step-2"
+          style={{ fontFamily: "var(--font-headline, var(--font-display))", fontSize: "clamp(24px, 3.5vw, 42px)" }}
         >
           <span className="relative inline-block">
             {cgHero.headline}
             <AnimatedUnderline />
           </span>
         </h1>
-
-        <p className="text-[#111827] text-lg md:text-xl text-center max-w-2xl mx-auto mb-10 leading-relaxed cg-hero-step-3">
-          {cgHero.subhead}
-        </p>
 
         <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-10 items-center max-w-[950px] mx-auto cg-hero-step-4">
           <div className="flex flex-col items-center">
@@ -275,6 +271,10 @@ function Hero() {
             <p className="text-[#6B7280] text-xs text-center mt-3">{cgHero.microcopy}</p>
           </div>
         </div>
+
+        <p className="text-[#111827] text-lg md:text-xl text-center max-w-2xl mx-auto mt-10 leading-relaxed cg-hero-step-5">
+          {cgHero.subhead}
+        </p>
       </div>
     </section>
   );
@@ -946,7 +946,7 @@ function StickyBar() {
               onClick={() => track("sticky_bar_mobile_cta_click")}
               className="flex-1 text-center px-4 py-2.5 rounded-full bg-[#FFC400] text-black font-bold text-sm border-2 border-black"
             >
-              Reserve My Seat
+              Reserve Seat
             </a>
           </div>
         </div>
@@ -963,7 +963,7 @@ export default function CareerGuidanceClientV2() {
   // so this page runs at the standard 100% and restores 120% on unmount.
   useEffect(() => {
     const prev = document.documentElement.style.fontSize;
-    document.documentElement.style.fontSize = "110%";
+    document.documentElement.style.fontSize = "100%";
     return () => {
       document.documentElement.style.fontSize = prev;
     };
@@ -1001,7 +1001,7 @@ export default function CareerGuidanceClientV2() {
   };
 
   return (
-    <main className="bg-white text-[1.2rem] md:text-[1rem]">
+    <main className="bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
