@@ -188,7 +188,7 @@ function Hero() {
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <div className="flex justify-center cg-hero-step-1">
-          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-t-0 border-black">
+          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-xs md:text-base font-bold border-2 border-t-0 border-black">
             {cgHero.announcement}
           </span>
         </div>
@@ -223,52 +223,52 @@ function Hero() {
                 priority
               />
             </div>
-            <p className="font-bold text-[#111827] text-lg mt-4">{cgInstructor.name}</p>
-            <p className="text-[#4B5563] text-sm text-center">{cgHero.instructorLine}</p>
-            <p className="text-[#16A34A] font-bold text-sm mt-1">{cgHero.followersLine}</p>
+            <p className="font-bold text-[#111827] text-xl mt-4">{cgInstructor.name}</p>
+            <p className="text-[#4B5563] text-base text-center">{cgHero.instructorLine}</p>
+            <p className="text-[#16A34A] font-bold text-base mt-1">{cgHero.followersLine}</p>
           </div>
 
           <div className="rounded-2xl border-2 border-[#16A34A] bg-[#F0FDF4] p-6 md:p-7">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#16A34A] text-white text-xs font-bold uppercase mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#16A34A] text-white text-sm font-bold uppercase mb-4">
               2 Hour Online Session
             </span>
             <div className="grid grid-cols-2 gap-4 mb-5">
               <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-xs font-bold uppercase mb-1">
+                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
                   <IconCalendar /> Date
                 </div>
-                <p className="text-[#111827] font-semibold text-sm">{cgEvent.date}</p>
+                <p className="text-[#111827] font-semibold text-base">{cgEvent.date}</p>
               </div>
               <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-xs font-bold uppercase mb-1">
+                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
                   <IconClock /> Time
                 </div>
-                <p className="text-[#111827] font-semibold text-sm">{cgEvent.time}</p>
+                <p className="text-[#111827] font-semibold text-base">{cgEvent.time}</p>
               </div>
               <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-xs font-bold uppercase mb-1">
+                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
                   <IconVideo /> Format
                 </div>
-                <p className="text-[#111827] font-semibold text-sm">{cgEvent.format}</p>
+                <p className="text-[#111827] font-semibold text-base">{cgEvent.format}</p>
               </div>
               <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-xs font-bold uppercase mb-1">
+                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
                   <IconGlobe /> Language
                 </div>
-                <p className="text-[#111827] font-semibold text-sm">{cgEvent.language}</p>
+                <p className="text-[#111827] font-semibold text-base">{cgEvent.language}</p>
               </div>
             </div>
 
             <ul className="flex flex-col gap-1.5 mb-5">
               {cgHero.benefitLine.map((b, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm text-[#111827] font-medium">
+                <li key={i} className="flex items-center gap-2 text-base text-[#111827] font-medium">
                   <IconCheck /> {b}
                 </li>
               ))}
             </ul>
 
             <CtaButton trackId="hero" className="w-full text-center cg-hero-step-5" />
-            <p className="text-[#6B7280] text-xs text-center mt-3">{cgHero.microcopy}</p>
+            <p className="text-[#6B7280] text-sm text-center mt-3">{cgHero.microcopy}</p>
           </div>
         </div>
 
@@ -385,7 +385,7 @@ function AudienceSection() {
               className="rounded-2xl border-2 border-[#111827] bg-white p-6 cg-card-fade"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <span className="inline-block px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] text-xs font-bold uppercase border border-[#16A34A]/30 mb-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] text-sm font-bold uppercase border border-[#16A34A]/30 mb-3">
                 {item.stage}
               </span>
               <p className="text-[#111827] text-sm leading-relaxed font-medium">{item.body}</p>
@@ -480,7 +480,7 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
         <IconVerified />
       </div>
       <p
-        className="text-[#6B7280] text-xs mb-3"
+        className="text-[#6B7280] text-sm mb-3"
         style={{ minHeight: "32px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
       >
         {card.designation}
@@ -561,7 +561,7 @@ function ReviewsSection() {
             <ReviewSliderCard key={i} card={card} index={i} />
           ))}
         </div>
-        <p className="text-[#6B7280] text-xs text-center mt-6 max-w-xl mx-auto">
+        <p className="text-[#6B7280] text-sm text-center mt-6 max-w-xl mx-auto">
           These describe past learning experiences with Balajee Seshadri. They are not job or placement guarantees.
         </p>
       </div>
@@ -609,7 +609,7 @@ function FoundationCoursesSlider() {
             className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-[34%] rounded-2xl border-2 border-[#111827] bg-white p-6 flex flex-col"
           >
             <div className="flex items-start justify-between mb-4">
-              <span className="px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] text-xs font-bold uppercase border border-[#16A34A]/30">
+              <span className="px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] text-sm font-bold uppercase border border-[#16A34A]/30">
                 {course.tag}
               </span>
               <span
@@ -629,14 +629,14 @@ function FoundationCoursesSlider() {
               {course.topics.map((topic, ti) => (
                 <span
                   key={ti}
-                  className="px-2.5 py-1 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] text-xs font-medium"
+                  className="px-2.5 py-1 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] text-sm font-medium"
                 >
                   {topic}
                 </span>
               ))}
             </div>
             {course.highlight && (
-              <span className="inline-block self-start px-3 py-1 rounded-full bg-[#FFC400] text-black text-xs font-bold border border-black mt-auto">
+              <span className="inline-block self-start px-3 py-1 rounded-full bg-[#FFC400] text-black text-sm font-bold border border-black mt-auto">
                 {course.highlight}
               </span>
             )}
@@ -801,7 +801,7 @@ function FinalCtaSection() {
     <section className="relative bg-[#F0FDF4] py-14 md:py-20 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-xs font-bold uppercase tracking-wide mb-6">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-sm font-bold uppercase tracking-wide mb-6">
           {cgFinalCta.attendLiveBadge}
         </span>
         <h2
@@ -854,7 +854,7 @@ function CgFooter() {
           </a>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 text-xs text-[#6B7280] mb-6">
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-[#6B7280] mb-6">
           <a href="https://courses.etalvis.com" onClick={() => track("footer_etalvis_home_click")} className="hover:text-[#111827]">
             eTalVis Home
           </a>
@@ -868,7 +868,7 @@ function CgFooter() {
           </a>
         </div>
 
-        <p className="text-[#9CA3AF] text-xs mb-3">© 2026 eTalVis. All rights reserved.</p>
+        <p className="text-[#9CA3AF] text-sm mb-3">© 2026 eTalVis. All rights reserved.</p>
         <p className="text-[#6B7280] text-sm sm:text-base font-medium leading-relaxed">
           Landing page, SEO and AI Discoverability by
           <br />
@@ -907,12 +907,12 @@ function StickyBar() {
         <div className="hidden md:flex items-center justify-between gap-6">
           <div className="text-center shrink-0">
             <p className="text-[#111827] font-bold text-sm">CORE ELECTRONICS CAREER GUIDANCE</p>
-            <p className="text-[#6B7280] text-xs">
+            <p className="text-[#6B7280] text-sm">
               {cgEvent.date} &middot; {cgEvent.time}
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <p className="text-[#DC2626] text-xs font-bold uppercase tracking-wide mb-1.5">Registration Closes In</p>
+            <p className="text-[#DC2626] text-sm font-bold uppercase tracking-wide mb-1.5">Registration Closes In</p>
             <div className="flex items-center gap-1.5">
               <CountdownUnit value={time.days} label="Days" />
               <span className="text-[#9CA3AF] -mt-3">:</span>
