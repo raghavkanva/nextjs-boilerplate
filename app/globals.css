@@ -5,6 +5,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 120%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {

@@ -9,6 +9,7 @@ export const cgEvent = {
   registrationClosesISO: "2026-08-01T23:59:59+05:30",
   time: "11:00 AM to 1:00 PM IST",
   format: "Live Online Session",
+  language: "English",
   price: 99,
   foundationValue: 999,
   checkoutUrl: "https://learn.etalvis.com/web/checkout/6a53b5028d2de3dfcd013426",
@@ -22,11 +23,9 @@ export const CTA_LABEL = "Reserve My Seat for Rs. 99";
 export const cgHero = {
   attendLiveBadge: "ATTEND LIVE",
   announcement: "Session Starts: 2nd August, Sunday at 11:00 AM to 1:00 PM",
-  headlinePlain: "Demystifying the Myths of the ",
-  headlineAccent: "Core Electronics Industry Career",
+  headline: "Demystifying the Myths of the Core Electronics Industry Career",
   subhead:
     "Confused about core electronics jobs, salary, specialization, internships, interviews, or AI? Get honest answers, based on real industry experience.",
-  subline: "No college rumors. No coaching ads. No motivational talk.",
   instructorLine:
     "Live with Balajee Seshadri. 40+ years in the electronics industry, work across India, USA, Germany, and Canada.",
   followersLine: "57,000+ followers on LinkedIn",
@@ -36,6 +35,25 @@ export const cgHero = {
     "All 10 Foundation Courses worth Rs. 999",
   ],
   microcopy: "One time payment. No subscription. No hidden charges.",
+};
+
+export const cgPainPoints = {
+  heading: "Sound Like You?",
+  points: [
+    "Everyone says core is dying, but nobody actually explains why.",
+    "I picked a specialization and now I'm not even sure it was the right one.",
+    "I've applied everywhere. No calls. I don't even know what I'm doing wrong.",
+    "I clear some interviews, fail others, and there's no pattern I can figure out.",
+    "I'm from a Tier 3 college. Does that mean I've already lost?",
+    "My English isn't great. Is that going to cost me the job?",
+    "Is AI going to replace this whole field before I even get started?",
+    "I don't even know when I'm supposed to start preparing for placements.",
+    "Everyone around me seems to have a plan. I don't.",
+    "I keep hearing \"build projects,\" but nobody tells me which ones actually matter.",
+  ],
+  bridge:
+    "If even one of these sounds like you, you're not alone. This session is built to answer these exact questions, and more.",
+  questionsSubheading: "What this session will actually answer",
 };
 
 export const cgQuestionGroups = [
@@ -78,24 +96,29 @@ export const cgQuestionGroups = [
   },
 ];
 
-export const cgAudienceRelevance = [
-  {
-    title: "Entering College or First Year",
-    body: "Understand the industry early. Start building the right fundamentals before placement pressure hits.",
-  },
-  {
-    title: "Second or Third Year",
-    body: "Connect what you're studying to real industry roles. Make better calls on specialization, projects, and internships.",
-  },
-  {
-    title: "Final Year",
-    body: "Find out what's still missing before placements and interviews.",
-  },
-  {
-    title: "Recent Graduate or Job Seeker",
-    body: "Understand why calls or offers aren't coming, and what to fix next.",
-  },
-];
+export const cgAudience = {
+  heading: "Who Is This Session For?",
+  subline:
+    "For ECE, EEE, EIE, BME, Mechatronics, and related electronics branches, at any stage.",
+  cards: [
+    {
+      stage: "1st Year",
+      body: "Just joined? Learn how the industry works before confusion sets in.",
+    },
+    {
+      stage: "2nd / 3rd Year",
+      body: "Confused about specialization, projects, or internships? Get clear direction.",
+    },
+    {
+      stage: "Final Year",
+      body: "Placements coming? Find out what's missing before interviews start.",
+    },
+    {
+      stage: "Graduated / Job Hunting",
+      body: "No calls or offers? Understand why, and what to fix.",
+    },
+  ],
+};
 
 export const cgOutcomes = {
   heading: "What Will Become Clear in This Session?",
@@ -261,6 +284,10 @@ export const cgFaqs = [
     a: "Yes, across the live session.",
   },
   {
+    q: "What language is the session in?",
+    a: "The session is conducted in English.",
+  },
+  {
     q: "What's included with the Rs. 99 registration?",
     a: "The live session, 1 month of recording access, and 1 month of access to all 10 Foundation Courses, worth Rs. 999.",
   },
@@ -292,70 +319,108 @@ export const cgFinalCta = {
   ],
 };
 
-export const cgFoundationCourses = [
+export type FoundationCourse = {
+  number: number;
+  tag: string;
+  title: string;
+  topics: string[];
+  highlight?: string;
+};
+
+export const cgFoundationCourses: FoundationCourse[] = [
   {
     number: 1,
     tag: "Electronics",
     title: "Electronics Foundation Course",
-    description: "Electrical Fundamentals, Electronics Fundamentals, Number Systems, Digital Electronics.",
+    topics: ["Electrical Fundamentals", "Electronics Fundamentals", "Number Systems", "Digital Electronics"],
   },
   {
     number: 2,
     tag: "Programming",
     title: "C Programming Foundation Course",
-    description:
-      "Introduction to Programming, Introduction to C Programming, Simple Programming Practice, Decision Making and Loops, Arrays, Strings, and Pointers, Structures, Storage Class. 200+ problems to solve.",
+    topics: [
+      "Intro to Programming",
+      "Intro to C",
+      "Programming Practice",
+      "Decision Making and Loops",
+      "Arrays",
+      "Strings",
+      "Pointers",
+      "Structures",
+      "Storage Class",
+    ],
+    highlight: "200+ problems to solve",
   },
   {
     number: 3,
     tag: "Hardware",
     title: "Embedded Hardware Foundation Course",
-    description: "Microprocessor, Memory Map, Controller, Microcontroller, Introduction to Embedded Systems.",
+    topics: ["Microprocessor", "Memory Map", "Controller", "Microcontroller", "Intro to Embedded Systems"],
   },
   {
     number: 4,
     tag: "GPIO",
     title: "Embedded Software Foundation Course, GPIO",
-    description:
-      "Introduction, Controlling LEDs, Controlling 7 Segment Displays, Monitoring Push Button Switches, Reading Keypad Matrix, Controlling Dot Matrix.",
+    topics: [
+      "Controlling LEDs",
+      "7 Segment Displays",
+      "Push Button Switches",
+      "Keypad Matrix",
+      "Dot Matrix",
+    ],
   },
   {
     number: 5,
     tag: "Controllers",
     title: "Embedded Software Foundation Course, Controllers",
-    description:
-      "LED Controller, LCD Controller, Timer Controller, Interrupt Controller, DMA, DAC, ADC Controllers, PWM, Controlling Relays and Motors. 18 chapters in total.",
+    topics: [
+      "LED Controller",
+      "LCD Controller",
+      "Timer",
+      "Interrupts",
+      "DMA",
+      "DAC and ADC",
+      "PWM",
+      "Relays and Motors",
+    ],
+    highlight: "18 chapters in total",
   },
   {
     number: 6,
     tag: "Protocols",
     title: "Embedded Software Foundation Course, Interface Protocols",
-    description: "Introduction to BUS, UART, I2C, SPI.",
+    topics: ["Intro to BUS", "UART", "I2C", "SPI"],
   },
   {
     number: 7,
     tag: "Internals",
     title: "Microprocessor Internals Foundation Course",
-    description:
-      "Internals of the microprocessor, how an instruction is decoded. Exclusive to the eTalVis platform, 2.5 hours, fully animated.",
+    topics: ["Microprocessor Internals", "How an Instruction Is Decoded"],
+    highlight: "2.5 hours, fully animated, eTalVis exclusive",
   },
   {
     number: 8,
     tag: "Microprocessor",
     title: "8085 Microprocessor Foundation Course",
-    description: "8085 Introduction, 8085 Software, 8085 Peripheral Interface, Assessment.",
+    topics: ["8085 Introduction", "8085 Software", "Peripheral Interface", "Assessment"],
   },
   {
     number: 9,
     tag: "ARM",
     title: "ARM Controller Foundation Course",
-    description: "Why the ARM Processor came to be, ARM Microprocessor, ARM Microcontroller.",
+    topics: ["Why ARM Came to Be", "ARM Microprocessor", "ARM Microcontroller"],
   },
   {
     number: 10,
     tag: "Networking",
     title: "Networking Concepts Foundation Course",
-    description:
-      "Serial Communication, Synchronous Communication, Introduction to Ethernet, PHY, MAC, IP, TCP, Hub, Switch, Router, Gateway, ARP and NAT.",
+    topics: [
+      "Serial Communication",
+      "Synchronous Communication",
+      "Ethernet",
+      "PHY, MAC, IP, TCP",
+      "Hub, Switch, Router, Gateway",
+      "ARP and NAT",
+    ],
   },
 ];
