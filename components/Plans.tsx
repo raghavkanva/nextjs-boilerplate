@@ -80,6 +80,23 @@ function GroupIcon() {
   );
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
+      <path d="M4 12a8 8 0 1114.9 4.1L20 20l-4-1.1A8 8 0 014 12z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
+      <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M2 7l10 7 10-7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function getFeatureIcon(feature: string) {
   if (feature.includes("foundation courses")) return <BookIcon />;
   if (feature.includes("Pre-recorded")) return <PlayCircleIcon />;
@@ -160,7 +177,26 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         </div>
       ))}
 
-      {plan.checkoutUrl ? (
+      {isAcademic ? (
+        <div className="mt-auto flex flex-col gap-3">
+          <a
+            href={plan.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => handlePlanClick(plan.name)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+          >
+            <WhatsAppIcon /> Contact on WhatsApp
+          </a>
+          <a
+            href={plan.emailUrl}
+            onClick={() => handlePlanClick(plan.name)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-text border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+          >
+            <EmailIcon /> Email Us
+          </a>
+        </div>
+      ) : plan.checkoutUrl ? (
         <a
           href={plan.checkoutUrl}
           onClick={() => handlePlanClick(plan.name)}
@@ -168,17 +204,7 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         >
           Enroll, {plan.name}
         </a>
-      ) : (
-        <a
-          href={plan.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => handlePlanClick(plan.name)}
-          className="mt-auto inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
-        >
-          Contact on WhatsApp
-        </a>
-      )}
+      ) : null}
     </div>
   );
 }

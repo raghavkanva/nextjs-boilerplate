@@ -17,29 +17,25 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <InstructorStrip />
       <TestimonialSlider
         items={testimonialsTop}
         heading="What Our Students Are Saying"
       />
-      <InstructorStrip />
+      <WhoIsThisFor />
+      <CourseCarousel />
+      <Prerequisites />
       <UpcomingEvent />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
-      <CourseCarousel />
-      <WhoIsThisFor />
-      <Prerequisites />
       <TestimonialSlider
         items={testimonialsBottom}
         heading="Real Stories. Real Results."
       />
       <PlatformFeatures />
-      <PlansGrid
-        heading="Ready to Start?"
-        subline="Pick your plan and get access to everything above."
-      />
       <FAQ />
       <AssessmentNote />
       <FinalCta />

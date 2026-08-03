@@ -41,7 +41,7 @@ export default function Hero({
   const content = isSession ? sessionHeroContent : hero;
 
   return (
-    <section className="max-w-4xl mx-auto px-6 pt-6 pb-6 sm:pt-8 md:pt-10 md:pb-8 text-center">
+    <section className="max-w-4xl mx-auto px-6 pt-0 pb-6 md:pb-8 text-center">
       <div className="flex justify-center mb-6">
         <Image
           src="/images/icon.png"

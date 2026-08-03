@@ -22,6 +22,7 @@ export const metadata = {
   title: "First Month, Rs. 99, eTalVis Embedded Systems Courses",
   description:
     "Get your first month of embedded systems foundation courses for Rs. 99. Regular price Rs. 999.",
+  robots: { index: false, follow: false },
 };
 
 function PromoOfferBlock() {

@@ -300,6 +300,7 @@ export type Plan = {
   tag: "Popular" | "Best Value" | "For Institutions" | null;
   checkoutUrl: string | null;
   whatsappUrl?: string;
+  emailUrl?: string;
   features: string[];
   highlights?: { title: string; subtitle: string }[];
 };
@@ -368,10 +369,11 @@ export const plans: Plan[] = [
     tag: "For Institutions",
     checkoutUrl: null,
     whatsappUrl: "https://wa.me/919790873069?text=Hi%2C%20I%27m%20interested%20in%20the%20Academic%20plan%20for%2010%2B%20students",
+    emailUrl: "mailto:info@etalvis.com?subject=Academic%20plan%20inquiry",
     features: [
       "Bulk discount for 10 or more students",
       "Same 10 foundation courses",
-      "Contact Balajee sir directly on WhatsApp for pricing",
+      "Contact Balajee sir directly on WhatsApp or email for pricing",
     ],
   },
 ];

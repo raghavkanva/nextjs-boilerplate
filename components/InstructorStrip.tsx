@@ -64,10 +64,10 @@ export default function InstructorStrip() {
           href={instructor.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold hover:bg-text hover:text-white transition-colors"
+          className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold hover:bg-text hover:text-white transition-colors"
         >
           View LinkedIn Profile
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-amber group-hover:text-white transition-colors">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
