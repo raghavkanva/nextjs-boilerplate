@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   cgEvent,
@@ -12,11 +12,9 @@ import {
   cgOutcomes,
   cgInstructor,
   cgReviewCards,
-  cgOffer,
   cgTrustStatement,
   cgFaqs,
   cgFinalCta,
-  cgFoundationCourses,
 } from "@/data/careerSessionV2";
 
 // ---------- Colors ----------
@@ -176,7 +174,7 @@ function AnimatedUnderline() {
 
 function Hero() {
   return (
-    <section className="relative bg-white pt-0 pb-14 md:pb-16 overflow-hidden">
+    <section className="relative bg-white pt-10 md:pt-14 pb-14 md:pb-16 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <h1
@@ -523,164 +521,6 @@ function ReviewsSection() {
   );
 }
 
-// ---------- Foundation courses slider ----------
-function FoundationCoursesSlider() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
-  const scroll = (dir: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * el.clientWidth * 0.85, behavior: "smooth" });
-  };
-
-  const onScroll = () => {
-    const el = trackRef.current;
-    if (!el || !el.children.length) return;
-    const cardWidth = (el.children[0] as HTMLElement).offsetWidth + 20;
-    const index = Math.round(el.scrollLeft / cardWidth);
-    setActive(Math.min(cgFoundationCourses.length - 1, Math.max(0, index)));
-  };
-
-  const scrollToIndex = (i: number) => {
-    const el = trackRef.current;
-    if (!el || !el.children.length) return;
-    const cardWidth = (el.children[0] as HTMLElement).offsetWidth + 20;
-    el.scrollTo({ left: i * cardWidth, behavior: "smooth" });
-  };
-
-  return (
-    <div className="relative mt-6">
-      <div
-        ref={trackRef}
-        onScroll={onScroll}
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
-        style={{ scrollbarWidth: "none" }}
-      >
-        {cgFoundationCourses.map((course) => (
-          <div
-            key={course.number}
-            className="snap-center shrink-0 w-[85%] sm:w-[50%] lg:w-[34%] rounded-2xl border-2 border-[#111827] bg-white p-6 flex flex-col"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <span className="px-3 py-1 rounded-full bg-[#F0FDF4] text-[#15803D] text-sm font-bold uppercase border border-[#16A34A]/30">
-                {course.tag}
-              </span>
-              <span
-                className="text-4xl font-extrabold text-[#E5E7EB]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {String(course.number).padStart(2, "0")}
-              </span>
-            </div>
-            <h3
-              className="font-bold text-lg text-[#111827] mb-3"
-              style={{ minHeight: "56px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
-            >
-              {course.title}
-            </h3>
-            <div className="flex flex-wrap gap-1.5 mb-3">
-              {course.topics.map((topic, ti) => (
-                <span
-                  key={ti}
-                  className="px-2.5 py-1 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[#374151] text-sm font-medium"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-            {course.highlight && (
-              <span className="inline-block self-start px-3 py-1 rounded-full bg-[#FFC400] text-black text-sm font-bold border border-black mt-auto">
-                {course.highlight}
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="flex justify-center gap-2 mt-2">
-        {cgFoundationCourses.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              scrollToIndex(i);
-              track("foundation_slider_dot_click", { course_index: i + 1 });
-            }}
-            aria-label={`Go to course ${i + 1}`}
-            className={`h-2 rounded-full transition-all ${
-              active === i ? "w-6 bg-[#16A34A]" : "w-2 bg-[#D1D5DB]"
-            }`}
-          />
-        ))}
-      </div>
-
-      <button
-        onClick={() => { scroll(-1); track("foundation_slider_prev_click"); }}
-        aria-label="Previous course"
-        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-[#111827] items-center justify-center text-[#111827] hover:bg-[#FFC400] transition-colors shadow"
-      >
-        ←
-      </button>
-      <button
-        onClick={() => { scroll(1); track("foundation_slider_next_click"); }}
-        aria-label="Next course"
-        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-[#111827] items-center justify-center text-[#111827] hover:bg-[#FFC400] transition-colors shadow"
-      >
-        →
-      </button>
-    </div>
-  );
-}
-
-// ---------- Offer ----------
-function OfferSection() {
-  return (
-    <section id="register" className="relative bg-white py-12 md:py-16 overflow-hidden">
-      <GridBg />
-      <div className="relative max-w-[1100px] mx-auto px-6">
-        <div className="rounded-2xl border-2 border-[#111827] bg-white p-6 md:p-10">
-          <h2
-            className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
-            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
-          >
-            {cgOffer.heading}
-          </h2>
-
-          <div className="max-w-[700px] mx-auto flex flex-col gap-4 mb-8">
-            {cgOffer.items.map((item, i) => (
-              <div key={i} className="rounded-xl bg-[#F0FDF4] border border-[#16A34A]/30 p-5">
-                <h3 className="font-bold text-[#111827] text-base mb-1">{item.title}</h3>
-                <p className="text-[#4B5563] text-sm leading-relaxed">{item.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-[#111827] font-semibold text-lg mb-1">
-            All 10 Foundation Courses Included (Worth Rs. {cgEvent.foundationValue})
-          </p>
-          <p className="text-center text-[#6B7280] text-sm mb-2">
-            10 courses, 1 registration. Swipe to explore.
-          </p>
-          <FoundationCoursesSlider />
-
-          <div className="text-center mt-10">
-            <p
-              className="font-bold text-[#16A34A] mb-1"
-              style={{ fontFamily: "var(--font-display)", fontSize: "48px" }}
-            >
-              Rs. {cgOffer.price}
-            </p>
-            <p className="text-[#6B7280] text-sm uppercase tracking-wide font-semibold mb-6">
-              One Time Session Registration
-            </p>
-            <CtaButton trackId="offer" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ---------- Trust statement ----------
 function TrustStatementSection() {
   return (
@@ -908,7 +748,6 @@ export default function CareerGuidanceClientV2() {
       <SoundLikeYouSection />
       <AudienceSection />
       <OutcomesSection />
-      <OfferSection />
       <InstructorSection />
       <ReviewsSection />
       <TrustStatementSection />

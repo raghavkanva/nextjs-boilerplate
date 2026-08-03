@@ -19,7 +19,7 @@ export default function InstructorStrip() {
         </div>
 
         <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-2">
-          Meet Your Instructor
+          Meet the Instructor
         </p>
 
         <a

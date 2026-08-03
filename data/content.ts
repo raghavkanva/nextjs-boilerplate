@@ -9,6 +9,23 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/balajeeseshadri/",
 };
 
+export const announcements: { text: string; href?: string }[] = [
+  {
+    text: "Independence Day Offer — Pay Only 80% on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 15, 2026.",
+    href: "/independence-offer",
+  },
+  {
+    text: "Upcoming Live Session: Resume Preparation for Core Interviews — Sunday, August 9, 2026.",
+  },
+  {
+    text: "10,000+ Students Already Enrolled. Join the eTalVis community.",
+    href: "/embedded-systems",
+  },
+  {
+    text: "Pre-recorded. Self-paced. Doubts cleared directly by Balajee Seshadri on WhatsApp.",
+  },
+];
+
 export const hero = {
   badge: "10,000+ Students Already Enrolled",
   // Option A (active): "You Passed the Exam. / Now Build the System."
@@ -16,8 +33,8 @@ export const hero = {
   // Option C: "40 Years of Embedded Systems Experience. / Taught Across 10 Foundation Courses."
   // Option D: "Interviews Test Fundamentals. / This Teaches How They Actually Work."
   // Option E: "Theory Without Practice Is a Dead End. / This Teaches the Foundation That Matters."
-  headlinePlain: "You Passed the Exam.",
-  headlineAccent: "Now Build the System.",
+  headlinePlain: "We make Electronics Student's",
+  headlineAccent: "Talent Visible to Industry!",
   sublineBefore: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a ",
   sublineHighlight: "40+ year industry veteran",
   sublineAfter: "",

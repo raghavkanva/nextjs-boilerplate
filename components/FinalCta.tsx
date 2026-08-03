@@ -2,7 +2,7 @@
 
 import { finalCta } from "@/data/content";
 
-export default function FinalCta() {
+export default function FinalCta({ href = "#plans" }: { href?: string }) {
   return (
     <section className="max-w-3xl mx-auto px-6 pb-24 text-center">
       <h2 className="font-display font-semibold text-2xl md:text-3xl text-text mb-4 leading-tight">
@@ -12,7 +12,7 @@ export default function FinalCta() {
         {finalCta.subline}
       </p>
       <a
-        href="#plans"
+        href={href}
         onClick={() =>
           typeof window !== "undefined" &&
           window.gtag &&

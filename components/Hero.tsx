@@ -62,31 +62,15 @@ export default function Hero({
         />
       </div>
 
-      <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
-        <span className="relative flex h-3 w-3">
-          <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-text opacity-75" />
-          <span className="relative inline-flex h-3 w-3 rounded-full bg-text" />
-        </span>
-        {isSession ? (
-          <span>{content.badge}</span>
-        ) : (
-          <span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
-            We make{" "}
-            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
-              E
-            </span>
-            lectronics Student's{" "}
-            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
-              Tal
-            </span>
-            ent{" "}
-            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
-              Vis
-            </span>
-            ible to Industry!
+      {isSession && (
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
+          <span className="relative flex h-3 w-3">
+            <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-text opacity-75" />
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-text" />
           </span>
-        )}
-      </div>
+          <span>{content.badge}</span>
+        </div>
+      )}
 
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.5] mb-4 text-text">
         {content.headlinePlain}{" "}
@@ -115,20 +99,21 @@ export default function Hero({
       )}
 
       {!isSession && (
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg md:text-xl text-muted mb-8">
-          <span className="flex items-center gap-2">
-            <PlayIcon />
-            {hero.trustPoints[0]}
-          </span>
-          <span className="flex items-center gap-2">
-            <ChatIcon />
-            {hero.trustPoints[1]}
-          </span>
-          <span className="flex items-center gap-2">
-            <UsersIcon />
+        <>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-base md:text-lg text-muted mb-5">
+            <span className="flex items-center gap-2">
+              <PlayIcon />
+              {hero.trustPoints[0]}
+            </span>
+            <span className="flex items-center gap-2">
+              <ChatIcon />
+              {hero.trustPoints[1]}
+            </span>
+          </div>
+          <div className="inline-block px-7 py-3 rounded-xl border-2 border-text bg-white font-display font-bold text-xl md:text-2xl text-text mb-8 shadow-sm">
             {hero.badge}
-          </span>
-        </div>
+          </div>
+        </>
       )}
 
       <a
