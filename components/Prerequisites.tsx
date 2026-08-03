@@ -2,7 +2,7 @@ import { prerequisites } from "@/data/content";
 
 export default function Prerequisites() {
   return (
-    <section className="max-w-2xl mx-auto px-6 py-12">
+    <section className="max-w-2xl mx-auto px-6 py-8">
       <h2 className="font-display font-bold text-2xl md:text-3xl text-text text-center mb-8">
         Prerequisites
       </h2>

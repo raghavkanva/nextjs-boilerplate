@@ -3,35 +3,27 @@
 
 export const cgEvent = {
   sessionName: "Demystifying the Myths of the Core Electronics Industry Career",
-  date: "Sunday, August 2, 2026",
-  dateISO: "2026-08-02T11:00:00+05:30",
-  endISO: "2026-08-02T13:00:00+05:30",
-  registrationClosesISO: "2026-08-01T23:59:59+05:30",
-  time: "11:00 AM to 1:00 PM IST",
-  format: "Live Online Session",
-  language: "English",
-  price: 99,
+  price: 999,
   foundationValue: 999,
+  // TODO: verify this is the correct checkout URL for the course-only purchase (was the session registration URL)
   checkoutUrl: "https://learn.etalvis.com/web/checkout/6a53b5028d2de3dfcd013426",
   whatsapp: "+91 9790873099",
   whatsappLink: "https://wa.me/919790873099",
   instructorLinkedin: "https://www.linkedin.com/in/balajeeseshadri/",
 };
 
-export const CTA_LABEL = "Reserve My Seat for Rs. 99";
+export const CTA_LABEL = "Enroll Now, Rs. 999";
 
 export const cgHero = {
-  attendLiveBadge: "ATTEND LIVE",
-  announcement: "Session Starts: 2nd August, Sunday at 11:00 AM to 1:00 PM",
   headline: "Demystifying the Myths of the Core Electronics Industry Career",
   subhead: "Straight answers about core electronics careers. From 40+ years inside the industry.",
   instructorLine:
-    "Live with Balajee Seshadri. 40+ years in the electronics industry, work across India, USA, Germany, and Canada.",
+    "Balajee Seshadri. 40+ years in the electronics industry, work across India, USA, Germany, and Canada.",
   followersLine: "57,000+ followers on LinkedIn",
   benefitLine: [
-    "Live 2 hour session",
-    "1 month recording access",
-    "All 10 Foundation Courses worth Rs. 999",
+    "Pre-recorded, self-paced",
+    "All 10 Foundation Courses",
+    "Doubts cleared directly on WhatsApp",
   ],
   microcopy: "One time payment. No subscription. No hidden charges.",
 };
@@ -51,8 +43,8 @@ export const cgPainPoints = {
     "Everyone says \"build projects,\" but which projects does the core industry actually value?",
   ],
   bridge:
-    "If even one of these sounds like you, you're not alone. This session is built to answer these exact questions, and more.",
-  questionsSubheading: "What this session will actually answer",
+    "If even one of these sounds like you, you're not alone. This course is built to help you understand these exact questions, and more.",
+  questionsSubheading: "What this course will help you understand",
 };
 
 export const cgQuestionGroups = [
@@ -96,7 +88,7 @@ export const cgQuestionGroups = [
 ];
 
 export const cgAudience = {
-  heading: "Who Is This Session For?",
+  heading: "Who Is This Course For?",
   subline:
     "For ECE, EEE, EIE, BME, Mechatronics, and related electronics branches, at any stage.",
   cards: [
@@ -120,7 +112,7 @@ export const cgAudience = {
 };
 
 export const cgOutcomes = {
-  heading: "What Will Become Clear in This Session?",
+  heading: "What Will Become Clear in This Course?",
   items: [
     "The core electronics roles worth exploring",
     "Realistic salary and industry expectations",
@@ -130,7 +122,7 @@ export const cgOutcomes = {
     "What to prioritize, based on where you are right now",
   ],
   closing:
-    "This session won't choose your career for you. It'll help you understand the decisions in front of you, and what preparing for them actually takes.",
+    "This course won't choose your career for you. It'll help you understand the decisions in front of you, and what preparing for them actually takes.",
 };
 
 export const cgInstructor = {
@@ -231,28 +223,28 @@ export const cgReviewCards: ReviewCard[] = [
 ];
 
 export const cgOffer = {
-  heading: "Everything Included With Your Rs. 99 Registration",
+  heading: "Everything Included With Your Rs. 999 Enrollment",
   items: [
     {
-      title: "Live 2 Hour Session",
-      body: "Straight answers on jobs, salary, specialization, preparation, interviews, internships, and AI.",
-    },
-    {
-      title: "1 Month Recording Access",
-      body: "Rewatch it whenever you need the answers again.",
-    },
-    {
       title: "All 10 Foundation Courses",
-      body: "1 month access to strengthen the fundamentals covered in the session. Stated value: Rs. 999",
+      body: "Full access to every course covering electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking.",
+    },
+    {
+      title: "Self-Paced Format",
+      body: "Learn at your own pace. No fixed schedule, no live deadlines.",
+    },
+    {
+      title: "Direct Doubt Clearing on WhatsApp",
+      body: "Ask your questions directly and get answers from Balajee Seshadri.",
     },
   ],
-  price: 99,
+  price: 999,
 };
 
 export const cgTrustStatement = {
   heading: "Career Guidance, Not a Job Promise",
   intro:
-    "This session helps you understand the core electronics industry, spot the gaps in your preparation, and choose a clearer next step.",
+    "This course helps you understand the core electronics industry, spot the gaps in your preparation, and choose a clearer next step.",
   subheading: "It does not provide:",
   points: [
     "A guaranteed job or internship",
@@ -262,59 +254,46 @@ export const cgTrustStatement = {
     "A certificate that replaces real skill",
     "Results without consistent effort",
   ],
-  closing: "Register if you want an honest industry perspective, not a shortcut.",
+  closing: "Enroll if you want an honest industry perspective, not a shortcut.",
 };
 
 export const cgFaqs = [
   {
-    q: "Who can attend?",
-    a: "Students entering first year, students anywhere from first year to final year, recent graduates, and core electronics job seekers.",
+    q: "Who is this course for?",
+    a: "ECE, EEE, EIE, BME, Mechatronics, and related electronics branches. Students from first year to final year, recent graduates, and core electronics job seekers.",
   },
   {
-    q: "Which engineering branches is this relevant for?",
-    a: "ECE, EEE, EIE, BME, Mechatronics, and related electronics branches.",
+    q: "How long do I have access to the course?",
+    a: "Access duration is based on the plan you purchase. Check the plans section on the main site for current durations.",
   },
   {
-    q: "Can someone who just finished 12th attend?",
-    a: "Yes. It helps you understand the industry before you even begin your degree.",
+    q: "Is this self-paced or live?",
+    a: "Fully self-paced. You can watch at your own schedule, pause and revisit sections, and move at whatever pace suits your preparation.",
   },
   {
-    q: "Will all 17 questions be covered?",
-    a: "Yes, across the live session.",
-  },
-  {
-    q: "What language is the session in?",
-    a: "The session is conducted in English.",
-  },
-  {
-    q: "What's included with the Rs. 99 registration?",
-    a: "The live session, 1 month of recording access, and 1 month of access to all 10 Foundation Courses, worth Rs. 999.",
-  },
-  {
-    q: "Will I get the recording?",
-    a: "Yes, for 1 month.",
+    q: "Can I ask doubts after enrolling?",
+    a: "Yes. Doubts are cleared directly on WhatsApp by Balajee Seshadri.",
   },
   {
     q: "Does this guarantee a job or internship?",
-    a: "No. This is a career guidance and preparation session, not a placement program.",
+    a: "No. This is a career guidance and fundamentals course, not a placement program. It helps you understand the industry and prepare more clearly.",
   },
   {
-    q: "How will I get the joining link?",
-    a: "You'll receive it by WhatsApp and email after registration.",
+    q: "What is included in the Rs. 999 enrollment?",
+    a: "All 10 Foundation Courses, self-paced access, and direct doubt clearing on WhatsApp.",
   },
 ];
 
 export const cgFinalCta = {
-  attendLiveBadge: "Live on Sunday, 2nd August",
   heading: "Stop Building Your Career Around Unanswered Questions",
   body: "Get an honest explanation of the core electronics industry from Balajee Seshadri. Understand what to learn, how to prepare, and what to do next.",
   recap: [
-    "17 important career questions",
-    "2 hour live online session",
+    "17 important career questions covered",
+    "Pre-recorded, self-paced format",
     "40+ years of industry perspective",
-    "1 month recording access",
     "All 10 Foundation Courses",
-    "Registration fee: Rs. 99",
+    "Direct doubt clearing on WhatsApp",
+    "Course fee: Rs. 999",
   ],
 };
 

@@ -11,8 +11,13 @@ export const site = {
 
 export const hero = {
   badge: "10,000+ Students Already Enrolled",
-  headlinePlain: "From Doubting Ohm's Law to",
-  headlineAccent: "Building Real Embedded Systems",
+  // Option A (active): "You Passed the Exam. / Now Build the System."
+  // Option B: "Most ECE Students Know Ohm's Law. / Few Can Explain What's Inside a Microprocessor."
+  // Option C: "40 Years of Embedded Systems Experience. / Taught Across 10 Foundation Courses."
+  // Option D: "Interviews Test Fundamentals. / This Teaches How They Actually Work."
+  // Option E: "Theory Without Practice Is a Dead End. / This Teaches the Foundation That Matters."
+  headlinePlain: "You Passed the Exam.",
+  headlineAccent: "Now Build the System.",
   sublineBefore: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a ",
   sublineHighlight: "40+ year industry veteran",
   sublineAfter: "",
@@ -295,6 +300,7 @@ export type Plan = {
   tag: "Popular" | "Best Value" | "For Institutions" | null;
   checkoutUrl: string | null;
   whatsappUrl?: string;
+  emailUrl?: string;
   features: string[];
   highlights?: { title: string; subtitle: string }[];
 };
@@ -363,10 +369,11 @@ export const plans: Plan[] = [
     tag: "For Institutions",
     checkoutUrl: null,
     whatsappUrl: "https://wa.me/919790873069?text=Hi%2C%20I%27m%20interested%20in%20the%20Academic%20plan%20for%2010%2B%20students",
+    emailUrl: "mailto:info@etalvis.com?subject=Academic%20plan%20inquiry",
     features: [
       "Bulk discount for 10 or more students",
       "Same 10 foundation courses",
-      "Contact Balajee sir directly on WhatsApp for pricing",
+      "Contact Balajee sir directly on WhatsApp or email for pricing",
     ],
   },
 ];
@@ -570,10 +577,10 @@ export const sessionFaqs = [
 ];
 export const upcomingEvent = {
   eyebrow: "Upcoming Live Session",
-  title: "Core Electronics Career Guidance",
-  subtitle: "Sunday, August 2, 2026 · 11:00 AM–1:00 PM IST",
+  title: "Resume Preparation for Core Interviews",
+  subtitle: "Sunday, August 9, 2026 · Time to be confirmed", // TODO: update with confirmed time and registration link
   description:
-    "A live session on jobs, salary, specialization, interviews, and AI in Core Electronics. Register for Rs. 99.",
+    "A live session on building a resume that works for core electronics roles, led by Balajee Seshadri.",
   ctaLabel: "See Session Details",
-  ctaHref: "https://courses.etalvis.com/career-guidance",
+  ctaHref: "https://courses.etalvis.com/career-guidance", // TODO: replace with confirmed session registration link
 };
