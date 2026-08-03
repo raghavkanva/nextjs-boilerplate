@@ -6,7 +6,7 @@ export default function Prerequisites() {
       <h2 className="font-display font-bold text-2xl md:text-3xl text-text text-center mb-8">
         Prerequisites
       </h2>
-      <div className="rounded-xl border border-line bg-surface p-8">
+      <div className="rounded-xl border-2 border-text bg-white p-8">
         <ul className="flex flex-col gap-5">
           {prerequisites.map((p, i) => (
             <li

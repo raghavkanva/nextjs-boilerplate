@@ -110,12 +110,12 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
 
   return (
     <div
-      className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-8 bg-surface ${
+      className={`relative flex flex-col h-full rounded-2xl border-2 p-6 md:p-8 bg-white ${
         isPopular ? "border-amber glow-popular" : isAcademic ? "border-amber/50" : "border-line"
       }`}
     >
       {plan.tag && (
-        <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-amber text-onAccent text-xs font-display font-bold">
+        <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-cta text-black border border-text text-xs font-display font-bold">
           {plan.tag}
         </span>
       )}
@@ -149,7 +149,7 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
       </ul>
 
       {plan.highlights?.map((h, i) => (
-        <div key={i} className="mb-4 rounded-xl border-2 border-amber bg-amber/5 p-4">
+        <div key={i} className="mb-4 rounded-xl border-2 border-amber bg-surface p-4">
           <div className="flex items-start gap-2">
             {getHighlightIcon(h.title)}
             <div>
@@ -161,18 +161,20 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
       ))}
 
       {plan.checkoutUrl ? (
-        <a href={plan.checkoutUrl}
+        <a
+          href={plan.checkoutUrl}
           onClick={() => handlePlanClick(plan.name)}
-          className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+          className="mt-auto inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
         >
           Enroll, {plan.name}
         </a>
       ) : (
-        <a href={plan.whatsappUrl}
+        <a
+          href={plan.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => handlePlanClick(plan.name)}
-          className="mt-auto inline-block text-center px-6 py-3 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
+          className="mt-auto inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
         >
           Contact on WhatsApp
         </a>

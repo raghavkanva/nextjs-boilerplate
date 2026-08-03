@@ -27,7 +27,7 @@ export const metadata = {
 function PromoOfferBlock() {
   return (
     <section id="plans" className="max-w-2xl mx-auto px-6 py-16 text-center">
-      <div className="inline-block text-sm md:text-base px-4 py-1.5 rounded-full border border-line text-amber font-mono mb-8 tracking-wide">
+      <div className="inline-block text-sm md:text-base px-4 py-1.5 rounded-full border-2 border-text bg-surface text-ember font-mono mb-8 tracking-wide">
         limited time offer
       </div>
 
@@ -51,7 +51,7 @@ function PromoOfferBlock() {
       <EnrollButton
         href={promoOffer.checkoutUrl}
         label="Enroll Now, Rs. 99"
-        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
+        className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-semibold text-lg hover:bg-text hover:text-white transition-colors"
       />
     </section>
   );

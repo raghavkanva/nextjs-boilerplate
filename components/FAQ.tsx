@@ -27,7 +27,7 @@ export default function FAQ({
       <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
         {heading}
       </h2>
-      <div>
+      <div className="rounded-2xl border-2 border-text bg-white overflow-hidden">
         {data.map((f, i) => (
           <FAQItem key={i} q={f.q} a={f.a} />
         ))}

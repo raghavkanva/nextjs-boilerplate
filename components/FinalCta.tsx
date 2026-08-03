@@ -18,7 +18,7 @@ export default function FinalCta() {
           window.gtag &&
           window.gtag("event", "cta_click", { location: "final_cta" })
         }
-        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-semibold text-lg glow-amber transition-transform hover:scale-[1.02]"
+        className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-semibold text-lg hover:bg-text hover:text-white transition-colors"
       >
         {finalCta.ctaLabel}
       </a>

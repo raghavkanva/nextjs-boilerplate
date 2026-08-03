@@ -15,7 +15,7 @@ export default function PlatformFeatures() {
         {platformFeatures.features.map((f, i) => (
           <div
             key={i}
-            className="rounded-lg border border-line bg-surface p-6"
+            className="rounded-lg border-2 border-text bg-white p-6"
           >
             <h3 className="font-display font-semibold text-xl text-amber mb-2">
               {f.name}
