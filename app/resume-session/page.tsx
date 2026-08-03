@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
 
@@ -231,9 +232,16 @@ export default function ResumeSessionPage() {
 
       {/* Instructor */}
       <section className="max-w-2xl mx-auto px-6 py-10 text-center">
-        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-2">
+        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-4">
           Meet the Instructor
         </p>
+        <Image
+          src="/images/balajee-casual.png"
+          alt="Balajee Seshadri"
+          width={120}
+          height={120}
+          className="mx-auto rounded-full border-2 border-text object-cover mb-4"
+        />
         <h2 className="font-display font-bold text-xl md:text-2xl text-text mb-3">
           Balajee Seshadri
         </h2>
