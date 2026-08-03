@@ -4,27 +4,38 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 120%;
+  font-size: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 body {
   font-feature-settings: "ss01";
-  background-image: radial-gradient(circle, #E1D8C7 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image:
+    linear-gradient(to right, #E5E7EB 1px, transparent 1px),
+    linear-gradient(to bottom, #E5E7EB 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
+.glow-green {
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.3), 0 0 32px -10px rgba(22, 163, 74, 0.4);
+}
+
+.glow-cta {
+  box-shadow: 0 0 0 1px rgba(255, 196, 0, 0.4), 0 0 32px -10px rgba(255, 196, 0, 0.5);
+}
+
+/* Keep legacy aliases so any remaining usage doesn't break silently */
 .glow-amber {
-  box-shadow: 0 0 0 1px rgba(194, 101, 10, 0.3), 0 0 32px -10px rgba(194, 101, 10, 0.4);
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.3), 0 0 32px -10px rgba(22, 163, 74, 0.4);
 }
 
 .glow-ember {
-  box-shadow: 0 0 0 1px rgba(193, 57, 26, 0.3), 0 0 32px -10px rgba(193, 57, 26, 0.4);
+  box-shadow: 0 0 0 1px rgba(21, 128, 61, 0.3), 0 0 32px -10px rgba(21, 128, 61, 0.4);
 }
 
 :focus-visible {
-  outline: 2px solid #e8963c;
+  outline: 2px solid #16A34A;
   outline-offset: 2px;
 }
 
@@ -99,18 +110,13 @@ body {
 @keyframes glow-shift {
   0%, 100% {
     box-shadow:
-      0 0 20px 2px rgba(245, 158, 11, 0.5),
-      0 0 40px 8px rgba(193, 57, 26, 0.3);
+      0 0 20px 2px rgba(22, 163, 74, 0.5),
+      0 0 40px 8px rgba(255, 196, 0, 0.3);
   }
-  33% {
+  50% {
     box-shadow:
-      0 0 20px 2px rgba(193, 57, 26, 0.5),
-      0 0 40px 8px rgba(236, 72, 153, 0.3);
-  }
-  66% {
-    box-shadow:
-      0 0 20px 2px rgba(236, 72, 153, 0.5),
-      0 0 40px 8px rgba(245, 158, 11, 0.3);
+      0 0 20px 2px rgba(255, 196, 0, 0.5),
+      0 0 40px 8px rgba(22, 163, 74, 0.3);
   }
 }
 
@@ -121,7 +127,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .glow-popular {
     animation: none;
-    box-shadow: 0 0 20px 2px rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 20px 2px rgba(22, 163, 74, 0.4);
   }
 }
 .scrollbar-hide::-webkit-scrollbar {
@@ -131,22 +137,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-@keyframes ping-slow {
-  0% {
-    transform: scale(1);
-    opacity: 0.75;
-  }
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
 
-.animate-ping-slow {
-  animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
 .glow-amber-soft {
-  box-shadow: 0 0 24px -8px rgba(194, 101, 10, 0.35);
+  box-shadow: 0 0 24px -8px rgba(22, 163, 74, 0.35);
 }
 @keyframes myth-reveal {
   from {

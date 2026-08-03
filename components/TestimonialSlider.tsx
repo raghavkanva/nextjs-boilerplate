@@ -110,7 +110,7 @@ export default function TestimonialSlider({
               key={i}
               itemScope
               itemType="https://schema.org/Review"
-              className="snap-center shrink-0 w-[85%] sm:w-[46%] lg:w-[23%] rounded-2xl border border-line bg-surface p-6 flex flex-col"
+              className="snap-center shrink-0 w-[85%] sm:w-[46%] lg:w-[23%] rounded-2xl border-2 border-text bg-white p-6 flex flex-col"
             >
               <meta itemProp="itemReviewed" content="eTalVis Embedded Systems Foundation Courses" />
               <div itemProp="author" itemScope itemType="https://schema.org/Person">
@@ -130,7 +130,8 @@ export default function TestimonialSlider({
                 <p className="font-display font-semibold text-amber">{item.name}</p>
                 <p className="text-sm text-muted mt-1">{item.title}</p>
 
-                <a href={item.link}
+                <a
+                  href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 text-sm text-amber underline underline-offset-2 hover:text-ember transition-colors"
@@ -148,7 +149,7 @@ export default function TestimonialSlider({
               onClick={handlePrev}
               disabled={activeIndex === 0}
               aria-label="Previous testimonial"
-              className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-text items-center justify-center text-text hover:bg-cta transition-colors disabled:opacity-30 disabled:pointer-events-none"
             >
               <ChevronLeft />
             </button>
@@ -156,7 +157,7 @@ export default function TestimonialSlider({
               onClick={handleNext}
               disabled={activeIndex === items.length - 1}
               aria-label="Next testimonial"
-              className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-line items-center justify-center text-text hover:bg-amber hover:text-onAccent transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-text items-center justify-center text-text hover:bg-cta transition-colors disabled:opacity-30 disabled:pointer-events-none"
             >
               <ChevronRight />
             </button>

@@ -3,7 +3,7 @@ import { upcomingEvent } from "@/data/content";
 export default function UpcomingEvent() {
   return (
     <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
-      <div className="rounded-2xl border-2 border-amber bg-surface p-6 md:p-8 text-center glow-amber-soft">
+      <div className="rounded-2xl border-2 border-text bg-white p-6 md:p-8 text-center glow-green">
         <p className="text-xs font-bold uppercase tracking-wide text-amber mb-2">
           {upcomingEvent.eyebrow}
         </p>
@@ -14,12 +14,12 @@ export default function UpcomingEvent() {
         <p className="text-muted leading-relaxed mb-6 max-w-xl mx-auto">
           {upcomingEvent.description}
         </p>
-        
-<a href={upcomingEvent.ctaHref}
-  className="inline-block px-7 py-3.5 rounded-md bg-amber text-onAccent font-display font-bold hover:scale-[1.02] transition-transform"
->
-  {upcomingEvent.ctaLabel}
-</a>
+        <a
+          href={upcomingEvent.ctaHref}
+          className="inline-block px-7 py-3.5 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+        >
+          {upcomingEvent.ctaLabel}
+        </a>
       </div>
     </section>
   );

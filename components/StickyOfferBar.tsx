@@ -3,7 +3,7 @@ import EnrollButton from "@/components/EnrollButton";
 
 export default function StickyOfferBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-line bg-bg shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t-2 border-text bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
       <div className="max-w-5xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-baseline gap-2">
@@ -20,13 +20,13 @@ export default function StickyOfferBar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="hidden sm:inline-flex items-center text-xs font-mono font-semibold tracking-wide px-3 py-1.5 rounded-full bg-ember/15 text-ember">
+          <span className="hidden sm:inline-flex items-center text-xs font-mono font-semibold tracking-wide px-3 py-1.5 rounded-full bg-surface text-ember border border-amber/30">
             LIMITED TIME
           </span>
           <EnrollButton
             href={promoOffer.checkoutUrl}
             label="Enroll Now"
-            className="px-6 py-3 rounded-md bg-amber text-onAccent font-display font-semibold text-base glow-amber transition-transform hover:scale-[1.02]"
+            className="px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold text-base hover:bg-text hover:text-white transition-colors"
           />
         </div>
       </div>

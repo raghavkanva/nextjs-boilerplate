@@ -37,9 +37,9 @@ export default function WhoIsThisFor({
           {data.map((segment, i) => (
             <div
               key={i}
-              className="flex items-start gap-3 md:gap-4 rounded-xl border border-line bg-surface px-4 md:px-6 py-4 md:py-5 min-w-0"
+              className="flex items-start gap-3 md:gap-4 rounded-xl border-2 border-text bg-white px-4 md:px-6 py-4 md:py-5 min-w-0"
             >
-              <span className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-amber/15 flex items-center justify-center text-xl md:text-2xl">
+              <span className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface flex items-center justify-center text-xl md:text-2xl border border-amber/30">
                 {segment.emoji}
               </span>
               <div className="min-w-0">

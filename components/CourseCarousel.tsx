@@ -19,14 +19,14 @@ export default function CourseCarousel() {
           {courses.map((c) => (
             <div
               key={c.number}
-              className="relative rounded-xl border border-line bg-surface p-7 overflow-hidden"
+              className="relative rounded-xl border-2 border-text bg-white p-7 overflow-hidden"
             >
               <span className="absolute top-4 right-5 font-display font-bold text-6xl text-line select-none leading-none">
                 {String(c.number).padStart(2, "0")}
               </span>
 
               <div className="relative">
-                <span className="inline-block text-xs font-mono font-semibold tracking-wide px-3 py-1 rounded-full bg-amber/15 text-amber mb-5">
+                <span className="inline-block text-xs font-mono font-semibold tracking-wide px-3 py-1 rounded-full bg-surface border border-amber/30 text-ember mb-5">
                   {c.tag.toUpperCase()}
                 </span>
 

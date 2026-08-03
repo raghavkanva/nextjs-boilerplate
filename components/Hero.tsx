@@ -53,25 +53,25 @@ export default function Hero({
         />
       </div>
 
-      <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-amber text-onAccent font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
+      <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg md:text-2xl mb-8 animate-eyebrow-in shadow-md">
         <span className="relative flex h-3 w-3">
-          <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-onAccent opacity-75" />
-          <span className="relative inline-flex h-3 w-3 rounded-full bg-onAccent" />
+          <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-text opacity-75" />
+          <span className="relative inline-flex h-3 w-3 rounded-full bg-text" />
         </span>
         {isSession ? (
           <span>{content.badge}</span>
         ) : (
           <span className="animate-shimmer bg-[length:200%_auto] bg-clip-text">
             We make{" "}
-            <span className="text-onAccent font-extrabold drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] underline decoration-2 underline-offset-2">
+            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
               E
             </span>
             lectronics Student's{" "}
-            <span className="text-onAccent font-extrabold drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] underline decoration-2 underline-offset-2">
+            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
               Tal
             </span>
             ent{" "}
-            <span className="text-onAccent font-extrabold drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] underline decoration-2 underline-offset-2">
+            <span className="text-black font-extrabold underline decoration-2 underline-offset-2">
               Vis
             </span>
             ible to Industry!
@@ -85,12 +85,12 @@ export default function Hero({
       </h1>
 
       {!isSession && (
-        <div className="max-w-2xl mx-auto mb-8 rounded-xl border border-amber bg-surface px-6 py-5">
+        <div className="max-w-2xl mx-auto mb-8 rounded-xl border-2 border-text bg-surface px-6 py-5">
           <p className="text-base md:text-lg text-muted leading-relaxed">
             {hero.sublineBefore}
             <span
               className="font-semibold text-ember"
-              style={{ textShadow: "0 0 18px rgba(193,57,26,0.45)" }}
+              style={{ textShadow: "0 0 18px rgba(21,128,61,0.35)" }}
             >
               {hero.sublineHighlight}
             </span>
@@ -99,13 +99,13 @@ export default function Hero({
         </div>
       )}
 
-{isSession && (
-  <div className="max-w-2xl mx-auto mb-8">
-    <span className="inline-block px-4 py-2 rounded-full border border-amber bg-amber/10 text-sm md:text-base font-semibold text-text">
-      Includes a free Starter plan worth Rs. 999
-    </span>
-  </div>
-)}
+      {isSession && (
+        <div className="max-w-2xl mx-auto mb-8">
+          <span className="inline-block px-4 py-2 rounded-full border-2 border-text bg-surface text-sm md:text-base font-semibold text-text">
+            Includes a free Starter plan worth Rs. 999
+          </span>
+        </div>
+      )}
 
       {!isSession && (
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg md:text-xl text-muted mb-8">
@@ -122,15 +122,16 @@ export default function Hero({
 
       {!isSession && (
         <div className="mb-8 animate-fade-up">
-          <span className="inline-block text-2xl md:text-4xl font-display font-extrabold text-amber animate-shimmer bg-[length:200%_auto] bg-clip-text">
+          <span className="inline-block text-2xl md:text-4xl font-display font-extrabold text-amber">
             {hero.badge}
           </span>
         </div>
       )}
 
-      <a href={isSession ? sessionHeroContent.ctaHref : "#plans"}
+      <a
+        href={isSession ? sessionHeroContent.ctaHref : "#plans"}
         onClick={handleHeroCtaClick}
-        className="inline-block px-8 py-4 rounded-md bg-amber text-onAccent font-display font-bold text-lg glow-amber transition-transform hover:scale-[1.02]"
+        className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
       >
         {isSession ? sessionHeroContent.ctaLabel : hero.ctaLabel}
       </a>
