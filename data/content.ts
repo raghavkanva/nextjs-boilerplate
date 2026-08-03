@@ -299,6 +299,18 @@ export type Plan = {
 };
 
 
+export type Plan = {
+  name: string;
+  code: string;
+  price: number | null;
+  duration: string;
+  tag: "Popular" | "Best Value" | "For Institutions" | null;
+  checkoutUrl: string | null;
+  whatsappUrl?: string;
+  features: string[];
+  highlights?: { title: string; subtitle: string }[];
+};
+
 export const plans: Plan[] = [
   {
     name: "Starter",
@@ -306,7 +318,7 @@ export const plans: Plan[] = [
     price: 999,
     duration: "1 month access",
     tag: null,
-    checkoutUrl: "https://learn.etalvis.com/web/checkout/6a5da2d97296ab39d9404518",
+    checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
     features: [
       "All 10 foundation courses included",
       "Pre-recorded online sessions, watch anytime, at your own pace",
@@ -332,6 +344,10 @@ export const plans: Plan[] = [
         title: "No-cost EMI available",
         subtitle: "Split your payment with no added cost",
       },
+      {
+        title: "One Time Resume Preparation Help",
+        subtitle: "A one-time service to structure and polish your resume",
+      },
     ],
   },
   {
@@ -344,35 +360,26 @@ export const plans: Plan[] = [
     features: [
       "6 free online monthly meetup sessions",
     ],
-        highlights: [
+    highlights: [
       {
-        title: "One Time Resume Preparation Help",
-        subtitle: "A one-time service to structure and polish your resume."
-      },
-      {
-        title: "15 Minutes Career Guidance Session",
-        subtitle: "One time 15 minutes Career Guidance session by Balajee Seshadri",
+        title: "1 Mock Interview",
+        subtitle: "One mock interview to practice under real pressure and get honest feedback afterward",
       },
     ],
   },
   {
-    name: "Lifetime",
-    code: "EF-99",
-    price: 9999,
-    duration: "Lifetime access",
-    tag: "Best Value",
-    checkoutUrl: "https://learn.etalvis.com/web/checkout/69cc63a722f6a817da84251e",
+    name: "Academic",
+    code: "EF-EDU",
+    price: null,
+    duration: "For institutions and student groups",
+    tag: "For Institutions",
+    checkoutUrl: null,
+    whatsappUrl: "https://wa.me/919790873069?text=Hi%2C%20I%27m%20interested%20in%20the%20Academic%20plan%20for%2010%2B%20students",
     features: [
-      "10 free online monthly meetup sessions",
-      "Two - Times Resume Preparation Help",
-      "Extra Courses Offered",
+      "Bulk discount for 10 or more students",
+      "Same 10 foundation courses",
+      "Contact Balajee sir directly on WhatsApp for pricing",
     ],
-    highlights: [
-      {
-        title: "1 Mock Interview",
-        subtitle: "A single mock interview to practice under real pressure and get honest feedback afterward."
-      }
-    ]
   },
 ];
 
