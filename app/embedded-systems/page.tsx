@@ -102,25 +102,15 @@ function ProgramHero() {
       </div>
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
         Embedded Systems{" "}
-        <span className="text-amber">Foundation Mastery Program</span>
+        <span className="text-[#0A3D1F]">Foundation Mastery Program</span>
       </h1>
-      <p className="max-w-2xl mx-auto mb-6 text-base md:text-lg text-muted leading-relaxed">
-        10 self-paced foundation courses built for ECE and EEE students who want real understanding, not just certificates. Electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking.
+      <p className="max-w-2xl mx-auto mb-3 text-base md:text-lg text-text font-semibold leading-relaxed">
+        Built for core electronics students who want real understanding.
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm md:text-base text-muted mb-6">
-        <span className="flex items-center gap-2">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
-            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
-            <path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" />
-          </svg>
-          Pre-recorded, self-paced
-        </span>
-        <span className="flex items-center gap-2">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
-            <path d="M4 12a8 8 0 1114.9 4.1L20 20l-4-1.1A8 8 0 014 12z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Doubts cleared on WhatsApp
-        </span>
+      <p className="max-w-2xl mx-auto mb-6 text-sm md:text-base text-muted leading-relaxed">
+        Electronics · C Programming · Embedded Hardware · Embedded Software · Protocols · Microprocessors · ARM · 8085 · Networking and more....
+      </p>
+      <div className="flex justify-center mb-6 text-sm md:text-base text-muted">
         <span className="flex items-center gap-2">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
             <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.7" />
@@ -153,15 +143,15 @@ export default function EmbeddedSystemsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
       <ProgramHero />
-      <WhoIsThisFor />
-      <InstructorStrip />
       <CourseCarousel />
-      <Prerequisites />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
+      <InstructorStrip />
+      <WhoIsThisFor />
+      <Prerequisites />
       <TestimonialSlider
         items={testimonialsBottom}
         heading="Real Stories. Real Results."

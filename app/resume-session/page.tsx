@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -164,10 +165,11 @@ export default function ResumeSessionPage() {
         </p>
         <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
           Master the Art of Crafting an{" "}
-          <span className="text-amber">Outstanding Resume</span>
+          <span className="text-amber">Outstanding Resume</span>{" "}
+          <span className="text-[#0A3D1F]">to Secure Core Electronics Jobs</span>
         </h1>
         <p className="text-base md:text-lg text-muted leading-relaxed mb-2 max-w-xl mx-auto">
-          To Secure Core Electronics Jobs
+          The purpose of this session is to educate students from 1st year to Final year about Resume preparation for Core Electronics Jobs.
         </p>
         <p className="text-sm text-muted mb-6">
           By Balajee Seshadri, 40+ years in the Electronics Industry
@@ -177,6 +179,27 @@ export default function ResumeSessionPage() {
         </div>
         <CtaButton location="hero" />
         <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
+      </section>
+
+      {/* For Whom */}
+      <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
+        <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
+          Who Is This Session For?
+        </h2>
+        <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[
+            "First year and second year students who want to understand what a strong resume looks like early",
+            "Pre-final and final year students preparing for core electronics placements",
+            "Students applying to embedded systems, semiconductor, or core electronics companies",
+            "Students who have never written a resume for a core role and don't know where to start",
+          ].map((point, i) => (
+            <div key={i} className="rounded-xl border-2 border-text bg-white px-5 py-4 flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-amber shrink-0 mt-2" />
+              <p className="text-sm md:text-base text-muted leading-relaxed">{point}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Topics */}
@@ -196,10 +219,9 @@ export default function ResumeSessionPage() {
                   {topic.number}
                 </span>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-text mb-1">
+                  <h3 className="font-display font-bold text-lg text-text">
                     {topic.question}
                   </h3>
-                  <p className="text-base text-muted leading-relaxed">{topic.body}</p>
                 </div>
               </div>
             ))}
@@ -210,7 +232,7 @@ export default function ResumeSessionPage() {
       {/* Instructor */}
       <section className="max-w-2xl mx-auto px-6 py-10 text-center">
         <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-2">
-          Your Instructor
+          Meet the Instructor
         </p>
         <h2 className="font-display font-bold text-xl md:text-2xl text-text mb-3">
           Balajee Seshadri
@@ -248,6 +270,7 @@ export default function ResumeSessionPage() {
       </section>
 
       <Footer />
+      <ResumeSessionStickyFooter />
     </main>
   );
 }
