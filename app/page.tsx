@@ -36,12 +36,20 @@ function ProgramCard() {
             </div>
           ))}
         </div>
-        <a
-          href="/embedded-systems"
-          className="inline-block px-7 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold hover:bg-text hover:text-white transition-colors"
-        >
-          Explore Program
-        </a>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a
+            href="/embedded-systems"
+            className="inline-block px-7 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold hover:bg-text hover:text-white transition-colors"
+          >
+            Explore Program
+          </a>
+          <a
+            href="https://courses.etalvis.com"
+            className="text-sm text-muted underline hover:text-amber transition-colors"
+          >
+            courses.etalvis.com
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -79,13 +87,13 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <ProgramCard />
       <InstructorStrip />
       <TestimonialSlider
         items={testimonialsTop}
         heading="What Our Students Are Saying"
       />
       <WhoIsThisFor />
-      <ProgramCard />
       <IndependenceOfferStrip />
       <UpcomingEvent />
       <PlatformFeatures />

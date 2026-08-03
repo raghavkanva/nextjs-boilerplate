@@ -119,7 +119,7 @@ function HeroSection({ expired }: { expired: boolean }) {
         >
           India turns 80.
           <br />
-          <span className="text-[#111827]">#PayOnly80</span> on every plan.
+          <span className="text-[#0A3D1F]">#PayOnly80</span> on every plan.
         </h1>
 
         <p className="text-[#4B5563] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
@@ -295,11 +295,17 @@ function OfferPlanCard({ plan, expired }: { plan: (typeof plans)[number]; expire
               offer_code: OFFER_CODE,
             })
           }
-          className="inline-block text-center px-6 py-3 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold hover:bg-[#111827] hover:text-white transition-colors"
+          className="inline-block text-center px-6 py-3 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold hover:bg-[#111827] hover:text-white transition-colors mb-3"
         >
           {expired ? `Enroll, ${plan.name}` : `Enroll at Rs. ${displayPrice.toLocaleString("en-IN")}`}
         </a>
       )}
+      <a
+        href="/embedded-systems"
+        className="text-center text-sm text-[#16A34A] hover:underline"
+      >
+        Learn more about the program
+      </a>
     </div>
   );
 }

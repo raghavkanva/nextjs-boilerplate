@@ -15,7 +15,8 @@ export const announcements: { text: string; href?: string }[] = [
     href: "/independence-offer",
   },
   {
-    text: "Upcoming Live Session: Resume Preparation for Core Interviews — Sunday, August 9, 2026.",
+    text: "Upcoming Session: Master the Art of Crafting an Outstanding Resume to Secure Core Electronics Jobs. Rs. 80.",
+    href: "/resume-session",
   },
   {
     text: "10,000+ Students Already Enrolled. Join the eTalVis community.",
@@ -124,11 +125,17 @@ export const instructor = {
   photoFormal: "/images/balajee-formal.png",
   photoCasual: "/images/balajee-casual.png",
   yearsExperience: "40+",
-  followers: "55,000+",
+  followers: "57,000+",
   studentsEnrolled: "10,000+",
   linkedin: site.linkedin,
-  bio: "Balajee Seshadri is a seasoned Embedded Systems Engineer with over 40 years of expertise in the Electronics Industry. Driven by a passion for mentorship and knowledge sharing, he supports ECE students in building specialized skills and overcoming the challenges of securing core positions in the field. Through his comprehensive, free Embedded Systems Programming course, as well as his contributions on Quora, LinkedIn, and online learning platforms, Balajee has become a trusted resource in Embedded Systems Education.",
+  bio: "Balajee Seshadri guides students on electronics careers, fundamentals, internships, and interviews. Direct, fundamentals first, no shortcuts.",
   tagline: "Day ONE Productivity of Interns, YGTs, and Employees",
+  trustPoints: [
+    "40+ years of industry experience",
+    "Work across India, USA, Germany, and Canada",
+    "57,000+ followers on LinkedIn",
+    "No job promises, no shortcuts",
+  ],
 };
 
 export const platformFeatures = {

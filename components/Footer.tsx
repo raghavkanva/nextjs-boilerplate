@@ -61,7 +61,15 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} eTalVis. All rights reserved.
           </p>
           <p className="text-xs text-muted/60 text-center">
-            Landing page, SEO and AI Discoverability by Raghav Kanva
+            Powered by{" "}
+            <a
+              href="https://www.linkedin.com/in/raghavkanva/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber transition-colors"
+            >
+              Raghav Kanva
+            </a>
           </p>
         </div>
       </div>

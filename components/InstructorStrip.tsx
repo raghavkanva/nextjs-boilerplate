@@ -22,43 +22,35 @@ export default function InstructorStrip() {
           Meet the Instructor
         </p>
 
+        <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text mb-2 leading-snug">
+          Guidance Backed by 40+ Years in the Electronics Industry
+        </h2>
+
         <a
           href={instructor.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-display font-extrabold text-3xl md:text-4xl text-text mb-1 inline-block hover:text-amber transition-colors"
+          className="font-display font-bold text-xl text-amber mb-4 inline-block hover:underline transition-colors"
         >
           {instructor.name}
         </a>
 
-        <p className="text-muted text-lg mb-6">
-          {instructor.yearsExperience} years in the Electronics Industry
-        </p>
-
-        <div className="flex justify-center gap-10 mb-8">
-          <div>
-            <div className="font-display font-extrabold text-2xl md:text-3xl text-amber">
-              {instructor.studentsEnrolled}
-            </div>
-            <div className="text-sm text-muted">students enrolled</div>
-          </div>
-          <div>
-            <div className="font-display font-extrabold text-2xl md:text-3xl text-amber">
-              {instructor.followers}
-            </div>
-            <div className="text-sm text-muted">LinkedIn followers</div>
-          </div>
-        </div>
-
-        <p className="text-base md:text-lg text-muted leading-relaxed mb-5 text-left md:text-center">
+        <p className="text-base md:text-lg text-muted leading-relaxed mb-6">
           {instructor.bio}
         </p>
 
-        <div className="border-l-4 border-amber pl-4 py-1 mb-6 text-left max-w-xl mx-auto">
-          <p className="font-display font-semibold text-text italic">
-            {instructor.tagline}
-          </p>
-        </div>
+        <ul className="flex flex-col gap-3 mb-8 text-left max-w-sm mx-auto">
+          {instructor.trustPoints.map((point, i) => (
+            <li key={i} className="flex items-center gap-3 text-base text-text">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-amber/20 flex items-center justify-center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="text-amber">
+                  <path d="M5 12l5 5 9-9" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              {point}
+            </li>
+          ))}
+        </ul>
 
         <a
           href={instructor.linkedin}

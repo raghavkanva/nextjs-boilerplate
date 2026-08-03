@@ -14,7 +14,7 @@ import { testimonialsBottom, plans } from "@/data/content";
 export const metadata: Metadata = {
   title: "Embedded Systems Foundation Mastery Program | eTalVis",
   description:
-    "10 self-paced foundation courses in electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking. Taught by Balajee Seshadri, 40+ years in the Electronics Industry. Doubts cleared directly on WhatsApp.",
+    "Online embedded systems course for beginners in India. 10 foundation courses taught by a 40+ year industry veteran. Self-paced, doubts cleared directly on WhatsApp. courses.etalvis.com",
   keywords: [
     "embedded systems course",
     "embedded systems foundation",
@@ -134,6 +134,12 @@ function ProgramHero() {
       >
         Enroll Today
       </a>
+      <p className="text-xs text-muted mt-4">
+        Hosted at{" "}
+        <a href="https://courses.etalvis.com" className="underline hover:text-amber transition-colors">
+          courses.etalvis.com
+        </a>
+      </p>
     </section>
   );
 }
