@@ -290,10 +290,11 @@ export const prerequisites = [
 export type Plan = {
   name: string;
   code: string;
-  price: number;
+  price: number | null;
   duration: string;
-  tag: "Popular" | "Best Value" | null;
-  checkoutUrl: string;
+  tag: "Popular" | "Best Value" | "For Institutions" | null;
+  checkoutUrl: string | null;
+  whatsappUrl?: string;
   features: string[];
   highlights?: { title: string; subtitle: string }[];
 };
