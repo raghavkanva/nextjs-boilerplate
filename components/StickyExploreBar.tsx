@@ -1,6 +1,7 @@
 "use client";
 
 import { BookOpen, CalendarDays, ChevronRight } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 const COURSES_URL = "https://courses.etalvis.com/embedded-systems";
 const WORKSHOPS_URL = "https://courses.etalvis.com/resume-session";
@@ -22,6 +23,7 @@ export default function StickyExploreBar() {
           {/* Courses */}
           <a
             href={COURSES_URL}
+            onClick={() => track("sticky_explore_courses_click", { page: "home", destination: "embedded-systems" })}
             className="group flex min-h-[68px] items-center justify-between gap-2 border-r border-emerald-800 bg-emerald-600 px-3 py-3 text-left text-white transition-colors hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-emerald-200 sm:min-h-[76px] sm:px-5"
           >
             <span className="flex min-w-0 items-center gap-2 sm:gap-3">
@@ -52,6 +54,7 @@ export default function StickyExploreBar() {
           {/* Workshops */}
           <a
             href={WORKSHOPS_URL}
+            onClick={() => track("sticky_join_workshops_click", { page: "home", destination: "resume-session" })}
             className="group flex min-h-[68px] items-center justify-between gap-2 bg-amber-400 px-3 py-3 text-left text-slate-950 transition-colors hover:bg-amber-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100 sm:min-h-[76px] sm:px-5"
           >
             <span className="flex min-w-0 items-center gap-2 sm:gap-3">

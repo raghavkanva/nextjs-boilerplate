@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { track, metaEvent } from "@/lib/analytics";
 
 const CHECKOUT_URL = "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942ae7d6";
 const DEADLINE_ISO = "2026-08-08T23:59:59+05:30";
@@ -96,7 +97,11 @@ export default function ResumeSessionStickyFooter() {
 
           <a
             href={CHECKOUT_URL}
-            className="inline-flex min-h-11 w-full shrink-0 items-center justify-center rounded-xl border-2 border-white bg-white px-5 py-2.5 text-sm font-extrabold text-[#0A3D1F] transition hover:bg-[#FFC400] hover:border-[#FFC400] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 sm:w-auto"
+            onClick={() => {
+            track("resume_sticky_register_click", { price: PRICE, currency: "INR", page: "resume-session" });
+            metaEvent("InitiateCheckout", { content_name: "Resume Session", value: PRICE, currency: "INR" });
+          }}
+          className="inline-flex min-h-11 w-full shrink-0 items-center justify-center rounded-xl border-2 border-white bg-white px-5 py-2.5 text-sm font-extrabold text-[#0A3D1F] transition hover:bg-[#FFC400] hover:border-[#FFC400] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 sm:w-auto"
           >
             Register Now, Rs. {PRICE}
           </a>

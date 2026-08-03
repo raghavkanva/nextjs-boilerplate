@@ -1,5 +1,7 @@
 "use client";
 
+import { track, metaEvent } from "@/lib/analytics";
+
 export default function EnrollButton({
   href,
   label,
@@ -10,12 +12,8 @@ export default function EnrollButton({
   className: string;
 }) {
   const handleClick = () => {
-    if (typeof window !== "undefined" && window.fbq) {
-      window.fbq("track", "InitiateCheckout");
-    }
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "initiate_checkout", { plan_name: label });
-    }
+    track("enroll_click", { label, page: "offer" });
+    metaEvent("InitiateCheckout", { content_name: label, currency: "INR" });
   };
 
   return (

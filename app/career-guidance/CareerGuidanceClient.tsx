@@ -23,16 +23,10 @@ import {
 // accent green: #16A34A, dark green: #15803D
 // CTA yellow: #FFC400, text black, border black
 
-function track(event: string, params: Record<string, string | number> = {}) {
-  if (typeof window !== "undefined") {
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({
-      event,
-      session: "career-guidance-v2",
-      page_path: window.location.pathname,
-      ...params,
-    });
-  }
+import { track as _track, metaEvent } from "@/lib/analytics";
+
+function track(event: string, params: Record<string, string | number | boolean> = {}) {
+  _track(event, { session: "career-guidance-v2", page: "career-guidance", ...params });
 }
 
 
@@ -135,14 +129,20 @@ function CtaButton({ trackId, className = "" }: { trackId: string; className?: s
   return (
     <a
       href={cgEvent.checkoutUrl}
-      onClick={() =>
+      onClick={() => {
         track("reserve_cta_click", {
           cta_location: trackId,
           cta_label: CTA_LABEL,
           price: cgEvent.price,
           currency: "INR",
-        })
-      }
+        });
+        metaEvent("InitiateCheckout", {
+          content_name: cgEvent.sessionName,
+          value: cgEvent.price,
+          currency: "INR",
+          num_items: 1,
+        });
+      }}
       className={`inline-block px-8 py-4 rounded-full bg-[#FFC400] text-black font-bold text-base md:text-lg border-2 border-black hover:bg-[#111827] hover:text-white transition-colors ${className}`}
     >
       {CTA_LABEL}
@@ -709,6 +709,15 @@ export default function CareerGuidanceClientV2() {
     return () => {
       document.documentElement.style.fontSize = prev;
     };
+  }, []);
+
+  useEffect(() => {
+    track("page_view", { content_name: cgEvent.sessionName, content_category: "Workshop" });
+    metaEvent("ViewContent", {
+      content_name: cgEvent.sessionName,
+      content_category: "Workshop",
+      page: "career-guidance",
+    });
   }, []);
 
   const eventSchema = {

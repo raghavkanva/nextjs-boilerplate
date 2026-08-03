@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageAnalytics from "@/components/PageAnalytics";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import PlansGrid from "@/components/Plans";
@@ -142,6 +143,7 @@ export default function EmbeddedSystemsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
+      <PageAnalytics page="embedded-systems" contentName="Embedded Systems Foundation Mastery Program" contentCategory="Course" />
       <ProgramHero />
       <CourseCarousel />
       <PlansGrid

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { plans } from "@/data/content";
 import SharedFooter from "@/components/Footer";
+import { track as _track, metaEvent } from "@/lib/analytics";
 
 const DEADLINE_ISO = "2026-08-15T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
@@ -14,14 +15,8 @@ const offerPricing: Record<string, { regularPrice: number; saveAmount: number; o
   "EF-12": { regularPrice: 4999, saveAmount: 999.80, offerPrice: 3999 },
 };
 
-function track(event: string, params: Record<string, string | number> = {}) {
-  if (typeof window !== "undefined") {
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({ event, page_path: window.location.pathname, ...params });
-    if ((window as any).gtag) {
-      (window as any).gtag("event", event, params);
-    }
-  }
+function track(event: string, params: Record<string, string | number | boolean> = {}) {
+  _track(event, { page: "independence-offer", ...params });
 }
 
 function useCountdown(targetISO: string) {
@@ -68,6 +63,7 @@ function CopyButton() {
     navigator.clipboard.writeText(OFFER_CODE).then(() => {
       setCopied(true);
       track("offer_code_copy", { offer_code: OFFER_CODE });
+      metaEvent("Lead", { content_name: "Independence Day Offer Code Copy", offer_code: OFFER_CODE });
       setTimeout(() => setCopied(false), 2000);
     });
   };
@@ -286,15 +282,22 @@ function OfferPlanCard({ plan, expired }: { plan: (typeof plans)[number]; expire
       {plan.checkoutUrl && (
         <a
           href={plan.checkoutUrl}
-          onClick={() =>
-            track("plan_selection", {
+          onClick={() => {
+            track("independence_plan_select", {
               plan_code: plan.code,
               plan_name: plan.name,
               price: displayPrice,
               offer_active: expired ? 0 : 1,
               offer_code: OFFER_CODE,
-            })
-          }
+            });
+            metaEvent("InitiateCheckout", {
+              content_name: plan.name,
+              content_type: plan.code,
+              value: displayPrice,
+              currency: "INR",
+              num_items: 1,
+            });
+          }}
           className="inline-block text-center px-6 py-3 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold hover:bg-[#111827] hover:text-white transition-colors mb-3"
         >
           {expired ? `Enroll, ${plan.name}` : `Enroll at Rs. ${displayPrice.toLocaleString("en-IN")}`}
@@ -371,6 +374,15 @@ function FinalCtaSection({ expired }: { expired: boolean }) {
 // ---------- Page ----------
 export default function IndependenceOfferClient() {
   const { expired } = useCountdown(DEADLINE_ISO);
+
+  useEffect(() => {
+    track("page_view", { content_name: "Independence Day Offer", content_category: "Offer" });
+    metaEvent("ViewContent", {
+      content_name: "Independence Day Offer",
+      content_category: "Offer",
+      page: "independence-offer",
+    });
+  }, []);
 
   return (
     <main className="bg-white">

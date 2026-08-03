@@ -1,3 +1,4 @@
+import PageAnalytics from "@/components/PageAnalytics";
 import Hero from "@/components/Hero";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import DealCountdown from "@/components/DealCountdown";
@@ -61,6 +62,7 @@ function PromoOfferBlock() {
 export default function OfferPage() {
   return (
     <main className="pb-24">
+      <PageAnalytics page="offer" contentName="eTalVis Starter Offer - First Month Rs. 99" contentCategory="Offer" />
       <Hero />
       <TestimonialSlider
         items={testimonialsTop}

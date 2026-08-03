@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import PromoBannerSlider from "@/components/PromoBannerSlider";
 import CourseHeroSection from "@/components/CourseHeroSection";
 import StickyExploreBar from "@/components/StickyExploreBar";
+import TrackedLink from "@/components/TrackedLink";
+import PageAnalytics from "@/components/PageAnalytics";
 import { testimonialsTop } from "@/data/content";
 
 function ProgramCard() {
@@ -40,12 +42,14 @@ function ProgramCard() {
           ))}
         </div>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <a
+          <TrackedLink
             href="/embedded-systems"
+            event="program_card_explore_click"
+            params={{ page: "home", destination: "embedded-systems" }}
             className="inline-block px-7 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-semibold hover:bg-text hover:text-white transition-colors"
           >
             Explore Program
-          </a>
+          </TrackedLink>
           <a
             href="https://courses.etalvis.com"
             className="text-sm text-muted underline hover:text-amber transition-colors"
@@ -61,8 +65,10 @@ function ProgramCard() {
 function IndependenceOfferStrip() {
   return (
     <section className="max-w-4xl mx-auto px-6 pb-6">
-      <a
+      <TrackedLink
         href="/independence-offer"
+        event="independence_offer_strip_click"
+        params={{ page: "home", offer_code: "INDIA_80TH_INDEPENDENCE_DAY" }}
         className="block rounded-xl border-2 border-amber bg-amber/10 px-5 py-4 hover:bg-amber/20 transition-colors"
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -81,7 +87,7 @@ function IndependenceOfferStrip() {
             </svg>
           </span>
         </div>
-      </a>
+      </TrackedLink>
     </section>
   );
 }
@@ -89,6 +95,7 @@ function IndependenceOfferStrip() {
 export default function Home() {
   return (
     <main>
+      <PageAnalytics page="home" contentName="eTalVis Home" contentCategory="Landing Page" />
       <PromoBannerSlider />
       <Hero />
       <CourseHeroSection />

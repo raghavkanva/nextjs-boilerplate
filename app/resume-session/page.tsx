@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
+import PageAnalytics from "@/components/PageAnalytics";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -111,13 +113,16 @@ function DeliveryBox() {
 
 function CtaButton({ location }: { location: string }) {
   return (
-    <a
+    <TrackedLink
       href={CHECKOUT_URL}
-      data-track-location={location}
+      event="resume_enroll_click"
+      params={{ location, price: PRICE, currency: "INR", page: "resume-session" }}
+      metaStdEvent="InitiateCheckout"
+      metaStdParams={{ content_name: "Resume Session", value: PRICE, currency: "INR" }}
       className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
     >
       Enroll Now, Rs. {PRICE}
-    </a>
+    </TrackedLink>
   );
 }
 
@@ -158,6 +163,8 @@ export default function ResumeSessionPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sessionSchema) }}
       />
+
+      <PageAnalytics page="resume-session" contentName="Resume Session: Master the Art of Crafting an Outstanding Resume" contentCategory="Workshop" />
 
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 pt-8 pb-8 md:pt-12 text-center">
