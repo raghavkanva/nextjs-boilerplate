@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
   description:
-    "A self-paced online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Why resume matters, what to include, AI tools, projects, and design. Rs. 80.",
+    "A live online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Sunday, August 9, 2026, 11 AM to 1 PM IST. Rs. 80.",
   keywords: [
     "resume for core electronics jobs",
     "electronics resume tips",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Self-paced online session by Balajee Seshadri. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session by Balajee Seshadri. Sunday, August 9, 2026, 11 AM to 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
     url: "https://courses.etalvis.com/resume-session",
     siteName: "eTalVis",
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Self-paced online session. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session. Sunday, August 9, 2026, 11 AM – 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
     images: ["https://courses.etalvis.com/images/icon.png"],
   },
   alternates: {
@@ -84,7 +84,15 @@ function DeliveryBox() {
               <path d="M5 12l5 5 9-9" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-          Watch anytime, pre-recorded Online Sessions
+          Live online session — Sunday, August 9, 2026
+        </li>
+        <li className="flex items-center gap-3 text-base text-text">
+          <span className="shrink-0 w-5 h-5 rounded-full bg-amber/20 flex items-center justify-center">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="text-amber">
+              <path d="M5 12l5 5 9-9" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          11 AM – 1 PM IST
         </li>
         <li className="flex items-center gap-3 text-base text-text">
           <span className="shrink-0 w-5 h-5 rounded-full bg-amber/20 flex items-center justify-center">
@@ -114,22 +122,25 @@ function CtaButton({ location }: { location: string }) {
 export default function ResumeSessionPage() {
   const sessionSchema = {
     "@context": "https://schema.org",
-    "@type": "Course",
+    "@type": "Event",
     name: "Master the Art of Crafting an Outstanding Resume to Secure Core Electronics Jobs",
     description:
-      "Self-paced online session by Balajee Seshadri covering why resume matters, what to include, AI usage, project listing, and resume design for core electronics job applications.",
+      "Live online session by Balajee Seshadri covering why resume matters, what to include, AI usage, project listing, and resume design for core electronics job applications.",
     url: "https://courses.etalvis.com/resume-session",
-    provider: {
+    startDate: "2026-08-09T11:00:00+05:30",
+    endDate: "2026-08-09T13:00:00+05:30",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    organizer: {
       "@type": "EducationalOrganization",
       name: "eTalVis",
       sameAs: "https://courses.etalvis.com",
     },
-    instructor: {
+    performer: {
       "@type": "Person",
       name: "Balajee Seshadri",
       sameAs: "https://www.linkedin.com/in/balajeeseshadri/",
     },
-    courseMode: "Online",
     offers: {
       "@type": "Offer",
       price: PRICE,
@@ -165,7 +176,7 @@ export default function ResumeSessionPage() {
           <DeliveryBox />
         </div>
         <CtaButton location="hero" />
-        <p className="text-sm text-muted mt-3">One-time payment. Rs. {PRICE}.</p>
+        <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
       </section>
 
       {/* Topics */}
@@ -229,10 +240,10 @@ export default function ResumeSessionPage() {
             Build a Resume That Gets You Noticed
           </h2>
           <p className="text-base text-muted leading-relaxed mb-6">
-            One-time payment. Pre-recorded. Watch at your own pace. Doubts cleared directly on WhatsApp by Balajee Seshadri.
+            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST. Doubts cleared directly on WhatsApp by Balajee Seshadri.
           </p>
           <CtaButton location="final_cta" />
-          <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time payment, no subscription.</p>
+          <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
         </div>
       </section>
 

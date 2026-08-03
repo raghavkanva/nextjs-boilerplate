@@ -22,9 +22,6 @@ export const announcements: { text: string; href?: string }[] = [
     text: "10,000+ Students Already Enrolled. Join the eTalVis community.",
     href: "/embedded-systems",
   },
-  {
-    text: "Pre-recorded. Self-paced. Doubts cleared directly by Balajee Seshadri on WhatsApp.",
-  },
 ];
 
 export const hero = {
@@ -602,9 +599,9 @@ export const sessionFaqs = [
 export const upcomingEvent = {
   eyebrow: "Upcoming Live Session",
   title: "Resume Preparation for Core Interviews",
-  subtitle: "Sunday, August 9, 2026 · Time to be confirmed", // TODO: update with confirmed time and registration link
+  subtitle: "Sunday, August 9, 2026 · 11 AM – 1 PM IST",
   description:
     "A live session on building a resume that works for core electronics roles, led by Balajee Seshadri.",
   ctaLabel: "See Session Details",
-  ctaHref: "https://courses.etalvis.com/career-guidance", // TODO: replace with confirmed session registration link
+  ctaHref: "https://courses.etalvis.com/resume-session",
 };

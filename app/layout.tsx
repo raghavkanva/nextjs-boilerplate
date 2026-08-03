@@ -9,6 +9,7 @@ import {
   buildFaqSchema,
 } from "@/lib/schema";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import NavBar from "@/components/NavBar";
 import { Fredoka } from "next/font/google";
 
 const fredoka = Fredoka({
@@ -127,6 +128,7 @@ export default function RootLayout({
         ))}
 
         <AnnouncementBar />
+        <NavBar />
         {children}
       </body>
     </html>

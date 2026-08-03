@@ -117,7 +117,7 @@ export default function Hero({
       )}
 
       <a
-        href={isSession ? sessionHeroContent.ctaHref : "#plans"}
+        href={isSession ? sessionHeroContent.ctaHref : "https://courses.etalvis.com/embedded-systems"}
         onClick={handleHeroCtaClick}
         className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
       >

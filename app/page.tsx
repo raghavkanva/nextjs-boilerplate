@@ -8,6 +8,9 @@ import FAQ from "@/components/FAQ";
 import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
+import PromoBannerSlider from "@/components/PromoBannerSlider";
+import CourseHeroSection from "@/components/CourseHeroSection";
+import StickyExploreBar from "@/components/StickyExploreBar";
 import { testimonialsTop } from "@/data/content";
 
 function ProgramCard() {
@@ -86,7 +89,10 @@ function IndependenceOfferStrip() {
 export default function Home() {
   return (
     <main>
+      <PromoBannerSlider />
       <Hero />
+      <CourseHeroSection />
+      <UpcomingEvent />
       <ProgramCard />
       <InstructorStrip />
       <TestimonialSlider
@@ -95,12 +101,12 @@ export default function Home() {
       />
       <WhoIsThisFor />
       <IndependenceOfferStrip />
-      <UpcomingEvent />
       <PlatformFeatures />
       <FAQ />
       <AssessmentNote />
       <FinalCta href="/embedded-systems#plans" />
       <Footer />
+      <StickyExploreBar />
     </main>
   );
 }
