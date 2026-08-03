@@ -3,7 +3,7 @@
 
 export const cgEvent = {
   sessionName: "Demystifying the Myths of the Core Electronics Industry Career",
-  price: 999,
+  price: 99,
   foundationValue: 999,
   // TODO: verify this is the correct checkout URL for the course-only purchase (was the session registration URL)
   checkoutUrl: "https://learn.etalvis.com/web/checkout/6a53b5028d2de3dfcd013426",
@@ -12,7 +12,7 @@ export const cgEvent = {
   instructorLinkedin: "https://www.linkedin.com/in/balajeeseshadri/",
 };
 
-export const CTA_LABEL = "Enroll Now, Rs. 999";
+export const CTA_LABEL = "Enroll Now, Rs. 99";
 
 export const cgHero = {
   headline: "Demystifying the Myths of the Core Electronics Industry Career",

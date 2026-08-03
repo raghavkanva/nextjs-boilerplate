@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { plans } from "@/data/content";
+import SharedFooter from "@/components/Footer";
 
 const DEADLINE_ISO = "2026-08-15T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
@@ -118,7 +119,7 @@ function HeroSection({ expired }: { expired: boolean }) {
         >
           India turns 80.
           <br />
-          <span className="text-[#16A34A]">#PayOnly80</span> on every plan.
+          <span className="text-[#0A3D1F]">#PayOnly80</span> on every plan.
         </h1>
 
         <p className="text-[#4B5563] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
@@ -147,13 +148,13 @@ function HeroSection({ expired }: { expired: boolean }) {
         {!expired && (
           <div className="flex flex-col items-center gap-3 mb-4">
             <p className="text-[#4B5563] text-sm font-semibold">Your offer code:</p>
-            <div className="flex items-center gap-3 px-5 py-3 rounded-xl border-2 border-[#111827] bg-[#F0FDF4]">
-              <code className="font-mono font-bold text-[#16A34A] text-sm md:text-base tracking-widest">
+            <div className="flex flex-col sm:flex-row items-center gap-3 px-5 py-3 rounded-xl border-2 border-[#111827] bg-[#F0FDF4]">
+              <code className="font-mono font-bold text-[#111827] text-sm md:text-base tracking-widest break-all">
                 {OFFER_CODE}
               </code>
               <CopyButton />
             </div>
-            <p className="text-[#6B7280] text-xs">Copy and apply at checkout</p>
+            <p className="text-[#6B7280] text-sm">Copy and apply at checkout</p>
           </div>
         )}
 
@@ -294,11 +295,17 @@ function OfferPlanCard({ plan, expired }: { plan: (typeof plans)[number]; expire
               offer_code: OFFER_CODE,
             })
           }
-          className="inline-block text-center px-6 py-3 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold hover:bg-[#111827] hover:text-white transition-colors"
+          className="inline-block text-center px-6 py-3 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold hover:bg-[#111827] hover:text-white transition-colors mb-3"
         >
           {expired ? `Enroll, ${plan.name}` : `Enroll at Rs. ${displayPrice.toLocaleString("en-IN")}`}
         </a>
       )}
+      <a
+        href="/embedded-systems"
+        className="text-center text-sm text-[#16A34A] hover:underline"
+      >
+        Learn more about the program
+      </a>
     </div>
   );
 }
@@ -361,32 +368,6 @@ function FinalCtaSection({ expired }: { expired: boolean }) {
   );
 }
 
-// ---------- Footer ----------
-function OfferFooter() {
-  return (
-    <footer className="border-t border-[#E5E7EB] py-8">
-      <div className="max-w-[900px] mx-auto px-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#9CA3AF]">
-        <a href="/" className="hover:text-[#111827] transition-colors">eTalVis Home</a>
-        <span>·</span>
-        <a href="/#plans" className="hover:text-[#111827] transition-colors">All Plans</a>
-        <span>·</span>
-        <a href="/privacy-policy" className="hover:text-[#111827] transition-colors">Privacy Policy</a>
-        <span>·</span>
-        <a
-          href="https://wa.me/919790873099"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => track("whatsapp_click", { location: "footer" })}
-          className="hover:text-[#111827] transition-colors"
-        >
-          WhatsApp Support
-        </a>
-      </div>
-      <p className="text-center text-[#9CA3AF] text-xs mt-4">© 2026 eTalVis. All rights reserved.</p>
-    </footer>
-  );
-}
-
 // ---------- Page ----------
 export default function IndependenceOfferClient() {
   const { expired } = useCountdown(DEADLINE_ISO);
@@ -394,10 +375,10 @@ export default function IndependenceOfferClient() {
   return (
     <main className="bg-white">
       <HeroSection expired={expired} />
-      <HowItWorksSection />
       <PlansSection expired={expired} />
+      <HowItWorksSection />
       <FinalCtaSection expired={expired} />
-      <OfferFooter />
+      <SharedFooter />
     </main>
   );
 }
