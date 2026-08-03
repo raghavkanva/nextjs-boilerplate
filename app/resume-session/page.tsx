@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
 import PageAnalytics from "@/components/PageAnalytics";
 import TrackedLink from "@/components/TrackedLink";
-import TopicsAccordion from "./TopicsAccordion";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -52,38 +51,18 @@ const CHECKOUT_URL = "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942
 const PRICE = 80;
 
 const topics = [
-  {
-    number: "01",
-    question: "Why Resume is important",
-    body: "The resume is not just a document. For core electronics roles, it is the first filter. Understanding why it matters, and what it signals to a recruiter, changes how you approach building one.",
-  },
-  {
-    number: "02",
-    question: "What should it contain?",
-    body: "What belongs in a core electronics resume is different from what general advice tells you. Learn what recruiters in embedded systems and semiconductor companies actually look for.",
-  },
-  {
-    number: "03",
-    question: "Can I use AI to generate my Resume?",
-    body: "AI tools can help, but knowing when to use them, what to verify, and where they mislead you is the part no one talks about. This session covers it directly.",
-  },
-  {
-    number: "04",
-    question: "Should I list all my projects in Resume?",
-    body: "Listing everything is not the same as listing the right things. Learn how to decide which projects to include, how to describe them, and what signals they send to a core company.",
-  },
-  {
-    number: "05",
-    question: "Should I create an Eye catching resume?",
-    body: "Design matters less than most students think. What the resume says and how it is structured matters more. This covers the right balance for core electronics applications.",
-  },
+  { number: "01", question: "Why is resume important for core electronics industry jobs?" },
+  { number: "02", question: "What should a core electronics industry resume contain?" },
+  { number: "03", question: "Can I use AI to generate my core electronics industry resume?" },
+  { number: "04", question: "Should I list all my projects in my core electronics industry resume?" },
+  { number: "05", question: "Should I create an eye-catching resume for core electronics industry?" },
 ];
 
 const audience = [
-  "First year and second year students who want to understand what a strong resume looks like early",
-  "Pre-final and final year students preparing for core electronics placements",
-  "Students applying to embedded systems, semiconductor, or core electronics companies",
-  "Students who have never written a resume for a core role and don't know where to start",
+  "Final year students preparing for core electronics industry placements",
+  "Recent graduates and professionals switching into core electronics industry roles",
+  "Third year students who want to build the right foundation before placement season",
+  "First and second year students who want to know what a strong core electronics industry resume looks like early",
 ];
 
 function GridBg() {
@@ -119,7 +98,7 @@ function EnrollCta({ location }: { location: string }) {
       metaStdParams={{ content_name: "Resume Session", value: PRICE, currency: "INR" }}
       className="inline-block px-8 py-4 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold text-lg hover:bg-[#111827] hover:text-white transition-colors"
     >
-      Enroll Now — Rs. {PRICE}
+      Enroll Now for Rs. {PRICE}
     </TrackedLink>
   );
 }
@@ -219,7 +198,7 @@ export default function ResumeSessionPage() {
               <ul className="flex flex-col gap-3 mb-7">
                 {[
                   "Sunday, August 9, 2026",
-                  "11 AM – 1 PM IST",
+                  "11 AM to 1 PM IST",
                   "Doubts cleared directly on WhatsApp",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-base text-[#111827] font-medium">
@@ -230,7 +209,7 @@ export default function ResumeSessionPage() {
               </ul>
               <EnrollCta location="hero" />
               <p className="text-[#4B5563] text-base text-center mt-3">
-                Rs. {PRICE} — one-time registration. No hidden charges.
+                Rs. {PRICE}. One-time registration. No hidden charges.
               </p>
             </div>
           </div>
@@ -273,7 +252,21 @@ export default function ResumeSessionPage() {
             What This Session Covers
           </h2>
           <div className="w-16 h-1 bg-[#16A34A] rounded-full mx-auto mb-10" />
-          <TopicsAccordion topics={topics} />
+          <div className="flex flex-col gap-3">
+            {topics.map((topic) => (
+              <div key={topic.number} className="rounded-xl border-2 border-[#111827] bg-white px-5 py-4 flex items-center gap-4">
+                <span
+                  className="font-extrabold text-4xl text-[#E5E7EB] shrink-0 leading-none w-10"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {topic.number}
+                </span>
+                <span className="font-bold text-[#111827] text-base md:text-lg leading-snug">
+                  {topic.question}
+                </span>
+              </div>
+            ))}
+          </div>
           <div className="text-center mt-10">
             <EnrollCta location="topics" />
           </div>
@@ -347,10 +340,10 @@ export default function ResumeSessionPage() {
           </p>
           <div className="rounded-2xl border-2 border-[#111827] bg-[#F0FDF4] p-6 mb-8 max-w-md mx-auto text-left">
             {[
-              "Live session — ask questions in real time",
-              "Sunday, August 9, 2026 · 11 AM – 1 PM IST",
+              "Live session. Ask questions in real time",
+              "Sunday, August 9, 2026 · 11 AM to 1 PM IST",
               "Doubts cleared on WhatsApp after the session",
-              "Rs. 80 — one-time, no subscriptions",
+              "Rs. 80. One-time. No subscriptions.",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-2.5 mb-3 last:mb-0">
                 <CheckIcon />
@@ -359,7 +352,7 @@ export default function ResumeSessionPage() {
             ))}
           </div>
           <EnrollCta location="final_cta" />
-          <p className="text-[#4B5563] text-base mt-4">Rs. {PRICE} — one-time registration.</p>
+          <p className="text-[#4B5563] text-base mt-4">Rs. {PRICE}. One-time registration.</p>
         </div>
       </section>
 
