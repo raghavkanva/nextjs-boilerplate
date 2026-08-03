@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import InstructorStrip from "@/components/InstructorStrip";
+import UpcomingEvent from "@/components/UpcomingEvent";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
@@ -21,6 +22,7 @@ export default function Home() {
         heading="What Our Students Are Saying"
       />
       <InstructorStrip />
+      <UpcomingEvent />
       <PlansGrid
         id="plans"
         heading="Choose How Long You Want Access"

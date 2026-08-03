@@ -11,8 +11,13 @@ export const site = {
 
 export const hero = {
   badge: "10,000+ Students Already Enrolled",
-  headlinePlain: "From Doubting Ohm's Law to",
-  headlineAccent: "Building Real Embedded Systems",
+  // Option A (active): "You Passed the Exam. / Now Build the System."
+  // Option B: "Most ECE Students Know Ohm's Law. / Few Can Explain What's Inside a Microprocessor."
+  // Option C: "40 Years of Embedded Systems Experience. / Taught Across 10 Foundation Courses."
+  // Option D: "Interviews Test Fundamentals. / This Teaches How They Actually Work."
+  // Option E: "Theory Without Practice Is a Dead End. / This Teaches the Foundation That Matters."
+  headlinePlain: "You Passed the Exam.",
+  headlineAccent: "Now Build the System.",
   sublineBefore: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a ",
   sublineHighlight: "40+ year industry veteran",
   sublineAfter: "",
@@ -571,7 +576,7 @@ export const sessionFaqs = [
 export const upcomingEvent = {
   eyebrow: "Upcoming Live Session",
   title: "Core Electronics Career Guidance",
-  subtitle: "Sunday, August 2, 2026 · 11:00 AM–1:00 PM IST",
+  subtitle: "[Next session date to be confirmed]", // TODO: update when next session is scheduled
   description:
     "A live session on jobs, salary, specialization, interviews, and AI in Core Electronics. Register for Rs. 99.",
   ctaLabel: "See Session Details",
