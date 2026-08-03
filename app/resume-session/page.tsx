@@ -96,14 +96,6 @@ function DeliveryBox() {
           </span>
           11 AM – 1 PM IST
         </li>
-        <li className="flex items-center gap-3 text-base text-text">
-          <span className="shrink-0 w-5 h-5 rounded-full bg-amber/20 flex items-center justify-center">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" className="text-amber">
-              <path d="M5 12l5 5 9-9" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-          Doubts cleared directly on WhatsApp
-        </li>
       </ul>
     </div>
   );
@@ -251,7 +243,7 @@ export default function ResumeSessionPage() {
         <ul className="flex flex-col gap-2 text-sm text-muted text-left max-w-xs mx-auto mb-6">
           {[
             "40+ years of industry experience",
-            "Work across India, USA, Germany, and Canada",
+            "Worked across India, USA, Germany, and Canada",
             "57,000+ followers on LinkedIn",
             "No job promises, no shortcuts",
           ].map((p, i) => (
@@ -270,7 +262,7 @@ export default function ResumeSessionPage() {
             Build a Resume That Gets You Noticed
           </h2>
           <p className="text-base text-muted leading-relaxed mb-6">
-            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST. Doubts cleared directly on WhatsApp by Balajee Seshadri.
+            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST.
           </p>
           <CtaButton location="final_cta" />
           <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
