@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
 import PageAnalytics from "@/components/PageAnalytics";
 import TrackedLink from "@/components/TrackedLink";
+import ReviewsSection from "./ReviewsSection";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -327,6 +328,8 @@ export default function ResumeSessionPage() {
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
 
       {/* ── Final CTA ── */}
       <section className="relative bg-white py-14 md:py-20 overflow-hidden">

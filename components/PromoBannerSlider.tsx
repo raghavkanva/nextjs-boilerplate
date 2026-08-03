@@ -110,10 +110,10 @@ export default function PromoBannerSlider() {
   return (
     <section
       aria-label="Latest eTalVis offers, courses and workshops"
-      className="mx-auto w-full max-w-6xl px-3 py-5 sm:px-6 sm:py-6 lg:px-8"
+      className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-6 sm:py-6 lg:px-8"
     >
       <div
-        className="relative min-h-[390px] overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.14)] sm:aspect-video sm:min-h-0 sm:rounded-3xl"
+        className="relative min-h-[210px] overflow-hidden rounded-2xl border border-slate-300 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.14)] sm:aspect-video sm:min-h-0 sm:rounded-3xl"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -181,7 +181,7 @@ export default function PromoBannerSlider() {
                 className={`absolute -bottom-24 -left-16 h-56 w-56 rounded-full blur-3xl sm:h-80 sm:w-80 ${themeClasses.bottomGlow}`}
               />
 
-              <div className="relative flex h-full items-center px-5 py-7 pb-20 sm:px-10 sm:py-8 lg:px-14 lg:py-10">
+              <div className="relative flex h-full items-center px-5 py-4 pb-12 sm:px-10 sm:py-8 sm:pb-8 lg:px-14 lg:py-10">
                 <div className="grid w-full items-center gap-4 lg:grid-cols-[1.3fr_0.7fr] lg:gap-10">
                   <div className="max-w-3xl">
                     <div
@@ -193,22 +193,22 @@ export default function PromoBannerSlider() {
                       <span className="hidden sm:inline">{slide.eyebrow}</span>
                     </div>
 
-                    <h2 className="mt-4 max-w-3xl text-[29px] font-black leading-[1.04] tracking-tight text-slate-950 sm:mt-5 sm:text-4xl lg:text-5xl xl:text-6xl">
+                    <h2 className="mt-2 max-w-3xl text-[20px] font-black leading-[1.08] tracking-tight text-slate-950 sm:mt-5 sm:text-4xl lg:text-5xl xl:text-6xl">
                       <span className="sm:hidden">{slide.mobileTitle}</span>
                       <span className="hidden sm:inline">{slide.title}</span>
                     </h2>
 
-                    <p className="mt-4 max-w-2xl break-words text-[13px] font-semibold leading-5 text-slate-700 sm:text-lg sm:leading-7 lg:text-xl">
+                    <p className="mt-2 max-w-2xl break-words text-xs font-semibold leading-5 text-slate-700 sm:text-lg sm:leading-7 lg:text-xl">
                       <span className="sm:hidden">{slide.mobileDetail}</span>
                       <span className="hidden sm:inline">{slide.detail}</span>
                     </p>
 
-                    <p className="mt-2 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm">
+                    <p className="hidden sm:block mt-2 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm">
                       {slide.note}
                     </p>
 
                     <span
-                      className={`mt-5 inline-flex min-h-10 items-center justify-center rounded-xl border border-slate-950 px-4 py-2 text-sm font-extrabold text-slate-950 shadow-[0_4px_0_#0f172a] transition sm:mt-6 sm:min-h-11 sm:px-5 sm:py-2.5 sm:text-base ${themeClasses.button}`}
+                      className={`mt-3 inline-flex min-h-8 items-center justify-center rounded-lg border border-slate-950 px-3 py-1.5 text-xs font-extrabold text-slate-950 shadow-[0_3px_0_#0f172a] transition sm:mt-6 sm:min-h-11 sm:rounded-xl sm:px-5 sm:py-2.5 sm:text-base sm:shadow-[0_4px_0_#0f172a] ${themeClasses.button}`}
                     >
                       {slide.cta}
                     </span>
@@ -250,18 +250,18 @@ export default function PromoBannerSlider() {
           type="button"
           onClick={goToPrevious}
           aria-label="Show previous banner"
-          className="absolute left-2 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white/90 text-slate-950 shadow-md backdrop-blur transition hover:bg-white sm:left-3 sm:h-11 sm:w-11"
+          className="hidden sm:flex absolute left-3 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white/90 text-slate-950 shadow-md backdrop-blur transition hover:bg-white"
         >
-          <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+          <ArrowLeft className="h-5 w-5" aria-hidden="true" />
         </button>
 
         <button
           type="button"
           onClick={goToNext}
           aria-label="Show next banner"
-          className="absolute right-2 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white/90 text-slate-950 shadow-md backdrop-blur transition hover:bg-white sm:right-3 sm:h-11 sm:w-11"
+          className="hidden sm:flex absolute right-3 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-300 bg-white/90 text-slate-950 shadow-md backdrop-blur transition hover:bg-white"
         >
-          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+          <ArrowRight className="h-5 w-5" aria-hidden="true" />
         </button>
 
         <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-3 py-2 shadow-sm backdrop-blur sm:bottom-5">
