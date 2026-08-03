@@ -33,7 +33,7 @@ export const hero = {
   // Option E: "Theory Without Practice Is a Dead End. / This Teaches the Foundation That Matters."
   headlinePlain: "We make Electronics Student's",
   headlineAccent: "Talent Visible to Industry!",
-  sublineBefore: "Online embedded systems course for beginners in India, 10 foundation courses, taught by a ",
+  sublineBefore: "Online embedded systems course for beginners in India taught by a ",
   sublineHighlight: "40+ year industry veteran",
   sublineAfter: "",
   trustPoints: [
@@ -42,7 +42,7 @@ export const hero = {
   ],
   ctaLabel: "Enroll Today",
   seoSubhead:
-    "Online embedded systems course for beginners in India, 10 foundation courses, taught by a 40+ year industry veteran.",
+    "Online embedded systems course for beginners in India taught by a 40+ year industry veteran.",
 };
 
 export type Testimonial = {

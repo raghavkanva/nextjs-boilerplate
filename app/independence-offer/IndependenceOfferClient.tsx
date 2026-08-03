@@ -53,7 +53,7 @@ function useCountdown(targetISO: string) {
 function CountdownUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-white text-[#111827] font-bold rounded-lg text-2xl md:text-3xl px-3 py-2 tabular-nums border-2 border-[#111827] min-w-[3rem] text-center">
+      <div className="bg-white text-[#111827] font-bold rounded-lg text-xl sm:text-2xl md:text-3xl px-2 sm:px-3 py-2 tabular-nums border-2 border-[#111827] min-w-[2.5rem] sm:min-w-[3rem] text-center">
         {String(value).padStart(2, "0")}
       </div>
       <span className="text-[10px] text-[#6B7280] mt-1 uppercase tracking-wide">{label}</span>
@@ -123,19 +123,19 @@ function HeroSection({ expired }: { expired: boolean }) {
         </h1>
 
         <p className="text-[#4B5563] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
-          To mark India entering its 80th year of Independence, every eTalVis plan is 20% off until August 15, 2026, 11:59 PM IST.
+          To celebrate India entering its 80th year of Independence, every eTalVis plan is 20% off until August 15, 2026, 11:59 PM IST.
         </p>
 
         {!expired ? (
           <div className="mb-8">
             <p className="text-[#4B5563] text-sm font-semibold uppercase tracking-wide mb-3">Offer Ends In</p>
-            <div className="flex items-end justify-center gap-3">
+            <div className="flex items-end justify-center gap-1.5 sm:gap-3">
               <CountdownUnit value={countdown.days} label="Days" />
-              <span className="text-[#9CA3AF] text-2xl font-bold mb-5">:</span>
+              <span className="text-[#9CA3AF] text-xl sm:text-2xl font-bold mb-5">:</span>
               <CountdownUnit value={countdown.hours} label="Hours" />
-              <span className="text-[#9CA3AF] text-2xl font-bold mb-5">:</span>
+              <span className="text-[#9CA3AF] text-xl sm:text-2xl font-bold mb-5">:</span>
               <CountdownUnit value={countdown.minutes} label="Min" />
-              <span className="text-[#9CA3AF] text-2xl font-bold mb-5">:</span>
+              <span className="text-[#9CA3AF] text-xl sm:text-2xl font-bold mb-5">:</span>
               <CountdownUnit value={countdown.seconds} label="Sec" />
             </div>
           </div>

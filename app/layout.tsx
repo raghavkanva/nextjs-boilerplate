@@ -9,6 +9,7 @@ import {
   buildFaqSchema,
 } from "@/lib/schema";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
 import NavBar from "@/components/NavBar";
 import { Fredoka } from "next/font/google";
 
@@ -128,6 +129,7 @@ export default function RootLayout({
         ))}
 
         <AnnouncementBar />
+        <ThinPromotionHeaderSlider />
         <NavBar />
         {children}
       </body>
