@@ -9,6 +9,7 @@ import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import InstructorStrip from "@/components/InstructorStrip";
+import IndependenceOfferStickyNote from "@/components/IndependenceOfferStickyNote";
 import { testimonialsBottom, plans } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -169,6 +170,7 @@ export default function EmbeddedSystemsPage() {
       <AssessmentNote />
       <FinalCta />
       <Footer />
+      <IndependenceOfferStickyNote />
     </main>
   );
 }

@@ -78,10 +78,10 @@ export default function Hero({
       </h1>
 
       {!isSession && (
-        <p className="max-w-2xl mx-auto mb-8 text-base md:text-lg text-muted leading-relaxed">
+        <p className="max-w-2xl mx-auto mb-8 text-lg md:text-xl font-bold text-text leading-relaxed">
           {hero.sublineBefore}
           <span
-            className="font-semibold text-ember"
+            className="text-ember"
             style={{ textShadow: "0 0 18px rgba(21,128,61,0.35)" }}
           >
             {hero.sublineHighlight}
@@ -99,21 +99,9 @@ export default function Hero({
       )}
 
       {!isSession && (
-        <>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-base md:text-lg text-muted mb-5">
-            <span className="flex items-center gap-2">
-              <PlayIcon />
-              {hero.trustPoints[0]}
-            </span>
-            <span className="flex items-center gap-2">
-              <ChatIcon />
-              {hero.trustPoints[1]}
-            </span>
-          </div>
-          <div className="inline-block px-7 py-3 rounded-xl border-2 border-text bg-white font-display font-bold text-xl md:text-2xl text-text mb-8 shadow-sm">
-            {hero.badge}
-          </div>
-        </>
+        <div className="inline-block px-7 py-3 rounded-xl border-2 border-text bg-white font-display font-bold text-xl md:text-2xl text-text mb-8 shadow-sm">
+          {hero.badge}
+        </div>
       )}
 
       <a

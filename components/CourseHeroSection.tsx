@@ -2,8 +2,6 @@
 
 import {
   CheckCircle2,
-  CirclePlay,
-  MessageCircleMore,
   ShieldCheck,
 } from "lucide-react";
 
@@ -35,46 +33,6 @@ export default function CourseHeroSection() {
               40+ year industry veteran.
             </span>
           </p>
-        </div>
-
-        {/* Feature cards */}
-        <div className="mx-auto mt-5 grid max-w-4xl gap-4 md:mt-6 md:grid-cols-2">
-          <article className="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-[0_12px_35px_rgba(15,23,42,0.08)] backdrop-blur sm:p-6">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
-                <CirclePlay className="h-6 w-6" aria-hidden="true" />
-              </div>
-
-              <div>
-                <h2 className="text-lg font-extrabold text-slate-950 sm:text-xl">
-                  Learn at Your Own Pace
-                </h2>
-
-                <p className="mt-1.5 text-sm leading-6 text-slate-600 sm:text-base">
-                  Watch anytime with structured, pre-recorded online sessions.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article className="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-[0_12px_35px_rgba(15,23,42,0.08)] backdrop-blur sm:p-6">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
-                <MessageCircleMore className="h-6 w-6" aria-hidden="true" />
-              </div>
-
-              <div>
-                <h2 className="text-lg font-extrabold text-slate-950 sm:text-xl">
-                  Get Direct Doubt Support
-                </h2>
-
-                <p className="mt-1.5 text-sm leading-6 text-slate-600 sm:text-base">
-                  Ask course-related questions and receive clarification
-                  directly on WhatsApp.
-                </p>
-              </div>
-            </div>
-          </article>
         </div>
 
         {/* Social proof and CTA */}
