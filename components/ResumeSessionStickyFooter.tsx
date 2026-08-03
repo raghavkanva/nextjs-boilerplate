@@ -42,10 +42,10 @@ function useCountdown(targetISO: string) {
 function CountdownDigit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="min-w-[2rem] rounded bg-white px-1.5 py-0.5 text-center text-sm font-black tabular-nums text-[#0A3D1F] sm:text-base">
+      <span className="min-w-[1.6rem] rounded bg-white px-1 py-0.5 text-center text-xs font-black tabular-nums text-[#0A3D1F]">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="text-[9px] font-semibold uppercase tracking-wide text-white/60">{label}</span>
+      <span className="text-[8px] font-semibold uppercase tracking-wide text-white/60">{label}</span>
     </div>
   );
 }
@@ -57,65 +57,52 @@ export default function ResumeSessionStickyFooter() {
 
   return (
     <>
-      <div aria-hidden="true" className="h-[160px] sm:h-[92px]" />
+      <div aria-hidden="true" className="h-[72px]" />
 
       <aside
         aria-label="Resume session registration deadline"
-        className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 sm:px-4 sm:pb-4"
+        className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="mx-auto flex w-full max-w-4xl flex-col gap-3 rounded-2xl border border-[#0A3D1F] bg-[#0A3D1F] p-3 text-white shadow-[0_-8px_35px_rgba(15,23,42,0.22)] sm:flex-row sm:items-center sm:gap-0 sm:p-4">
+        <div className="mx-auto flex w-full max-w-4xl flex-row items-center gap-2 rounded-xl border border-[#0A3D1F] bg-[#0A3D1F] px-3 py-2.5 text-white shadow-[0_-6px_24px_rgba(15,23,42,0.22)] sm:gap-4 sm:px-5 sm:py-3">
 
-          {/* Left: countdown */}
-          <div className="shrink-0 sm:pr-6 sm:border-r sm:border-white/20">
-            <p className="text-xs font-black uppercase tracking-wide text-white/70 sm:text-sm mb-1.5">
-              Registration closes in
-            </p>
-            <div className="flex items-end gap-1">
+          {/* Countdown */}
+          <div className="shrink-0 pr-3 border-r border-white/20">
+            <p className="text-[9px] font-bold uppercase tracking-wide text-white/60 mb-1">Closes in</p>
+            <div className="flex items-end gap-0.5">
               <CountdownDigit value={days} label="Days" />
-              <span className="mb-4 text-sm font-bold text-white/50">:</span>
+              <span className="mb-3 text-xs font-bold text-white/40">:</span>
               <CountdownDigit value={hours} label="Hrs" />
-              <span className="mb-4 text-sm font-bold text-white/50">:</span>
+              <span className="mb-3 text-xs font-bold text-white/40">:</span>
               <CountdownDigit value={minutes} label="Min" />
-              <span className="mb-4 text-sm font-bold text-white/50">:</span>
+              <span className="mb-3 text-xs font-bold text-white/40">:</span>
               <CountdownDigit value={seconds} label="Sec" />
             </div>
           </div>
 
-          {/* Right: session info + CTA */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:flex-1 sm:pl-6 gap-3 sm:gap-6">
-
-            {/* Session details */}
-            <div className="flex-1 min-w-0">
-              <p className="font-bold text-white text-base leading-snug">
-                Resume Masterclass: Live Online
-              </p>
-              <p className="text-white/70 text-sm mt-0.5">
-                Sunday, Aug 9, 2026 · 11 AM to 1 PM IST
-              </p>
-              <p className="text-white/50 text-xs mt-0.5">
-                By Balajee Seshadri · Core Electronics Resume
-              </p>
-            </div>
-
-            {/* Price + button */}
-            <div className="flex flex-row sm:flex-col items-center sm:items-end gap-3 sm:gap-1 shrink-0">
-              <div className="text-left sm:text-right">
-                <p className="text-white font-extrabold text-2xl leading-none">Rs. {PRICE}</p>
-                <p className="text-white/50 text-xs mt-0.5">One-time</p>
-              </div>
-              <a
-                href={CHECKOUT_URL}
-                onClick={() => {
-                  track("resume_sticky_register_click", { price: PRICE, currency: "INR", page: "resume-session" });
-                  metaEvent("InitiateCheckout", { content_name: "Resume Session", value: PRICE, currency: "INR" });
-                }}
-                className="inline-flex min-h-10 items-center justify-center rounded-xl border-2 border-white bg-white px-5 py-2 text-sm font-extrabold text-[#0A3D1F] transition hover:bg-[#FFC400] hover:border-[#FFC400] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 whitespace-nowrap"
-              >
-                Register Now
-              </a>
-            </div>
-
+          {/* Session info */}
+          <div className="flex-1 min-w-0 pl-1">
+            <p className="font-bold text-white text-sm leading-tight truncate">Resume Masterclass: Live Online</p>
+            <p className="text-white/60 text-xs mt-0.5 truncate">Aug 9, 2026 · 11 AM to 1 PM IST · Balajee Seshadri</p>
           </div>
+
+          {/* Price + button */}
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="hidden sm:block text-right">
+              <p className="text-white font-extrabold text-lg leading-none">Rs. {PRICE}</p>
+              <p className="text-white/50 text-[10px]">One-time</p>
+            </div>
+            <a
+              href={CHECKOUT_URL}
+              onClick={() => {
+                track("resume_sticky_register_click", { price: PRICE, currency: "INR", page: "resume-session" });
+                metaEvent("InitiateCheckout", { content_name: "Resume Session", value: PRICE, currency: "INR" });
+              }}
+              className="inline-flex items-center justify-center rounded-lg border-2 border-white bg-white px-4 py-1.5 text-xs font-extrabold text-[#0A3D1F] transition hover:bg-[#FFC400] hover:border-[#FFC400] whitespace-nowrap"
+            >
+              Register · Rs. {PRICE}
+            </a>
+          </div>
+
         </div>
       </aside>
     </>

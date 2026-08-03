@@ -59,10 +59,10 @@ const topics = [
 ];
 
 const audience = [
-  "Final year students preparing for core electronics industry placements",
-  "Recent graduates and professionals switching into core electronics industry roles",
-  "Third year students who want to build the right foundation before placement season",
-  "First and second year students who want to know what a strong core electronics industry resume looks like early",
+  { highlight: "Final year students", detail: "preparing for core electronics industry placements" },
+  { highlight: "Recent graduates and career switchers", detail: "moving into core electronics industry roles" },
+  { highlight: "Third year students", detail: "who want to build the right foundation before placement season" },
+  { highlight: "First and second year students", detail: "who want to know what a strong core electronics industry resume looks like" },
 ];
 
 function GridBg() {
@@ -234,7 +234,10 @@ export default function ResumeSessionPage() {
                 className="rounded-2xl border-2 border-[#111827] bg-white px-6 py-5 flex items-start gap-4"
               >
                 <CheckIcon />
-                <p className="text-base md:text-lg text-[#4B5563] leading-relaxed">{point}</p>
+                <p className="text-lg md:text-xl text-[#111827] leading-snug font-medium">
+                  <span className="font-extrabold text-[#0A3D1F]">{point.highlight}</span>{" "}
+                  {point.detail}
+                </p>
               </div>
             ))}
           </div>
