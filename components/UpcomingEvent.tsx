@@ -2,7 +2,7 @@ import { upcomingEvent } from "@/data/content";
 
 export default function UpcomingEvent() {
   return (
-    <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
+    <section className="max-w-3xl mx-auto px-6 py-6 md:py-8">
       <div className="rounded-2xl border-2 border-text bg-white p-6 md:p-8 text-center glow-green">
         <p className="text-xs font-bold uppercase tracking-wide text-amber mb-2">
           {upcomingEvent.eyebrow}

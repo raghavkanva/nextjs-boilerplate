@@ -577,10 +577,10 @@ export const sessionFaqs = [
 ];
 export const upcomingEvent = {
   eyebrow: "Upcoming Live Session",
-  title: "Core Electronics Career Guidance",
-  subtitle: "[Next session date to be confirmed]", // TODO: update when next session is scheduled
+  title: "Resume Preparation for Core Interviews",
+  subtitle: "Sunday, August 9, 2026 · Time to be confirmed", // TODO: update with confirmed time and registration link
   description:
-    "A live session on jobs, salary, specialization, interviews, and AI in Core Electronics. Register for Rs. 99.",
+    "A live session on building a resume that works for core electronics roles, led by Balajee Seshadri.",
   ctaLabel: "See Session Details",
-  ctaHref: "https://courses.etalvis.com/career-guidance",
+  ctaHref: "https://courses.etalvis.com/career-guidance", // TODO: replace with confirmed session registration link
 };

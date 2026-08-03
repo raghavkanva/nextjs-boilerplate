@@ -2,15 +2,15 @@ import { courses, coursesIntro } from "@/data/content";
 
 export default function CourseCarousel() {
   return (
-    <section className="py-10 md:py-12">
+    <section className="py-6 md:py-8">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-lg md:text-xl text-muted text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg md:text-xl text-muted text-center max-w-2xl mx-auto mb-8 leading-relaxed">
           {coursesIntro}
         </p>
         <h2 className="font-display font-bold text-3xl md:text-4xl text-text text-center mb-2">
           Courses Covered by This Purchase
         </h2>
-        <p className="text-base md:text-lg text-muted text-center mb-12">
+        <p className="text-base md:text-lg text-muted text-center mb-8">
           Every plan unlocks all 10. The only difference is how long you keep
           access.
         </p>

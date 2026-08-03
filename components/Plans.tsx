@@ -156,7 +156,7 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         </p>
       )}
 
-      <ul className="space-y-3 mb-6 flex-1">
+      <ul className="space-y-3 mb-6">
         {plan.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-2 text-sm text-muted">
             {getFeatureIcon(feature)}
@@ -165,46 +165,48 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         ))}
       </ul>
 
-      {plan.highlights?.map((h, i) => (
-        <div key={i} className="mb-4 rounded-xl border-2 border-amber bg-surface p-4">
-          <div className="flex items-start gap-2">
-            {getHighlightIcon(h.title)}
-            <div>
-              <p className="font-display font-semibold text-amber text-sm">{h.title}</p>
-              <p className="text-xs text-muted mt-1">{h.subtitle}</p>
+      <div className="mt-auto flex flex-col gap-3">
+        {plan.highlights?.map((h, i) => (
+          <div key={i} className="rounded-xl border-2 border-amber bg-surface p-4">
+            <div className="flex items-start gap-2">
+              {getHighlightIcon(h.title)}
+              <div>
+                <p className="font-display font-semibold text-amber text-sm">{h.title}</p>
+                <p className="text-xs text-muted mt-1">{h.subtitle}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {isAcademic ? (
-        <div className="mt-auto flex flex-col gap-3">
+        {isAcademic ? (
+          <>
+            <a
+              href={plan.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handlePlanClick(plan.name)}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+            >
+              <WhatsAppIcon /> Contact on WhatsApp
+            </a>
+            <a
+              href={plan.emailUrl}
+              onClick={() => handlePlanClick(plan.name)}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-text border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+            >
+              <EmailIcon /> Email Us
+            </a>
+          </>
+        ) : plan.checkoutUrl ? (
           <a
-            href={plan.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={plan.checkoutUrl}
             onClick={() => handlePlanClick(plan.name)}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
+            className="inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
           >
-            <WhatsAppIcon /> Contact on WhatsApp
+            Enroll, {plan.name}
           </a>
-          <a
-            href={plan.emailUrl}
-            onClick={() => handlePlanClick(plan.name)}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-text border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
-          >
-            <EmailIcon /> Email Us
-          </a>
-        </div>
-      ) : plan.checkoutUrl ? (
-        <a
-          href={plan.checkoutUrl}
-          onClick={() => handlePlanClick(plan.name)}
-          className="mt-auto inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
-        >
-          Enroll, {plan.name}
-        </a>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 }

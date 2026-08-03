@@ -12,6 +12,15 @@ function PlayIcon() {
   );
 }
 
+function UsersIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
+      <circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M3 20a6 6 0 0112 0M16 8a3 3 0 110 6M21 20a6 6 0 00-6-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function ChatIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-amber shrink-0">
@@ -81,22 +90,20 @@ export default function Hero({
 
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.5] mb-4 text-text">
         {content.headlinePlain}{" "}
-        <span className="text-amber">{content.headlineAccent}</span>
+        <span className="text-text">{content.headlineAccent}</span>
       </h1>
 
       {!isSession && (
-        <div className="max-w-2xl mx-auto mb-8 rounded-xl border-2 border-text bg-surface px-6 py-5">
-          <p className="text-base md:text-lg text-muted leading-relaxed">
-            {hero.sublineBefore}
-            <span
-              className="font-semibold text-ember"
-              style={{ textShadow: "0 0 18px rgba(21,128,61,0.35)" }}
-            >
-              {hero.sublineHighlight}
-            </span>
-            {hero.sublineAfter}
-          </p>
-        </div>
+        <p className="max-w-2xl mx-auto mb-8 text-base md:text-lg text-muted leading-relaxed">
+          {hero.sublineBefore}
+          <span
+            className="font-semibold text-ember"
+            style={{ textShadow: "0 0 18px rgba(21,128,61,0.35)" }}
+          >
+            {hero.sublineHighlight}
+          </span>
+          {hero.sublineAfter}
+        </p>
       )}
 
       {isSession && (
@@ -117,12 +124,8 @@ export default function Hero({
             <ChatIcon />
             {hero.trustPoints[1]}
           </span>
-        </div>
-      )}
-
-      {!isSession && (
-        <div className="mb-8 animate-fade-up">
-          <span className="inline-block text-2xl md:text-4xl font-display font-extrabold text-amber">
+          <span className="flex items-center gap-2">
+            <UsersIcon />
             {hero.badge}
           </span>
         </div>

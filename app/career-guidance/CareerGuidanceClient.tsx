@@ -37,26 +37,6 @@ function track(event: string, params: Record<string, string | number> = {}) {
   }
 }
 
-function useCountdown(targetISO: string) {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 });
-  useEffect(() => {
-    const tick = () => {
-      const total = new Date(targetISO).getTime() - Date.now();
-      const clamped = Math.max(0, total);
-      setTime({
-        total: clamped,
-        days: Math.floor(clamped / 86400000),
-        hours: Math.floor((clamped / 3600000) % 24),
-        minutes: Math.floor((clamped / 60000) % 60),
-        seconds: Math.floor((clamped / 1000) % 60),
-      });
-    };
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, [targetISO]);
-  return time;
-}
 
 function GridBg() {
   return (
@@ -199,19 +179,6 @@ function Hero() {
     <section className="relative bg-white pt-0 pb-14 md:pb-16 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
-        <div className="flex justify-center cg-hero-step-1">
-          <span className="inline-block w-full max-w-[600px] text-center px-5 py-2.5 rounded-b-2xl bg-[#FFC400] text-black text-sm md:text-base font-bold border-2 border-t-0 border-black">
-            {cgHero.announcement}
-          </span>
-        </div>
-
-        <div className="flex justify-center mt-5 mb-6 cg-hero-step-1" style={{ animationDelay: "0.15s" }}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-xs font-bold uppercase tracking-wide">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            {cgHero.attendLiveBadge}
-          </span>
-        </div>
-
         <h1
           className="text-[#111827] font-bold text-center leading-[1.15] mb-8 cg-hero-step-2"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3.5vw, 42px)" }}
@@ -242,34 +209,8 @@ function Hero() {
 
           <div className="rounded-2xl border-2 border-[#16A34A] bg-[#F0FDF4] p-6 md:p-7">
             <span className="inline-block px-3 py-1 rounded-full bg-[#16A34A] text-white text-sm font-bold uppercase mb-4">
-              2 Hour Online Session
+              Self-Paced Course
             </span>
-            <div className="grid grid-cols-2 gap-4 mb-5">
-              <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
-                  <IconCalendar /> Date
-                </div>
-                <p className="text-[#111827] font-semibold text-base">{cgEvent.date}</p>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
-                  <IconClock /> Time
-                </div>
-                <p className="text-[#111827] font-semibold text-base">{cgEvent.time}</p>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
-                  <IconVideo /> Format
-                </div>
-                <p className="text-[#111827] font-semibold text-base">{cgEvent.format}</p>
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-[#15803D] text-sm font-bold uppercase mb-1">
-                  <IconGlobe /> Language
-                </div>
-                <p className="text-[#111827] font-semibold text-base">{cgEvent.language}</p>
-              </div>
-            </div>
 
             <ul className="flex flex-col gap-1.5 mb-5">
               {cgHero.benefitLine.map((b, i) => (
@@ -817,9 +758,6 @@ function FinalCtaSection() {
     <section className="relative bg-[#F0FDF4] py-14 md:py-20 overflow-hidden">
       <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[#DC2626] text-white text-sm font-bold uppercase tracking-wide mb-6">
-          {cgFinalCta.attendLiveBadge}
-        </span>
         <h2
           className="font-bold text-[#111827] mb-6 cg-section-fade"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4.5vw, 42px)" }}
@@ -849,13 +787,10 @@ function CgFooter() {
       <div className="relative max-w-[1000px] mx-auto text-center">
         <Image src="/images/icon.png" alt="eTalVis" width={80} height={80} className="h-16 w-auto mx-auto mb-4" />
         <p className="text-[#111827] font-semibold mb-1">Core Electronics Career Guidance</p>
-        <p className="text-[#6B7280] text-sm mb-1">Conducted by Balajee Seshadri</p>
-        <p className="text-[#6B7280] text-sm mb-6">
-          {cgEvent.date} &middot; {cgEvent.time}
-        </p>
+        <p className="text-[#6B7280] text-sm mb-6">Balajee Seshadri</p>
 
         <div className="flex flex-col items-center gap-1 mb-6 text-sm">
-          <p className="text-[#6B7280]">Registration Support</p>
+          <p className="text-[#6B7280]">Enrollment Support</p>
           <a href={cgEvent.whatsappLink} onClick={() => track("whatsapp_support_click")} className="text-[#111827] hover:text-[#16A34A]">
             WhatsApp: {cgEvent.whatsapp}
           </a>
@@ -904,73 +839,17 @@ function CgFooter() {
 }
 
 // ---------- Sticky bar ----------
-function CountdownUnit({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="flex flex-col items-center min-w-0">
-      <div className="bg-white text-[#111827] font-bold rounded-md text-xl md:text-2xl px-2.5 py-1.5 tabular-nums border-2 border-[#111827]">
-        {String(value).padStart(2, "0")}
-      </div>
-      <span className="text-[8px] md:text-[9px] text-[#6B7280] mt-1 uppercase tracking-wide">{label}</span>
-    </div>
-  );
-}
-
 function StickyBar() {
-  const time = useCountdown(cgEvent.registrationClosesISO);
   return (
     <div className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t-2 border-[#111827] shadow-2xl">
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-3 md:py-4">
-        <div className="hidden md:flex items-center justify-between gap-6">
-          <div className="text-center shrink-0">
-            <p className="text-[#111827] font-bold text-sm">CORE ELECTRONICS CAREER GUIDANCE</p>
-            <p className="text-[#6B7280] text-sm">
-              {cgEvent.date} &middot; {cgEvent.time}
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <p className="text-[#DC2626] text-sm font-bold uppercase tracking-wide mb-1.5">Registration Closes In</p>
-            <div className="flex items-center gap-1.5">
-              <CountdownUnit value={time.days} label="Days" />
-              <span className="text-[#9CA3AF] -mt-3">:</span>
-              <CountdownUnit value={time.hours} label="Hrs" />
-              <span className="text-[#9CA3AF] -mt-3">:</span>
-              <CountdownUnit value={time.minutes} label="Min" />
-              <span className="text-[#9CA3AF] -mt-3">:</span>
-              <CountdownUnit value={time.seconds} label="Sec" />
-            </div>
-          </div>
-          <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center justify-between gap-4">
+          <p className="hidden md:block text-[#111827] font-bold text-sm shrink-0">
+            CORE ELECTRONICS CAREER GUIDANCE
+          </p>
+          <div className="flex items-center gap-4 ml-auto shrink-0">
             <p className="text-[#16A34A] font-extrabold text-xl">Rs. {cgEvent.price}</p>
             <CtaButton trackId="sticky_bar" className="whitespace-nowrap" />
-          </div>
-        </div>
-
-        <div className="md:hidden flex flex-col gap-2">
-          <div className="flex items-center justify-center gap-2 flex-wrap">
-            <p className="text-[#DC2626] text-[11px] font-bold uppercase tracking-wide">
-              Registration Closes In
-            </p>
-            <span className="text-[#111827] font-bold text-sm tabular-nums">
-              {String(time.days).padStart(2, "0")}d : {String(time.hours).padStart(2, "0")}h :{" "}
-              {String(time.minutes).padStart(2, "0")}m : {String(time.seconds).padStart(2, "0")}s
-            </span>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span className="text-[#16A34A] font-extrabold text-xl">Rs. {cgEvent.price}</span>
-            <a
-              href={cgEvent.checkoutUrl}
-              onClick={() =>
-                track("reserve_cta_click", {
-                  cta_location: "sticky_bar_mobile",
-                  cta_label: "Reserve Seat",
-                  price: cgEvent.price,
-                  currency: "INR",
-                })
-              }
-              className="flex-1 text-center px-4 py-2.5 rounded-full bg-[#FFC400] text-black font-bold text-sm border-2 border-black"
-            >
-              Reserve Seat
-            </a>
           </div>
         </div>
       </div>
@@ -994,16 +873,13 @@ export default function CareerGuidanceClientV2() {
 
   const eventSchema = {
     "@context": "https://schema.org",
-    "@type": "Event",
+    "@type": "Course",
     name: cgEvent.sessionName,
-    startDate: cgEvent.dateISO,
-    endDate: cgEvent.endISO,
-    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
+    description: "Straight answers about core electronics careers. From 40+ years inside the industry.",
+    provider: { "@type": "Organization", name: "eTalVis", url: "https://courses.etalvis.com" },
+    educationalLevel: "Beginner to Final Year",
     inLanguage: "en",
-    location: { "@type": "VirtualLocation", url: "https://courses.etalvis.com/career-guidance" },
-    organizer: { "@type": "Organization", name: "eTalVis", url: "https://courses.etalvis.com" },
-    performer: { "@type": "Person", name: "Balajee Seshadri", url: cgEvent.instructorLinkedin },
+    instructor: { "@type": "Person", name: "Balajee Seshadri", url: cgEvent.instructorLinkedin },
     offers: {
       "@type": "Offer",
       price: cgEvent.price,
