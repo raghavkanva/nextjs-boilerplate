@@ -103,30 +103,32 @@ function ReviewCard({ card, index }: { card: (typeof cgReviewCards)[number]; ind
 
 export default function ReviewsSection() {
   return (
-    <section className="relative bg-white py-12 md:py-16 overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.5]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #E5E7EB 1px, transparent 1px), linear-gradient(to bottom, #E5E7EB 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-      <div className="relative max-w-[1200px] mx-auto px-6">
+    <section className="bg-white py-12 md:py-16">
+      <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 38px)" }}
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(28px, 4vw, 38px)",
+          }}
         >
           What Students Say About Learning From Balajee Seshadri
         </h2>
+
         <div className="w-16 h-1 bg-[#16A34A] rounded-full mx-auto mb-10" />
-        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4" style={{ scrollbarWidth: "none" }}>
+
+        <div
+          className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
+          style={{ scrollbarWidth: "none" }}
+        >
           {cgReviewCards.map((card, i) => (
             <ReviewCard key={i} card={card} index={i} />
           ))}
         </div>
+
         <p className="text-[#6B7280] text-sm text-center mt-6 max-w-xl mx-auto">
-          These describe past learning experiences with Balajee Seshadri. They are not job or placement guarantees.
+          These describe past learning experiences with Balajee Seshadri. They
+          are not job or placement guarantees.
         </p>
       </div>
     </section>
