@@ -272,6 +272,28 @@ export function getCampaignEventParameters(): Record<
     campaign_session_id:
       lastTouch.campaign_session_id ?? "not_available",
 
+    // Raw UTM fields (last-touch) — GA4 reads these for event-level attribution
+    // and GTM can map them to the GA4 Configuration Tag's session attribution
+    utm_source:
+      lastTouch.utm_source ?? firstTouch.utm_source ?? "not_set",
+    utm_medium:
+      lastTouch.utm_medium ?? firstTouch.utm_medium ?? "not_set",
+    utm_campaign:
+      lastTouch.utm_campaign ?? firstTouch.utm_campaign ?? "not_set",
+    utm_id:
+      lastTouch.utm_id ?? firstTouch.utm_id ?? "not_set",
+    utm_content:
+      lastTouch.utm_content ?? firstTouch.utm_content ?? "not_set",
+    utm_term:
+      lastTouch.utm_term ?? firstTouch.utm_term ?? "not_set",
+    utm_source_platform:
+      lastTouch.utm_source_platform ?? firstTouch.utm_source_platform ?? "not_set",
+    utm_creative_format:
+      lastTouch.utm_creative_format ?? firstTouch.utm_creative_format ?? "not_set",
+    utm_marketing_tactic:
+      lastTouch.utm_marketing_tactic ?? firstTouch.utm_marketing_tactic ?? "not_set",
+
+    // First-touch and last-touch prefixed fields for custom attribution analysis
     first_utm_id: firstTouch.utm_id ?? "not_set",
     first_utm_source: firstTouch.utm_source ?? "not_set",
     first_utm_medium: firstTouch.utm_medium ?? "not_set",
