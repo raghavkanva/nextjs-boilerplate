@@ -124,6 +124,7 @@ export default function ResumeSessionStickyFooter() {
             </div>
 
             {/* Countdown */}
+{/* Countdown */}
 <div className="min-w-0">
   <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
     Registration closes in
@@ -150,8 +151,7 @@ export default function ResumeSessionStickyFooter() {
 
     <CountdownDigit value={seconds} label="Sec" />
   </div>
-</div>nds} label="Sec" />
-              </div>
+</div>
    
             {/* Register CTA */}
             <div className="flex shrink-0 items-center justify-end">
