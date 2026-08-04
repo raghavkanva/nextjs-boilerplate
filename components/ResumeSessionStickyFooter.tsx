@@ -151,8 +151,7 @@ export default function ResumeSessionStickyFooter() {
 
 <CountdownDigit value={seconds} label="Sec" />
               </div>
-            </div>
-
+   
             {/* Register CTA */}
             <div className="flex shrink-0 items-center justify-end">
               <a
