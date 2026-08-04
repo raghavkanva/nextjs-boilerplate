@@ -29,7 +29,7 @@ export default function IndependenceOfferStickyNote() {
 
             <div className="min-w-0">
               <p className="text-sm font-black leading-5 sm:text-base">
-                Independence Day Offer: Pay Only 80%
+                Independence Day Offer : Pay Only 80%
               </p>
 
               <p className="mt-0.5 break-words text-[11px] font-semibold leading-4 text-slate-800 sm:text-sm">
