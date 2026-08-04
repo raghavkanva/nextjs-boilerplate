@@ -103,32 +103,27 @@ export default function ResumeSessionStickyFooter() {
 
   return (
     <>
-      {/* Prevent page content from being hidden behind the footer */}
-      <div aria-hidden="true" className="h-[122px] sm:h-[92px]" />
+      {/* Prevent page content from being hidden behind the fixed footer */}
+      <div aria-hidden="true" className="h-[122px] sm:h-[104px]" />
 
       <aside
         aria-label="Resume session registration deadline"
         className="fixed inset-x-0 bottom-0 z-[90] px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="relative mx-auto w-full max-w-4xl pt-5 sm:pt-0">
-          {/* Independence Offer Ribbon */}
-          <div className="absolute left-3 top-0 z-20 max-w-[92%] sm:hidden">
-            <div className="absolute inset-0 rounded-t-xl rounded-br-xl bg-white/30 blur-md" />
+        <div className="relative mx-auto w-full max-w-4xl pt-5">
+          {/* Independence offer ribbon shown on all devices */}
+          <div className="absolute left-3 top-0 z-20 max-w-[calc(100%-1.5rem)] sm:left-5 sm:max-w-none">
+            {/* Border glow only */}
+            <div className="absolute inset-0 rounded-t-xl rounded-br-xl bg-blue-400/30 blur-md" />
 
-            <div className="relative rounded-t-xl rounded-br-xl border border-white/20 bg-gradient-to-r from-[#7C2D12] via-[#B45309] to-[#7C2D12] px-4 py-2 shadow-[0_10px_28px_rgba(0,0,0,0.28)]">
-              <p
-                className="whitespace-nowrap text-[10px] font-extrabold uppercase leading-tight tracking-[0.08em] text-white"
-                style={{
-                  textShadow:
-                    "0 0 4px rgba(255,255,255,0.95), 0 0 10px rgba(255,255,255,0.75), 0 0 20px rgba(255,255,255,0.45)",
-                }}
-              >
+            <div className="relative rounded-t-xl rounded-br-xl border border-white/80 bg-gradient-to-r from-[#082F5B] via-[#0F5FA8] to-[#082F5B] px-3 py-2 shadow-[0_0_8px_rgba(255,255,255,0.9),0_0_18px_rgba(59,130,246,0.75),0_8px_24px_rgba(0,0,0,0.24)] sm:px-4">
+              <p className="whitespace-nowrap text-[9px] font-extrabold uppercase leading-tight tracking-[0.06em] text-white sm:text-[10px] md:text-[11px]">
                 India Enters Its 80th Year • Pay Just ₹80
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-2xl border-2 border-[#0A3D1F] bg-gradient-to-r from-[#FFE45E] via-[#FFD84D] to-[#FFC107] px-3 pb-3 pt-8 text-[#0A3D1F] shadow-[0_-10px_30px_rgba(15,23,42,0.25)] sm:grid-cols-[1fr_auto_1fr] sm:gap-5 sm:px-5 sm:py-3">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-2xl border-2 border-[#0A3D1F] bg-gradient-to-r from-[#FFE45E] via-[#FFD84D] to-[#FFC107] px-3 pb-3 pt-8 text-[#0A3D1F] shadow-[0_-10px_30px_rgba(15,23,42,0.25)] sm:grid-cols-[1fr_auto_1fr] sm:gap-5 sm:px-5 sm:pb-3 sm:pt-8">
             {/* Desktop information */}
             <div className="hidden min-w-0 sm:block">
               <p className="truncate text-sm font-black leading-tight text-[#0A3D1F]">
@@ -140,7 +135,7 @@ export default function ResumeSessionStickyFooter() {
               </p>
             </div>
 
-            {/* Countdown */}
+            {/* Countdown unchanged */}
             <div className="min-w-0">
               <p className="mb-1.5 text-[10px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
                 Registration closes in
