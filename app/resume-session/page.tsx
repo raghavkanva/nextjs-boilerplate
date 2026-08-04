@@ -232,14 +232,15 @@ export default function ResumeSessionPage() {
 
       {/* Hero */}
       <section className="max-w-3xl mx-auto px-6 pt-8 pb-8 md:pt-12 text-center">
-        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-3">
-          eTalVis Session
+        <p className="text-lg font-semibold text-amber uppercase tracking-wide mb-3">
+          LIVE SESSION
         </p>
         <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
           Master the Art of Crafting an{" "}
           <span className="text-amber">Outstanding Resume</span>{" "}
           <span className="text-[#0A3D1F]">to Secure Core Electronics Jobs</span>
         </h1>
+         <SessionDetails />
         <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
           <div className="px-5 py-5 md:px-7 md:py-6">
             <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
@@ -268,7 +269,7 @@ export default function ResumeSessionPage() {
           </div>
         </div>
         <div className="mb-8">
-          <SessionDetails />
+         
         </div>
       </section>
 

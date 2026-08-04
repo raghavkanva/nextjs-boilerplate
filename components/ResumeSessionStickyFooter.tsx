@@ -70,11 +70,11 @@ function CountdownDigit({
 }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="min-w-[1.6rem] rounded-md bg-white px-1 py-1 text-center text-[11px] font-black leading-none tabular-nums text-[#0A3D1F] shadow-sm sm:min-w-[1.9rem] sm:text-xs">
+      <span className="flex min-h-[38px] min-w-[42px] items-center justify-center rounded-lg border-2 border-[#0A3D1F] bg-white px-2 text-base font-black leading-none tabular-nums text-[#0A3D1F] shadow-[0_3px_0_#0A3D1F] sm:min-h-[42px] sm:min-w-[48px] sm:text-lg">
         {String(value).padStart(2, "0")}
       </span>
 
-      <span className="mt-0.5 text-[7px] font-bold uppercase tracking-wide text-white/70 sm:text-[8px]">
+      <span className="mt-1 text-[8px] font-black uppercase tracking-[0.08em] text-[#0A3D1F]/75 sm:text-[9px]">
         {label}
       </span>
     </div>
@@ -103,59 +103,82 @@ export default function ResumeSessionStickyFooter() {
 
   return (
     <>
-      {/* Prevents content from hiding behind the fixed footer */}
-      <div aria-hidden="true" className="h-[64px] sm:h-[76px]" />
+      {/* Prevent page content from being hidden behind the footer */}
+      <div
+        aria-hidden="true"
+        className="h-[118px] sm:h-[92px]"
+      />
 
       <aside
         aria-label="Resume session registration deadline"
         className="fixed inset-x-0 bottom-0 z-[90] px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="mx-auto grid w-full max-w-4xl grid-cols-[1fr_auto] items-center gap-2 rounded-xl border border-emerald-700 bg-gradient-to-r from-[#062E18] via-[#0A3D1F] to-[#062E18] px-2.5 py-2 text-white shadow-[0_-8px_28px_rgba(15,23,42,0.28)] sm:grid-cols-[1fr_auto_1fr] sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-2.5">
-          {/* Desktop-only session information */}
-          <div className="hidden min-w-0 sm:block">
-            <p className="truncate text-sm font-extrabold leading-tight text-white">
-              Resume Masterclass: Live Online
-            </p>
-
-            <p className="mt-0.5 truncate text-[11px] font-medium text-white/65">
-              Aug 9, 2026 · 11 AM to 1 PM IST · Balajee Seshadri
-            </p>
+        <div className="relative mx-auto w-full max-w-4xl pt-4 sm:pt-0">
+          {/* Mobile offer banner */}
+          <div className="absolute left-3 top-0 z-10 max-w-[78%] rounded-t-lg rounded-br-lg border-2 border-b-0 border-[#0A3D1F] bg-[#0A3D1F] px-3 py-1.5 text-[9px] font-black leading-tight text-white shadow-md sm:hidden">
+            India Enters Its 80th Year of Independence
+            <span className="text-[#FFD84D]"> • Pay Only 80%</span>
           </div>
 
-          {/* Countdown centered */}
-          <div className="flex min-w-0 items-center justify-center">
-            <div className="flex items-start justify-center gap-0.5 sm:gap-1">
-              <CountdownDigit value={days} label="Days" />
+          <div className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-2xl border-2 border-[#0A3D1F] bg-[#FFD84D] px-3 pb-3 pt-5 text-[#0A3D1F] shadow-[0_-8px_28px_rgba(15,23,42,0.24)] sm:grid-cols-[1fr_auto_1fr] sm:gap-5 sm:px-5 sm:py-3">
+            {/* Desktop information */}
+            <div className="hidden min-w-0 sm:block">
+              <p className="truncate text-sm font-black leading-tight text-[#0A3D1F]">
+                Resume Masterclass: Live Online
+              </p>
 
-              <span className="mt-1 text-xs font-black text-white/40">
-                :
-              </span>
-
-              <CountdownDigit value={hours} label="Hrs" />
-
-              <span className="mt-1 text-xs font-black text-white/40">
-                :
-              </span>
-
-              <CountdownDigit value={minutes} label="Min" />
-
-              <span className="mt-1 text-xs font-black text-white/40">
-                :
-              </span>
-
-              <CountdownDigit value={seconds} label="Sec" />
+              <p className="mt-1 truncate text-[11px] font-semibold text-[#0A3D1F]/70">
+                Aug 9, 2026 • 11 AM to 1 PM IST • Balajee Seshadri
+              </p>
             </div>
-          </div>
 
-          {/* Register button */}
-          <div className="flex shrink-0 items-center justify-end">
-            <a
-              href={CHECKOUT_URL}
-              onClick={handleRegisterClick}
-              className="inline-flex min-h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-lg border-2 border-white bg-white px-3 text-xs font-black text-[#0A3D1F] shadow-[0_3px_0_rgba(0,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-[#062E18] active:translate-y-0 active:shadow-none sm:min-h-10 sm:px-5 sm:text-sm"
-            >
-              Register Now · ₹{PRICE}
-            </a>
+            {/* Mobile countdown */}
+            <div className="min-w-0">
+              <p className="mb-1.5 text-[10px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
+                Registration closes in
+              </p>
+
+              <div className="flex items-start gap-1">
+                <CountdownDigit value={days} label="Days" />
+
+                <span className="mt-2 text-base font-black text-[#0A3D1F]/45">
+                  :
+                </span>
+
+                <CountdownDigit value={hours} label="Hrs" />
+
+                <span className="mt-2 text-base font-black text-[#0A3D1F]/45">
+                  :
+                </span>
+
+                <CountdownDigit value={minutes} label="Min" />
+
+                <span className="mt-2 hidden text-base font-black text-[#0A3D1F]/45 min-[390px]:block">
+                  :
+                </span>
+
+                <div className="hidden min-[390px]:block">
+                  <CountdownDigit value={seconds} label="Sec" />
+                </div>
+              </div>
+            </div>
+
+            {/* Register CTA */}
+            <div className="flex shrink-0 items-center justify-end">
+              <a
+                href={CHECKOUT_URL}
+                onClick={handleRegisterClick}
+                className="inline-flex min-h-[52px] min-w-[126px] shrink-0 flex-col items-center justify-center whitespace-nowrap rounded-xl border-2 border-[#0A3D1F] bg-[#0A3D1F] px-4 text-white shadow-[0_4px_0_rgba(0,0,0,0.25)] transition hover:-translate-y-0.5 hover:bg-[#062E18] active:translate-y-0 active:shadow-none sm:min-h-11 sm:min-w-0 sm:flex-row sm:px-6"
+              >
+                <span className="text-sm font-black leading-none sm:text-base">
+                  Register Now
+                </span>
+
+                <span className="mt-1 text-[11px] font-bold text-[#FFD84D] sm:ml-2 sm:mt-0 sm:text-sm">
+                  ₹{PRICE}
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </aside>
