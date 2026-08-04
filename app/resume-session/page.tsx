@@ -231,61 +231,60 @@ export default function ResumeSessionPage() {
       />
 
       {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 pt-8 pb-8 md:pt-12 text-center">
-<p
-  className="mb-4 text-sm md:text-base font-bold uppercase tracking-[0.18em] text-[#B77900]"
-  style={{ fontFamily: "var(--font-inter)" }}
->
-  LIVE SESSION
-</p>
+<section className="mx-auto max-w-3xl px-6 pb-8 pt-8 text-center md:pt-12">
+  <p
+    className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#B77900] md:text-base"
+    style={{ fontFamily: "var(--font-inter)" }}
+  >
+    LIVE SESSION
+  </p>
 
-<h1
-  className="font-display font-extrabold text-[2rem] md:text-5xl lg:text-[3.6rem] leading-[1.12] tracking-[-0.035em] text-[#111827] mb-5 text-balance"
-  style={{ fontFamily: "var(--font-display)" }}
->
-  Master the Art of Crafting an{" "}
-  <span className="text-amber">
-    Outstanding Resume
-  </span>{" "}
-  <span className="text-[#0A3D1F]">
-    to Secure Core Electronics Jobs
-  </span>
-</h1>
-         <SessionDetails />
-          <p>
-          
+  <h1
+    className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-extrabold leading-[1.1] tracking-[-0.035em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
+    style={{ fontFamily: "var(--font-inter)" }}
+  >
+    Master the Art of Crafting an{" "}
+    <span className="text-amber">
+      Outstanding Resume
+    </span>{" "}
+    <span className="text-[#0A3D1F]">
+      to Secure Core Electronics Jobs
+    </span>
+  </h1>
+
+  <SessionDetails />
+
+  {/* Extra gap only after the session details */}
+  <div className="mt-12 md:mt-16">
+    <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
+      <div className="px-5 py-5 md:px-7 md:py-6">
+        <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
+          The purpose of this session is to educate students from{" "}
+          <span className="font-extrabold text-[#0A3D1F]">
+            1st year to Final year
+          </span>{" "}
+          about{" "}
+          <span className="font-extrabold text-[#0A3D1F]">
+            resume preparation for Core Electronics Jobs.
+          </span>
         </p>
-        <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
-          <div className="px-5 py-5 md:px-7 md:py-6">
-            <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
-              The purpose of this session is to educate students from{" "}
-              <span className="font-extrabold text-[#0A3D1F]">
-                1st year to Final year
-              </span>{" "}
-              about{" "}
-              <span className="font-extrabold text-[#0A3D1F]">
-                resume preparation for Core Electronics Jobs.
-              </span>
-            </p>
-          </div>
+      </div>
 
-          <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
-            <p className="text-sm font-semibold text-[#374151] md:text-base">
-              By{" "}
-              <span className="font-extrabold text-[#111827]">
-                Balajee Seshadri
-              </span>
-              ,{" "}
-              <span className="font-extrabold text-[#0A3D1F]">
-                40+ years in the Electronics Industry
-              </span>
-            </p>
-          </div>
-        </div>
-        <div className="mb-8">
-         
-        </div>
-      </section>
+      <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
+        <p className="text-sm font-semibold text-[#374151] md:text-base">
+          By{" "}
+          <span className="font-extrabold text-[#111827]">
+            Balajee Seshadri
+          </span>
+          ,{" "}
+          <span className="font-extrabold text-[#0A3D1F]">
+            40+ years in the Electronics Industry
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* For Whom */}
       <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
