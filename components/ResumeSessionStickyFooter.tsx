@@ -145,12 +145,11 @@ export default function ResumeSessionStickyFooter() {
                 <CountdownDigit value={minutes} label="Min" />
 
                 <span className="mt-1.5 hidden text-sm font-black text-[#0A3D1F]/40 min-[390px]:block">
-                  :
-                </span>
+<span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+  :
+</span>
 
-                <div className="hidden min-[390px]:block">
-                  <CountdownDigit value={seconds} label="Sec" />
-                </div>
+<CountdownDigit value={seconds} label="Sec" />
               </div>
             </div>
 

@@ -244,7 +244,7 @@ export default function ResumeSessionPage() {
   style={{ fontFamily: "var(--font-headline)" }}
 >
   Master the Art of Crafting an{" "}
-  <span className="text-[#D99A00]">
+  <span className="text-[#0A3D1F]">
     Outstanding Resume
   </span>{" "}
   <span className="text-[#0A3D1F]">
