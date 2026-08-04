@@ -1,5 +1,3 @@
-"use client";
-
 import {
   type AnchorHTMLAttributes,
   type MouseEvent,
@@ -44,6 +42,8 @@ const RESUME_SESSION_ITEM = {
   quantity: 1,
 };
 
+const NAVIGATION_DELAY_MS = 350;
+
 function getCheckoutLocation(params: TrackParams): string {
   const value = params.location;
 
@@ -65,6 +65,7 @@ export default function TrackedLink({
 }: TrackedLinkProps) {
   const checkoutLocation = getCheckoutLocation(params);
   const [trackedHref, setTrackedHref] = useState(href);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const buildFinalUrl = (): string => {
     captureCampaignData();
@@ -93,7 +94,70 @@ export default function TrackedLink({
   const handleClick = (
     clickEvent: MouseEvent<HTMLAnchorElement>,
   ) => {
+    const openInNewTab =
+      target === "_blank" ||
+      clickEvent.ctrlKey ||
+      clickEvent.metaKey ||
+      clickEvent.shiftKey ||
+      clickEvent.button === 1;
+
+    /*
+     * For modifier/new-tab clicks, keep normal browser behaviour.
+     * The URL was already decorated during pointer down.
+     */
+    if (openInNewTab) {
+      const finalUrl = prepareUrl(
+        clickEvent.currentTarget,
+      );
+
+      const campaignParameters =
+        getCampaignEventParameters();
+
+      track(event, {
+        ...campaignParameters,
+        ...params,
+        page: "resume-session",
+        checkout_location: checkoutLocation,
+        destination_url: finalUrl,
+        value: 80,
+        price: 80,
+        currency: "INR",
+      });
+
+      ecommerceEvent("begin_checkout", {
+        currency: "INR",
+        value: 80,
+        checkout_location: checkoutLocation,
+        destination_url: finalUrl,
+        ...campaignParameters,
+        items: [RESUME_SESSION_ITEM],
+      });
+
+      if (metaStdEvent) {
+        metaEvent(metaStdEvent, {
+          content_ids: [
+            RESUME_SESSION_ITEM.item_id,
+          ],
+          content_name:
+            RESUME_SESSION_ITEM.item_name,
+          content_category:
+            RESUME_SESSION_ITEM.item_category,
+          content_type: "product",
+          value: 80,
+          currency: "INR",
+          checkout_location: checkoutLocation,
+          ...campaignParameters,
+          ...metaStdParams,
+        });
+      }
+
+      return;
+    }
+
     clickEvent.preventDefault();
+
+    if (isNavigating) return;
+    setIsNavigating(true);
 
     const finalUrl = prepareUrl(
       clickEvent.currentTarget,
@@ -128,8 +192,14 @@ export default function TrackedLink({
       currency: "INR",
     };
 
+    /*
+     * Custom GTM, GA4 and Meta event.
+     */
     track(event, commonParams);
 
+    /*
+     * Recommended GA4 ecommerce event.
+     */
     ecommerceEvent("begin_checkout", {
       currency: "INR",
       value: 80,
@@ -139,6 +209,9 @@ export default function TrackedLink({
       items: [RESUME_SESSION_ITEM],
     });
 
+    /*
+     * Meta standard InitiateCheckout event.
+     */
     if (metaStdEvent) {
       metaEvent(metaStdEvent, {
         content_ids: [
@@ -157,23 +230,13 @@ export default function TrackedLink({
       });
     }
 
-    const openInNewTab =
-      target === "_blank" ||
-      clickEvent.ctrlKey ||
-      clickEvent.metaKey ||
-      clickEvent.shiftKey;
-
-    if (openInNewTab) {
-      window.open(
-        finalUrl,
-        "_blank",
-        "noopener,noreferrer",
-      );
-
-      return;
-    }
-
-    window.location.assign(finalUrl);
+    /*
+     * Allow browser analytics requests to leave before
+     * navigating to the checkout domain.
+     */
+    window.setTimeout(() => {
+      window.location.href = finalUrl;
+    }, NAVIGATION_DELAY_MS);
   };
 
   return (
@@ -186,6 +249,7 @@ export default function TrackedLink({
           ? rel ?? "noopener noreferrer"
           : rel
       }
+      aria-disabled={isNavigating || undefined}
       onPointerDown={(event) => {
         prepareUrl(event.currentTarget);
       }}
