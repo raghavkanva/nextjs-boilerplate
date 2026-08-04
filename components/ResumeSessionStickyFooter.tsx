@@ -9,8 +9,16 @@ const CHECKOUT_URL =
 const DEADLINE_ISO = "2026-08-08T23:59:59+05:30";
 const PRICE = 80;
 
+type CountdownState = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  expired: boolean;
+};
+
 function useCountdown(targetISO: string) {
-  const [state, setState] = useState({
+  const [state, setState] = useState<CountdownState>({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -30,6 +38,7 @@ function useCountdown(targetISO: string) {
           seconds: 0,
           expired: true,
         });
+
         return;
       }
 
@@ -61,11 +70,11 @@ function CountdownDigit({
 }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="min-w-[1.55rem] rounded-md bg-white px-1 py-1 text-center text-[11px] font-black leading-none tabular-nums text-emerald-950 shadow-sm sm:min-w-[1.8rem] sm:text-xs">
+      <span className="min-w-[1.6rem] rounded-md bg-white px-1 py-1 text-center text-[11px] font-black leading-none tabular-nums text-[#0A3D1F] shadow-sm sm:min-w-[1.9rem] sm:text-xs">
         {String(value).padStart(2, "0")}
       </span>
 
-      <span className="mt-0.5 text-[7px] font-bold uppercase tracking-wide text-white/65 sm:text-[8px]">
+      <span className="mt-0.5 text-[7px] font-bold uppercase tracking-wide text-white/70 sm:text-[8px]">
         {label}
       </span>
     </div>
@@ -78,53 +87,32 @@ export default function ResumeSessionStickyFooter() {
 
   if (expired) return null;
 
+  const handleRegisterClick = () => {
+    track("resume_sticky_register_click", {
+      price: PRICE,
+      currency: "INR",
+      page: "resume-session",
+    });
+
+    metaEvent("InitiateCheckout", {
+      content_name: "Resume Session",
+      value: PRICE,
+      currency: "INR",
+    });
+  };
+
   return (
     <>
-      {/* Prevents page content from hiding behind the sticky footer */}
-      <div aria-hidden="true" className="h-[62px] sm:h-[74px]" />
+      {/* Prevents content from hiding behind the fixed footer */}
+      <div aria-hidden="true" className="h-[64px] sm:h-[76px]" />
 
       <aside
         aria-label="Resume session registration deadline"
         className="fixed inset-x-0 bottom-0 z-[90] px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="mx-auto flex w-full max-w-4xl items-center gap-2 rounded-xl border border-emerald-800 bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 px-2.5 py-2 text-white shadow-[0_-6px_24px_rgba(15,23,42,0.24)] sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-2.5">
-          {/* Countdown */}
-          <div className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:border-r sm:border-white/15 sm:pr-4">
-            <div className="hidden shrink-0 sm:block">
-              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-white/60">
-                Registration closes in
-              </p>
-
-              <p className="mt-0.5 text-xs font-extrabold text-amber-300">
-                Limited-time ₹80 access
-              </p>
-            </div>
-
-            <div className="flex shrink-0 items-start gap-0.5">
-              <CountdownDigit value={days} label="Days" />
-
-              <span className="mt-1 text-xs font-black text-white/35">
-                :
-              </span>
-
-              <CountdownDigit value={hours} label="Hrs" />
-
-              <span className="mt-1 text-xs font-black text-white/35">
-                :
-              </span>
-
-              <CountdownDigit value={minutes} label="Min" />
-
-              <span className="mt-1 text-xs font-black text-white/35">
-                :
-              </span>
-
-              <CountdownDigit value={seconds} label="Sec" />
-            </div>
-          </div>
-
-          {/* Hidden entirely on mobile */}
-          <div className="hidden min-w-0 flex-1 sm:block">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-[1fr_auto] items-center gap-2 rounded-xl border border-emerald-700 bg-gradient-to-r from-[#062E18] via-[#0A3D1F] to-[#062E18] px-2.5 py-2 text-white shadow-[0_-8px_28px_rgba(15,23,42,0.28)] sm:grid-cols-[1fr_auto_1fr] sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-2.5">
+          {/* Desktop-only session information */}
+          <div className="hidden min-w-0 sm:block">
             <p className="truncate text-sm font-extrabold leading-tight text-white">
               Resume Masterclass: Live Online
             </p>
@@ -134,36 +122,39 @@ export default function ResumeSessionStickyFooter() {
             </p>
           </div>
 
-          {/* Price and registration */}
-          <div className="flex shrink-0 items-center gap-2">
-            <div className="hidden text-right md:block">
-              <p className="text-lg font-black leading-none text-amber-300">
-                ₹{PRICE}
-              </p>
+          {/* Countdown centered */}
+          <div className="flex min-w-0 items-center justify-center">
+            <div className="flex items-start justify-center gap-0.5 sm:gap-1">
+              <CountdownDigit value={days} label="Days" />
 
-              <p className="mt-0.5 text-[9px] font-medium text-white/55">
-                One-time
-              </p>
+              <span className="mt-1 text-xs font-black text-white/40">
+                :
+              </span>
+
+              <CountdownDigit value={hours} label="Hrs" />
+
+              <span className="mt-1 text-xs font-black text-white/40">
+                :
+              </span>
+
+              <CountdownDigit value={minutes} label="Min" />
+
+              <span className="mt-1 text-xs font-black text-white/40">
+                :
+              </span>
+
+              <CountdownDigit value={seconds} label="Sec" />
             </div>
+          </div>
 
+          {/* Register button */}
+          <div className="flex shrink-0 items-center justify-end">
             <a
               href={CHECKOUT_URL}
-              onClick={() => {
-                track("resume_sticky_register_click", {
-                  price: PRICE,
-                  currency: "INR",
-                  page: "resume-session",
-                });
-
-                metaEvent("InitiateCheckout", {
-                  content_name: "Resume Session",
-                  value: PRICE,
-                  currency: "INR",
-                });
-              }}
-              className="inline-flex min-h-9 items-center justify-center whitespace-nowrap rounded-lg bg-amber-300 px-3 text-xs font-black text-emerald-950 shadow-[0_3px_0_rgba(120,53,15,0.65)] transition hover:-translate-y-0.5 hover:bg-amber-200 hover:shadow-[0_4px_0_rgba(120,53,15,0.65)] active:translate-y-0 active:shadow-none sm:min-h-10 sm:px-4 sm:text-sm"
+              onClick={handleRegisterClick}
+              className="inline-flex min-h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-lg border-2 border-white bg-white px-3 text-xs font-black text-[#0A3D1F] shadow-[0_3px_0_rgba(0,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-[#062E18] active:translate-y-0 active:shadow-none sm:min-h-10 sm:px-5 sm:text-sm"
             >
-              Register · ₹{PRICE}
+              Register Now · ₹{PRICE}
             </a>
           </div>
         </div>
