@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Sora, Inter, IBM_Plex_Mono } from "next/font/google";
-import "./globals.css";
 import {
-  buildOrganizationSchema,
-  buildPersonSchema,
+  Fredoka,
+  IBM_Plex_Mono,
+  Inter,
+  Sora,
+} from "next/font/google";
+
+import "./globals.css";
+
+import {
   buildCourseSchema,
   buildFaqSchema,
+  buildOrganizationSchema,
+  buildPersonSchema,
 } from "@/lib/schema";
-import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
+
 import NavBar from "@/components/NavBar";
-import { Fredoka } from "next/font/google";
+import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
+import { PromotionSliderProvider } from "@/components/PromotionSliderContext";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -18,6 +26,7 @@ const fredoka = Fredoka({
   weight: ["500", "600", "700"],
   display: "swap",
 });
+
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-display",
@@ -48,9 +57,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   const schemas = [
     buildOrganizationSchema(),
     buildPersonSchema(),
@@ -72,6 +81,7 @@ export default function RootLayout({
               display: "none",
               visibility: "hidden",
             }}
+            title="Google Tag Manager"
           />
         </noscript>
 
@@ -89,11 +99,15 @@ export default function RootLayout({
           {`
             (function(w,d,s,l,i){
               w[l]=w[l]||[];
-              w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});
+              w[l].push({
+                'gtm.start': new Date().getTime(),
+                event:'gtm.js'
+              });
+
               var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),
               dl=l!='dataLayer'?'&l='+l:'';
+
               j.async=true;
               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
@@ -104,22 +118,43 @@ export default function RootLayout({
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+            {
+              if(f.fbq)return;
+
+              n=f.fbq=function(){
+                n.callMethod
+                  ? n.callMethod.apply(n,arguments)
+                  : n.queue.push(arguments)
+              };
+
+              if(!f._fbq)f._fbq=n;
+
+              n.push=n;
+              n.loaded=!0;
+              n.version='2.0';
+              n.queue=[];
+
+              t=b.createElement(e);
+              t.async=!0;
+              t.src=v;
+
+              s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s);
+            }(
+              window,
+              document,
+              'script',
+              'https://connect.facebook.net/en_US/fbevents.js'
+            );
+
             fbq('init', '1385045223537164');
             fbq('track', 'PageView');
           `}
         </Script>
 
-        {/* Structured Data */}
-        {schemas.map((schema, i) => (
+        {schemas.map((schema, index) => (
           <script
-            key={i}
+            key={index}
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(schema),
@@ -127,9 +162,11 @@ export default function RootLayout({
           />
         ))}
 
-        <ThinPromotionHeaderSlider />
-        <NavBar />
-        {children}
+        <PromotionSliderProvider>
+          <ThinPromotionHeaderSlider />
+          <NavBar />
+          {children}
+        </PromotionSliderProvider>
       </body>
     </html>
   );
