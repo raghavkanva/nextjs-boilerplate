@@ -124,32 +124,33 @@ export default function ResumeSessionStickyFooter() {
             </div>
 
             {/* Countdown */}
-            <div className="min-w-0">
-              <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
-                Registration closes in
-              </p>
+<div className="min-w-0">
+  <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
+    Registration closes in
+  </p>
 
-              <div className="flex items-start gap-0.5 sm:gap-1">
-                <CountdownDigit value={days} label="Days" />
+  <div className="flex items-start gap-0.5 sm:gap-1">
+    <CountdownDigit value={days} label="Days" />
 
-                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-                  :
-                </span>
+    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+      :
+    </span>
 
-                <CountdownDigit value={hours} label="Hrs" />
+    <CountdownDigit value={hours} label="Hrs" />
 
-                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-                  :
-                </span>
+    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+      :
+    </span>
 
-                <CountdownDigit value={minutes} label="Min" />
+    <CountdownDigit value={minutes} label="Min" />
 
-                <span className="mt-1.5 hidden text-sm font-black text-[#0A3D1F]/40 min-[390px]:block">
-<span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-  :
-</span>
+    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+      :
+    </span>
 
-<CountdownDigit value={seconds} label="Sec" />
+    <CountdownDigit value={seconds} label="Sec" />
+  </div>
+</div>nds} label="Sec" />
               </div>
    
             {/* Register CTA */}
