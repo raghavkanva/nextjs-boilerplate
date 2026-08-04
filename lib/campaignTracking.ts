@@ -203,21 +203,35 @@ export function buildTrackedCheckoutUrl(
   if (!isBrowser()) return checkoutUrl;
 
   try {
-    const campaignData = captureCampaignData();
+    const storedCampaign = captureCampaignData();
+    const currentParams = new URLSearchParams(
+      window.location.search,
+    );
+
     const destinationUrl = new URL(checkoutUrl);
 
     for (const parameter of CAMPAIGN_PARAMETERS) {
-      const value = campaignData[parameter];
+      const currentValue =
+        currentParams.get(parameter);
 
-      if (value) {
-        destinationUrl.searchParams.set(parameter, value);
+      const storedValue =
+        storedCampaign[parameter];
+
+      const finalValue =
+        currentValue || storedValue;
+
+      if (finalValue) {
+        destinationUrl.searchParams.set(
+          parameter,
+          finalValue,
+        );
       }
     }
 
-    if (campaignData.campaign_session_id) {
+    if (storedCampaign.campaign_session_id) {
       destinationUrl.searchParams.set(
         "etv_campaign_session_id",
-        campaignData.campaign_session_id,
+        storedCampaign.campaign_session_id,
       );
     }
 
@@ -233,7 +247,10 @@ export function buildTrackedCheckoutUrl(
 
     return destinationUrl.toString();
   } catch (error) {
-    console.error("Unable to build tracked checkout URL:", error);
+    console.error(
+      "Unable to build tracked checkout URL:",
+      error,
+    );
 
     return checkoutUrl;
   }
