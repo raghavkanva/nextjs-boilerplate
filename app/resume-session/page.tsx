@@ -240,12 +240,33 @@ export default function ResumeSessionPage() {
           <span className="text-amber">Outstanding Resume</span>{" "}
           <span className="text-[#0A3D1F]">to Secure Core Electronics Jobs</span>
         </h1>
-        <p className="text-base md:text-lg text-muted leading-relaxed mb-2 max-w-xl mx-auto">
-          The purpose of this session is to educate students from 1st year to Final year about Resume preparation for Core Electronics Jobs.
-        </p>
-        <p className="text-sm text-muted mb-6">
-          By Balajee Seshadri, 40+ years in the Electronics Industry
-        </p>
+        <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
+          <div className="px-5 py-5 md:px-7 md:py-6">
+            <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
+              The purpose of this session is to educate students from{" "}
+              <span className="font-extrabold text-[#0A3D1F]">
+                1st year to Final year
+              </span>{" "}
+              about{" "}
+              <span className="font-extrabold text-[#0A3D1F]">
+                resume preparation for Core Electronics Jobs.
+              </span>
+            </p>
+          </div>
+
+          <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
+            <p className="text-sm font-semibold text-[#374151] md:text-base">
+              By{" "}
+              <span className="font-extrabold text-[#111827]">
+                Balajee Seshadri
+              </span>
+              ,{" "}
+              <span className="font-extrabold text-[#0A3D1F]">
+                40+ years in the Electronics Industry
+              </span>
+            </p>
+          </div>
+        </div>
         <div className="mb-8">
           <SessionDetails />
         </div>
@@ -259,14 +280,33 @@ export default function ResumeSessionPage() {
         <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            "First year and second year students who want to understand what a strong resume looks like early",
-            "Pre-final and final year students preparing for core electronics placements",
-            "Students applying to embedded systems, semiconductor, or core electronics companies",
-            "Students who have never written a resume for a core role and don't know where to start",
+            <>
+              <strong>First year and second year students</strong> who want to
+              understand what a <strong>strong resume</strong> looks like early
+            </>,
+            <>
+              <strong>Pre-final and final year students</strong> preparing for{" "}
+              <strong>core electronics placements</strong>
+            </>,
+            <>
+              Students applying to{" "}
+              <strong>
+                embedded systems, semiconductor, or core electronics companies
+              </strong>
+            </>,
+            <>
+              Students who have <strong>never written a resume for a core role</strong>{" "}
+              and do not know where to start
+            </>,
           ].map((point, i) => (
-            <div key={i} className="rounded-xl border-2 border-text bg-white px-5 py-4 flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-amber shrink-0 mt-2" />
-              <p className="text-sm md:text-base text-muted leading-relaxed">{point}</p>
+            <div
+              key={i}
+              className="flex items-start gap-3 rounded-2xl border-2 border-[#111827] bg-white px-5 py-5 shadow-[0_8px_22px_rgba(17,24,39,0.06)]"
+            >
+              <span className="mt-2.5 h-2.5 w-2.5 shrink-0 rounded-full bg-amber" />
+              <p className="text-base font-medium leading-relaxed text-[#111827] md:text-lg [&_strong]:font-extrabold [&_strong]:text-[#0A3D1F]">
+                {point}
+              </p>
             </div>
           ))}
         </div>
@@ -300,36 +340,90 @@ export default function ResumeSessionPage() {
       </section>
 
       {/* Instructor */}
-      <section className="max-w-2xl mx-auto px-6 py-10 text-center">
-        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-4">
-          Meet the Instructor
-        </p>
-        <Image
-          src="/images/balajee-casual.png"
-          alt="Balajee Seshadri"
-          width={120}
-          height={120}
-          className="mx-auto rounded-full border-2 border-text object-cover mb-4"
+      <section className="relative overflow-hidden bg-white py-12 md:py-16">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #E5E7EB 1px, transparent 1px), linear-gradient(to bottom, #E5E7EB 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
         />
-        <h2 className="font-display font-bold text-xl md:text-2xl text-text mb-3">
-          Balajee Seshadri
-        </h2>
-        <p className="text-base text-muted leading-relaxed mb-4">
-          Balajee Seshadri guides students on electronics careers, fundamentals, internships, and interviews. Direct, fundamentals first, no shortcuts.
-        </p>
-        <ul className="flex flex-col gap-2 text-sm text-muted text-left max-w-xs mx-auto mb-6">
-          {[
-            "40+ years of industry experience",
-            "Worked across India, USA, Germany, and Canada",
-            "57,000+ followers on LinkedIn",
-            "No job promises, no shortcuts",
-          ].map((p, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
-              {p}
-            </li>
-          ))}
-        </ul>
+
+        <div className="relative mx-auto max-w-[900px] px-6">
+          <div className="grid items-start gap-8 md:grid-cols-[220px_1fr]">
+            <div className="flex flex-col items-center">
+              <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-[#16A34A]">
+                <Image
+                  src="/images/balajee-casual.png"
+                  alt="Balajee Seshadri"
+                  fill
+                  sizes="192px"
+                  quality={80}
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wide text-[#16A34A]">
+                Meet the Instructor
+              </p>
+
+              <h2
+                className="mb-4 font-bold text-[#111827]"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(26px, 4vw, 34px)",
+                }}
+              >
+                Balajee Seshadri
+              </h2>
+
+              <p className="mb-5 leading-relaxed text-[#4B5563]">
+                Balajee Seshadri guides students on electronics careers,
+                fundamentals, internships, and interviews. Direct,
+                fundamentals first, no shortcuts.
+              </p>
+
+              <ul className="mb-6 grid gap-3 sm:grid-cols-2">
+                {[
+                  "40+ years of industry experience",
+                  "Worked across India, USA, Germany, and Canada",
+                  "57,000+ followers on LinkedIn",
+                  "No job promises, no shortcuts",
+                ].map((point, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="mt-0.5 shrink-0 text-[#16A34A]"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M5 12l5 5 9-9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+
+                    <span className="text-sm font-medium text-[#111827]">
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <CtaButton location="instructor" />
+            </div>
+          </div>
+        </div>
       </section>
 
       <ReviewsSection />
