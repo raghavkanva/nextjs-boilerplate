@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import UpcomingEvent from "@/components/UpcomingEvent";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import FAQ from "@/components/FAQ";
@@ -99,8 +98,6 @@ export default function Home() {
       <Hero />
 
       <CourseHeroSection />
-
-      <UpcomingEvent />
 
       {/* Premium aligned resume-session and embedded-program cards */}
       <PremiumProgramCards />
