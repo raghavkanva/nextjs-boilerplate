@@ -7,7 +7,6 @@ import {
   BookOpen,
   CalendarDays,
   Gift,
-  Tag,
 } from "lucide-react";
 
 import { usePromotionSlider } from "./PromotionSliderContext";
@@ -104,7 +103,7 @@ export default function PromoBannerSlider() {
       className="mx-auto w-full max-w-6xl px-2.5 py-2.5 sm:px-4 sm:py-3 lg:px-6"
     >
       <div
-        className="relative h-[190px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.10)] sm:h-[230px] lg:h-[270px] lg:rounded-[28px]"
+        className="relative h-[172px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.10)] sm:h-[220px] lg:h-[245px] lg:rounded-[28px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -175,24 +174,24 @@ export default function PromoBannerSlider() {
                 className={`absolute -bottom-24 -left-14 h-48 w-48 rounded-full blur-3xl sm:h-64 sm:w-64 ${themeClasses.bottomGlow}`}
               />
 
-              <div className="relative flex h-full items-center px-4 py-3.5 pb-10 sm:px-7 sm:py-5 sm:pb-5 lg:px-10 lg:py-6">
-                <div className="grid w-full items-center gap-3 lg:grid-cols-[1.45fr_0.55fr] lg:gap-7">
+              <div className="relative flex h-full items-center px-4 py-3 pb-9 sm:px-7 sm:py-4 sm:pb-4 lg:px-10 lg:py-5">
+                <div className="w-full">
                   <div className="max-w-3xl">
                     <div
-                      className={`inline-flex max-w-full items-center gap-2 rounded-full border px-2.5 py-1 text-[9px] font-extrabold uppercase leading-4 tracking-[0.08em] sm:text-[11px] sm:tracking-[0.11em] ${themeClasses.pill}`}
+                      className={`inline-flex max-w-full items-center gap-2 rounded-full border px-2.5 py-1 text-[11px] font-extrabold uppercase leading-4 tracking-[0.08em] sm:text-[11px] sm:tracking-[0.11em] ${themeClasses.pill}`}
                     >
-                      <Icon className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden="true" />
+                      <Icon className="h-4 w-4 shrink-0 sm:h-4 sm:w-4" aria-hidden="true" />
 
                       <span className="sm:hidden">{slide.mobileEyebrow}</span>
                       <span className="hidden sm:inline">{slide.eyebrow}</span>
                     </div>
 
-                    <h2 className="mt-1.5 max-w-3xl text-[19px] font-black leading-[1.08] tracking-tight text-slate-950 sm:mt-3 sm:text-3xl lg:text-4xl xl:text-[44px]">
+                    <h2 className="mt-1.5 max-w-3xl text-[25px] font-black leading-[1.08] tracking-tight text-slate-950 sm:mt-3 sm:text-3xl lg:text-4xl xl:text-[42px]">
                       <span className="sm:hidden">{slide.mobileTitle}</span>
                       <span className="hidden sm:inline">{slide.title}</span>
                     </h2>
 
-                    <p className="mt-1.5 max-w-2xl break-words text-[11px] font-semibold leading-4 text-slate-700 sm:mt-2 sm:text-sm sm:leading-5 lg:text-base">
+                    <p className="mt-1.5 max-w-2xl break-words text-[13px] font-semibold leading-5 text-slate-700 sm:mt-2 sm:text-sm sm:leading-5 lg:text-base">
                       <span className="sm:hidden">{slide.mobileDetail}</span>
                       <span className="hidden sm:inline">{slide.detail}</span>
                     </p>
@@ -202,37 +201,10 @@ export default function PromoBannerSlider() {
                     </p>
 
                     <span
-                      className={`mt-2.5 inline-flex min-h-7 items-center justify-center rounded-lg border border-slate-950 px-3 py-1 text-[11px] font-extrabold text-slate-950 shadow-[0_2px_0_#0f172a] transition sm:mt-4 sm:min-h-9 sm:px-4 sm:py-1.5 sm:text-sm sm:shadow-[0_3px_0_#0f172a] ${themeClasses.button}`}
+                      className={`mt-2.5 inline-flex min-h-8 items-center justify-center rounded-lg border border-slate-950 px-3 py-1 text-[13px] font-extrabold text-slate-950 shadow-[0_2px_0_#0f172a] transition sm:mt-4 sm:min-h-9 sm:px-4 sm:py-1.5 sm:text-sm sm:shadow-[0_3px_0_#0f172a] ${themeClasses.button}`}
                     >
                       {slide.cta}
                     </span>
-                  </div>
-
-                  <div className="hidden lg:block">
-                    <div
-                      className={`ml-auto aspect-square w-full max-w-[190px] rotate-2 rounded-[26px] border-2 border-slate-950 p-3.5 shadow-[8px_8px_0_#0f172a] ${themeClasses.tile}`}
-                    >
-                      <div
-                        className="flex h-full flex-col justify-between rounded-xl border border-slate-950/20 p-4"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(rgba(15,23,42,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.10) 1px, transparent 1px)",
-                          backgroundSize: "20px 20px",
-                        }}
-                      >
-                        <Tag className="h-6 w-6" aria-hidden="true" />
-
-                        <div>
-                          <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-800">
-                            eTalVis
-                          </p>
-
-                          <p className="mt-1.5 text-2xl font-black leading-none text-slate-950">
-                            {slide.tileText}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
