@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,6 +9,8 @@ import {
   Gift,
   Tag,
 } from "lucide-react";
+
+import { usePromotionSlider } from "./PromotionSliderContext";
 
 const slides = [
   {
@@ -59,26 +61,15 @@ const slides = [
 ];
 
 export default function PromoBannerSlider() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const {
+    activePromotion: activeSlide,
+    setActivePromotion: setActiveSlide,
+    showPrevious: goToPrevious,
+    showNext: goToNext,
+  } = usePromotionSlider();
+
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
-
-  const goToPrevious = () => {
-    setActiveSlide((current) =>
-      current === 0 ? slides.length - 1 : current - 1
-    );
-  };
-
-  const goToNext = () => {
-    setActiveSlide((current) =>
-      current === slides.length - 1 ? 0 : current + 1
-    );
-  };
-
-  useEffect(() => {
-    const interval = window.setInterval(goToNext, 6000);
-    return () => window.clearInterval(interval);
-  }, []);
 
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.touches[0]?.clientX ?? null;

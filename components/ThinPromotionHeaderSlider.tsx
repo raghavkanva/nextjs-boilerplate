@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -8,6 +7,8 @@ import {
   CalendarDays,
   Gift,
 } from "lucide-react";
+
+import { usePromotionSlider } from "./PromotionSliderContext";
 
 const promotions = [
   {
@@ -19,10 +20,15 @@ const promotions = [
     href: "https://courses.etalvis.com/independence-offer",
     cta: "View Offer",
     icon: Gift,
-    background: "bg-emerald-600",
-    hoverBackground: "hover:bg-emerald-700",
+    background:
+      "bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-600",
+    foreground: "text-white",
+    hoverBackground: "hover:bg-white/10",
     iconBackground: "bg-white/15",
     mutedText: "text-emerald-50",
+    buttonStyle:
+      "border-white/30 bg-white/15 text-white hover:bg-white/25",
+    arrowStyle: "bg-white/15 text-white hover:bg-white/25",
   },
   {
     id: "resume-session",
@@ -33,10 +39,15 @@ const promotions = [
     href: "https://courses.etalvis.com/resume-session",
     cta: "Join Now",
     icon: CalendarDays,
-    background: "bg-amber-400",
-    hoverBackground: "hover:bg-amber-300",
+    background:
+      "bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-400",
+    foreground: "text-slate-950",
+    hoverBackground: "hover:bg-black/5",
     iconBackground: "bg-white/45",
-    mutedText: "text-slate-800",
+    mutedText: "text-slate-700",
+    buttonStyle:
+      "border-slate-950/20 bg-white/45 text-slate-950 hover:bg-white/65",
+    arrowStyle: "bg-white/35 text-slate-950 hover:bg-white/55",
   },
   {
     id: "embedded-systems",
@@ -47,60 +58,44 @@ const promotions = [
     href: "https://courses.etalvis.com/embedded-systems",
     cta: "Explore Courses",
     icon: BookOpen,
-    background: "bg-sky-500",
-    hoverBackground: "hover:bg-sky-600",
+    background: "bg-gradient-to-r from-sky-600 via-blue-500 to-sky-600",
+    foreground: "text-white",
+    hoverBackground: "hover:bg-white/10",
     iconBackground: "bg-white/20",
     mutedText: "text-sky-50",
+    buttonStyle:
+      "border-white/30 bg-white/15 text-white hover:bg-white/25",
+    arrowStyle: "bg-white/15 text-white hover:bg-white/25",
   },
-];
+] as const;
 
 export default function ThinPromotionHeaderSlider() {
-  const [activePromotion, setActivePromotion] = useState(0);
-
-  const showPrevious = () => {
-    setActivePromotion((current) =>
-      current === 0 ? promotions.length - 1 : current - 1
-    );
-  };
-
-  const showNext = () => {
-    setActivePromotion((current) =>
-      current === promotions.length - 1 ? 0 : current + 1
-    );
-  };
-
-  useEffect(() => {
-    const interval = window.setInterval(showNext, 5000);
-
-    return () => window.clearInterval(interval);
-  }, []);
+  const {
+    activePromotion,
+    setActivePromotion,
+    showPrevious,
+    showNext,
+  } = usePromotionSlider();
 
   const promotion = promotions[activePromotion];
   const Icon = promotion.icon;
 
   return (
     <>
-      {/* Prevents page content from hiding behind the fixed header */}
-      <div
-        aria-hidden="true"
-        className="h-11 sm:h-12"
-      />
+      <div aria-hidden="true" className="h-11 sm:h-12" />
 
       <aside
         aria-label="Current eTalVis promotions"
-        className={`fixed inset-x-0 top-0 z-[100] overflow-hidden text-slate-950 shadow-md transition-colors duration-500 ${promotion.background}`}
+        className={`fixed inset-x-0 top-0 z-[100] overflow-hidden shadow-md transition-colors duration-500 ${promotion.background} ${promotion.foreground}`}
       >
         <div className="mx-auto flex min-h-11 w-full max-w-7xl items-center px-2 sm:min-h-12 sm:px-4 lg:px-6">
           <button
             type="button"
             onClick={showPrevious}
             aria-label="Show previous promotion"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition hover:bg-white/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${promotion.arrowStyle}`}
           >
-            <ArrowLeft
-              className="h-4 w-4"
-              aria-hidden="true"
-            />
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           </button>
 
           <a
@@ -110,10 +105,7 @@ export default function ThinPromotionHeaderSlider() {
             <span
               className={`hidden h-7 w-7 shrink-0 items-center justify-center rounded-lg sm:flex ${promotion.iconBackground}`}
             >
-              <Icon
-                className="h-4 w-4"
-                aria-hidden="true"
-              />
+              <Icon className="h-4 w-4" aria-hidden="true" />
             </span>
 
             <span className="min-w-0">
@@ -126,13 +118,15 @@ export default function ThinPromotionHeaderSlider() {
               </span>
 
               <span
-                className={`ml-0 block truncate text-[10px] font-semibold leading-4 sm:ml-2 sm:inline sm:text-xs ${promotion.mutedText}`}
+                className={`block truncate text-[10px] font-semibold leading-4 sm:ml-2 sm:inline sm:text-xs ${promotion.mutedText}`}
               >
                 {promotion.extra}
               </span>
             </span>
 
-            <span className="hidden shrink-0 rounded-full border border-slate-950/20 bg-white/35 px-3 py-1 text-xs font-black sm:inline-flex">
+            <span
+              className={`hidden shrink-0 rounded-full border px-3 py-1 text-xs font-black transition sm:inline-flex ${promotion.buttonStyle}`}
+            >
               {promotion.cta}
             </span>
           </a>
@@ -141,29 +135,24 @@ export default function ThinPromotionHeaderSlider() {
             type="button"
             onClick={showNext}
             aria-label="Show next promotion"
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition hover:bg-white/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${promotion.arrowStyle}`}
           >
-            <ArrowRight
-              className="h-4 w-4"
-              aria-hidden="true"
-            />
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 flex h-0.5">
+        <div className="absolute inset-x-0 bottom-0 flex h-0.5">
           {promotions.map((item, index) => (
             <button
               key={item.id}
               type="button"
               onClick={() => setActivePromotion(index)}
-              aria-label={`Show promotion ${index + 1}`}
-              aria-current={
-                activePromotion === index ? "true" : undefined
-              }
+              aria-label={`Show ${item.id} promotion`}
+              aria-current={activePromotion === index ? "true" : undefined}
               className={`flex-1 transition ${
                 activePromotion === index
                   ? "bg-slate-950"
-                  : "bg-white/35 hover:bg-white/60"
+                  : "bg-white/40 hover:bg-white/65"
               }`}
             />
           ))}
