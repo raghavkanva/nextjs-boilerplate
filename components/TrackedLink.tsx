@@ -1,3 +1,5 @@
+"use client";
+
 import {
   type AnchorHTMLAttributes,
   type MouseEvent,
@@ -101,10 +103,6 @@ export default function TrackedLink({
       clickEvent.shiftKey ||
       clickEvent.button === 1;
 
-    /*
-     * For modifier/new-tab clicks, keep normal browser behaviour.
-     * The URL was already decorated during pointer down.
-     */
     if (openInNewTab) {
       const finalUrl = prepareUrl(
         clickEvent.currentTarget,
@@ -192,14 +190,8 @@ export default function TrackedLink({
       currency: "INR",
     };
 
-    /*
-     * Custom GTM, GA4 and Meta event.
-     */
     track(event, commonParams);
 
-    /*
-     * Recommended GA4 ecommerce event.
-     */
     ecommerceEvent("begin_checkout", {
       currency: "INR",
       value: 80,
@@ -209,9 +201,6 @@ export default function TrackedLink({
       items: [RESUME_SESSION_ITEM],
     });
 
-    /*
-     * Meta standard InitiateCheckout event.
-     */
     if (metaStdEvent) {
       metaEvent(metaStdEvent, {
         content_ids: [
@@ -230,10 +219,6 @@ export default function TrackedLink({
       });
     }
 
-    /*
-     * Allow browser analytics requests to leave before
-     * navigating to the checkout domain.
-     */
     window.setTimeout(() => {
       window.location.href = finalUrl;
     }, NAVIGATION_DELAY_MS);
