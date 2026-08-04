@@ -240,7 +240,7 @@ export default function ResumeSessionPage() {
   </p>
 
 <h1
-  className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
+  className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
   style={{ fontFamily: "var(--font-headline)" }}
 >
   Master the Art of Crafting an{" "}
