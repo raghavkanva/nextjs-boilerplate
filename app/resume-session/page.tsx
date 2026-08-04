@@ -77,6 +77,90 @@ function GridBg() {
           backgroundSize: "40px 40px",
         }}
       />
+function SessionDetails() {
+  const details = [
+    {
+      label: "Date",
+      value: "Sunday, August 9, 2026",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      label: "Time",
+      value: "11 AM to 1 PM IST",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+          <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      label: "For Students",
+      value: "1st Year to Final Year",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m3 9 9-5 9 5-9 5-9-5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M7 12.5V17c2.8 2 7.2 2 10 0v-4.5M21 9v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      label: "After-session Support",
+      value: "Doubts Cleared on WhatsApp",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M8.5 9.5c.6 2.2 1.8 3.4 4 4l1.2-1.1c.2-.2.5-.2.8-.1l2 .9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <div className="mx-auto w-full max-w-3xl">
+      <div className="grid grid-cols-2 gap-3 md:gap-5">
+        {details.map((detail) => (
+          <div
+            key={detail.label}
+            className="flex min-h-[116px] items-center gap-3 rounded-2xl border border-[#0A3D1F]/10 bg-white px-3 py-4 text-left shadow-[0_12px_34px_rgba(10,61,31,0.08)] md:min-h-[138px] md:gap-5 md:px-6"
+          >
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0A3D1F] p-3 text-white md:h-16 md:w-16 md:rounded-2xl md:p-4">
+              {detail.icon}
+            </span>
+            <span className="min-w-0">
+              <span className="mb-1 block text-xs font-medium text-muted md:text-lg">
+                {detail.label}
+              </span>
+              <strong className="block font-display text-sm font-extrabold leading-snug text-text md:text-xl">
+                {detail.value}
+              </strong>
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="relative mt-7 overflow-visible rounded-2xl bg-gradient-to-r from-[#F6B900] to-[#FFD86B] px-5 pb-6 pt-10 text-center shadow-[0_16px_40px_rgba(10,61,31,0.12)] md:mt-9 md:px-8 md:pb-8 md:pt-12">
+        <span className="absolute -top-4 left-5 inline-flex items-center gap-2 rounded-xl bg-[#0A3D1F] px-4 py-2 font-display text-sm font-extrabold text-white shadow-md md:left-8 md:text-base">
+          <span className="h-3 w-3 rounded-full bg-white" />
+          LIVE ONLINE SESSION
+        </span>
+        <h2 className="font-display text-xl font-extrabold leading-tight text-text md:text-3xl">
+          Build a Resume for Core Electronics Jobs
+        </h2>
+        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[#253A31] md:text-lg">
+          Learn how to prepare a focused resume from 1st year to final year.
+        </p>
+        <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+          <CtaButton location="hero_details" />
+          <p className="text-sm font-medium text-[#253A31] md:text-base">
+            One-time registration. No hidden charges.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -327,6 +411,37 @@ export default function ResumeSessionPage() {
             </div>
           </div>
         </div>
+      {/* Instructor */}
+      <section className="max-w-2xl mx-auto px-6 py-10 text-center">
+        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-4">
+          Meet the Instructor
+        </p>
+        <Image
+          src="/images/balajee-casual.png"
+          alt="Balajee Seshadri"
+          width={120}
+          height={120}
+          className="mx-auto rounded-full border-2 border-text object-cover mb-4"
+        />
+        <h2 className="font-display font-bold text-xl md:text-2xl text-text mb-3">
+          Balajee Seshadri
+        </h2>
+        <p className="text-base text-muted leading-relaxed mb-4">
+          Balajee Seshadri guides students on electronics careers, fundamentals, internships, and interviews. Direct, fundamentals first, no shortcuts.
+        </p>
+        <ul className="flex flex-col gap-2 text-sm text-muted text-left max-w-xs mx-auto mb-6">
+          {[
+            "40+ years of industry experience",
+            "Worked across India, USA, Germany, and Canada",
+            "57,000+ followers on LinkedIn",
+            "No job promises, no shortcuts",
+          ].map((p, i) => (
+            <li key={i} className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
+              {p}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <ReviewsSection />
@@ -343,6 +458,8 @@ export default function ResumeSessionPage() {
           </h2>
           <p className="text-[#4B5563] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
             Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST. Doubts cleared directly on WhatsApp by Balajee Seshadri.
+          <p className="text-base text-muted leading-relaxed mb-6">
+            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST.
           </p>
           <div className="rounded-2xl border-2 border-[#111827] bg-[#F0FDF4] p-6 mb-8 max-w-md mx-auto text-left">
             {[
