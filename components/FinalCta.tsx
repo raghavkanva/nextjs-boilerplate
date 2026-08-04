@@ -1,6 +1,7 @@
 "use client";
 
 import { finalCta } from "@/data/content";
+import { track, metaEvent } from "@/lib/analytics";
 
 export default function FinalCta({ href = "#plans" }: { href?: string }) {
   return (
@@ -13,11 +14,10 @@ export default function FinalCta({ href = "#plans" }: { href?: string }) {
       </p>
       <a
         href={href}
-        onClick={() =>
-          typeof window !== "undefined" &&
-          window.gtag &&
-          window.gtag("event", "cta_click", { location: "final_cta" })
-        }
+        onClick={() => {
+          track("final_cta_click", { location: "final_cta" });
+          metaEvent("InitiateCheckout", { content_name: "eTalVis Program", currency: "INR" });
+        }}
         className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-semibold text-lg hover:bg-text hover:text-white transition-colors"
       >
         {finalCta.ctaLabel}

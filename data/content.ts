@@ -394,6 +394,7 @@ export const plans: Plan[] = [
     features: [
       "Bulk discount for 10 or more students",
       "Same 10 foundation courses",
+      "Bulk pricing available for groups of 10 or more students",
     ],
   },
 ];

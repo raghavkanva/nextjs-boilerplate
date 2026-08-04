@@ -4,6 +4,7 @@ import {
   CheckCircle2,
   ShieldCheck,
 } from "lucide-react";
+import { track, metaEvent } from "@/lib/analytics";
 
 export default function CourseHeroSection() {
   return (
@@ -47,6 +48,10 @@ export default function CourseHeroSection() {
 
           <a
             href="https://courses.etalvis.com/embedded-systems"
+            onClick={() => {
+              track("hero_enroll_click", { page: "home", destination: "embedded-systems" });
+              metaEvent("InitiateCheckout", { content_name: "Embedded Systems Program", currency: "INR" });
+            }}
             className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-slate-900 bg-amber-400 px-8 py-4 text-base font-extrabold text-slate-950 shadow-[0_6px_0_#0f172a] transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 active:translate-y-1 active:shadow-none sm:text-lg"
           >
             Enroll Today

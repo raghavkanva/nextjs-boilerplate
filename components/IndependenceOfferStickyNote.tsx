@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, BadgePercent } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 const OFFER_URL = "https://courses.etalvis.com/independence-offer";
@@ -39,6 +40,7 @@ export default function IndependenceOfferStickyNote() {
 
           <a
             href={OFFER_URL}
+            onClick={() => track("independence_offer_sticky_click", { page: "embedded-systems", offer_code: OFFER_CODE })}
             className="inline-flex min-h-11 w-full shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-950 bg-slate-950 px-5 py-2.5 text-sm font-extrabold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60 sm:w-auto"
           >
             View Offer

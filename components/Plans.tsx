@@ -1,6 +1,7 @@
 "use client";
 
 import { plans, type Plan } from "@/data/content";
+import { track, metaEvent } from "@/lib/analytics";
 
 function BookIcon() {
   return (
@@ -115,10 +116,22 @@ function getHighlightIcon(title: string) {
   return <ChatIcon />;
 }
 
-function handlePlanClick(planName: string) {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", "plan_enroll_click", { plan: planName });
-  }
+function handlePlanClick(plan: Plan) {
+  const price = plan.price ?? 0;
+  track("plan_enroll_click", {
+    plan_code: plan.code,
+    plan_name: plan.name,
+    price,
+    currency: "INR",
+    page: "embedded-systems",
+  });
+  metaEvent("InitiateCheckout", {
+    content_name: plan.name,
+    content_type: plan.code,
+    value: price,
+    currency: "INR",
+    num_items: 1,
+  });
 }
 
 function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
@@ -184,14 +197,14 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
               href={plan.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handlePlanClick(plan.name)}
+              onClick={() => handlePlanClick(plan)}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
             >
               <WhatsAppIcon /> Contact on WhatsApp
             </a>
             <a
               href={plan.emailUrl}
-              onClick={() => handlePlanClick(plan.name)}
+              onClick={() => handlePlanClick(plan)}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-text border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
             >
               <EmailIcon /> Email Us
@@ -200,7 +213,7 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         ) : plan.checkoutUrl ? (
           <a
             href={plan.checkoutUrl}
-            onClick={() => handlePlanClick(plan.name)}
+            onClick={() => handlePlanClick(plan)}
             className="inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
           >
             Enroll, {plan.name}

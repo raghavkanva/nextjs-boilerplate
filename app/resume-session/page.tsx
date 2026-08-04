@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
+import PageAnalytics from "@/components/PageAnalytics";
+import TrackedLink from "@/components/TrackedLink";
+import ReviewsSection from "./ReviewsSection";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -49,33 +52,31 @@ const CHECKOUT_URL = "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942
 const PRICE = 80;
 
 const topics = [
-  {
-    number: "01",
-    question: "Why Resume is important",
-    body: "The resume is not just a document. For core electronics roles, it is the first filter. Understanding why it matters, and what it signals to a recruiter, changes how you approach building one.",
-  },
-  {
-    number: "02",
-    question: "What should it contain?",
-    body: "What belongs in a core electronics resume is different from what general advice tells you. Learn what recruiters in embedded systems and semiconductor companies actually look for.",
-  },
-  {
-    number: "03",
-    question: "Can I use AI to generate my Resume?",
-    body: "AI tools can help, but knowing when to use them, what to verify, and where they mislead you is the part no one talks about. This session covers it directly.",
-  },
-  {
-    number: "04",
-    question: "Should I list all my projects in Resume?",
-    body: "Listing everything is not the same as listing the right things. Learn how to decide which projects to include, how to describe them, and what signals they send to a core company.",
-  },
-  {
-    number: "05",
-    question: "Should I create an Eye catching resume?",
-    body: "Design matters less than most students think. What the resume says and how it is structured matters more. This covers the right balance for core electronics applications.",
-  },
+  { number: "01", question: "Why is resume important for core electronics industry jobs?" },
+  { number: "02", question: "What should a core electronics industry resume contain?" },
+  { number: "03", question: "Can I use AI to generate my core electronics industry resume?" },
+  { number: "04", question: "Should I list all my projects in my core electronics industry resume?" },
+  { number: "05", question: "Should I create an eye-catching resume for core electronics industry?" },
 ];
 
+const audience = [
+  { highlight: "Final year students", detail: "preparing for core electronics industry placements" },
+  { highlight: "Recent graduates and career switchers", detail: "moving into core electronics industry roles" },
+  { highlight: "Third year students", detail: "who want to build the right foundation before placement season" },
+  { highlight: "First and second year students", detail: "who want to know what a strong core electronics industry resume looks like" },
+];
+
+function GridBg() {
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <div
+        className="absolute inset-0 opacity-[0.5]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #E5E7EB 1px, transparent 1px), linear-gradient(to bottom, #E5E7EB 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
 function SessionDetails() {
   const details = [
     {
@@ -164,15 +165,26 @@ function SessionDetails() {
   );
 }
 
-function CtaButton({ location }: { location: string }) {
+function CheckIcon() {
   return (
-    <a
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#16A34A] shrink-0">
+      <path d="M5 12l5 5 9-9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function EnrollCta({ location }: { location: string }) {
+  return (
+    <TrackedLink
       href={CHECKOUT_URL}
-      data-track-location={location}
-      className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
+      event="resume_enroll_click"
+      params={{ location, price: PRICE, currency: "INR", page: "resume-session" }}
+      metaStdEvent="InitiateCheckout"
+      metaStdParams={{ content_name: "Resume Session", value: PRICE, currency: "INR" }}
+      className="inline-block px-8 py-4 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold text-lg hover:bg-[#111827] hover:text-white transition-colors"
     >
-      Enroll Now, Rs. {PRICE}
-    </a>
+      Enroll Now for Rs. {PRICE}
+    </TrackedLink>
   );
 }
 
@@ -208,81 +220,197 @@ export default function ResumeSessionPage() {
   };
 
   return (
-    <main>
+    <main className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sessionSchema) }}
       />
 
-      {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 pt-8 pb-8 md:pt-12 text-center">
-        <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-3">
-          eTalVis Session
-        </p>
-        <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
-          Master the Art of Crafting an{" "}
-          <span className="text-amber">Outstanding Resume</span>{" "}
-          <span className="text-[#0A3D1F]">to Secure Core Electronics Jobs</span>
-        </h1>
-        <p className="text-base md:text-lg text-muted leading-relaxed mb-2 max-w-xl mx-auto">
-          The purpose of this session is to educate students from 1st year to Final year about Resume preparation for Core Electronics Jobs.
-        </p>
-        <p className="text-sm text-muted mb-6">
-          By Balajee Seshadri, 40+ years in the Electronics Industry
-        </p>
-        <div className="mb-8">
-          <SessionDetails />
-        </div>
-      </section>
+      <PageAnalytics
+        page="resume-session"
+        contentName="Resume Session: Master the Art of Crafting an Outstanding Resume"
+        contentCategory="Workshop"
+      />
 
-      {/* For Whom */}
-      <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
-        <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
-          Who Is This Session For?
-        </h2>
-        <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
-        <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            "First year and second year students who want to understand what a strong resume looks like early",
-            "Pre-final and final year students preparing for core electronics placements",
-            "Students applying to embedded systems, semiconductor, or core electronics companies",
-            "Students who have never written a resume for a core role and don't know where to start",
-          ].map((point, i) => (
-            <div key={i} className="rounded-xl border-2 border-text bg-white px-5 py-4 flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-amber shrink-0 mt-2" />
-              <p className="text-sm md:text-base text-muted leading-relaxed">{point}</p>
+      {/* ── Hero ── */}
+      <section className="relative bg-white pt-10 md:pt-14 pb-14 md:pb-16 overflow-hidden">
+        <GridBg />
+        <div className="relative max-w-[1100px] mx-auto px-6">
+
+          {/* Eyebrow + heading */}
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16A34A] text-white text-sm font-bold uppercase tracking-wide mb-5">
+              eTalVis Session
+            </span>
+            <h1
+              className="font-bold text-[#111827] leading-[1.15] mb-0 max-w-3xl mx-auto"
+              style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 44px)" }}
+            >
+              Master the Art of Crafting an{" "}
+              <span className="text-[#16A34A]">Outstanding Resume</span>{" "}
+              <span className="text-[#0A3D1F]">to Secure Core Electronics Jobs</span>
+            </h1>
+          </div>
+
+          {/* Two-column */}
+          <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-12 items-center max-w-[950px] mx-auto">
+
+            {/* Left: instructor identity */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-[#16A34A] mb-5">
+                <Image
+                  src="/images/balajee-casual.png"
+                  alt="Balajee Seshadri"
+                  fill
+                  sizes="256px"
+                  priority
+                  className="object-cover"
+                />
+              </div>
+              <p className="font-bold text-[#111827] text-xl md:text-2xl">Balajee Seshadri</p>
+              <p className="text-[#4B5563] text-base mt-1">40+ years in the Electronics Industry</p>
+              <p className="text-[#16A34A] font-bold text-base mt-1">57,000+ LinkedIn followers</p>
             </div>
-          ))}
+
+            {/* Right: session card */}
+            <div className="rounded-2xl border-2 border-[#16A34A] bg-[#F0FDF4] p-6 md:p-8">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#16A34A] text-white text-sm font-bold uppercase mb-5">
+                Live Online Session
+              </span>
+              <p className="text-[#111827] text-base md:text-lg leading-relaxed mb-6">
+                The purpose of this session is to educate students from 1st year to Final year about Resume preparation for Core Electronics Jobs.
+              </p>
+              <ul className="flex flex-col gap-3 mb-7">
+                {[
+                  "Sunday, August 9, 2026",
+                  "11 AM to 1 PM IST",
+                  "Doubts cleared directly on WhatsApp",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-base text-[#111827] font-medium">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <EnrollCta location="hero" />
+              <p className="text-[#4B5563] text-base text-center mt-3">
+                Rs. {PRICE}. One-time registration. No hidden charges.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Topics */}
-      <section className="bg-surface border-y border-line py-10 md:py-14">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
-            What This Session Covers
+      {/* ── Who Is This For ── */}
+      <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
+        <GridBg />
+        <div className="relative max-w-[1100px] mx-auto px-6">
+          <h2
+            className="font-bold text-[#111827] text-center mb-3"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 38px)" }}
+          >
+            Who Is This Session For?
           </h2>
-          <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
-          <div className="flex flex-col gap-5">
-            {topics.map((topic) => (
+          <div className="w-16 h-1 bg-[#16A34A] rounded-full mx-auto mb-10" />
+          <div className="grid sm:grid-cols-2 gap-5 max-w-[880px] mx-auto">
+            {audience.map((point, i) => (
               <div
-                key={topic.number}
-                className="rounded-xl border-2 border-text bg-white px-6 py-5 flex gap-5 items-start"
+                key={i}
+                className="rounded-2xl border-2 border-[#111827] bg-white px-6 py-5 flex items-start gap-4"
               >
-                <span className="font-display font-extrabold text-3xl text-line shrink-0 leading-none mt-0.5">
-                  {topic.number}
-                </span>
-                <div>
-                  <h3 className="font-display font-bold text-lg text-text">
-                    {topic.question}
-                  </h3>
-                </div>
+                <CheckIcon />
+                <p className="text-lg md:text-xl text-[#111827] leading-snug font-medium">
+                  <span className="font-extrabold text-[#0A3D1F]">{point.highlight}</span>{" "}
+                  {point.detail}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ── What This Session Covers ── */}
+      <section className="relative bg-white py-12 md:py-16 overflow-hidden">
+        <GridBg />
+        <div className="relative max-w-[900px] mx-auto px-6">
+          <h2
+            className="font-bold text-[#111827] text-center mb-3"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 38px)" }}
+          >
+            What This Session Covers
+          </h2>
+          <div className="w-16 h-1 bg-[#16A34A] rounded-full mx-auto mb-10" />
+          <div className="flex flex-col gap-3">
+            {topics.map((topic) => (
+              <div key={topic.number} className="rounded-xl border-2 border-[#111827] bg-white px-5 py-4 flex items-center gap-4">
+                <span
+                  className="font-extrabold text-4xl text-[#E5E7EB] shrink-0 leading-none w-10"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {topic.number}
+                </span>
+                <span className="font-bold text-[#111827] text-base md:text-lg leading-snug">
+                  {topic.question}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <EnrollCta location="topics" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Instructor ── */}
+      <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
+        <GridBg />
+        <div className="relative max-w-[900px] mx-auto px-6">
+          <div className="grid md:grid-cols-[220px_1fr] gap-8 md:gap-12 items-start">
+
+            {/* Photo */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#16A34A]">
+                <Image
+                  src="/images/balajee-casual.png"
+                  alt="Balajee Seshadri"
+                  fill
+                  sizes="192px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div>
+              <p className="text-[#16A34A] font-bold text-sm uppercase tracking-wide mb-2">
+                Meet the Instructor
+              </p>
+              <h2
+                className="font-bold text-[#111827] mb-4"
+                style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 34px)" }}
+              >
+                Balajee Seshadri
+              </h2>
+              <p className="text-[#4B5563] text-base md:text-lg leading-relaxed mb-6">
+                Balajee Seshadri guides students on electronics careers, fundamentals, internships, and interviews. Direct, fundamentals first, no shortcuts.
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-3 mb-7">
+                {[
+                  "40+ years of industry experience",
+                  "Work across India, USA, Germany, and Canada",
+                  "57,000+ followers on LinkedIn",
+                  "No job promises, no shortcuts",
+                ].map((point, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <CheckIcon />
+                    <span className="text-[#111827] text-base font-medium">{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <EnrollCta location="instructor" />
+            </div>
+          </div>
+        </div>
       {/* Instructor */}
       <section className="max-w-2xl mx-auto px-6 py-10 text-center">
         <p className="text-sm font-semibold text-amber uppercase tracking-wide mb-4">
@@ -316,17 +444,38 @@ export default function ResumeSessionPage() {
         </ul>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-surface border-t border-line py-12 text-center">
-        <div className="max-w-xl mx-auto px-6">
-          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text mb-3">
+      <ReviewsSection />
+
+      {/* ── Final CTA ── */}
+      <section className="relative bg-white py-14 md:py-20 overflow-hidden">
+        <GridBg />
+        <div className="relative max-w-[800px] mx-auto px-6 text-center">
+          <h2
+            className="font-bold text-[#111827] mb-5"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 40px)" }}
+          >
             Build a Resume That Gets You Noticed
           </h2>
+          <p className="text-[#4B5563] text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST. Doubts cleared directly on WhatsApp by Balajee Seshadri.
           <p className="text-base text-muted leading-relaxed mb-6">
             Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST.
           </p>
-          <CtaButton location="final_cta" />
-          <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
+          <div className="rounded-2xl border-2 border-[#111827] bg-[#F0FDF4] p-6 mb-8 max-w-md mx-auto text-left">
+            {[
+              "Live session. Ask questions in real time",
+              "Sunday, August 9, 2026 · 11 AM to 1 PM IST",
+              "Doubts cleared on WhatsApp after the session",
+              "Rs. 80. One-time. No subscriptions.",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2.5 mb-3 last:mb-0">
+                <CheckIcon />
+                <span className="text-[#111827] text-base font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+          <EnrollCta location="final_cta" />
+          <p className="text-[#4B5563] text-base mt-4">Rs. {PRICE}. One-time registration.</p>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import { upcomingEvent } from "@/data/content";
+import TrackedLink from "@/components/TrackedLink";
 
 export default function UpcomingEvent() {
   return (
@@ -14,12 +15,14 @@ export default function UpcomingEvent() {
         <p className="text-muted leading-relaxed mb-6 max-w-xl mx-auto">
           {upcomingEvent.description}
         </p>
-        <a
+        <TrackedLink
           href={upcomingEvent.ctaHref}
+          event="upcoming_event_cta_click"
+          params={{ page: "home", destination: "resume-session" }}
           className="inline-block px-7 py-3.5 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
         >
           {upcomingEvent.ctaLabel}
-        </a>
+        </TrackedLink>
       </div>
     </section>
   );
