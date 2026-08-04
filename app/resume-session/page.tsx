@@ -54,23 +54,23 @@ const PRICE = 80;
 const topics = [
   {
     number: "01",
-    question: "Why is resume important for core electronics industry jobs?",
+    question: "Why is resume important for core job interviews?",
   },
   {
     number: "02",
-    question: "What should a core electronics industry resume contain?",
+    question: "What should a core electronics resume contain?",
   },
   {
     number: "03",
-    question: "Can I use AI to generate my core electronics industry resume?",
+    question: "Can I use AI to generate my core electronics interview resume?",
   },
   {
     number: "04",
-    question: "Should I list all my projects in my core electronics industry resume?",
+    question: "Should I list all my projects in my core electronics job resume?",
   },
   {
     number: "05",
-    question: "Should I create an eye-catching resume for core electronics industry?",
+    question: "Should I create an eye-catching resume for core electronics interview ?",
   },
 ];
 
