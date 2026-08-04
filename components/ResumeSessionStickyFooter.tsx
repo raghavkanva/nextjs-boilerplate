@@ -70,11 +70,11 @@ function CountdownDigit({
 }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="flex min-h-[38px] min-w-[42px] items-center justify-center rounded-lg border-2 border-[#0A3D1F] bg-white px-2 text-base font-black leading-none tabular-nums text-[#0A3D1F] shadow-[0_3px_0_#0A3D1F] sm:min-h-[42px] sm:min-w-[48px] sm:text-lg">
+      <span className="flex min-h-[32px] min-w-[36px] items-center justify-center rounded-md border-2 border-[#0A3D1F] bg-white px-1.5 text-sm font-black leading-none tabular-nums text-[#0A3D1F] shadow-[0_2px_0_#0A3D1F] sm:min-h-[36px] sm:min-w-[40px] sm:text-base">
         {String(value).padStart(2, "0")}
       </span>
 
-      <span className="mt-1 text-[8px] font-black uppercase tracking-[0.08em] text-[#0A3D1F]/75 sm:text-[9px]">
+      <span className="mt-0.5 text-[7px] font-black uppercase tracking-[0.08em] text-[#0A3D1F]/70 sm:text-[8px]">
         {label}
       </span>
     </div>
@@ -103,60 +103,48 @@ export default function ResumeSessionStickyFooter() {
 
   return (
     <>
-      {/* Prevent page content from being hidden behind the fixed footer */}
-      <div aria-hidden="true" className="h-[122px] sm:h-[104px]" />
+      {/* Prevent content from hiding behind the compact footer */}
+      <div aria-hidden="true" className="h-[78px] sm:h-[72px]" />
 
       <aside
         aria-label="Resume session registration deadline"
         className="fixed inset-x-0 bottom-0 z-[90] px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="relative mx-auto w-full max-w-4xl pt-5">
-          {/* Independence offer ribbon shown on all devices */}
-          <div className="absolute left-3 top-0 z-20 max-w-[calc(100%-1.5rem)] sm:left-5 sm:max-w-none">
-            {/* Border glow only */}
-            <div className="absolute inset-0 rounded-t-xl rounded-br-xl bg-blue-400/30 blur-md" />
-
-            <div className="relative rounded-t-xl rounded-br-xl border border-white/80 bg-gradient-to-r from-[#082F5B] via-[#0F5FA8] to-[#082F5B] px-3 py-2 shadow-[0_0_8px_rgba(255,255,255,0.9),0_0_18px_rgba(59,130,246,0.75),0_8px_24px_rgba(0,0,0,0.24)] sm:px-4">
-              <p className="whitespace-nowrap text-[9px] font-extrabold uppercase leading-tight tracking-[0.06em] text-white sm:text-[10px] md:text-[11px]">
-                India Enters Its 80th Year • Pay Just ₹80
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-2xl border-2 border-[#0A3D1F] bg-gradient-to-r from-[#FFE45E] via-[#FFD84D] to-[#FFC107] px-3 pb-3 pt-8 text-[#0A3D1F] shadow-[0_-10px_30px_rgba(15,23,42,0.25)] sm:grid-cols-[1fr_auto_1fr] sm:gap-5 sm:px-5 sm:pb-3 sm:pt-8">
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="grid grid-cols-[1fr_auto] items-center gap-2 rounded-xl border-2 border-[#0A3D1F] bg-gradient-to-r from-[#FFE45E] via-[#FFD84D] to-[#FFC107] px-2.5 py-2 text-[#0A3D1F] shadow-[0_-8px_24px_rgba(15,23,42,0.20)] sm:grid-cols-[1fr_auto_1fr] sm:gap-4 sm:px-4 sm:py-2.5">
             {/* Desktop information */}
             <div className="hidden min-w-0 sm:block">
               <p className="truncate text-sm font-black leading-tight text-[#0A3D1F]">
                 Resume Masterclass: Live Online
               </p>
 
-              <p className="mt-1 truncate text-[11px] font-semibold text-[#0A3D1F]/70">
+              <p className="mt-0.5 truncate text-[10px] font-semibold text-[#0A3D1F]/70">
                 Aug 9, 2026 • 11 AM to 1 PM IST • Balajee Seshadri
               </p>
             </div>
 
-            {/* Countdown unchanged */}
+            {/* Countdown */}
             <div className="min-w-0">
-              <p className="mb-1.5 text-[10px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
+              <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
                 Registration closes in
               </p>
 
-              <div className="flex items-start gap-1">
+              <div className="flex items-start gap-0.5 sm:gap-1">
                 <CountdownDigit value={days} label="Days" />
 
-                <span className="mt-2 text-base font-black text-[#0A3D1F]/45">
+                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
                   :
                 </span>
 
                 <CountdownDigit value={hours} label="Hrs" />
 
-                <span className="mt-2 text-base font-black text-[#0A3D1F]/45">
+                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
                   :
                 </span>
 
                 <CountdownDigit value={minutes} label="Min" />
 
-                <span className="mt-2 hidden text-base font-black text-[#0A3D1F]/45 min-[390px]:block">
+                <span className="mt-1.5 hidden text-sm font-black text-[#0A3D1F]/40 min-[390px]:block">
                   :
                 </span>
 
@@ -171,13 +159,13 @@ export default function ResumeSessionStickyFooter() {
               <a
                 href={CHECKOUT_URL}
                 onClick={handleRegisterClick}
-                className="inline-flex min-h-[52px] min-w-[126px] shrink-0 flex-col items-center justify-center whitespace-nowrap rounded-xl border-2 border-[#0A3D1F] bg-gradient-to-b from-[#14532D] to-[#08361C] px-4 text-white shadow-[0_5px_0_rgba(0,0,0,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(10,61,31,0.35)] active:translate-y-0 active:shadow-none sm:min-h-11 sm:min-w-0 sm:flex-row sm:px-6"
+                className="inline-flex min-h-[42px] min-w-[112px] shrink-0 flex-col items-center justify-center whitespace-nowrap rounded-lg border-2 border-[#0A3D1F] bg-gradient-to-b from-[#14532D] to-[#08361C] px-3 text-white shadow-[0_3px_0_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 active:translate-y-0 active:shadow-none sm:min-h-10 sm:min-w-0 sm:flex-row sm:px-5"
               >
-                <span className="text-sm font-black leading-none sm:text-base">
+                <span className="text-xs font-black leading-none sm:text-sm">
                   Register Now
                 </span>
 
-                <span className="mt-1 text-[11px] font-bold text-[#FFD84D] sm:ml-2 sm:mt-0 sm:text-sm">
+                <span className="mt-0.5 text-[10px] font-bold text-[#FFD84D] sm:ml-2 sm:mt-0 sm:text-xs">
                   ₹{PRICE}
                 </span>
               </a>

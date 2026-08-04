@@ -239,19 +239,18 @@ export default function ResumeSessionPage() {
     LIVE SESSION
   </p>
 
-  <h1
-    className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-extrabold leading-[1.1] tracking-[-0.035em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
-    style={{ fontFamily: "var(--font-inter)" }}
-  >
-    Master the Art of Crafting an{" "}
-    <span className="text-amber">
-      Outstanding Resume
-    </span>{" "}
-    <span className="text-[#0A3D1F]">
-      to Secure Core Electronics Jobs
-    </span>
-  </h1>
-
+<h1
+  className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-bold leading-[1.08] tracking-[-0.025em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
+  style={{ fontFamily: "var(--font-headline)" }}
+>
+  Master the Art of Crafting an{" "}
+  <span className="text-[#D99A00]">
+    Outstanding Resume
+  </span>{" "}
+  <span className="text-[#0A3D1F]">
+    to Secure Core Electronics Jobs
+  </span>
+</h1>
   <SessionDetails />
 
   {/* Extra gap only after the session details */}
