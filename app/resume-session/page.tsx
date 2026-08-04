@@ -341,14 +341,6 @@ export default function ResumeSessionPage() {
 
       {/* Instructor */}
       <section className="bg-white py-12 md:py-16">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-50"
-          style={{
-            backgroundSize: "40px 40px",
-          }}
-        />
-
         <div className="mx-auto max-w-[900px] px-6">
           <div className="grid items-start gap-8 md:grid-cols-[220px_1fr]">
             <div className="flex flex-col items-center">

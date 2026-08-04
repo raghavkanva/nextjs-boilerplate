@@ -54,6 +54,7 @@ function ReviewCard({ card, index }: { card: (typeof cgReviewCards)[number]; ind
           {expanded ? card.fullSummary : card.shortSummary}
           {!expanded && (
             <button
+              type="button"
               onClick={() => {
                 setExpanded(true);
                 track("resume_review_read_more_click", { review_index: index + 1, reviewer: card.name, page: "resume-session" });
@@ -107,28 +108,18 @@ export default function ReviewsSection() {
       <div className="max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(28px, 4vw, 38px)",
-          }}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 38px)" }}
         >
           What Students Say About Learning From Balajee Seshadri
         </h2>
-
         <div className="w-16 h-1 bg-[#16A34A] rounded-full mx-auto mb-10" />
-
-        <div
-          className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
-          style={{ scrollbarWidth: "none" }}
-        >
+        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4" style={{ scrollbarWidth: "none" }}>
           {cgReviewCards.map((card, i) => (
             <ReviewCard key={i} card={card} index={i} />
           ))}
         </div>
-
         <p className="text-[#6B7280] text-sm text-center mt-6 max-w-xl mx-auto">
-          These describe past learning experiences with Balajee Seshadri. They
-          are not job or placement guarantees.
+          These describe past learning experiences with Balajee Seshadri. They are not job or placement guarantees.
         </p>
       </div>
     </section>
