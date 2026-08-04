@@ -428,7 +428,7 @@ export default function ResumeSessionPage() {
             Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST.
           </p>
           <CtaButton location="final_cta" />
-          <p className="text-sm text-muted mt-3">Rs. {PRICE} — one-time registration.</p>
+          <p className="text-sm text-muted mt-3">Rs. {PRICE}, one-time registration.</p>
         </div>
       </section>
 

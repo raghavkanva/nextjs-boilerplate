@@ -11,10 +11,7 @@ html {
 
 body {
   font-feature-settings: "ss01";
-  background-image:
-    linear-gradient(to right, #E5E7EB 1px, transparent 1px),
-    linear-gradient(to bottom, #E5E7EB 1px, transparent 1px);
-  background-size: 40px 40px;
+  background: #F4F9FF;
 }
 
 .glow-green {
