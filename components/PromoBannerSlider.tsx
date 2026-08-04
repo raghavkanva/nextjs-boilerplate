@@ -18,7 +18,7 @@ const slides = [
     mobileEyebrow: "80th Independence Year Offer",
     title: "Pay Only 80% on All Plans",
     mobileTitle: "Pay Only 80%",
-    detail: "Use code : INDIA_80TH_INDEPENDENCE_DAY",
+    detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
     mobileDetail: "Code: INDIA_80TH_INDEPENDENCE_DAY",
     note: "Valid until August 15, 2026",
     href: "https://courses.etalvis.com/independence-offer",
@@ -177,16 +177,6 @@ export default function PromoBannerSlider() {
                     : "translate-x-full opacity-0"
               }`}
             >
-              <div
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(148,163,184,0.20) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.20) 1px, transparent 1px)",
-                  backgroundSize: "36px 36px",
-                }}
-              />
-
               <div
                 aria-hidden="true"
                 className={`absolute -right-14 -top-20 h-52 w-52 rounded-full blur-3xl sm:h-72 sm:w-72 ${themeClasses.glow}`}
