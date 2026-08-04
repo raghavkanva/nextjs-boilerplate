@@ -340,18 +340,16 @@ export default function ResumeSessionPage() {
       </section>
 
       {/* Instructor */}
-      <section className="relative overflow-hidden bg-white py-12 md:py-16">
+      <section className="bg-white py-12 md:py-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-50"
           style={{
-            backgroundImage:
-              "linear-gradient(to right, #E5E7EB 1px, transparent 1px), linear-gradient(to bottom, #E5E7EB 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
 
-        <div className="relative mx-auto max-w-[900px] px-6">
+        <div className="mx-auto max-w-[900px] px-6">
           <div className="grid items-start gap-8 md:grid-cols-[220px_1fr]">
             <div className="flex flex-col items-center">
               <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-[#16A34A]">
