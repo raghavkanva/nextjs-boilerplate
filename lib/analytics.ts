@@ -5,6 +5,8 @@ export type TrackValue =
   | null
   | undefined
   | Record<string, unknown>
+  | string[]
+  | number[]
   | Array<Record<string, unknown>>;
 
 export type TrackParams = Record<string, TrackValue>;
