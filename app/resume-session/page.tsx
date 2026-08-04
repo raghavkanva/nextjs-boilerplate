@@ -5,6 +5,7 @@ import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
 import PageAnalytics from "@/components/PageAnalytics";
 import TrackedLink from "@/components/TrackedLink";
 import ReviewsSection from "./ReviewsSection";
+import ResumeSessionTracking from "@/components/ResumeSessionTracking";
 
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
@@ -229,6 +230,8 @@ export default function ResumeSessionPage() {
         contentName="Resume Session: Master the Art of Crafting an Outstanding Resume"
         contentCategory="Workshop"
       />
+
+      <ResumeSessionTracking />
 
       {/* Hero */}
 <section className="mx-auto max-w-3xl px-6 pb-8 pt-8 text-center md:pt-12">

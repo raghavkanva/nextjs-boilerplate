@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { metaEvent, track } from "@/lib/analytics";
+import TrackedLink from "@/components/TrackedLink";
 
 const CHECKOUT_URL =
   "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942ae7d6";
@@ -87,20 +87,6 @@ export default function ResumeSessionStickyFooter() {
 
   if (expired) return null;
 
-  const handleRegisterClick = () => {
-    track("resume_sticky_register_click", {
-      price: PRICE,
-      currency: "INR",
-      page: "resume-session",
-    });
-
-    metaEvent("InitiateCheckout", {
-      content_name: "Resume Session",
-      value: PRICE,
-      currency: "INR",
-    });
-  };
-
   return (
     <>
       {/* Prevent content from hiding behind the compact footer */}
@@ -124,40 +110,53 @@ export default function ResumeSessionStickyFooter() {
             </div>
 
             {/* Countdown */}
-{/* Countdown */}
-<div className="min-w-0">
-  <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
-    Registration closes in
-  </p>
+            <div className="min-w-0">
+              <p className="mb-1 text-[9px] font-black uppercase tracking-wide text-[#0A3D1F] sm:hidden">
+                Registration closes in
+              </p>
 
-  <div className="flex items-start gap-0.5 sm:gap-1">
-    <CountdownDigit value={days} label="Days" />
+              <div className="flex items-start gap-0.5 sm:gap-1">
+                <CountdownDigit value={days} label="Days" />
 
-    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-      :
-    </span>
+                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+                  :
+                </span>
 
-    <CountdownDigit value={hours} label="Hrs" />
+                <CountdownDigit value={hours} label="Hrs" />
 
-    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-      :
-    </span>
+                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+                  :
+                </span>
 
-    <CountdownDigit value={minutes} label="Min" />
+                <CountdownDigit value={minutes} label="Min" />
 
-    <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
-      :
-    </span>
+                <span className="mt-1.5 text-sm font-black text-[#0A3D1F]/40">
+                  :
+                </span>
 
-    <CountdownDigit value={seconds} label="Sec" />
-  </div>
-</div>
-   
+                <CountdownDigit value={seconds} label="Sec" />
+              </div>
+            </div>
+
             {/* Register CTA */}
             <div className="flex shrink-0 items-center justify-end">
-              <a
+              <TrackedLink
                 href={CHECKOUT_URL}
-                onClick={handleRegisterClick}
+                event="resume_sticky_register_click"
+                params={{
+                  location: "sticky_footer",
+                  page: "resume-session",
+                  price: PRICE,
+                  value: PRICE,
+                  currency: "INR",
+                }}
+                metaStdEvent="InitiateCheckout"
+                metaStdParams={{
+                  content_name: "Resume Session",
+                  content_category: "Workshop",
+                  value: PRICE,
+                  currency: "INR",
+                }}
                 className="inline-flex min-h-[42px] min-w-[112px] shrink-0 flex-col items-center justify-center whitespace-nowrap rounded-lg border-2 border-[#0A3D1F] bg-gradient-to-b from-[#14532D] to-[#08361C] px-3 text-white shadow-[0_3px_0_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 active:translate-y-0 active:shadow-none sm:min-h-10 sm:min-w-0 sm:flex-row sm:px-5"
               >
                 <span className="text-xs font-black leading-none sm:text-sm">
@@ -167,7 +166,7 @@ export default function ResumeSessionStickyFooter() {
                 <span className="mt-0.5 text-[10px] font-bold text-[#FFD84D] sm:ml-2 sm:mt-0 sm:text-xs">
                   ₹{PRICE}
                 </span>
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>
