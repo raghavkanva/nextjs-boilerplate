@@ -272,7 +272,7 @@ export default function ResumeSessionPage() {
           </div>
         </div>
 
-        {/* Mobile order: heading, details, instructor photo, instructor line */}
+        {/* Mobile order: heading, instructor photo, instructor line, details */}
         <div className="md:hidden">
           <h1
             className="mx-auto mb-6 text-balance text-center text-[1.8rem] font-medium leading-[1.1] tracking-[-0.025em] text-[#111827] sm:text-[2.2rem]"
@@ -285,9 +285,7 @@ export default function ResumeSessionPage() {
             </span>
           </h1>
 
-          <SessionDetails />
-
-          <div className="mt-8 flex flex-col items-center text-center">
+          <div className="mb-8 flex flex-col items-center text-center">
             <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-[#0A3D1F] bg-white shadow-[0_14px_34px_rgba(10,61,31,0.16)]">
               <Image
                 src="/images/balajee-casual.png"
@@ -304,6 +302,8 @@ export default function ResumeSessionPage() {
               Live session by Balajee Seshadri
             </p>
           </div>
+
+          <SessionDetails />
         </div>
 
         {/* Desktop session details */}
