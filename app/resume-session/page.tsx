@@ -78,7 +78,7 @@ const topics = [
 function LiveSessionBanner() {
   return (
     <section className="border-b border-[#D89E00] bg-[#F6B900] text-[#111827]">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-3 text-center sm:flex-row sm:text-left md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-center px-5 py-3 text-center md:px-8">
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-3">
           <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] sm:text-sm">
             <span className="h-2.5 w-2.5 rounded-full bg-[#0A3D1F]" />
@@ -89,26 +89,6 @@ function LiveSessionBanner() {
             Sunday, August 9 · 11 AM–1 PM IST
           </strong>
         </div>
-
-        <TrackedLink
-          href={CHECKOUT_URL}
-          event="resume_enroll_click"
-          params={{
-            location: "top_banner",
-            price: PRICE,
-            currency: "INR",
-            page: "resume-session",
-          }}
-          metaStdEvent="InitiateCheckout"
-          metaStdParams={{
-            content_name: "Resume Session",
-            value: PRICE,
-            currency: "INR",
-          }}
-          className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#0A3D1F] px-5 py-2 text-sm font-extrabold text-white transition hover:bg-[#062C16]"
-        >
-          Enroll for Rs. {PRICE}
-        </TrackedLink>
       </div>
     </section>
   );
@@ -272,39 +252,7 @@ export default function ResumeSessionPage() {
 </h1>
   <SessionDetails />
 
- {/* Extra gap only after the session details */}
-<div className="mt-12 md:mt-16">
-  <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
-    <div className="px-5 py-5 md:px-7 md:py-6">
-      <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
-        This session is primarily designed for{" "}
-        <span className="font-extrabold text-[#0A3D1F]">
-          final-year electronics students and fresh job seekers
-        </span>{" "}
-        who want to prepare an effective resume for{" "}
-        <span className="font-extrabold text-[#0A3D1F]">
-          Core Electronics Jobs.
-        </span>{" "}
-        Students from 1st year to pre-final year can also attend to start
-        preparing early.
-      </p>
-    </div>
-
-    <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
-      <p className="text-sm font-semibold text-[#374151] md:text-base">
-        By{" "}
-        <span className="font-extrabold text-[#111827]">
-          Balajee Seshadri
-        </span>
-        ,{" "}
-        <span className="font-extrabold text-[#0A3D1F]">
-          40+ years in the Electronics Industry
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
-</section>
+ </section>
 
       {/* Student Questions */}
       <section className="border-y border-line bg-surface py-10 md:py-14">
@@ -360,7 +308,34 @@ export default function ResumeSessionPage() {
         </div>
       </section>
 
-   <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
+   {/* Topics */}
+      <section className="bg-surface border-y border-line py-10 md:py-14">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
+            What This Session Covers
+          </h2>
+          <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
+          <div className="flex flex-col gap-5">
+            {topics.map((topic) => (
+              <div
+                key={topic.number}
+                className="rounded-xl border-2 border-text bg-white px-6 py-5 flex gap-5 items-start"
+              >
+                <span className="font-display font-extrabold text-3xl text-line shrink-0 leading-none mt-0.5">
+                  {topic.number}
+                </span>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-text">
+                    {topic.question}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-6 py-10 md:py-12">
   <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
     Who Is This Session For?
   </h2>
@@ -405,31 +380,40 @@ export default function ResumeSessionPage() {
   </div>
 </section>
 
-      {/* Topics */}
-      <section className="bg-surface border-y border-line py-10 md:py-14">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display font-extrabold text-2xl md:text-3xl text-text text-center mb-2">
-            What This Session Covers
-          </h2>
-          <div className="w-16 h-1 bg-amber rounded-full mx-auto mb-8" />
-          <div className="flex flex-col gap-5">
-            {topics.map((topic) => (
-              <div
-                key={topic.number}
-                className="rounded-xl border-2 border-text bg-white px-6 py-5 flex gap-5 items-start"
-              >
-                <span className="font-display font-extrabold text-3xl text-line shrink-0 leading-none mt-0.5">
-                  {topic.number}
-                </span>
-                <div>
-                  <h3 className="font-display font-bold text-lg text-text">
-                    {topic.question}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Audience and Instructor Summary */}
+      <section className="mx-auto max-w-3xl px-6 py-10 md:py-12">
+<div>
+  <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
+    <div className="px-5 py-5 md:px-7 md:py-6">
+      <p className="text-lg font-semibold leading-relaxed text-[#111827] md:text-xl">
+        This session is primarily designed for{" "}
+        <span className="font-extrabold text-[#0A3D1F]">
+          final-year electronics students and fresh job seekers
+        </span>{" "}
+        who want to prepare an effective resume for{" "}
+        <span className="font-extrabold text-[#0A3D1F]">
+          Core Electronics Jobs.
+        </span>{" "}
+        Students from 1st year to pre-final year can also attend to start
+        preparing early.
+      </p>
+    </div>
+
+    <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
+      <p className="text-sm font-semibold text-[#374151] md:text-base">
+        By{" "}
+        <span className="font-extrabold text-[#111827]">
+          Balajee Seshadri
+        </span>
+        ,{" "}
+        <span className="font-extrabold text-[#0A3D1F]">
+          40+ years in the Electronics Industry
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+
       </section>
 
       {/* Instructor */}
