@@ -256,7 +256,7 @@ export default function ResumeSessionPage() {
 </h1>
   <SessionDetails />
 
-  {/* Extra gap only after the session details */}
+ {/* Extra gap only after the session details */}
 <div className="mt-12 md:mt-16">
   <div className="mx-auto mb-7 max-w-2xl overflow-hidden rounded-2xl border-2 border-[#0A3D1F] bg-[#F0FDF4] text-left shadow-[0_12px_30px_rgba(10,61,31,0.10)]">
     <div className="px-5 py-5 md:px-7 md:py-6">
@@ -273,23 +273,21 @@ export default function ResumeSessionPage() {
         preparing early.
       </p>
     </div>
-  </div>
-</div>
 
-      <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
-        <p className="text-sm font-semibold text-[#374151] md:text-base">
-          By{" "}
-          <span className="font-extrabold text-[#111827]">
-            Balajee Seshadri
-          </span>
-          ,{" "}
-          <span className="font-extrabold text-[#0A3D1F]">
-            40+ years in the Electronics Industry
-          </span>
-        </p>
-      </div>
+    <div className="border-t border-[#0A3D1F]/15 bg-white px-5 py-3 md:px-7">
+      <p className="text-sm font-semibold text-[#374151] md:text-base">
+        By{" "}
+        <span className="font-extrabold text-[#111827]">
+          Balajee Seshadri
+        </span>
+        ,{" "}
+        <span className="font-extrabold text-[#0A3D1F]">
+          40+ years in the Electronics Industry
+        </span>
+      </p>
     </div>
   </div>
+</div>
 </section>
 
       {/* Student Questions */}
