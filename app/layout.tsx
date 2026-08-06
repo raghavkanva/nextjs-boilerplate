@@ -16,9 +16,7 @@ import {
   buildPersonSchema,
 } from "@/lib/schema";
 
-import NavBar from "@/components/NavBar";
-import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
-import { PromotionSliderProvider } from "@/components/PromotionSliderContext";
+import SiteHeader from "@/components/SiteHeader";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -72,6 +70,7 @@ export default function RootLayout({
       <body
         className={`${fredoka.variable} ${sora.variable} ${inter.variable} ${plexMono.variable} font-body bg-bg text-text antialiased`}
       >
+        {/* Google Tag Manager noscript fallback */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NW77K92B"
@@ -85,6 +84,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        {/* Meta Pixel noscript fallback */}
         <noscript>
           <img
             height="1"
@@ -95,6 +95,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -115,6 +116,7 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -152,6 +154,7 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Global structured data */}
         {schemas.map((schema, index) => (
           <script
             key={index}
@@ -162,11 +165,10 @@ export default function RootLayout({
           />
         ))}
 
-        <PromotionSliderProvider>
-          <ThinPromotionHeaderSlider />
-          <NavBar />
-          {children}
-        </PromotionSliderProvider>
+        {/* Hidden automatically on /resume-session */}
+        <SiteHeader />
+
+        {children}
       </body>
     </html>
   );

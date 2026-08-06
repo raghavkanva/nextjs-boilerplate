@@ -75,6 +75,45 @@ const topics = [
   },
 ];
 
+function LiveSessionBanner() {
+  return (
+    <section className="border-b border-[#D89E00] bg-[#F6B900] text-[#111827]">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-3 text-center sm:flex-row sm:text-left md:px-8">
+        <div className="flex flex-col items-center gap-1 sm:flex-row sm:gap-3">
+          <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] sm:text-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#0A3D1F]" />
+            Live Online Session
+          </span>
+          <span className="hidden h-5 w-px bg-[#111827]/25 sm:block" />
+          <strong className="font-display text-sm sm:text-base">
+            Sunday, August 9 · 11 AM–1 PM IST
+          </strong>
+        </div>
+
+        <TrackedLink
+          href={CHECKOUT_URL}
+          event="resume_enroll_click"
+          params={{
+            location: "top_banner",
+            price: PRICE,
+            currency: "INR",
+            page: "resume-session",
+          }}
+          metaStdEvent="InitiateCheckout"
+          metaStdParams={{
+            content_name: "Resume Session",
+            value: PRICE,
+            currency: "INR",
+          }}
+          className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#0A3D1F] px-5 py-2 text-sm font-extrabold text-white transition hover:bg-[#062C16]"
+        >
+          Enroll for Rs. {PRICE}
+        </TrackedLink>
+      </div>
+    </section>
+  );
+}
+
 function SessionDetails() {
   const details = [
     {
@@ -141,24 +180,6 @@ function SessionDetails() {
         ))}
       </div>
 
-      <div className="relative mt-7 overflow-visible rounded-2xl bg-gradient-to-r from-[#F6B900] to-[#FFD86B] px-5 pb-6 pt-10 text-center shadow-[0_16px_40px_rgba(10,61,31,0.12)] md:mt-9 md:px-8 md:pb-8 md:pt-12">
-        <span className="absolute -top-4 left-5 inline-flex items-center gap-2 rounded-xl bg-[#0A3D1F] px-4 py-2 font-display text-sm font-extrabold text-white shadow-md md:left-8 md:text-base">
-          <span className="h-3 w-3 rounded-full bg-white" />
-          LIVE ONLINE SESSION
-        </span>
-        <h2 className="font-display text-xl font-extrabold leading-tight text-text md:text-3xl">
-          Build a Resume for Core Electronics Jobs
-        </h2>
-        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[#253A31] md:text-lg">
-          Learn how to prepare a focused resume from 1st year to final year.
-        </p>
-        <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
-          <CtaButton location="hero_details" />
-          <p className="text-sm font-medium text-[#253A31] md:text-base">
-            One-time registration. No hidden charges.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
@@ -233,15 +254,10 @@ export default function ResumeSessionPage() {
 
       <ResumeSessionTracking />
 
-      {/* Hero */}
-<section className="mx-auto max-w-3xl px-6 pb-8 pt-8 text-center md:pt-12">
-  <p
-    className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[#B77900] md:text-base"
-    style={{ fontFamily: "var(--font-inter)" }}
-  >
-    LIVE SESSION
-  </p>
+      <LiveSessionBanner />
 
+      {/* Hero */}
+<section className="mx-auto max-w-3xl px-6 pb-8 pt-10 text-center md:pt-14">
 <h1
   className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
   style={{ fontFamily: "var(--font-headline)" }}
