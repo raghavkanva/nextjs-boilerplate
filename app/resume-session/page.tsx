@@ -237,22 +237,80 @@ export default function ResumeSessionPage() {
       <LiveSessionBanner />
 
       {/* Hero */}
-<section className="mx-auto max-w-3xl px-6 pb-8 pt-10 text-center md:pt-14">
-<h1
-  className="mx-auto mb-6 max-w-4xl text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.025em] text-[#111827] md:text-5xl lg:text-[3.6rem]"
-  style={{ fontFamily: "var(--font-headline)" }}
->
-  Master the Art of Crafting an{" "}
-  <span className="text-[#0A3D1F]">
-    Outstanding Resume
-  </span>{" "}
-  <span className="text-[#0A3D1F]">
-    to Secure Core Electronics Jobs
-  </span>
-</h1>
-  <SessionDetails />
+      <section className="mx-auto max-w-5xl px-6 pb-8 pt-8 md:pt-10">
+        {/* Desktop hero: instructor photo beside heading */}
+        <div className="mx-auto mb-8 hidden max-w-4xl items-center gap-9 text-left md:grid md:grid-cols-[180px_1fr]">
+          <div className="flex justify-start">
+            <div className="relative h-44 w-44 overflow-hidden rounded-full border-4 border-[#0A3D1F] bg-white shadow-[0_14px_34px_rgba(10,61,31,0.16)]">
+              <Image
+                src="/images/balajee-casual.png"
+                alt="Balajee Seshadri, session instructor"
+                fill
+                priority
+                sizes="176px"
+                quality={85}
+                className="object-cover"
+              />
+            </div>
+          </div>
 
- </section>
+          <div>
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.14em] text-[#0A3D1F]">
+              Live session by Balajee Seshadri
+            </p>
+
+            <h1
+              className="text-balance text-[2.8rem] font-medium leading-[1.1] tracking-[-0.025em] text-[#111827] lg:text-[3.15rem]"
+              style={{ fontFamily: "var(--font-headline)" }}
+            >
+              Master the Art of Crafting an{" "}
+              <span className="text-[#0A3D1F]">Outstanding Resume</span>{" "}
+              <span className="text-[#0A3D1F]">
+                to Secure Core Electronics Jobs
+              </span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Mobile order: heading, details, instructor photo, instructor line */}
+        <div className="md:hidden">
+          <h1
+            className="mx-auto mb-6 text-balance text-center text-[1.8rem] font-medium leading-[1.1] tracking-[-0.025em] text-[#111827] sm:text-[2.2rem]"
+            style={{ fontFamily: "var(--font-headline)" }}
+          >
+            Master the Art of Crafting an{" "}
+            <span className="text-[#0A3D1F]">Outstanding Resume</span>{" "}
+            <span className="text-[#0A3D1F]">
+              to Secure Core Electronics Jobs
+            </span>
+          </h1>
+
+          <SessionDetails />
+
+          <div className="mt-8 flex flex-col items-center text-center">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-[#0A3D1F] bg-white shadow-[0_14px_34px_rgba(10,61,31,0.16)]">
+              <Image
+                src="/images/balajee-casual.png"
+                alt="Balajee Seshadri, session instructor"
+                fill
+                priority
+                sizes="128px"
+                quality={85}
+                className="object-cover"
+              />
+            </div>
+
+            <p className="mt-3 text-sm font-bold uppercase tracking-[0.14em] text-[#0A3D1F]">
+              Live session by Balajee Seshadri
+            </p>
+          </div>
+        </div>
+
+        {/* Desktop session details */}
+        <div className="hidden md:block">
+          <SessionDetails />
+        </div>
+      </section>
 
       {/* Student Questions */}
       <section className="border-y border-line bg-surface py-10 md:py-14">
