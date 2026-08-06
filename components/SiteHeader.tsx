@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 
 import NavBar from "@/components/NavBar";
 import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
-import { PromotionSliderProvider } from "@/components/PromotionSliderContext";
 
 const HIDDEN_HEADER_ROUTES = ["/resume-session"];
 
@@ -20,9 +19,9 @@ export default function SiteHeader() {
   }
 
   return (
-    <PromotionSliderProvider>
+    <>
       <ThinPromotionHeaderSlider />
       <NavBar />
-    </PromotionSliderProvider>
+    </>
   );
 }
