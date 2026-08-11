@@ -10,7 +10,7 @@ import ResumeSessionTracking from "@/components/ResumeSessionTracking";
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
   description:
-    "A live online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Sunday, August 9, 2026, 11 AM to 1 PM IST. Rs. 80.",
+    "A live online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Sunday, August 16, 2026, 11 AM to 1 PM IST. Rs. 80.",
   keywords: [
     "resume for core electronics jobs",
     "electronics resume tips",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Live online session by Balajee Seshadri. Sunday, August 9, 2026, 11 AM to 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session by Balajee Seshadri. Sunday, August 16, 2026, 11 AM to 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
     url: "https://courses.etalvis.com/resume-session",
     siteName: "eTalVis",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Live online session. Sunday, August 9, 2026, 11 AM – 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session. Sunday, August 16, 2026, 11 AM – 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
     images: ["https://courses.etalvis.com/images/icon.png"],
   },
   alternates: {
@@ -86,7 +86,7 @@ function LiveSessionBanner() {
           </span>
           <span className="hidden h-5 w-px bg-[#111827]/25 sm:block" />
           <strong className="font-display text-sm sm:text-base">
-            Sunday, August 9 · 11 AM–1 PM IST
+            Sunday, August 16 · 11 AM–1 PM IST
           </strong>
         </div>
       </div>
@@ -98,7 +98,7 @@ function SessionDetails() {
   const details = [
     {
       label: "Date",
-      value: "Sunday, August 9, 2026",
+      value: "Sunday, August 16, 2026",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -196,8 +196,8 @@ export default function ResumeSessionPage() {
     description:
       "Live online session by Balajee Seshadri covering why resume matters, what to include, AI usage, project listing, and resume design for core electronics job applications.",
     url: "https://courses.etalvis.com/resume-session",
-    startDate: "2026-08-09T11:00:00+05:30",
-    endDate: "2026-08-09T13:00:00+05:30",
+    startDate: "2026-08-16T11:00:00+05:30",
+    endDate: "2026-08-16T13:00:00+05:30",
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
     organizer: {
@@ -560,7 +560,7 @@ export default function ResumeSessionPage() {
             Build a Resume That Gets You Noticed
           </h2>
           <p className="text-base text-muted leading-relaxed mb-6">
-            Live online session on Sunday, August 9, 2026, 11 AM to 1 PM IST.
+            Live online session on Sunday, August 16, 2026, 11 AM to 1 PM IST.
           </p>
           <CtaButton location="final_cta" />
           <p className="text-sm text-muted mt-3">Rs. {PRICE}, one-time registration.</p>
