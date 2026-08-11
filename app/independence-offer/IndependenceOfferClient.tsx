@@ -6,7 +6,7 @@ import { plans } from "@/data/content";
 import SharedFooter from "@/components/Footer";
 import { track as _track, metaEvent } from "@/lib/analytics";
 
-const DEADLINE_ISO = "2026-08-15T23:59:59+05:30";
+const DEADLINE_ISO = "2026-08-31T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 
 const offerPricing: Record<string, { regularPrice: number; saveAmount: number; offerPrice: number }> = {
