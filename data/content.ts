@@ -330,7 +330,7 @@ export const plans: Plan[] = [
   {
     name: "Starter",
     code: "EF-01",
-    price: 799,
+    price: 639,
     duration: "1 month access",
     tag: null,
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
