@@ -10,9 +10,8 @@ const DEADLINE_ISO = "2026-08-15T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 
 const offerPricing: Record<string, { regularPrice: number; saveAmount: number; offerPrice: number }> = {
-  "EF-01": { regularPrice: 999, saveAmount: 199.80, offerPrice: 799 },
-  "EF-06": { regularPrice: 2999, saveAmount: 599.80, offerPrice: 2399 },
-  "EF-12": { regularPrice: 4999, saveAmount: 999.80, offerPrice: 3999 },
+  "EF-01": { regularPrice: 639, saveAmount: 128, offerPrice: 511 },
+  "EF-06": { regularPrice: 2559, saveAmount: 511, offerPrice: 2048 },
 };
 
 function track(event: string, params: Record<string, string | number | boolean> = {}) {
