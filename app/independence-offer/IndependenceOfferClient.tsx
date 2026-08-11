@@ -112,7 +112,7 @@ function HeroSection({ expired }: { expired: boolean }) {
           className="font-bold text-[#111827] mb-4 leading-tight"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 48px)" }}
         >
-          India turns 80.
+          India’s 80th Independence Day.
           <br />
           <span className="text-[#0A3D1F]">#PayOnly80</span> on every plan.
         </h1>
