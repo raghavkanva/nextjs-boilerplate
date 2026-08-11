@@ -50,12 +50,12 @@ function IndependenceOfferStrip() {
               </span>
               <span className="hidden sm:inline">
                 {" "}
-                · Valid until August 15, 2026
+                · Valid until August 31, 2026
               </span>
             </p>
 
             <p className="mt-1 text-xs font-semibold text-slate-600 sm:hidden">
-              Valid until August 15, 2026
+              Valid until August 31, 2026
             </p>
           </div>
 

@@ -118,7 +118,7 @@ function HeroSection({ expired }: { expired: boolean }) {
         </h1>
 
         <p className="text-[#4B5563] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
-          To celebrate India entering its 80th year of Independence, every eTalVis plan is 20% off until August 15, 2026, 11:59 PM IST.
+          To celebrate India entering its 80th year of Independence, every eTalVis plan is 20% off until August 31, 2026, 11:59 PM IST.
         </p>
 
         {!expired ? (
@@ -327,7 +327,7 @@ function PlansSection({ expired }: { expired: boolean }) {
         </h2>
         {!expired && (
           <p className="text-[#4B5563] text-center mb-10 max-w-xl mx-auto">
-            Apply code <code className="font-mono font-bold text-[#16A34A]">{OFFER_CODE}</code> at checkout. Valid until August 15, 2026, 11:59 PM IST.
+            Apply code <code className="font-mono font-bold text-[#16A34A]">{OFFER_CODE}</code> at checkout. Valid until August 31, 2026, 11:59 PM IST.
           </p>
         )}
         {expired && <div className="mb-10" />}
@@ -356,7 +356,7 @@ function FinalCtaSection({ expired }: { expired: boolean }) {
         <p className="text-[#4B5563] leading-relaxed mb-8">
           {expired
             ? "All 10 Foundation Courses are available at regular price. Same content, same instructor, same WhatsApp support."
-            : `India is entering its 80th year of Independence. Pay only 80% on any plan with code ${OFFER_CODE} before 11:59 PM on August 15, 2026.`}
+            : `India is entering its 80th year of Independence. Pay only 80% on any plan with code ${OFFER_CODE} before 11:59 PM on August 31, 2026.`}
         </p>
         <a
           href="#plans"
