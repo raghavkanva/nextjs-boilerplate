@@ -11,7 +11,7 @@ export const site = {
 
 export const announcements: { text: string; href?: string }[] = [
   {
-    text: "Independence Day Offer — Pay Only 80% on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 15, 2026.",
+    text: "Independence Day Offer — Pay Only 80% on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
     href: "/independence-offer",
   },
   {
@@ -330,7 +330,7 @@ export const plans: Plan[] = [
   {
     name: "Starter",
     code: "EF-01",
-    price: 999,
+    price: 799,
     duration: "1 month access",
     tag: null,
     checkoutUrl: "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26",
@@ -338,17 +338,18 @@ export const plans: Plan[] = [
       "All 10 foundation courses included",
       "Pre-recorded online sessions, watch anytime, at your own pace",
       "Practice exercises",
+      "Weekend Sessions at no extra cost",
     ],
   },
   {
     name: "Semester",
     code: "EF-06",
-    price: 2999,
+    price: 3199,
     duration: "6 months access",
     tag: "Popular",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca",
     features: [
-      "2 free online monthly meetup sessions",
+      "6 free online monthly meetup sessions",
     ],
     highlights: [
       {
@@ -363,19 +364,6 @@ export const plans: Plan[] = [
         title: "One Time Resume Preparation Help",
         subtitle: "A one-time service to structure and polish your resume",
       },
-    ],
-  },
-  {
-    name: "Annual",
-    code: "EF-12",
-    price: 4999,
-    duration: "12 months access",
-    tag: null,
-    checkoutUrl: "https://learn.etalvis.com/web/checkout/6a439983717f947846a80a40",
-    features: [
-      "6 free online monthly meetup sessions",
-    ],
-    highlights: [
       {
         title: "1 Mock Interview",
         subtitle: "One mock interview to practice under real pressure and get honest feedback afterward",
@@ -441,7 +429,7 @@ export const whoIsThisFor = [
 export const faqs = [
   {
     q: "How long do I have access to the course?",
-    a: "Depends on the plan you choose, Starter, Semester, Annual, or Lifetime. All plans unlock the same 10 courses.",
+    a: "Depends on the plan you choose, Starter or Semester. Both unlock the same 10 courses.",
   },
   {
     q: "Do I need prior programming experience?",

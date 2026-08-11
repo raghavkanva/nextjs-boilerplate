@@ -103,6 +103,7 @@ function getFeatureIcon(feature: string) {
   if (feature.includes("Pre-recorded")) return <PlayCircleIcon />;
   if (feature.includes("Practice exercises")) return <PencilIcon />;
   if (feature.includes("meetup sessions")) return <CalendarIcon />;
+  if (feature.includes("Weekend Sessions")) return <CalendarIcon />;
   if (feature.includes("Bulk discount")) return <GroupIcon />;
   if (feature.includes("Contact Balajee")) return <ChatIcon />;
   return <BookIcon />;
@@ -240,7 +241,7 @@ export default function PlansGrid({ id, heading, subline }: PlansGridProps) {
         <p className="text-muted text-center mb-10">{subline}</p>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {plans.map((plan, i) => (
           <PlanCard
             key={plan.code}
