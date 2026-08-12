@@ -344,7 +344,7 @@ export const plans: Plan[] = [
   {
     name: "Semester",
     code: "EF-06",
-    price: 3199,
+    price: 2559,
     duration: "6 months access",
     tag: "Popular",
     checkoutUrl: "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca",
