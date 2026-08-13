@@ -33,7 +33,7 @@ export default function IndependenceOfferStickyNote() {
               </p>
 
               <p className="mt-0.5 break-words text-[11px] font-semibold leading-4 text-slate-800 sm:text-sm">
-                Code: {OFFER_CODE} · Valid until August 15, 2026
+                Code: {OFFER_CODE} · Valid until August 31, 2026
               </p>
             </div>
           </div>

@@ -16,8 +16,7 @@ import {
   buildPersonSchema,
 } from "@/lib/schema";
 
-import NavBar from "@/components/NavBar";
-import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
+import SiteHeader from "@/components/SiteHeader";
 import { PromotionSliderProvider } from "@/components/PromotionSliderContext";
 
 const fredoka = Fredoka({
@@ -165,8 +164,7 @@ export default function RootLayout({
         ))}
 
         <PromotionSliderProvider>
-          <ThinPromotionHeaderSlider />
-          <NavBar />
+          <SiteHeader />
           {children}
         </PromotionSliderProvider>
       </body>
