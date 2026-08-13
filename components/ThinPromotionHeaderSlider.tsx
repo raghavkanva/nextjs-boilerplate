@@ -10,7 +10,10 @@ import {
 
 import { usePromotionSlider } from "./PromotionSliderContext";
 
-const BG = "bg-[#0A3D1F]";
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
+
+const BG = "bg-[#78350F]";
 const FG = "text-white";
 const HOVER = "hover:bg-white/10";
 const ICON_BG = "bg-white/15";
@@ -22,8 +25,10 @@ const promotions = [
   {
     id: "independence-offer",
     text:
-      "India enters its 80th year of Independence! Get a discount on all plans.",
-    mobileText: "Get a discount on all plans",
+      isIndependenceDay
+        ? "India enters its 80th year of Independence! Get 20% discount on all plans."
+        : "Get 20% discount on all eTalVis plans. Code: INDIA_80TH_INDEPENDENCE_DAY.",
+    mobileText: isIndependenceDay ? "Independence Day — 20% Discount" : "Get 20% discount on all plans",
     extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
     href: "https://courses.etalvis.com/courses",
     cta: "View Offer",

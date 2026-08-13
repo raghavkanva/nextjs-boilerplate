@@ -11,11 +11,11 @@ export const site = {
 
 export const announcements: { text: string; href?: string }[] = [
   {
-    text: "Independence Day Offer — Get a discount on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
+    text: "Independence Day Offer — Get 20% discount on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
     href: "/courses",
   },
   {
-    text: "Upcoming Session: Master the Art of Crafting an Outstanding Resume to Secure Core Electronics Jobs. Rs. 80.",
+    text: "Upcoming Session: Master the Art of Crafting an Outstanding Resume to Secure Core Electronics Jobs. Rs. 159.",
     href: "/resume-session",
   },
   {

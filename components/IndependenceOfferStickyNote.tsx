@@ -105,7 +105,7 @@ export default function IndependenceOfferStickyNote() {
         aria-label="Independence Day offer — enroll now"
         className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-emerald-700 bg-[#0A3D1F] shadow-[0_-8px_40px_rgba(10,61,31,0.45)]">
+        <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-amber-800 bg-[#78350F] shadow-[0_-8px_40px_rgba(10,61,31,0.45)]">
 
           {/* Desktop layout — full bar */}
           <div className="hidden sm:flex sm:items-center sm:gap-4 sm:px-5 sm:py-3.5">
@@ -113,7 +113,7 @@ export default function IndependenceOfferStickyNote() {
             {/* Offer label + countdown */}
             <div className="flex shrink-0 items-center gap-3">
               <div className="flex flex-col">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-emerald-300">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-amber-200">
                   Independence Offer · Ends Aug 31
                 </p>
                 <p className="text-[11px] font-semibold text-white/60">
@@ -139,7 +139,7 @@ export default function IndependenceOfferStickyNote() {
                 onClick={() => handleClick("starter", STARTER_CHECKOUT)}
                 className="flex flex-col items-start rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-left transition hover:bg-white/18"
               >
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Starter · 1 Month</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-200">Starter · 1 Month</span>
                 <div className="flex items-baseline gap-1.5">
                   <span className="font-display text-lg font-black text-white">₹{STARTER_OFFER}</span>
                   <span className="text-xs text-white/40 line-through">₹{STARTER_ORIGINAL}</span>
@@ -178,7 +178,7 @@ export default function IndependenceOfferStickyNote() {
               <Digit val={seconds} label="S" />
             </div>
             <div className="flex-1">
-              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer — Discount</p>
+              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer — 20% Discount</p>
               <p className="mt-0.5 text-[10px] text-white/50">Valid until Aug 31 · Code: <CopyableCode code={OFFER_CODE} /></p>
             </div>
             <button

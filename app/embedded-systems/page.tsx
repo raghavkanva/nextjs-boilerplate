@@ -11,7 +11,6 @@ import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import InstructorStrip from "@/components/InstructorStrip";
 import IndependenceOfferStickyNote from "@/components/IndependenceOfferStickyNote";
-import IndependenceDayOfferSection from "@/components/IndependenceDayOfferSection";
 import { testimonialsBottom, plans } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -104,7 +103,7 @@ function ProgramHero() {
       </div>
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
         Embedded Systems{" "}
-        <span className="text-[#0A3D1F]">Foundation Course</span>
+        <span className="text-[#78350F]">Foundation Course</span>
       </h1>
       <p className="max-w-2xl mx-auto mb-3 text-base md:text-lg text-text font-semibold leading-relaxed">
         Built for core electronics students who want real understanding.
@@ -153,9 +152,9 @@ export default function EmbeddedSystemsPage() {
       </div>
       <ProgramHero />
       <CourseCarousel />
-      <IndependenceDayOfferSection />
       <PlansGrid
-        heading="Full Plan Details"
+        id="plans"
+        heading="Choose Your Plan"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
       <InstructorStrip />

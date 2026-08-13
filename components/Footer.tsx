@@ -207,7 +207,7 @@ export default function Footer() {
                 href={RESUME_SESSION_URL}
                 className="group block rounded-xl border border-white/10 bg-white/5 px-3.5 py-4 transition hover:border-white/20 hover:bg-white/10"
               >
-                <span className="inline-flex rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white/80">
+                <span className="inline-flex rounded-full bg-amber-400/20 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white/80">
                   Upcoming
                 </span>
                 <p className="mt-2 text-sm font-bold leading-snug text-white">

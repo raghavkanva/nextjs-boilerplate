@@ -4,6 +4,8 @@ import { useState } from "react";
 import { track, metaEvent } from "@/lib/analytics";
 
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
 
 const STARTER_ORIGINAL = 639;
 const STARTER_OFFER = 511;
@@ -84,17 +86,17 @@ export default function IndependenceDayOfferSection() {
       className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-8"
     >
       {/* Offer banner */}
-      <div className="overflow-hidden rounded-2xl bg-[#0A3D1F]">
+      <div className="overflow-hidden rounded-2xl bg-[#78350F]">
         <div className="relative px-6 py-7 sm:px-8 sm:py-8">
           {/* Glow accents */}
-          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-emerald-400/15 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-amber-400/15 blur-3xl" />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-amber-400/10 blur-3xl" />
 
           <div className="relative">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFC400]/30 bg-[#FFC400]/10 px-3.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
-              <span>🇮🇳</span>
-              Independence Day Offer
+              {isIndependenceDay && <span>🇮🇳</span>}
+              {isIndependenceDay ? "Independence Day Offer" : "20% Discount Offer"}
             </div>
 
             {/* Headline + validity */}
@@ -232,7 +234,7 @@ export default function IndependenceDayOfferSection() {
                 "Pay the discounted price",
               ].map((step, i) => (
                 <li key={step} className="flex items-center gap-2">
-                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[9px] font-black text-[#0A3D1F]">
+                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[9px] font-black text-[#78350F]">
                     {i + 1}
                   </span>
                   <span className="text-xs text-white/60">{step}</span>

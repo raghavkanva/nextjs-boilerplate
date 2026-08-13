@@ -4,17 +4,22 @@ import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePromotionSlider } from "./PromotionSliderContext";
 
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined"
+  ? Date.now() <= INDEPENDENCE_END_MS
+  : true;
+
 const slides = [
   {
     id: "independence-offer",
-    eyebrow: "80th Independence Year Offer",
-    title: "Independence Day Discount on All Plans",
+    eyebrow: isIndependenceDay ? "80th Independence Year Offer" : "20% Discount Offer",
+    title: "Get 20% Discount on All Plans",
     detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
     note: "Valid until August 31, 2026",
     href: "https://courses.etalvis.com/courses",
     cta: "Explore Plans",
-    badge: "OFFER",
-    badgeSub: "DISC",
+    badge: "20%",
+    badgeSub: "OFF",
   },
   {
     id: "resume-session",
@@ -75,12 +80,12 @@ export default function PromoBannerSlider() {
       className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-5 sm:py-4 lg:px-6"
     >
       <div
-        className="relative h-[172px] overflow-hidden rounded-2xl bg-[#0A3D1F] shadow-[0_10px_36px_rgba(10,61,31,0.28)] sm:h-[184px] lg:h-[200px] lg:rounded-[22px]"
+        className="relative h-[172px] overflow-hidden rounded-2xl bg-[#78350F] shadow-[0_10px_36px_rgba(10,61,31,0.28)] sm:h-[184px] lg:h-[200px] lg:rounded-[22px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         {/* Shared background glows */}
-        <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-emerald-400/15 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-amber-400/15 blur-3xl" />
         <div aria-hidden="true" className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-amber-400/10 blur-3xl" />
 
         {slides.map((slide, index) => {

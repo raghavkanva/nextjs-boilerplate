@@ -26,38 +26,38 @@ function IndependenceOfferStrip() {
           page: "home",
           offer_code: "INDIA_80TH_INDEPENDENCE_DAY",
         }}
-        className="group relative block overflow-hidden rounded-[24px] border border-amber-400/50 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 px-5 py-5 shadow-[0_16px_45px_rgba(15,23,42,0.01)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_55px_rgba(15,23,42,0.12)] sm:px-7 sm:py-6"
+        className="group relative block overflow-hidden rounded-[24px] border border-[#FFC400]/40 bg-[#78350F] px-5 py-5 shadow-[0_16px_45px_rgba(120,53,15,0.25)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_55px_rgba(120,53,15,0.35)] sm:px-7 sm:py-6"
       >
         <div
           aria-hidden="true"
-          className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-amber-200/60 blur-3xl"
+          className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-amber-400/15 blur-3xl"
         />
 
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber-700">
+            <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber-200">
               Independence Day Offer
             </p>
 
-            <h2 className="font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl">
-              Independence Day Discount on All Plans
+            <h2 className="font-display text-xl font-black leading-tight text-white sm:text-2xl">
+              Get 20% Discount on All Plans
             </h2>
 
-            <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">
+            <p className="mt-2 break-words text-sm leading-6 text-white/80 sm:text-base">
               Use code{" "}
-              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-slate-950 hover:text-ember" />
+              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-[#FFC400] hover:text-amber-300" />
               <span className="hidden sm:inline">
                 {" "}
                 · Valid until August 31, 2026
               </span>
             </p>
 
-            <p className="mt-1 text-xs font-semibold text-slate-600 sm:hidden">
+            <p className="mt-1 text-xs font-semibold text-white/60 sm:hidden">
               Valid until August 31, 2026
             </p>
           </div>
 
-          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-slate-950 bg-amber-300 px-5 text-sm font-black text-slate-950 shadow-[0_4px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-200 group-active:translate-y-1 group-active:shadow-none sm:self-center">
+          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-[#FFC400] bg-[#FFC400] px-5 text-sm font-black text-[#78350F] shadow-[0_4px_0_rgba(0,0,0,0.3)] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-1 group-active:shadow-none sm:self-center">
             See Offer
 
             <svg
