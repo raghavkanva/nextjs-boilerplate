@@ -17,7 +17,7 @@ const promotions = [
       "India enters its 80th year of Independence! Pay only 80% on all plans.",
     mobileText: "Pay only 80% on all plans",
     extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
-    href: "https://courses.etalvis.com/independence-offer",
+    href: "https://courses.etalvis.com/courses",
     cta: "View Offer",
     icon: Gift,
     background:
@@ -55,7 +55,7 @@ const promotions = [
       "Master embedded systems fundamentals through 10 beginner-friendly courses.",
     mobileText: "10 Embedded Systems Foundation Courses",
     extra: "Learn anytime at your own pace",
-    href: "https://courses.etalvis.com/embedded-systems",
+    href: "https://courses.etalvis.com/courses",
     cta: "Explore Courses",
     icon: BookOpen,
     background: "bg-gradient-to-r from-sky-600 via-blue-500 to-sky-600",

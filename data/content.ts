@@ -12,7 +12,7 @@ export const site = {
 export const announcements: { text: string; href?: string }[] = [
   {
     text: "Independence Day Offer — Pay Only 80% on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
-    href: "/independence-offer",
+    href: "/courses",
   },
   {
     text: "Upcoming Session: Master the Art of Crafting an Outstanding Resume to Secure Core Electronics Jobs. Rs. 80.",
@@ -489,8 +489,8 @@ export const finalCta = {
 };
 
 export const sessionDetails = [
-  { label: "Date", value: "August 1, 2026, Saturday" },
-  { label: "Time", value: "7 PM – 9 PM" },
+  { label: "Date", value: "Sunday, August 16, 2026" },
+  { label: "Time", value: "11 AM – 1 PM IST" },
   { label: "Format", value: "Live online session" },
   { label: "Registration closes", value: "July 31, 11 : 59 PM" },
   { label: "Who it's for", value: "EEE, ECE, EIE, BME, and Mechatronics students, any year, and recent graduates" },
@@ -584,10 +584,29 @@ export const sessionFaqs = [
     a: "The recorded session is available for one month from July 27, 2026.",
   },
 ];
+export type IndividualCourseCheckout = {
+  courseNumber: number;
+  checkout1Month: string;
+  checkout3Month: string;
+};
+
+// Individual course checkout URLs (9 courses; course 6 Interface Protocols is complete-course only)
+export const individualCourseCheckouts: IndividualCourseCheckout[] = [
+  { courseNumber: 1,  checkout1Month: "https://learn.etalvis.com/l/7577ed877c", checkout3Month: "https://learn.etalvis.com/l/eedf109260" },
+  { courseNumber: 2,  checkout1Month: "https://learn.etalvis.com/l/0fe637959c", checkout3Month: "https://learn.etalvis.com/l/4b28c4d3e7" },
+  { courseNumber: 3,  checkout1Month: "https://learn.etalvis.com/l/6003fcd806", checkout3Month: "https://learn.etalvis.com/l/0b97f73bd7" },
+  { courseNumber: 4,  checkout1Month: "https://learn.etalvis.com/l/a4d49604cb", checkout3Month: "https://learn.etalvis.com/l/6c0d984628" },
+  { courseNumber: 5,  checkout1Month: "https://learn.etalvis.com/l/82fbaad8bd", checkout3Month: "https://learn.etalvis.com/l/df34c72b59" },
+  { courseNumber: 7,  checkout1Month: "https://learn.etalvis.com/l/91de28327f", checkout3Month: "https://learn.etalvis.com/l/e4cfa288cc" },
+  { courseNumber: 8,  checkout1Month: "https://learn.etalvis.com/l/0f0e316b8f", checkout3Month: "https://learn.etalvis.com/l/0efdd02bd7" },
+  { courseNumber: 9,  checkout1Month: "https://learn.etalvis.com/l/6c5b5c4fd4", checkout3Month: "https://learn.etalvis.com/l/d782debf8a" },
+  { courseNumber: 10, checkout1Month: "https://learn.etalvis.com/l/c36955c08f", checkout3Month: "https://learn.etalvis.com/l/aa5ecd6e5b" },
+];
+
 export const upcomingEvent = {
   eyebrow: "Upcoming Live Session",
   title: "Resume Preparation for Core Interviews",
-  subtitle: "Sunday, August 9, 2026 · 11 AM – 1 PM IST",
+  subtitle: "Sunday, August 16, 2026 · 11 AM – 1 PM IST",
   description:
     "A live session on building a resume that works for core electronics roles, led by Balajee Seshadri.",
   ctaLabel: "See Session Details",

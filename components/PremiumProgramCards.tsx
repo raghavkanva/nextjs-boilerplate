@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 const RESUME_SESSION_URL = "https://courses.etalvis.com/resume-session";
-const EMBEDDED_PROGRAM_URL = "https://courses.etalvis.com/embedded-systems";
+const EMBEDDED_PROGRAM_URL = "https://courses.etalvis.com/courses";
 
 const programStats = [
   {
@@ -76,7 +76,7 @@ export default function PremiumProgramCards() {
               <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-semibold text-slate-700 lg:justify-start">
                 <span className="inline-flex items-center gap-2">
                   <CalendarDays className="h-4 w-4 text-emerald-700" />
-                  Sunday, August 9, 2026
+                  Sunday, August 16, 2026
                 </span>
 
                 <span className="inline-flex items-center gap-2">
@@ -126,7 +126,7 @@ export default function PremiumProgramCards() {
                 </div>
 
                 <h2 className="font-display text-2xl font-black leading-tight tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
-                  Embedded Systems Foundation Mastery Program
+                  Embedded Systems Foundation Course
                 </h2>
 
                 <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">

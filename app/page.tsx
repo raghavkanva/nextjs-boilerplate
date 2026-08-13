@@ -20,7 +20,7 @@ function IndependenceOfferStrip() {
   return (
     <section className="mx-auto w-full max-w-5xl px-4 pb-8 sm:px-6">
       <TrackedLink
-        href="/independence-offer"
+        href="/courses"
         event="independence_offer_strip_click"
         params={{
           page: "home",
@@ -119,7 +119,7 @@ export default function Home() {
 
       <AssessmentNote />
 
-      <FinalCta href="/embedded-systems#plans" />
+      <FinalCta href="/courses#plans" />
 
       <Footer />
 

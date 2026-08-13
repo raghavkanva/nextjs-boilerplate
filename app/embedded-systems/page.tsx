@@ -14,7 +14,7 @@ import IndependenceOfferStickyNote from "@/components/IndependenceOfferStickyNot
 import { testimonialsBottom, plans } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Embedded Systems Foundation Mastery Program | eTalVis",
+  title: "Embedded Systems Foundation Course | eTalVis",
   description:
     "Online embedded systems course for beginners in India. 10 foundation courses taught by a 40+ year industry veteran. Self-paced, doubts cleared directly on WhatsApp. courses.etalvis.com",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "electronics career guidance",
   ],
   openGraph: {
-    title: "Embedded Systems Foundation Mastery Program | eTalVis",
+    title: "Embedded Systems Foundation Course | eTalVis",
     description:
       "10 self-paced foundation courses covering everything from electronics basics to ARM and networking. Taught by Balajee Seshadri, 40+ years of industry experience.",
     url: "https://courses.etalvis.com/embedded-systems",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "https://courses.etalvis.com/images/icon.png",
         width: 512,
         height: 512,
-        alt: "eTalVis Embedded Systems Foundation Mastery Program",
+        alt: "eTalVis Embedded Systems Foundation Course",
       },
     ],
     type: "website",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Embedded Systems Foundation Mastery Program | eTalVis",
+    title: "Embedded Systems Foundation Course | eTalVis",
     description:
       "10 self-paced foundation courses. Taught by Balajee Seshadri, 40+ years in the Electronics Industry. Doubts cleared on WhatsApp.",
     images: ["https://courses.etalvis.com/images/icon.png"],
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  name: "Embedded Systems Foundation Mastery Program",
+  name: "Embedded Systems Foundation Course",
   description:
     "10 self-paced foundation courses covering electronics, C programming, embedded hardware, embedded software, interface protocols, microprocessor internals, ARM, 8085, and networking concepts. Taught by Balajee Seshadri with 40+ years in the Electronics Industry.",
   url: "https://courses.etalvis.com/embedded-systems",
@@ -75,7 +75,7 @@ const courseSchema = {
     name: "Balajee Seshadri",
     sameAs: "https://www.linkedin.com/in/balajeeseshadri/",
     description:
-      "40+ years in the Electronics Industry. Work across India, USA, Germany, and Canada. 55,000+ LinkedIn followers.",
+      "40+ years in the Electronics Industry. Work across India, USA, Germany, and Canada. 57,000+ LinkedIn followers.",
   },
   courseMode: "Online",
   educationalLevel: "Beginner to Intermediate",
@@ -103,7 +103,7 @@ function ProgramHero() {
       </div>
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
         Embedded Systems{" "}
-        <span className="text-[#0A3D1F]">Foundation Mastery Program</span>
+        <span className="text-[#0A3D1F]">Foundation Course</span>
       </h1>
       <p className="max-w-2xl mx-auto mb-3 text-base md:text-lg text-text font-semibold leading-relaxed">
         Built for core electronics students who want real understanding.
@@ -143,7 +143,7 @@ export default function EmbeddedSystemsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <PageAnalytics page="embedded-systems" contentName="Embedded Systems Foundation Mastery Program" contentCategory="Course" />
+      <PageAnalytics page="embedded-systems" contentName="Embedded Systems Foundation Course" contentCategory="Course" />
       <ProgramHero />
       <CourseCarousel />
       <PlansGrid

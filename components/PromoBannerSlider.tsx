@@ -21,7 +21,7 @@ const slides = [
     detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
     mobileDetail: "Code: INDIA_80TH_INDEPENDENCE_DAY",
     note: "Valid until August 31, 2026",
-    href: "https://courses.etalvis.com/independence-offer",
+    href: "https://courses.etalvis.com/courses",
     cta: "Explore Plans",
     icon: Gift,
     theme: "green",

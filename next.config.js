@@ -8,6 +8,11 @@ const nextConfig = {
         destination: "/career-guidance",
         permanent: true,
       },
+      {
+        source: "/independence-offer",
+        destination: "/courses",
+        permanent: true,
+      },
     ];
   },
 };

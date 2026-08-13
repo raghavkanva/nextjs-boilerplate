@@ -4,7 +4,7 @@ import { ArrowRight, BadgePercent } from "lucide-react";
 import { track } from "@/lib/analytics";
 
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
-const OFFER_URL = "https://courses.etalvis.com/independence-offer";
+const OFFER_URL = "https://courses.etalvis.com/courses";
 
 export default function IndependenceOfferStickyNote() {
   return (

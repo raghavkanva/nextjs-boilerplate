@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: "#FFFFFF",
-        surface: "#F0FDF4",
+        bg: "#F7F7F2",
+        surface: "#FFFFFF",
         surfaceRaised: "#DCFCE7",
         line: "#E5E7EB",
         text: "#111827",
