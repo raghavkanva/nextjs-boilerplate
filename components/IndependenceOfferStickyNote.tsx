@@ -45,10 +45,10 @@ function useCountdown(iso: string) {
 function Digit({ val, label }: { val: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="flex min-w-[28px] items-center justify-center rounded-md bg-white/20 px-1.5 py-0.5 text-xs font-black tabular-nums text-white sm:min-w-[32px] sm:text-sm">
+      <span className="flex min-w-[28px] items-center justify-center rounded-md bg-slate-900/15 px-1.5 py-0.5 text-xs font-black tabular-nums text-slate-900 sm:min-w-[32px] sm:text-sm">
         {String(val).padStart(2, "0")}
       </span>
-      <span className="mt-0.5 text-[8px] font-bold uppercase tracking-wide text-white/50">{label}</span>
+      <span className="mt-0.5 text-[8px] font-bold uppercase tracking-wide text-slate-700">{label}</span>
     </div>
   );
 }
@@ -68,7 +68,7 @@ function CopyableCode({ code }: { code: string }) {
       type="button"
       onClick={handleCopy}
       title="Click to copy"
-      className="inline-flex items-center gap-1 rounded bg-white/15 px-1.5 py-0.5 font-mono text-[10px] font-bold text-white/90 transition hover:bg-white/25"
+      className="inline-flex items-center gap-1 rounded bg-slate-900/10 px-1.5 py-0.5 font-mono text-[10px] font-bold text-slate-900 transition hover:bg-slate-900/20"
     >
       {code}
       <span aria-label={copied ? "Copied" : "Copy"}>
@@ -105,7 +105,7 @@ export default function IndependenceOfferStickyNote() {
         aria-label="Independence Day offer — enroll now"
         className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 sm:px-4 sm:pb-3"
       >
-        <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-amber-800 bg-[#78350F] shadow-[0_-8px_40px_rgba(10,61,31,0.45)]">
+        <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-[#ebd810] bg-[#ebd810] shadow-[0_-8px_40px_rgba(235,216,16,0.45)]">
 
           {/* Desktop layout — full bar */}
           <div className="hidden sm:flex sm:items-center sm:gap-4 sm:px-5 sm:py-3.5">
@@ -113,20 +113,20 @@ export default function IndependenceOfferStickyNote() {
             {/* Offer label + countdown */}
             <div className="flex shrink-0 items-center gap-3">
               <div className="flex flex-col">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-amber-200">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-amber-900">
                   Independence Offer · Ends Aug 31
                 </p>
-                <p className="text-[11px] font-semibold text-white/60">
+                <p className="text-[11px] font-semibold text-slate-700">
                   Code: <CopyableCode code={OFFER_CODE} />
                 </p>
               </div>
               <div className="flex items-center gap-1">
                 <Digit val={days} label="Days" />
-                <span className="mb-3 text-xs font-black text-white/30">:</span>
+                <span className="mb-3 text-xs font-black text-slate-500">:</span>
                 <Digit val={hours} label="Hrs" />
-                <span className="mb-3 text-xs font-black text-white/30">:</span>
+                <span className="mb-3 text-xs font-black text-slate-500">:</span>
                 <Digit val={minutes} label="Min" />
-                <span className="mb-3 text-xs font-black text-white/30">:</span>
+                <span className="mb-3 text-xs font-black text-slate-500">:</span>
                 <Digit val={seconds} label="Sec" />
               </div>
             </div>
@@ -137,31 +137,31 @@ export default function IndependenceOfferStickyNote() {
               <button
                 type="button"
                 onClick={() => handleClick("starter", STARTER_CHECKOUT)}
-                className="flex flex-col items-start rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-left transition hover:bg-white/18"
+                className="flex flex-col items-start rounded-xl border border-slate-900/20 bg-slate-900/10 px-4 py-2 text-left transition hover:bg-slate-900/15"
               >
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-200">Starter · 1 Month</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-900">Starter · 1 Month</span>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="font-display text-lg font-black text-white">₹{STARTER_OFFER}</span>
-                  <span className="text-xs text-white/40 line-through">₹{STARTER_ORIGINAL}</span>
+                  <span className="font-display text-lg font-black text-slate-900">₹{STARTER_OFFER}</span>
+                  <span className="text-xs text-slate-500 line-through">₹{STARTER_ORIGINAL}</span>
                 </div>
-                <span className="text-[10px] text-white/50">≈₹{STARTER_PER_DAY}/day · All 10 courses</span>
+                <span className="text-[10px] text-slate-600">≈₹{STARTER_PER_DAY}/day · All 10 courses</span>
               </button>
 
               {/* Semester */}
               <button
                 type="button"
                 onClick={() => handleClick("semester", SEMESTER_CHECKOUT)}
-                className="relative flex flex-col items-start rounded-xl border border-[#FFC400]/60 bg-[#FFC400]/15 px-4 py-2 text-left transition hover:bg-[#FFC400]/25"
+                className="relative flex flex-col items-start rounded-xl border-2 border-slate-900 bg-slate-900 px-4 py-2 text-left transition hover:bg-slate-800"
               >
-                <div className="absolute -top-2 right-2 rounded-full bg-[#FFC400] px-2 py-0.5 text-[9px] font-extrabold text-[#0A3D1F]">
+                <div className="absolute -top-2 right-2 rounded-full bg-[#ebd810] px-2 py-0.5 text-[9px] font-extrabold text-slate-900">
                   BEST VALUE · {SEMESTER_DISCOUNT}% OFF
                 </div>
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#FFC400]">Semester · 6 Months</span>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#ebd810]">Semester · 6 Months</span>
                 <div className="flex items-baseline gap-1.5">
                   <span className="font-display text-lg font-black text-white">₹{SEMESTER_OFFER.toLocaleString("en-IN")}</span>
                   <span className="text-xs text-white/40 line-through">₹{SEMESTER_ORIGINAL.toLocaleString("en-IN")}</span>
                 </div>
-                <span className="text-[10px] text-white/50">≈₹{SEMESTER_PER_DAY}/day · Includes mock interview</span>
+                <span className="text-[10px] text-white/60">≈₹{SEMESTER_PER_DAY}/day · Includes mock interview</span>
               </button>
             </div>
           </div>
@@ -170,21 +170,21 @@ export default function IndependenceOfferStickyNote() {
           <div className="flex items-center gap-3 px-4 py-2.5 sm:hidden">
             <div className="flex items-center gap-1">
               <Digit val={days} label="D" />
-              <span className="mb-3 text-[10px] font-black text-white/30">:</span>
+              <span className="mb-3 text-[10px] font-black text-slate-500">:</span>
               <Digit val={hours} label="H" />
-              <span className="mb-3 text-[10px] font-black text-white/30">:</span>
+              <span className="mb-3 text-[10px] font-black text-slate-500">:</span>
               <Digit val={minutes} label="M" />
-              <span className="mb-3 text-[10px] font-black text-white/30">:</span>
+              <span className="mb-3 text-[10px] font-black text-slate-500">:</span>
               <Digit val={seconds} label="S" />
             </div>
             <div className="flex-1">
-              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer — 20% Discount</p>
-              <p className="mt-0.5 text-[10px] text-white/50">Valid until Aug 31 · Code: <CopyableCode code={OFFER_CODE} /></p>
+              <p className="text-xs font-extrabold text-slate-900">Independence Offer — 20% Discount</p>
+              <p className="mt-0.5 text-[10px] text-slate-600">Valid until Aug 31 · Code: <CopyableCode code={OFFER_CODE} /></p>
             </div>
             <button
               type="button"
               onClick={() => handleClick("semester", SEMESTER_CHECKOUT)}
-              className="shrink-0 rounded-lg bg-[#FFC400] px-3 py-1.5 text-[11px] font-extrabold text-[#0A3D1F] transition hover:bg-amber-300"
+              className="shrink-0 rounded-lg bg-slate-900 px-3 py-1.5 text-[11px] font-extrabold text-[#ebd810] transition hover:bg-slate-800"
             >
               Enroll
             </button>

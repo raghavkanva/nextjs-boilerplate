@@ -141,13 +141,13 @@ function CopyOfferCode() {
       type="button"
       onClick={handleCopy}
       title="Click to copy"
-      className="inline-flex items-center gap-1.5 rounded-lg border border-[#FFC400]/50 bg-[#FFC400]/12 px-3 py-1.5 font-mono text-xs font-bold text-[#FFC400] transition hover:bg-[#FFC400]/22"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-slate-900/40 bg-slate-900/10 px-3 py-1.5 font-mono text-xs font-bold text-slate-900 transition hover:bg-slate-900/20"
     >
       {OFFER_CODE}
       <span aria-label={copied ? "Copied" : "Copy code"}>
         {copied ? (
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8l3 3 7-7" stroke="#FFC400" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         ) : (
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -307,43 +307,43 @@ export default function PlansGrid({ id, heading, subline }: PlansGridProps) {
     <section id={id} className="max-w-6xl mx-auto px-4 py-10 md:py-12 sm:px-6">
 
       {/* Independence Day Offer banner */}
-      <div className="mb-8 overflow-hidden rounded-2xl bg-[#78350F]">
+      <div className="mb-8 overflow-hidden rounded-2xl bg-[#ebd810]">
         <div className="relative px-6 py-6 sm:px-8 sm:py-7">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-amber-400/15 blur-3xl" />
-          <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-slate-900/8 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-slate-900/6 blur-3xl" />
           <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFC400]/30 bg-[#FFC400]/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-900/25 bg-slate-900/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-slate-800">
                 {isIndependenceDay && <span>🇮🇳</span>}
                 {isIndependenceDay ? "Independence Day Offer" : "20% Discount Offer"}
               </div>
-              <h2 className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+              <h2 className="mt-2 font-display text-2xl font-black text-slate-900 sm:text-3xl">
                 {heading}
               </h2>
               {subline && (
-                <p className="mt-1 text-sm text-white/60">{subline}</p>
+                <p className="mt-1 text-sm text-slate-700">{subline}</p>
               )}
-              <p className="mt-1 text-xs text-white/40">Valid until August 31, 2026 · Apply code at checkout</p>
+              <p className="mt-1 text-xs text-slate-600">Valid until August 31, 2026 · Apply code at checkout</p>
             </div>
             <div className="flex flex-col items-start gap-1 sm:items-end sm:shrink-0">
-              <p className="text-[10px] text-white/40">Click to copy your code</p>
+              <p className="text-[10px] text-slate-600">Click to copy your code</p>
               <CopyOfferCode />
             </div>
           </div>
         </div>
 
         {/* How to redeem */}
-        <div className="border-t border-white/10 px-6 py-4 sm:px-8">
+        <div className="border-t border-slate-900/10 px-6 py-4 sm:px-8">
           <ol className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
             {["Select a plan below", "Enter code at checkout", "Pay 20% less"].map((step, i) => (
               <li key={step} className="flex items-center gap-2">
-                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[9px] font-black text-[#78350F]">
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-900 text-[9px] font-black text-[#ebd810]">
                   {i + 1}
                 </span>
-                <span className="text-xs text-white/60">{step}</span>
+                <span className="text-xs text-slate-700">{step}</span>
                 {i < 2 && (
                   <svg className="hidden shrink-0 sm:block" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" className="text-slate-400" strokeOpacity="0.6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
               </li>

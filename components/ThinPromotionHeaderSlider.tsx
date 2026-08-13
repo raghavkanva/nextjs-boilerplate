@@ -13,13 +13,13 @@ import { usePromotionSlider } from "./PromotionSliderContext";
 const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
 const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
 
-const BG = "bg-[#78350F]";
-const FG = "text-white";
-const HOVER = "hover:bg-white/10";
-const ICON_BG = "bg-white/15";
-const MUTED = "text-emerald-200";
-const BTN = "border-white/30 bg-white/15 text-white hover:bg-white/25";
-const ARROW = "bg-white/15 text-white hover:bg-white/25";
+const BG = "bg-[#ebd810]";
+const FG = "text-slate-900";
+const HOVER = "hover:bg-slate-900/10";
+const ICON_BG = "bg-slate-900/15";
+const MUTED = "text-amber-800";
+const BTN = "border-slate-900/30 bg-slate-900/15 text-slate-900 hover:bg-slate-900/25";
+const ARROW = "bg-slate-900/15 text-slate-900 hover:bg-slate-900/25";
 
 const promotions = [
   {
@@ -159,8 +159,8 @@ export default function ThinPromotionHeaderSlider() {
               aria-current={activePromotion === index ? "true" : undefined}
               className={`flex-1 transition ${
                 activePromotion === index
-                  ? "bg-white"
-                  : "bg-white/30 hover:bg-white/55"
+                  ? "bg-slate-900"
+                  : "bg-slate-900/30 hover:bg-slate-900/55"
               }`}
             />
           ))}
