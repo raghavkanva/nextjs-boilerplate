@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import PageAnalytics from "@/components/PageAnalytics";
 import IndividualCoursesGrid from "@/components/IndividualCoursesGrid";
+import InstructorStrip from "@/components/InstructorStrip";
+import TestimonialSlider from "@/components/TestimonialSlider";
 import Footer from "@/components/Footer";
-import { courses } from "@/data/content";
+import { courses, testimonialsTop, testimonialsBottom } from "@/data/content";
+
+const allTestimonials = [...testimonialsTop, ...testimonialsBottom];
 
 export const metadata: Metadata = {
   title: "Individual Courses | Embedded Systems Foundation | eTalVis",
@@ -108,9 +112,17 @@ export default function IndividualCoursesPage() {
         </p>
       </section>
 
+      {/* Instructor */}
+      <InstructorStrip />
+
       {/* Individual courses grid */}
-      <div className="py-6 pb-14">
+      <div className="py-6 pb-10">
         <IndividualCoursesGrid />
+      </div>
+
+      {/* Testimonials */}
+      <div className="pb-14">
+        <TestimonialSlider items={allTestimonials} heading="What Students Say" />
       </div>
 
       <Footer />

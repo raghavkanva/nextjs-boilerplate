@@ -1,178 +1,112 @@
 "use client";
 
-import {
-  ArrowRight,
-  CalendarDays,
-  Clock3,
-  GraduationCap,
-  MonitorPlay,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 
 const RESUME_SESSION_URL = "https://courses.etalvis.com/resume-session";
 const EMBEDDED_PROGRAM_URL = "https://courses.etalvis.com/courses";
 
 const programStats = [
-  {
-    value: "10",
-    label: "Foundation Courses",
-    icon: GraduationCap,
-  },
-  {
-    value: "10,000+",
-    label: "Students Enrolled",
-    icon: Users,
-  },
-  {
-    value: "40+",
-    label: "Years of Experience",
-    icon: Sparkles,
-  },
-  {
-    value: "57,000+",
-    label: "LinkedIn Followers",
-    icon: Users,
-  },
+  { value: "10", label: "Foundation Courses" },
+  { value: "10,000+", label: "Students Enrolled" },
+  { value: "40+", label: "Years of Experience" },
+  { value: "57,000+", label: "LinkedIn Followers" },
 ];
 
 export default function PremiumProgramCards() {
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16">
+    <section className="relative bg-white py-10 sm:py-14">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 sm:px-6">
 
-<div className="relative mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 sm:px-6">
         {/* Resume session card */}
-        <article className="group relative overflow-hidden rounded-[28px] border border-emerald-950/15 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.10)]">
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-emerald-500 via-amber-300 to-emerald-500"
-          />
+        <a
+          href={RESUME_SESSION_URL}
+          className="group relative flex flex-col overflow-hidden rounded-[24px] border-2 border-[#0A3D1F] shadow-[0_8px_32px_rgba(10,61,31,0.15)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(10,61,31,0.22)] active:translate-y-0 sm:flex-row"
+        >
+          {/* Left color panel */}
+          <div className="relative flex shrink-0 flex-col justify-center overflow-hidden bg-gradient-to-br from-[#0A3D1F] via-[#145A32] to-[#0A3D1F] px-7 py-8 sm:w-56 sm:py-10">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-300/20 blur-2xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-amber-400/15 blur-2xl" />
+            <span className="relative inline-flex rounded-full bg-[#FFC400] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0A3D1F]">
+              Live Session
+            </span>
+            <p className="relative mt-4 font-display text-4xl font-black leading-none text-white">₹80</p>
+            <p className="relative mt-1 text-xs font-semibold text-emerald-200/70">per seat · limited capacity</p>
+          </div>
 
-          <div
-            aria-hidden="true"
-            className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-emerald-100/80 blur-3xl"
-          />
-
-          <div className="relative grid items-center gap-7 px-6 py-8 text-center sm:px-10 sm:py-10 lg:grid-cols-[1fr_auto] lg:text-left">
+          {/* Right content */}
+          <div className="flex flex-1 flex-col justify-center gap-4 bg-white px-6 py-7">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.13em] text-emerald-800">
-                <CalendarDays className="h-4 w-4" aria-hidden="true" />
-                Upcoming Live Session
-              </div>
-
-              <h2 className="font-display text-2xl font-black leading-tight tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
-                Resume Preparation for Core Interviews
-              </h2>
-
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-semibold text-slate-700 lg:justify-start">
-                <span className="inline-flex items-center gap-2">
-                  <CalendarDays className="h-4 w-4 text-emerald-700" />
+              <div className="flex flex-wrap gap-3 text-xs font-semibold text-slate-600">
+                <span className="inline-flex items-center gap-1.5">
+                  <CalendarDays className="h-3.5 w-3.5 text-[#16A34A]" />
                   Sunday, August 16, 2026
                 </span>
-
-                <span className="inline-flex items-center gap-2">
-                  <Clock3 className="h-4 w-4 text-emerald-700" />
+                <span className="inline-flex items-center gap-1.5">
+                  <Clock3 className="h-3.5 w-3.5 text-[#16A34A]" />
                   11 AM to 1 PM IST
                 </span>
               </div>
-
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base lg:mx-0">
-                A focused live session on building a resume that works for core
-                electronics roles, led by{" "}
-                <strong className="font-extrabold text-slate-900">
-                  Balajee Seshadri
-                </strong>
-                .
+              <h2 className="mt-2 font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl">
+                Resume Preparation for Core Electronics Jobs
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                A focused live session on building a resume that works for core electronics roles. Led by Balajee Seshadri. Direct feedback, no generic templates.
               </p>
             </div>
-
-            <a
-              href={RESUME_SESSION_URL}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-slate-950 bg-amber-300 px-6 text-sm font-black text-slate-950 shadow-[0_5px_0_#0f172a] transition hover:-translate-y-0.5 hover:bg-amber-200 active:translate-y-1 active:shadow-none sm:text-base"
-            >
-              See Session Details
+            <span className="inline-flex w-fit items-center gap-2 rounded-xl border-2 border-slate-950 bg-[#FFC400] px-5 py-2.5 text-sm font-black text-slate-950 shadow-[0_3px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-0.5 group-active:shadow-none">
+              Register for ₹80
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </span>
           </div>
-        </article>
+        </a>
 
-        {/* Embedded systems program card */}
-        <article className="group relative overflow-hidden rounded-[28px] border border-slate-950/15 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.10)]">
-          <div
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-sky-500 via-emerald-400 to-sky-500"
-          />
-
-          <div
-            aria-hidden="true"
-            className="absolute -left-20 -bottom-24 h-72 w-72 rounded-full bg-sky-100/80 blur-3xl"
-          />
-
-          <div className="relative px-6 py-8 sm:px-10 sm:py-10">
-            <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-start">
+        {/* Embedded systems card */}
+        <a
+          href={EMBEDDED_PROGRAM_URL}
+          className="group relative flex flex-col overflow-hidden rounded-[24px] border-2 border-slate-950 shadow-[0_8px_32px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(15,23,42,0.18)] active:translate-y-0"
+        >
+          {/* Top band */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-7 sm:px-8">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-400/15 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-amber-300/10 blur-3xl" />
+            <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.13em] text-emerald-800">
-                  <MonitorPlay className="h-4 w-4" aria-hidden="true" />
+                <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.13em] text-emerald-300">
                   eTalVis Program
-                </div>
-
-                <h2 className="font-display text-2xl font-black leading-tight tracking-tight text-slate-950 sm:text-3xl lg:text-[34px]">
+                </span>
+                <h2 className="mt-3 font-display text-2xl font-black leading-tight text-white sm:text-3xl">
                   Embedded Systems Foundation Course
                 </h2>
-
-                <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
-                  10 foundation courses covering electronics, C programming,
-                  embedded hardware, embedded software, protocols,
-                  microprocessor internals, ARM, 8085, and networking.
-                  Self-paced, with doubts cleared directly on WhatsApp.
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-white/60">
+                  10 foundation courses covering electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking.
                 </p>
               </div>
-
-              <a
-                href={EMBEDDED_PROGRAM_URL}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-slate-950 bg-amber-300 px-6 text-sm font-black text-slate-950 shadow-[0_5px_0_#0f172a] transition hover:-translate-y-0.5 hover:bg-amber-200 active:translate-y-1 active:shadow-none sm:text-base"
-              >
-                Explore Program
+              <span className="inline-flex shrink-0 w-fit items-center gap-2 rounded-xl border-2 border-white/20 bg-[#FFC400] px-5 py-2.5 text-sm font-black text-slate-950 shadow-[0_3px_0_rgba(0,0,0,0.4)] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-0.5 group-active:shadow-none">
+                See Plans
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-              {programStats.map(({ value, label, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-4 text-center transition group-hover:bg-white sm:px-4"
-                >
-                  <span className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800">
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                  </span>
-
-                  <p className="font-display text-xl font-black leading-none text-emerald-700 sm:text-2xl">
-                    {value}
-                  </p>
-
-                  <p className="mt-1.5 text-[10px] font-semibold leading-4 text-slate-600 sm:text-xs">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 border-t border-slate-200 pt-6 sm:justify-start">
-              <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-800">
-                Self-paced learning
-              </span>
-
-              <span className="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-bold text-sky-800">
-                Beginner-friendly
-              </span>
-
-              <span className="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-800">
-                WhatsApp doubt support
               </span>
             </div>
           </div>
-        </article>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-2 divide-x divide-y divide-slate-100 bg-white sm:grid-cols-4 sm:divide-y-0">
+            {programStats.map(({ value, label }) => (
+              <div key={label} className="flex flex-col items-center justify-center px-4 py-4 text-center">
+                <p className="font-display text-2xl font-black text-[#0A3D1F]">{value}</p>
+                <p className="mt-1 text-[11px] font-semibold leading-4 text-slate-500">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Features strip */}
+          <div className="flex flex-wrap items-center justify-center gap-3 border-t border-slate-100 bg-white px-6 py-3.5 sm:justify-start">
+            {["Self-paced learning", "Beginner-friendly", "WhatsApp doubt support", "Pre-recorded · watch anytime"].map((tag) => (
+              <span key={tag} className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold text-slate-600">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </a>
       </div>
     </section>
   );
