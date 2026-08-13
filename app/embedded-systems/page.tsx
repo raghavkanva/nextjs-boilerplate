@@ -11,6 +11,7 @@ import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import InstructorStrip from "@/components/InstructorStrip";
 import IndependenceOfferStickyNote from "@/components/IndependenceOfferStickyNote";
+import IndependenceDayOfferSection from "@/components/IndependenceDayOfferSection";
 import { testimonialsBottom, plans } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -152,9 +153,9 @@ export default function EmbeddedSystemsPage() {
       </div>
       <ProgramHero />
       <CourseCarousel />
+      <IndependenceDayOfferSection />
       <PlansGrid
-        id="plans"
-        heading="Choose How Long You Want Access"
+        heading="Full Plan Details"
         subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
       />
       <InstructorStrip />
