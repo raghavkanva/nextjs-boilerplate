@@ -26,16 +26,16 @@ function IndependenceOfferStrip() {
           page: "home",
           offer_code: "INDIA_80TH_INDEPENDENCE_DAY",
         }}
-        className="group relative block overflow-hidden rounded-[24px] border border-slate-900/20 bg-[#ebd810] px-5 py-5 shadow-[0_16px_45px_rgba(235,216,16,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_55px_rgba(235,216,16,0.45)] sm:px-7 sm:py-6"
+        className="group relative block overflow-hidden rounded-[24px] border border-amber-400/50 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 px-5 py-5 shadow-[0_16px_45px_rgba(15,23,42,0.01)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_55px_rgba(15,23,42,0.12)] sm:px-7 sm:py-6"
       >
         <div
           aria-hidden="true"
-          className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-slate-900/6 blur-3xl"
+          className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-amber-200/60 blur-3xl"
         />
 
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber-900">
+            <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber-700">
               Independence Day Offer
             </p>
 
@@ -45,7 +45,7 @@ function IndependenceOfferStrip() {
 
             <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">
               Use code{" "}
-              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-slate-900 hover:text-slate-700" />
+              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-[#0A3D1F] hover:text-emerald-800" />
               <span className="hidden sm:inline">
                 {" "}
                 · Valid until August 31, 2026
@@ -57,7 +57,7 @@ function IndependenceOfferStrip() {
             </p>
           </div>
 
-          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-slate-900 bg-slate-900 px-5 text-sm font-black text-[#ebd810] shadow-[0_4px_0_rgba(0,0,0,0.3)] transition group-hover:-translate-y-0.5 group-hover:bg-slate-800 group-active:translate-y-1 group-active:shadow-none sm:self-center">
+          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-[#0A3D1F] bg-[#0A3D1F] px-5 text-sm font-black text-[#FFC400] shadow-[0_4px_0_rgba(0,0,0,0.3)] transition group-hover:-translate-y-0.5 group-hover:bg-emerald-900 group-active:translate-y-1 group-active:shadow-none sm:self-center">
             See Offer
 
             <svg

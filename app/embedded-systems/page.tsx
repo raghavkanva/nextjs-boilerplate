@@ -3,6 +3,7 @@ import PageAnalytics from "@/components/PageAnalytics";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import PlansGrid from "@/components/Plans";
+import IndependenceDayOfferSection from "@/components/IndependenceDayOfferSection";
 import Prerequisites from "@/components/Prerequisites";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FAQ from "@/components/FAQ";
@@ -152,11 +153,7 @@ export default function EmbeddedSystemsPage() {
       </div>
       <ProgramHero />
       <CourseCarousel />
-      <PlansGrid
-        id="plans"
-        heading="Choose Your Plan"
-        subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
-      />
+      <IndependenceDayOfferSection />
       <InstructorStrip />
       <WhoIsThisFor />
       <Prerequisites />
