@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import PageAnalytics from "@/components/PageAnalytics";
-import CompleteCoursePanel from "@/components/CompleteCoursePanel";
-import IndividualCoursesGrid from "@/components/IndividualCoursesGrid";
+import CoursesTabs from "@/components/CoursesTabs";
 import Footer from "@/components/Footer";
 import { courses } from "@/data/content";
 
@@ -103,25 +102,9 @@ export default function CoursesPage() {
         </p>
       </section>
 
-      {/* Complete course pricing */}
-      <div className="px-4 pb-10 sm:px-6">
-        <CompleteCoursePanel />
-      </div>
-
-      {/* Divider */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative my-2 flex items-center gap-4">
-          <div className="flex-1 border-t border-line" />
-          <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-mutedDim">
-            Or choose an individual course
-          </span>
-          <div className="flex-1 border-t border-line" />
-        </div>
-      </div>
-
-      {/* Individual courses */}
-      <div className="py-8">
-        <IndividualCoursesGrid />
+      {/* Course tabs: Bundle / Individual */}
+      <div className="px-4 pb-10 pt-2 sm:px-6">
+        <CoursesTabs />
       </div>
 
       <Footer />
