@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ResumeSessionStickyFooter from "@/components/ResumeSessionStickyFooter";
-import PageAnalytics from "@/components/PageAnalytics";
 import TrackedLink from "@/components/TrackedLink";
 import ReviewsSection from "./ReviewsSection";
 import ResumeSessionTracking from "@/components/ResumeSessionTracking";
@@ -224,12 +223,6 @@ export default function ResumeSessionPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sessionSchema) }}
-      />
-
-      <PageAnalytics
-        page="resume-session"
-        contentName="Resume Session: Master the Art of Crafting an Outstanding Resume"
-        contentCategory="Workshop"
       />
 
       <ResumeSessionTracking />

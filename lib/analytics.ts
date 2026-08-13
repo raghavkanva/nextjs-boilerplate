@@ -15,12 +15,6 @@ declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
 
-    gtag?: (
-      command: "event",
-      eventName: string,
-      params?: TrackParams,
-    ) => void;
-
     fbq?: (
       command: "track" | "trackCustom",
       eventName: string,
@@ -29,18 +23,6 @@ declare global {
   }
 }
 
-/**
- * Sends a custom event through:
- *
- * 1. Google Tag Manager dataLayer
- * 2. Meta Pixel as a custom event
- * 3. Direct gtag event when gtag is available
- *
- * Important:
- * If GTM also sends the same dataLayer event to the same GA4 property,
- * GA4 may receive duplicate events. Keep this setup only when you have
- * checked your GTM configuration.
- */
 export function track(
   event: string,
   params: TrackParams = {},
@@ -58,30 +40,11 @@ export function track(
     ...params,
   };
 
-  /*
-   * Send to Google Tag Manager.
-   */
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(eventData);
 
-  /*
-   * Send to Meta Pixel as a custom event.
-   */
   if (typeof window.fbq === "function") {
     window.fbq("trackCustom", event, params);
-  }
-
-  /*
-   * Send directly to GA4 through gtag.
-   */
-  if (typeof window.gtag === "function") {
-    window.gtag("event", event, {
-      page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_title: document.title,
-      page_referrer: document.referrer || undefined,
-      ...params,
-    });
   }
 }
 
@@ -128,22 +91,7 @@ export function ecommerceEvent(
     event_timestamp: Date.now(),
   };
 
-  /*
-   * Clear previous ecommerce values before pushing a new ecommerce event.
-   */
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    ecommerce: null,
-  });
-
+  window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ecommerceData);
-
-  if (typeof window.gtag === "function") {
-    window.gtag("event", event, {
-      page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_title: document.title,
-      ...params,
-    });
-  }
 }

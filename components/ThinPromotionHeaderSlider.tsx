@@ -10,6 +10,14 @@ import {
 
 import { usePromotionSlider } from "./PromotionSliderContext";
 
+const BG = "bg-[#0A3D1F]";
+const FG = "text-white";
+const HOVER = "hover:bg-white/10";
+const ICON_BG = "bg-white/15";
+const MUTED = "text-emerald-200";
+const BTN = "border-white/30 bg-white/15 text-white hover:bg-white/25";
+const ARROW = "bg-white/15 text-white hover:bg-white/25";
+
 const promotions = [
   {
     id: "independence-offer",
@@ -17,55 +25,50 @@ const promotions = [
       "India enters its 80th year of Independence! Pay only 80% on all plans.",
     mobileText: "Pay only 80% on all plans",
     extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
-    href: "https://courses.etalvis.com/independence-offer",
+    href: "https://courses.etalvis.com/courses",
     cta: "View Offer",
     icon: Gift,
-    background:
-      "bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-600",
-    foreground: "text-white",
-    hoverBackground: "hover:bg-white/10",
-    iconBackground: "bg-white/15",
-    mutedText: "text-emerald-50",
-    buttonStyle:
-      "border-white/30 bg-white/15 text-white hover:bg-white/25",
-    arrowStyle: "bg-white/15 text-white hover:bg-white/25",
+    background: BG,
+    foreground: FG,
+    hoverBackground: HOVER,
+    iconBackground: ICON_BG,
+    mutedText: MUTED,
+    buttonStyle: BTN,
+    arrowStyle: ARROW,
   },
   {
     id: "resume-session",
     text:
       "Upcoming live session: Build an outstanding resume for core electronics jobs.",
     mobileText: "Core Electronics Resume Workshop",
-    extra: "Join for ₹80",
+    extra: "Sunday August 16 · Join for ₹80",
     href: "https://courses.etalvis.com/resume-session",
     cta: "Join Now",
     icon: CalendarDays,
-    background:
-      "bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-400",
-    foreground: "text-slate-950",
-    hoverBackground: "hover:bg-black/5",
-    iconBackground: "bg-white/45",
-    mutedText: "text-slate-700",
-    buttonStyle:
-      "border-slate-950/20 bg-white/45 text-slate-950 hover:bg-white/65",
-    arrowStyle: "bg-white/35 text-slate-950 hover:bg-white/55",
+    background: BG,
+    foreground: FG,
+    hoverBackground: HOVER,
+    iconBackground: ICON_BG,
+    mutedText: MUTED,
+    buttonStyle: BTN,
+    arrowStyle: ARROW,
   },
   {
     id: "embedded-systems",
     text:
-      "Master embedded systems fundamentals through 10 beginner-friendly courses.",
+      "10 foundation courses in electronics, C programming, and embedded systems.",
     mobileText: "10 Embedded Systems Foundation Courses",
-    extra: "Learn anytime at your own pace",
-    href: "https://courses.etalvis.com/embedded-systems",
+    extra: "Pre-recorded · Self-paced · Doubts on WhatsApp",
+    href: "https://courses.etalvis.com/courses",
     cta: "Explore Courses",
     icon: BookOpen,
-    background: "bg-gradient-to-r from-sky-600 via-blue-500 to-sky-600",
-    foreground: "text-white",
-    hoverBackground: "hover:bg-white/10",
-    iconBackground: "bg-white/20",
-    mutedText: "text-sky-50",
-    buttonStyle:
-      "border-white/30 bg-white/15 text-white hover:bg-white/25",
-    arrowStyle: "bg-white/15 text-white hover:bg-white/25",
+    background: BG,
+    foreground: FG,
+    hoverBackground: HOVER,
+    iconBackground: ICON_BG,
+    mutedText: MUTED,
+    buttonStyle: BTN,
+    arrowStyle: ARROW,
   },
 ] as const;
 
@@ -151,8 +154,8 @@ export default function ThinPromotionHeaderSlider() {
               aria-current={activePromotion === index ? "true" : undefined}
               className={`flex-1 transition ${
                 activePromotion === index
-                  ? "bg-slate-950"
-                  : "bg-white/40 hover:bg-white/65"
+                  ? "bg-white"
+                  : "bg-white/30 hover:bg-white/55"
               }`}
             />
           ))}

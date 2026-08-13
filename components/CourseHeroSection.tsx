@@ -9,18 +9,8 @@ import { track, metaEvent } from "@/lib/analytics";
 export default function CourseHeroSection() {
   return (
     <section className="relative overflow-hidden border-y border-slate-200 bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-      {/* Background grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          backgroundImage:
-            "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
-          backgroundSize: "38px 38px",
-        }}
-      />
 
-      <div className="relative mx-auto max-w-5xl">
+<div className="relative mx-auto max-w-5xl">
         {/* Main information box */}
         <div className="mx-auto max-w-4xl rounded-2xl border border-slate-300 bg-white/95 px-5 py-6 text-center shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur sm:px-8 sm:py-8 lg:px-12">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
@@ -47,9 +37,9 @@ export default function CourseHeroSection() {
           </div>
 
           <a
-            href="https://courses.etalvis.com/embedded-systems"
+            href="https://courses.etalvis.com/courses"
             onClick={() => {
-              track("hero_enroll_click", { page: "home", destination: "embedded-systems" });
+              track("hero_enroll_click", { page: "home", destination: "courses" });
               metaEvent("InitiateCheckout", { content_name: "Embedded Systems Program", currency: "INR" });
             }}
             className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-slate-900 bg-amber-400 px-8 py-4 text-base font-extrabold text-slate-950 shadow-[0_6px_0_#0f172a] transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-200 active:translate-y-1 active:shadow-none sm:text-lg"

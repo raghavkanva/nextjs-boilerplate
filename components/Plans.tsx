@@ -156,7 +156,7 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
 
       {plan.price !== null ? (
         <div className="font-display font-extrabold text-3xl text-text mb-6">
-          Rs. {plan.price.toLocaleString("en-IN")}
+          ₹{plan.price.toLocaleString("en-IN")}
         </div>
       ) : (
         <div className="font-display font-extrabold text-2xl text-text mb-6">

@@ -30,21 +30,6 @@ function track(event: string, params: Record<string, string | number | boolean> 
 }
 
 
-function GridBg() {
-  return (
-    <div className="absolute inset-0 pointer-events-none">
-      <div
-        className="absolute inset-0 opacity-[0.5]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #E5E7EB 1px, transparent 1px), linear-gradient(to bottom, #E5E7EB 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-    </div>
-  );
-}
-
 // ---------- Icons ----------
 function IconCalendar() {
   return (
@@ -175,7 +160,6 @@ function AnimatedUnderline() {
 function Hero() {
   return (
     <section className="relative bg-white pt-10 md:pt-14 pb-14 md:pb-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <h1
           className="text-[#111827] font-bold text-center leading-[1.15] mb-8 cg-hero-step-2"
@@ -237,7 +221,6 @@ function SoundLikeYouSection() {
 
   return (
     <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[1000px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3 cg-section-fade"
@@ -320,7 +303,6 @@ function SoundLikeYouSection() {
 function AudienceSection() {
   return (
     <section className="relative bg-white py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[1100px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-3 cg-section-fade"
@@ -356,7 +338,6 @@ function AudienceSection() {
 function OutcomesSection() {
   return (
     <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
         <h2
           className="font-bold text-[#111827] mb-8 cg-section-fade"
@@ -383,7 +364,6 @@ function OutcomesSection() {
 function InstructorSection() {
   return (
     <section className="relative bg-white py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[900px] mx-auto px-6">
         <div className="grid md:grid-cols-[220px_1fr] gap-8 items-start">
           <div className="flex flex-col items-center">
@@ -500,7 +480,6 @@ function ReviewSliderCard({ card, index }: { card: (typeof cgReviewCards)[number
 function ReviewsSection() {
   return (
     <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[1200px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
@@ -525,7 +504,6 @@ function ReviewsSection() {
 function TrustStatementSection() {
   return (
     <section className="relative bg-[#F0FDF4] py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[700px] mx-auto px-6 text-center">
         <h2
           className="font-bold text-[#111827] mb-6 cg-section-fade"
@@ -555,7 +533,6 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="relative bg-white py-12 md:py-16 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6">
         <h2
           className="font-bold text-[#111827] text-center mb-10 cg-section-fade"
@@ -596,7 +573,6 @@ function FaqSection() {
 function FinalCtaSection() {
   return (
     <section className="relative bg-[#F0FDF4] py-14 md:py-20 overflow-hidden">
-      <GridBg />
       <div className="relative max-w-[800px] mx-auto px-6 text-center">
         <h2
           className="font-bold text-[#111827] mb-6 cg-section-fade"
@@ -623,7 +599,6 @@ function FinalCtaSection() {
 function CgFooter() {
   return (
     <footer className="relative bg-white pt-14 pb-32 md:pb-44 px-6 overflow-hidden border-t border-[#E5E7EB]">
-      <GridBg />
       <div className="relative max-w-[1000px] mx-auto text-center">
         <Image src="/images/icon.png" alt="eTalVis" width={80} height={80} className="h-16 w-auto mx-auto mb-4" />
         <p className="text-[#111827] font-semibold mb-1">Core Electronics Career Guidance</p>

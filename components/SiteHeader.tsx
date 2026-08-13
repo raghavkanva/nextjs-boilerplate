@@ -18,9 +18,11 @@ export default function SiteHeader() {
     return null;
   }
 
+  const isHomepage = pathname === "/";
+
   return (
     <>
-      <ThinPromotionHeaderSlider />
+      {isHomepage && <ThinPromotionHeaderSlider />}
       <NavBar />
     </>
   );

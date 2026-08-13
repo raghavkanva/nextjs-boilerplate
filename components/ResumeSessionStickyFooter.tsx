@@ -6,7 +6,7 @@ import TrackedLink from "@/components/TrackedLink";
 const CHECKOUT_URL =
   "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942ae7d6";
 
-const DEADLINE_ISO = "2026-08-08T23:59:59+05:30";
+const DEADLINE_ISO = "2026-08-16T13:00:00+05:30";
 const PRICE = 80;
 
 type CountdownState = {
@@ -105,7 +105,7 @@ export default function ResumeSessionStickyFooter() {
               </p>
 
               <p className="mt-0.5 truncate text-[10px] font-semibold text-[#0A3D1F]/70">
-                Aug 9, 2026 • 11 AM to 1 PM IST • Balajee Seshadri
+                Aug 16, 2026 • 11 AM to 1 PM IST • Balajee Seshadri
               </p>
             </div>
 

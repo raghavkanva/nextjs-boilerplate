@@ -7,9 +7,8 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Courses", href: "/embedded-systems" },
-  { label: "Workshops", href: "/resume-session" },
-  { label: "Offers", href: "/independence-offer" },
+  { label: "Courses", href: "/courses" },
+  { label: "Workshops", href: "/workshop" },
 ];
 
 export default function NavBar() {
@@ -19,6 +18,7 @@ export default function NavBar() {
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
+          <Image src="/images/icon.png" alt="eTalVis" width={28} height={28} className="h-7 w-7 object-contain" priority />
           <span className="font-display font-extrabold text-base text-slate-950">
             eTalVis
           </span>

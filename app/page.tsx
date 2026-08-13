@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import CopyCode from "@/components/CopyCode";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
@@ -7,7 +8,6 @@ import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import PromoBannerSlider from "@/components/PromoBannerSlider";
-import CourseHeroSection from "@/components/CourseHeroSection";
 import StickyExploreBar from "@/components/StickyExploreBar";
 import TrackedLink from "@/components/TrackedLink";
 import PageAnalytics from "@/components/PageAnalytics";
@@ -20,7 +20,7 @@ function IndependenceOfferStrip() {
   return (
     <section className="mx-auto w-full max-w-5xl px-4 pb-8 sm:px-6">
       <TrackedLink
-        href="/independence-offer"
+        href="/courses"
         event="independence_offer_strip_click"
         params={{
           page: "home",
@@ -45,9 +45,7 @@ function IndependenceOfferStrip() {
 
             <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">
               Use code{" "}
-              <span className="font-mono font-black text-slate-950">
-                INDIA_80TH_INDEPENDENCE_DAY
-              </span>
+              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-slate-950 hover:text-ember" />
               <span className="hidden sm:inline">
                 {" "}
                 · Valid until August 31, 2026
@@ -97,9 +95,6 @@ export default function Home() {
 
       <Hero />
 
-      <CourseHeroSection />
-
-      {/* Premium aligned resume-session and embedded-program cards */}
       <PremiumProgramCards />
 
       <InstructorStrip />
@@ -119,7 +114,7 @@ export default function Home() {
 
       <AssessmentNote />
 
-      <FinalCta href="/embedded-systems#plans" />
+      <FinalCta href="/courses#plans" />
 
       <Footer />
 

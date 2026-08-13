@@ -114,7 +114,7 @@ export default function TrackedLink({
       track(event, {
         ...campaignParameters,
         ...params,
-        page: "resume-session",
+        page: window.location.pathname,
         checkout_location: checkoutLocation,
         destination_url: finalUrl,
         value: 80,
@@ -177,7 +177,7 @@ export default function TrackedLink({
     const commonParams: TrackParams = {
       ...campaignParameters,
       ...params,
-      page: "resume-session",
+      page: window.location.pathname,
       checkout_location: checkoutLocation,
       destination_url: finalUrl,
       destination_hostname: destinationHostname,
