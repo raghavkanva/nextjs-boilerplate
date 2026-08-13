@@ -128,39 +128,13 @@ export default function PromoBannerSlider() {
           const Icon = slide.icon;
           const isActive = index === activeSlide;
 
-          const themeClasses =
-            slide.theme === "green"
-              ? {
-                  pill:
-                    "border-emerald-200 bg-emerald-50 text-emerald-800",
-                  surface:
-                    "bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/70",
-                  glow: "bg-emerald-200/50",
-                  bottomGlow: "bg-teal-100/60",
-                  button:
-                    "bg-emerald-400 hover:bg-emerald-300",
-                }
-              : slide.theme === "yellow"
-                ? {
-                    pill:
-                      "border-yellow-200 bg-yellow-50 text-yellow-900",
-                    surface:
-                      "bg-gradient-to-br from-yellow-50/90 via-white to-amber-50/70",
-                    glow: "bg-yellow-200/55",
-                    bottomGlow: "bg-amber-100/65",
-                    button:
-                      "bg-yellow-400 hover:bg-yellow-300",
-                  }
-                : {
-                    pill:
-                      "border-blue-200 bg-blue-50 text-blue-900",
-                    surface:
-                      "bg-gradient-to-br from-blue-50/85 via-white to-sky-50/70",
-                    glow: "bg-blue-200/55",
-                    bottomGlow: "bg-sky-100/65",
-                    button:
-                      "bg-blue-400 hover:bg-blue-300",
-                  };
+          const themeClasses = {
+            pill: "border-emerald-200 bg-emerald-50 text-emerald-800",
+            surface: "bg-gradient-to-br from-emerald-50/80 via-white to-teal-50/70",
+            glow: "bg-emerald-200/50",
+            bottomGlow: "bg-teal-100/60",
+            button: "bg-[#FFC400] hover:bg-amber-300",
+          };
 
           return (
             <a

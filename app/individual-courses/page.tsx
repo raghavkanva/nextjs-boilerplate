@@ -1,35 +1,33 @@
 import type { Metadata } from "next";
 import PageAnalytics from "@/components/PageAnalytics";
-import CoursesOptionCards from "@/components/CoursesOptionCards";
+import IndividualCoursesGrid from "@/components/IndividualCoursesGrid";
 import Footer from "@/components/Footer";
-import { courses, plans } from "@/data/content";
+import { courses } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Courses | Embedded Systems Foundation Course | eTalVis",
+  title: "Individual Courses | Embedded Systems Foundation | eTalVis",
   description:
-    "Enroll in the complete Embedded Systems Foundation Course or individual courses. 10 foundation courses covering electronics, C programming, embedded hardware, embedded software, protocols, microprocessors, ARM, 8085, and networking. Taught by Balajee Seshadri, 40+ years in the Electronics Industry.",
+    "9 individual foundation courses available separately. Electronics, C programming, embedded hardware, embedded software, microprocessors, ARM, 8085, and networking. ₹159/month or ₹319/3 months per course.",
   keywords: [
-    "embedded systems course",
-    "embedded systems foundation course",
-    "electronics foundation course",
-    "C programming embedded systems",
     "individual embedded systems course",
+    "electronics course India",
+    "C programming course",
+    "embedded hardware course",
     "eTalVis",
     "Balajee Seshadri",
-    "embedded systems online course India",
   ],
   openGraph: {
-    title: "Courses | Embedded Systems Foundation Course | eTalVis",
+    title: "Individual Courses | Embedded Systems Foundation | eTalVis",
     description:
-      "The complete Embedded Systems Foundation Course or 9 individual courses. Self-paced, taught by Balajee Seshadri with 40+ years of industry experience.",
-    url: "https://courses.etalvis.com/courses",
+      "9 individual foundation courses. Pick only what you need. ₹159/month or ₹319/3 months per course.",
+    url: "https://courses.etalvis.com/individual-courses",
     siteName: "eTalVis",
     images: [
       {
         url: "https://courses.etalvis.com/images/icon.png",
         width: 512,
         height: 512,
-        alt: "eTalVis Embedded Systems Foundation Course",
+        alt: "eTalVis Individual Courses",
       },
     ],
     type: "website",
@@ -37,20 +35,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Courses | Embedded Systems Foundation Course | eTalVis",
+    title: "Individual Courses | eTalVis",
     description:
-      "10 self-paced foundation courses or individual courses. Taught by Balajee Seshadri. Doubts cleared on WhatsApp.",
+      "9 individual foundation courses. ₹159/month or ₹319/3 months per course. Taught by Balajee Seshadri.",
     images: ["https://courses.etalvis.com/images/icon.png"],
   },
   alternates: {
-    canonical: "https://courses.etalvis.com/courses",
+    canonical: "https://courses.etalvis.com/individual-courses",
   },
 };
 
 const courseListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Embedded Systems Foundation Course — Individual Courses",
+  name: "Embedded Systems Foundation — Individual Courses",
   description:
     "9 individually available foundation courses from the Embedded Systems Foundation Course by eTalVis.",
   itemListElement: courses
@@ -72,14 +70,12 @@ const courseListSchema = {
     })),
 };
 
-export default function CoursesPage() {
-  const starterPlan = plans.find((p) => p.code === "EF-01");
-
+export default function IndividualCoursesPage() {
   return (
     <main>
       <PageAnalytics
-        page="courses"
-        contentName="eTalVis Courses"
+        page="individual-courses"
+        contentName="Individual Courses"
         contentCategory="Course"
       />
 
@@ -91,23 +87,31 @@ export default function CoursesPage() {
       {/* Page header */}
       <section className="mx-auto max-w-4xl px-4 pb-6 pt-10 text-center sm:px-6 sm:pt-12">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber/30 bg-surfaceRaised px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber">
-          10 Foundation Courses
+          9 Courses Available Individually
         </div>
 
         <h1 className="mt-3 font-display text-3xl font-black leading-tight tracking-tight text-text sm:text-4xl lg:text-5xl">
-          Embedded Systems{" "}
-          <span className="text-ember">Foundation Course</span>
+          Individual{" "}
+          <span className="text-ember">Foundation Courses</span>
         </h1>
 
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-muted sm:text-base">
-          Taught by Balajee Seshadri with 40+ years in the Electronics Industry. Pre-recorded and self-paced. Doubts cleared directly on WhatsApp.
+          Pick the courses you need. ₹159 for 1 month or ₹319 for 3 months per course. Taught by Balajee Seshadri with 40+ years in the Electronics Industry.
+        </p>
+
+        <p className="mx-auto mt-3 max-w-xl text-sm font-semibold text-amber">
+          Want all 10 courses?{" "}
+          <a href="/embedded-systems" className="underline underline-offset-2 hover:text-amber/80">
+            See the bundle course
+          </a>{" "}
+          — starts at ₹639.
         </p>
       </section>
 
-      {/* Two option cards */}
-      <section className="mx-auto w-full max-w-4xl px-4 pb-14 pt-2 sm:px-6 lg:max-w-5xl">
-        <CoursesOptionCards starterPrice={starterPlan?.price ?? 639} />
-      </section>
+      {/* Individual courses grid */}
+      <div className="py-6 pb-14">
+        <IndividualCoursesGrid />
+      </div>
 
       <Footer />
     </main>

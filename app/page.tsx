@@ -7,7 +7,6 @@ import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import PromoBannerSlider from "@/components/PromoBannerSlider";
-import CourseHeroSection from "@/components/CourseHeroSection";
 import StickyExploreBar from "@/components/StickyExploreBar";
 import TrackedLink from "@/components/TrackedLink";
 import PageAnalytics from "@/components/PageAnalytics";
@@ -97,9 +96,6 @@ export default function Home() {
 
       <Hero />
 
-      <CourseHeroSection />
-
-      {/* Premium aligned resume-session and embedded-program cards */}
       <PremiumProgramCards />
 
       <InstructorStrip />
