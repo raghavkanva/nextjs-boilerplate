@@ -380,9 +380,6 @@ export default function IndividualCoursesGrid() {
         ))}
       </div>
 
-      <p className="mt-6 text-center text-xs text-mutedDim">
-        Course 6 (Embedded Software: Interface Protocols) is available in the complete course only.
-      </p>
     </section>
   );
 }

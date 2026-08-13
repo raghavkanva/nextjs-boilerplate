@@ -66,9 +66,9 @@ export default function PremiumProgramCards() {
           className="group relative flex flex-col overflow-hidden rounded-[24px] border-2 border-slate-950 shadow-[0_8px_32px_rgba(15,23,42,0.12)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(15,23,42,0.18)] active:translate-y-0"
         >
           {/* Top band */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-7 sm:px-8">
-            <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-400/15 blur-3xl" />
-            <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-amber-300/10 blur-3xl" />
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#0A3D1F] via-[#145A32] to-[#0A3D1F] px-6 py-7 sm:px-8">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-300/20 blur-3xl" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-amber-400/15 blur-3xl" />
             <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.13em] text-emerald-300">

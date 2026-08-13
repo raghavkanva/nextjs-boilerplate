@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import CopyCode from "@/components/CopyCode";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import PlatformFeatures from "@/components/PlatformFeatures";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
@@ -44,9 +45,7 @@ function IndependenceOfferStrip() {
 
             <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">
               Use code{" "}
-              <span className="font-mono font-black text-slate-950">
-                INDIA_80TH_INDEPENDENCE_DAY
-              </span>
+              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-slate-950 hover:text-ember" />
               <span className="hidden sm:inline">
                 {" "}
                 · Valid until August 31, 2026

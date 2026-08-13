@@ -75,29 +75,15 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
         onClick={() => track("courses_option_click", { option: "individual", page: "courses" })}
         className="group relative flex flex-col overflow-hidden rounded-[28px] border-2 border-slate-950 shadow-[0_8px_32px_rgba(15,23,42,0.15)] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(15,23,42,0.22)] active:translate-y-0"
       >
-        {/* Thumbnail — terminal/code theme */}
+        {/* Thumbnail */}
         <div className="relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 sm:h-52">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-500/15 blur-3xl" />
-          <div aria-hidden="true" className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-sky-400/10 blur-2xl" />
-
-          {/* Terminal window */}
-          <div className="relative w-52 rounded-xl border border-white/10 bg-slate-900/80 shadow-2xl">
-            {/* Title bar */}
-            <div className="flex items-center gap-1.5 rounded-t-xl border-b border-white/10 px-3 py-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-              <span className="ml-2 text-[9px] text-white/30">main.c</span>
-            </div>
-            {/* Code lines */}
-            <div className="px-4 py-3 font-mono text-[10px] leading-5">
-              <p><span className="text-violet-400">#include</span> <span className="text-amber-300">&lt;stdio.h&gt;</span></p>
-              <p className="mt-1"><span className="text-sky-400">int</span> <span className="text-green-400">main</span><span className="text-white/60">()</span> <span className="text-white/50">&#123;</span></p>
-              <p className="ml-4"><span className="text-sky-400">uint8_t</span> <span className="text-white/80">gpio_pin</span> <span className="text-white/50">= 0;</span></p>
-              <p className="ml-4 text-white/50">&#47;&#47; <span className="text-white/30">select course</span></p>
-              <p className="ml-4"><span className="text-sky-400">return</span> <span className="text-amber-300">0</span><span className="text-white/50">;</span></p>
-              <p><span className="text-white/50">&#125;</span></p>
-            </div>
+          <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-slate-700/30 blur-2xl" />
+          <div className="relative flex flex-col items-center gap-2">
+            <span className="font-display text-[72px] font-black leading-none tracking-tight text-white">9</span>
+            <span className="rounded-full bg-[#FFC400] px-4 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-slate-950">
+              Individual Courses
+            </span>
           </div>
         </div>
 
@@ -111,7 +97,7 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
               Pick Only What You Need
             </h2>
             <p className="mt-2 text-sm leading-5 text-slate-600">
-              9 courses available individually. Each course sold separately with 1-month or 3-month access. Course 6 (Interface Protocols) is bundle-only.
+              9 courses available individually. Each course sold separately with 1-month or 3-month access.
             </p>
           </div>
 

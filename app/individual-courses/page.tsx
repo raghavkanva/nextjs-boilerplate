@@ -88,8 +88,16 @@ export default function IndividualCoursesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }}
       />
 
+      {/* Back nav */}
+      <div className="mx-auto max-w-4xl px-4 pt-5 sm:px-6">
+        <a href="/courses" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-muted transition hover:bg-surfaceRaised hover:text-text">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          Back to Courses
+        </a>
+      </div>
+
       {/* Page header */}
-      <section className="mx-auto max-w-4xl px-4 pb-6 pt-10 text-center sm:px-6 sm:pt-12">
+      <section className="mx-auto max-w-4xl px-4 pb-6 pt-4 text-center sm:px-6">
         <div className="inline-flex items-center gap-2 rounded-full border border-amber/30 bg-surfaceRaised px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.13em] text-amber">
           9 Courses Available Individually
         </div>
