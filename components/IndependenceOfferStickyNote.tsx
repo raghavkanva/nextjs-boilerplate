@@ -190,10 +190,6 @@ export default function IndependenceOfferStickyNote() {
             </button>
           </div>
 
-          {/* Redemption instructions strip */}
-          <div className="border-t border-white/10 px-4 py-1.5 text-center text-[10px] text-white/40">
-            How to redeem: select a plan below &rarr; enter code <CopyableCode code={OFFER_CODE} /> at checkout &rarr; pay 80%
-          </div>
         </div>
       </aside>
     </>

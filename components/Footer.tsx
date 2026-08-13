@@ -1,8 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { site } from "@/data/content";
 import { track } from "@/lib/analytics";
+
+const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
+
+function CopyableOfferCode() {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(OFFER_CODE).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 rounded-lg border border-[#FFC400]/40 bg-[#FFC400]/10 px-3 py-1.5 font-mono text-xs font-bold text-[#FFC400] transition hover:bg-[#FFC400]/20"
+      title="Click to copy code"
+    >
+      {OFFER_CODE}
+      <span aria-label={copied ? "Copied" : "Copy"}>
+        {copied ? (
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3 3 7-7" stroke="#FFC400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        ) : (
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="5" y="1" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+            <rect x="2" y="4" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" fill="rgba(255,196,0,0.1)" />
+          </svg>
+        )}
+      </span>
+    </button>
+  );
+}
 
 const STARTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
 const SEMESTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
@@ -89,7 +125,7 @@ export default function Footer() {
 
           {/* Individual Courses */}
           <div>
-            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-white/60">
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
               Individual Courses
             </h3>
             <p className="mt-0.5 text-[10px] text-white/40">3-month access · ₹319 each</p>
@@ -114,7 +150,7 @@ export default function Footer() {
 
           {/* Bundle Plans */}
           <div>
-            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-white/60">
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
               Bundle Plans
             </h3>
             <p className="mt-0.5 text-[10px] text-white/40">All 10 courses included</p>
@@ -162,7 +198,7 @@ export default function Footer() {
 
           {/* Upcoming Sessions */}
           <div>
-            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-white/60">
+            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
               Upcoming Sessions
             </h3>
             <p className="mt-0.5 text-[10px] text-white/40">Live online workshops</p>
@@ -198,8 +234,42 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* How to Redeem */}
+        <div className="mt-10 rounded-2xl border border-[#FFC400]/20 bg-[#FFC400]/8 px-5 py-5 sm:px-7">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#FFC400]">
+                Independence Day Offer · Valid until August 31, 2026
+              </p>
+              <p className="mt-1 text-sm font-bold text-white">
+                How to redeem your 80% discount
+              </p>
+              <ol className="mt-2 flex flex-col gap-1 text-[11px] text-white/60 sm:flex-row sm:items-center sm:gap-4">
+                <li className="flex items-center gap-1.5">
+                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">1</span>
+                  Select a plan
+                </li>
+                <li className="hidden sm:block text-white/20">&#8594;</li>
+                <li className="flex items-center gap-1.5">
+                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">2</span>
+                  Enter code at checkout
+                </li>
+                <li className="hidden sm:block text-white/20">&#8594;</li>
+                <li className="flex items-center gap-1.5">
+                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">3</span>
+                  Pay only 80%
+                </li>
+              </ol>
+            </div>
+            <div className="flex flex-col items-start gap-1 sm:items-end">
+              <p className="text-[10px] text-white/40">Click to copy code</p>
+              <CopyableOfferCode />
+            </div>
+          </div>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/10 pt-7 sm:flex-row sm:justify-between">
+        <div className="mt-8 flex flex-col items-center gap-4 border-t border-white/10 pt-7 sm:flex-row sm:justify-between">
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-white/40 sm:justify-start">
             <a href="https://etalvis.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">eTalVis Main Website</a>
             <a href="/" className="transition hover:text-white">Home</a>

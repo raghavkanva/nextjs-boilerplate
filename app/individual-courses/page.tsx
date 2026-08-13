@@ -120,13 +120,13 @@ export default function IndividualCoursesPage() {
         </p>
       </section>
 
-      {/* Instructor */}
-      <InstructorStrip />
-
       {/* Individual courses grid */}
       <div className="py-6 pb-10">
         <IndividualCoursesGrid />
       </div>
+
+      {/* Instructor */}
+      <InstructorStrip />
 
       {/* Testimonials */}
       <div className="pb-14">

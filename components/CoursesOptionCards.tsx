@@ -79,8 +79,15 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
         <div className="relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 sm:h-52">
           <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-slate-700/30 blur-2xl" />
-          <div className="relative flex flex-col items-center gap-2">
-            <span className="font-display text-[72px] font-black leading-none tracking-tight text-white">9</span>
+          <div className="relative flex flex-col items-center gap-3">
+            <svg width="72" height="60" viewBox="0 0 72 60" fill="none" aria-hidden="true">
+              <rect x="14" y="44" width="44" height="8" rx="3" fill="white" fillOpacity="0.12" />
+              <rect x="8" y="30" width="52" height="16" rx="4" fill="white" fillOpacity="0.17" />
+              <rect x="12" y="14" width="48" height="18" rx="4" fill="white" fillOpacity="0.25" />
+              <circle cx="24" cy="23" r="3.5" fill="#FFC400" fillOpacity="0.9" />
+              <rect x="32" y="21" width="20" height="3" rx="1.5" fill="white" fillOpacity="0.55" />
+              <rect x="32" y="26" width="14" height="2" rx="1" fill="white" fillOpacity="0.3" />
+            </svg>
             <span className="rounded-full bg-[#FFC400] px-4 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-slate-950">
               Individual Courses
             </span>
@@ -97,14 +104,14 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
               Pick Only What You Need
             </h2>
             <p className="mt-2 text-sm leading-5 text-slate-600">
-              9 courses available individually. Each course sold separately with 1-month or 3-month access.
+              Courses available individually. Each course sold separately with 1-month or 3-month access.
             </p>
           </div>
 
           <ul className="space-y-1.5 text-xs text-slate-600">
             {[
               "₹159 / 1 month · ₹319 / 3 months per course",
-              "9 courses to choose from",
+              "Multiple courses to choose from",
               "Same pre-recorded, self-paced format",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">

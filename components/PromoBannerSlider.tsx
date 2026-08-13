@@ -75,7 +75,7 @@ export default function PromoBannerSlider() {
       className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-5 sm:py-4 lg:px-6"
     >
       <div
-        className="relative h-[148px] overflow-hidden rounded-2xl bg-[#0A3D1F] shadow-[0_10px_36px_rgba(10,61,31,0.28)] sm:h-[184px] lg:h-[200px] lg:rounded-[22px]"
+        className="relative h-[172px] overflow-hidden rounded-2xl bg-[#0A3D1F] shadow-[0_10px_36px_rgba(10,61,31,0.28)] sm:h-[184px] lg:h-[200px] lg:rounded-[22px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -120,11 +120,11 @@ export default function PromoBannerSlider() {
                       {slide.eyebrow}
                     </div>
 
-                    <h2 className="mt-1.5 font-display text-[18px] font-black leading-[1.1] tracking-tight text-white sm:mt-2 sm:text-[22px] lg:text-[28px]">
+                    <h2 className="mt-1.5 font-display text-[16px] font-black leading-[1.15] tracking-tight text-white sm:mt-2 sm:text-[22px] lg:text-[28px]">
                       {slide.title}
                     </h2>
 
-                    <p className="mt-1 text-[11px] font-semibold leading-[15px] text-white/60 sm:mt-1 sm:text-[12px] sm:leading-[18px] lg:text-[13px]">
+                    <p className="mt-1 line-clamp-2 text-[11px] font-semibold leading-[14px] text-white/60 sm:line-clamp-none sm:mt-1 sm:text-[12px] sm:leading-[18px] lg:text-[13px]">
                       {slide.detail}
                     </p>
 
