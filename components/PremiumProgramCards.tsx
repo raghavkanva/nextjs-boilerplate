@@ -39,17 +39,8 @@ const programStats = [
 export default function PremiumProgramCards() {
   return (
     <section className="relative overflow-hidden bg-white py-12 sm:py-16">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-55"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(148,163,184,0.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.22) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 sm:px-6">
+<div className="relative mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 sm:px-6">
         {/* Resume session card */}
         <article className="group relative overflow-hidden rounded-[28px] border border-emerald-950/15 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.10)]">
           <div

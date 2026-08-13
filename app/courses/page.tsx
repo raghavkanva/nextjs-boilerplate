@@ -99,7 +99,7 @@ export default function CoursesPage() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-muted sm:text-base">
-          Taught by Balajee Seshadri, 40+ years in the Electronics Industry. Pre-recorded, self-paced, doubts cleared directly on WhatsApp. Enroll in the complete course or individual courses below.
+          Taught by Balajee Seshadri with 40+ years in the Electronics Industry. Pre-recorded and self-paced. Doubts cleared directly on WhatsApp. Enroll in the complete course or pick individual courses below.
         </p>
       </section>
 

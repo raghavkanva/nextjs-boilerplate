@@ -35,7 +35,7 @@ const slides = [
     mobileTitle: "Build a Core Job-Ready Resume",
     detail: "Workshop fee: ₹80",
     mobileDetail: "Core electronics resume workshop",
-    note: "Practical guidance for electronics students",
+    note: "Sunday, August 16, 2026 · 11 AM to 1 PM IST",
     href: "https://courses.etalvis.com/resume-session",
     cta: "Join for ₹80",
     icon: CalendarDays,

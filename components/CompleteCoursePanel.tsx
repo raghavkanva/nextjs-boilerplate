@@ -63,7 +63,7 @@ export default function CompleteCoursePanel() {
           </h2>
 
           <p className="mt-2 text-sm leading-6 text-muted sm:text-base">
-            All 10 foundation courses. Electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking. Pre-recorded, watch anytime, doubts cleared directly on WhatsApp.
+            All 10 foundation courses: electronics, C programming, embedded hardware, embedded software, protocols, microprocessor internals, ARM, 8085, and networking. Pre-recorded and self-paced. Doubts cleared directly on WhatsApp.
           </p>
 
           <ul className="mt-4 space-y-2 text-sm text-muted">
@@ -74,7 +74,7 @@ export default function CompleteCoursePanel() {
                     <path d="M3 8l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <span><strong className="text-text">{h.title}</strong> — {h.subtitle}</span>
+                <span><strong className="text-text">{h.title}:</strong> {h.subtitle}</span>
               </li>
             ))}
           </ul>
