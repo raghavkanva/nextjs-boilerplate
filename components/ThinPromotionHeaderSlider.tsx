@@ -22,8 +22,8 @@ const promotions = [
   {
     id: "independence-offer",
     text:
-      "India enters its 80th year of Independence! Pay only 80% on all plans.",
-    mobileText: "Pay only 80% on all plans",
+      "India enters its 80th year of Independence! Get a discount on all plans.",
+    mobileText: "Get a discount on all plans",
     extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
     href: "https://courses.etalvis.com/courses",
     cta: "View Offer",

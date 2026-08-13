@@ -101,7 +101,7 @@ export default function IndependenceDayOfferSection() {
             <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="font-display text-3xl font-black leading-tight text-white sm:text-4xl">
-                  80% Off on All Plans
+                  Independence Day Discount on All Plans
                 </h2>
                 <p className="mt-1 text-sm text-white/60">
                   Valid until August 31, 2026 · Apply code at checkout
@@ -109,7 +109,7 @@ export default function IndependenceDayOfferSection() {
               </div>
               <div className="mt-3 flex items-center gap-2 sm:mt-0">
                 <span className="rounded-full bg-[#FFC400] px-4 py-1.5 font-display text-lg font-black text-[#0A3D1F]">
-                  Save 20%
+                  Special Offer
                 </span>
               </div>
             </div>
@@ -229,7 +229,7 @@ export default function IndependenceDayOfferSection() {
               {[
                 "Select a plan above",
                 "Enter code at checkout",
-                "Pay only 80%",
+                "Pay the discounted price",
               ].map((step, i) => (
                 <li key={step} className="flex items-center gap-2">
                   <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[9px] font-black text-[#0A3D1F]">

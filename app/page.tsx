@@ -40,7 +40,7 @@ function IndependenceOfferStrip() {
             </p>
 
             <h2 className="font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl">
-              Pay Only 80% on All Plans
+              Independence Day Discount on All Plans
             </h2>
 
             <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">

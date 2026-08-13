@@ -11,7 +11,7 @@ export const site = {
 
 export const announcements: { text: string; href?: string }[] = [
   {
-    text: "Independence Day Offer — Pay Only 80% on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
+    text: "Independence Day Offer — Get a discount on all plans. Code: INDIA_80TH_INDEPENDENCE_DAY. Valid until August 31, 2026.",
     href: "/courses",
   },
   {

@@ -178,7 +178,7 @@ export default function IndependenceOfferStickyNote() {
               <Digit val={seconds} label="S" />
             </div>
             <div className="flex-1">
-              <p className="text-xs font-extrabold text-[#FFC400]">80% Off — Independence Offer</p>
+              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer — Discount</p>
               <p className="mt-0.5 text-[10px] text-white/50">Valid until Aug 31 · Code: <CopyableCode code={OFFER_CODE} /></p>
             </div>
             <button

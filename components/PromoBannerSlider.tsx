@@ -8,13 +8,13 @@ const slides = [
   {
     id: "independence-offer",
     eyebrow: "80th Independence Year Offer",
-    title: "Pay Only 80% on All Plans",
+    title: "Independence Day Discount on All Plans",
     detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
     note: "Valid until August 31, 2026",
     href: "https://courses.etalvis.com/courses",
     cta: "Explore Plans",
-    badge: "80%",
-    badgeSub: "OFF",
+    badge: "OFFER",
+    badgeSub: "DISC",
   },
   {
     id: "resume-session",

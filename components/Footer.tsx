@@ -242,7 +242,7 @@ export default function Footer() {
                 Independence Day Offer · Valid until August 31, 2026
               </p>
               <p className="mt-1 text-sm font-bold text-white">
-                How to redeem your 80% discount
+                How to redeem your discount
               </p>
               <ol className="mt-2 flex flex-col gap-1 text-[11px] text-white/60 sm:flex-row sm:items-center sm:gap-4">
                 <li className="flex items-center gap-1.5">
@@ -257,7 +257,7 @@ export default function Footer() {
                 <li className="hidden sm:block text-white/20">&#8594;</li>
                 <li className="flex items-center gap-1.5">
                   <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">3</span>
-                  Pay only 80%
+                  Pay the discounted price
                 </li>
               </ol>
             </div>

@@ -118,7 +118,7 @@ function HeroSection({ expired }: { expired: boolean }) {
         </h1>
 
         <p className="text-[#4B5563] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
-          To celebrate India entering its 80th year of Independence, every eTalVis plan is 20% off until August 31, 2026, 11:59 PM IST.
+          To celebrate India entering its 80th year of Independence, every eTalVis plan is discounted until August 31, 2026, 11:59 PM IST.
         </p>
 
         {!expired ? (
@@ -181,7 +181,7 @@ function HowItWorksSection() {
     {
       number: "03",
       heading: "Apply at checkout",
-      body: "Paste the code in the coupon field. Your 20% discount is applied instantly.",
+      body: "Paste the code in the coupon field. Your discount is applied instantly.",
     },
     {
       number: "04",
@@ -323,7 +323,7 @@ function PlansSection({ expired }: { expired: boolean }) {
           className="font-bold text-[#111827] text-center mb-3"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3.5vw, 36px)" }}
         >
-          {expired ? "Choose Your Plan" : "Choose Your Plan at 20% Off"}
+          {expired ? "Choose Your Plan" : "Choose Your Plan at a Discount"}
         </h2>
         {!expired && (
           <p className="text-[#4B5563] text-center mb-10 max-w-xl mx-auto">
@@ -356,14 +356,14 @@ function FinalCtaSection({ expired }: { expired: boolean }) {
         <p className="text-[#4B5563] leading-relaxed mb-8">
           {expired
             ? "All 10 Foundation Courses are available at regular price. Same content, same instructor, same WhatsApp support."
-            : `India is entering its 80th year of Independence. Pay only 80% on any plan with code ${OFFER_CODE} before 11:59 PM on August 31, 2026.`}
+            : `India is entering its 80th year of Independence. Get a discount on any plan with code ${OFFER_CODE} before 11:59 PM on August 31, 2026.`}
         </p>
         <a
           href="#plans"
           onClick={() => track("cta_click", { location: "final_cta", offer_code: OFFER_CODE })}
           className="inline-block px-8 py-4 rounded-full bg-[#FFC400] text-black border-2 border-[#111827] font-bold text-lg hover:bg-[#111827] hover:text-white transition-colors"
         >
-          {expired ? "See Plans" : "Enroll at 20% Off"}
+          {expired ? "See Plans" : "Enroll at a Discount"}
         </a>
       </div>
     </section>
