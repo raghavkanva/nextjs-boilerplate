@@ -128,11 +128,11 @@ export default function WorkshopPage() {
 
             <div className="mt-2 flex flex-col items-start gap-4 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <span className="font-display text-3xl font-black text-slate-950">₹80</span>
+                <span className="font-display text-3xl font-black text-slate-950">₹159</span>
                 <span className="ml-2 text-sm text-slate-500">per seat · limited capacity</span>
               </div>
               <span className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-slate-950 bg-[#FFC400] px-7 text-sm font-black text-slate-950 shadow-[0_3px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-0.5 group-active:shadow-none">
-                Register — ₹80
+                Register — ₹159
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

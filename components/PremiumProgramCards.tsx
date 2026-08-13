@@ -29,7 +29,7 @@ export default function PremiumProgramCards() {
             <span className="relative inline-flex rounded-full bg-[#FFC400] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0A3D1F]">
               Live Session
             </span>
-            <p className="relative mt-4 font-display text-4xl font-black leading-none text-white">₹80</p>
+            <p className="relative mt-4 font-display text-4xl font-black leading-none text-white">₹159</p>
             <p className="relative mt-1 text-xs font-semibold text-emerald-200/70">per seat · limited capacity</p>
           </div>
 
@@ -54,7 +54,7 @@ export default function PremiumProgramCards() {
               </p>
             </div>
             <span className="inline-flex w-fit items-center gap-2 rounded-xl border-2 border-slate-950 bg-[#FFC400] px-5 py-2.5 text-sm font-black text-slate-950 shadow-[0_3px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-0.5 group-active:shadow-none">
-              Register for ₹80
+              Register for ₹159
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </span>
           </div>

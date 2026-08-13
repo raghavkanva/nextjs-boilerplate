@@ -214,7 +214,7 @@ export default function Footer() {
                   Resume Preparation for Core Electronics Jobs
                 </p>
                 <p className="mt-1.5 text-[11px] text-white/50">Sunday, August 16, 2026</p>
-                <p className="text-[11px] text-white/50">11 AM to 1 PM IST · ₹80</p>
+                <p className="text-[11px] text-white/50">11 AM to 1 PM IST · ₹159</p>
                 <p className="mt-2 text-[11px] font-semibold text-[#FFC400] group-hover:underline">
                   Register &rarr;
                 </p>

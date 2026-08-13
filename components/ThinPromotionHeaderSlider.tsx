@@ -41,7 +41,7 @@ const promotions = [
     text:
       "Upcoming live session: Build an outstanding resume for core electronics jobs.",
     mobileText: "Core Electronics Resume Workshop",
-    extra: "Sunday August 16 · Join for ₹80",
+    extra: "Sunday August 16 · Join for ₹159",
     href: "https://courses.etalvis.com/resume-session",
     cta: "Join Now",
     icon: CalendarDays,
