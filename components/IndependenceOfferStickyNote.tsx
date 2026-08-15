@@ -2,6 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { track } from "@/lib/analytics";
+import {
+  buildTrackedCheckoutUrl,
+  getCampaignEventParameters,
+  getIdentityParameters,
+} from "@/lib/campaignTracking";
 
 const OFFER_DEADLINE = "2026-08-31T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
@@ -91,9 +96,23 @@ export default function IndependenceOfferStickyNote() {
   const { days, hours, minutes, seconds, expired } = useCountdown(OFFER_DEADLINE);
   if (expired) return null;
 
-  const handleClick = (plan: string, url: string) => {
-    track("independence_offer_sticky_click", { page: "embedded-systems", plan, offer_code: OFFER_CODE });
-    window.open(url, "_blank", "noopener,noreferrer");
+  const handleClick = (plan: string, rawUrl: string, ctaName: string) => {
+    const attribution = getCampaignEventParameters();
+    const identity = getIdentityParameters();
+    const trackedUrl = buildTrackedCheckoutUrl(rawUrl, `sticky_bar_${plan}`);
+    track("enroll_clicked", {
+      page: "embedded-systems",
+      plan,
+      plan_code: plan === "starter" ? "EF-01" : "EF-06",
+      offer_code: OFFER_CODE,
+      price: plan === "starter" ? STARTER_OFFER : SEMESTER_OFFER,
+      currency: "INR",
+      cta_location: "sticky_bar",
+      cta_name: ctaName,
+      ...attribution,
+      ...identity,
+    });
+    window.open(trackedUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -136,7 +155,9 @@ export default function IndependenceOfferStickyNote() {
               {/* Starter */}
               <button
                 type="button"
-                onClick={() => handleClick("starter", STARTER_CHECKOUT)}
+                data-cta-name="starter-enroll"
+                data-cta-position="sticky-bar"
+                onClick={() => handleClick("starter", STARTER_CHECKOUT, "starter-enroll")}
                 className="flex flex-col items-start rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-left transition hover:bg-white/18"
               >
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Starter · 1 Month</span>
@@ -150,7 +171,9 @@ export default function IndependenceOfferStickyNote() {
               {/* Semester */}
               <button
                 type="button"
-                onClick={() => handleClick("semester", SEMESTER_CHECKOUT)}
+                data-cta-name="semester-enroll"
+                data-cta-position="sticky-bar"
+                onClick={() => handleClick("semester", SEMESTER_CHECKOUT, "semester-enroll")}
                 className="relative flex flex-col items-start rounded-xl border border-[#FFC400]/60 bg-[#FFC400]/15 px-4 py-2 text-left transition hover:bg-[#FFC400]/25"
               >
                 <div className="absolute -top-2 right-2 rounded-full bg-[#FFC400] px-2 py-0.5 text-[9px] font-extrabold text-[#0A3D1F]">
@@ -183,7 +206,9 @@ export default function IndependenceOfferStickyNote() {
             </div>
             <button
               type="button"
-              onClick={() => handleClick("semester", SEMESTER_CHECKOUT)}
+              data-cta-name="semester-enroll"
+              data-cta-position="sticky-bar-mobile"
+              onClick={() => handleClick("semester", SEMESTER_CHECKOUT, "semester-enroll-mobile")}
               className="shrink-0 rounded-lg bg-[#FFC400] px-3 py-1.5 text-[11px] font-extrabold text-[#0A3D1F] transition hover:bg-amber-300"
             >
               Enroll

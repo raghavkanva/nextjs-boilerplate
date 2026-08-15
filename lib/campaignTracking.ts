@@ -1,6 +1,8 @@
 const FIRST_TOUCH_KEY = "etalvis_first_touch_campaign";
 const LAST_TOUCH_KEY = "etalvis_last_touch_campaign";
 const SESSION_ID_KEY = "etalvis_campaign_session_id";
+const VISITOR_ID_KEY = "etalvis_visitor_id";
+const JOURNEY_ID_KEY = "etalvis_journey_id";
 
 export const CAMPAIGN_PARAMETERS = [
   "utm_id",
@@ -62,6 +64,39 @@ function getCampaignSessionId(): string {
   }
 
   return sessionId;
+}
+
+export function getVisitorId(): string {
+  if (!isBrowser()) return "";
+
+  let visitorId = localStorage.getItem(VISITOR_ID_KEY);
+
+  if (!visitorId) {
+    visitorId = createSessionId();
+    localStorage.setItem(VISITOR_ID_KEY, visitorId);
+  }
+
+  return visitorId;
+}
+
+export function getJourneyId(): string {
+  if (!isBrowser()) return "";
+
+  let journeyId = sessionStorage.getItem(JOURNEY_ID_KEY);
+
+  if (!journeyId) {
+    journeyId = createSessionId();
+    sessionStorage.setItem(JOURNEY_ID_KEY, journeyId);
+  }
+
+  return journeyId;
+}
+
+export function getIdentityParameters(): Record<string, string> {
+  return {
+    visitor_id: getVisitorId(),
+    journey_id: getJourneyId(),
+  };
 }
 
 function safeParse(rawValue: string | null): CampaignData | null {

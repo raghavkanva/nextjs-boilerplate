@@ -123,6 +123,8 @@ function ProgramHero() {
       </div>
       <a
         href="#plans"
+        data-cta-name="hero-enroll"
+        data-cta-position="hero"
         className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
       >
         Enroll Today

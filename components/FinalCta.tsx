@@ -2,6 +2,7 @@
 
 import { finalCta } from "@/data/content";
 import { track, metaEvent } from "@/lib/analytics";
+import { getCampaignEventParameters, getIdentityParameters } from "@/lib/campaignTracking";
 
 export default function FinalCta({ href = "#plans" }: { href?: string }) {
   return (
@@ -14,8 +15,17 @@ export default function FinalCta({ href = "#plans" }: { href?: string }) {
       </p>
       <a
         href={href}
+        data-cta-name="final-cta-enroll"
+        data-cta-position="page-footer"
         onClick={() => {
-          track("final_cta_click", { location: "final_cta" });
+          const attribution = getCampaignEventParameters();
+          const identity = getIdentityParameters();
+          track("enroll_clicked", {
+            cta_location: "final_cta",
+            cta_name: "final-cta-enroll",
+            ...attribution,
+            ...identity,
+          });
           metaEvent("InitiateCheckout", { content_name: "eTalVis Program", currency: "INR" });
         }}
         className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-semibold text-lg hover:bg-text hover:text-white transition-colors"

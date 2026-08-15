@@ -1,7 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { track, metaEvent } from "@/lib/analytics";
+import {
+  buildTrackedCheckoutUrl,
+  getCampaignEventParameters,
+  getIdentityParameters,
+} from "@/lib/campaignTracking";
 
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
@@ -72,13 +77,54 @@ function WhatsAppIcon() {
 }
 
 export default function IndependenceDayOfferSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [starterUrl, setStarterUrl] = useState(STARTER_CHECKOUT);
+  const [semesterUrl, setSemesterUrl] = useState(SEMESTER_CHECKOUT);
+
+  useEffect(() => {
+    setStarterUrl(buildTrackedCheckoutUrl(STARTER_CHECKOUT, "plans_section_starter"));
+    setSemesterUrl(buildTrackedCheckoutUrl(SEMESTER_CHECKOUT, "plans_section_semester"));
+  }, []);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    let fired = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (fired || !entries[0].isIntersecting) return;
+        fired = true;
+        const attribution = getCampaignEventParameters();
+        const identity = getIdentityParameters();
+        track("pricing_viewed", {
+          page: "embedded-systems",
+          section: "plans",
+          offer_code: OFFER_CODE,
+          ...attribution,
+          ...identity,
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   const trackEnroll = (plan: "starter" | "semester") => {
     const isStarter = plan === "starter";
-    track("independence_offer_section_click", {
+    const attribution = getCampaignEventParameters();
+    const identity = getIdentityParameters();
+    track("enroll_clicked", {
       page: "embedded-systems",
       plan,
+      plan_code: isStarter ? "EF-01" : "EF-06",
       offer_code: OFFER_CODE,
       price: isStarter ? STARTER_OFFER : SEMESTER_OFFER,
+      currency: "INR",
+      cta_location: "plans_section",
+      ...attribution,
+      ...identity,
     });
     metaEvent("InitiateCheckout", {
       content_name: "Embedded Systems Foundation Course",
@@ -90,15 +136,22 @@ export default function IndependenceDayOfferSection() {
   };
 
   const trackAcademic = () => {
-    track("independence_offer_section_click", {
+    const attribution = getCampaignEventParameters();
+    const identity = getIdentityParameters();
+    track("enroll_clicked", {
       page: "embedded-systems",
       plan: "academic",
+      plan_code: "EF-EDU",
       offer_code: OFFER_CODE,
+      cta_location: "plans_section",
+      ...attribution,
+      ...identity,
     });
   };
 
   return (
     <section
+      ref={sectionRef}
       id="plans"
       aria-label="Independence Day Offer — Choose Your Plan"
       className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8"
@@ -188,10 +241,12 @@ export default function IndependenceDayOfferSection() {
           </ul>
 
           <a
-            href={STARTER_CHECKOUT}
+            href={starterUrl}
             onClick={() => trackEnroll("starter")}
             target="_blank"
             rel="noopener noreferrer"
+            data-cta-name="starter-enroll"
+            data-cta-position="plans-section"
             className="mt-auto pt-6 block rounded-full border-2 border-text bg-surface py-3 text-center text-sm font-black text-text transition hover:bg-text hover:text-white"
           >
             Enroll — ₹{STARTER_OFFER}
@@ -258,10 +313,12 @@ export default function IndependenceDayOfferSection() {
           </div>
 
           <a
-            href={SEMESTER_CHECKOUT}
+            href={semesterUrl}
             onClick={() => trackEnroll("semester")}
             target="_blank"
             rel="noopener noreferrer"
+            data-cta-name="semester-enroll"
+            data-cta-position="plans-section"
             className="mt-6 block rounded-full border-2 border-text bg-cta py-3 text-center text-sm font-black text-text shadow-[0_3px_0_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-amber-300 active:translate-y-0.5 active:shadow-none"
           >
             Enroll — ₹{SEMESTER_OFFER.toLocaleString("en-IN")}
@@ -301,6 +358,8 @@ export default function IndependenceDayOfferSection() {
             onClick={trackAcademic}
             target="_blank"
             rel="noopener noreferrer"
+            data-cta-name="academic-whatsapp"
+            data-cta-position="plans-section"
             className="mt-auto pt-6 inline-flex items-center justify-center gap-2 rounded-full border-2 border-text bg-surface py-3 text-center text-sm font-black text-text transition hover:bg-text hover:text-white"
           >
             <WhatsAppIcon />

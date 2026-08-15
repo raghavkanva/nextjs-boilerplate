@@ -20,6 +20,13 @@ declare global {
       eventName: string,
       params?: TrackParams,
     ) => void;
+
+    mixpanel?: {
+      track: (event: string, params?: Record<string, unknown>) => void;
+      identify: (id: string) => void;
+      people: { set: (props: Record<string, unknown>) => void };
+      register: (props: Record<string, unknown>) => void;
+    };
   }
 }
 
