@@ -1,30 +1,70 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { track, metaEvent } from "@/lib/analytics";
+import { track, metaEvent, getDeviceContext } from "@/lib/analytics";
 import {
   buildTrackedCheckoutUrl,
   getCampaignEventParameters,
+  getFirstTouchParameters,
+  getLastTouchParameters,
+  getCurrentUTMParameters,
   getIdentityParameters,
+  getSessionLifecycleParameters,
+  detectAiReferral,
+  incrementPricingViewCount,
+  incrementPlanSelectionCount,
+  incrementEnrollClickCount,
+  getPricingViewCount,
+  getPlanSelectionCount,
+  getEnrollClickCount,
 } from "@/lib/campaignTracking";
 
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
 const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
 
+const COURSE_NAME     = "Embedded Systems Foundation Course";
+const COURSE_SLUG     = "embedded-systems";
+const COURSE_TYPE     = "foundation";
+const COURSE_CATEGORY = "Electronics";
+
 const STARTER_ORIGINAL = 639;
-const STARTER_OFFER = 511;
-const STARTER_PER_DAY = 17;
+const STARTER_OFFER    = 511;
+const STARTER_PER_DAY  = 17;
+const STARTER_PLAN_CODE = "EF-01";
+const STARTER_PLAN_DURATION = "1 month";
 const STARTER_CHECKOUT = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
 
 const SEMESTER_ORIGINAL = 2559;
-const SEMESTER_OFFER = 2047;
-const SEMESTER_PER_DAY = 11;
-const SEMESTER_SAVINGS = 1019;
+const SEMESTER_OFFER    = 2047;
+const SEMESTER_PER_DAY  = 11;
+const SEMESTER_SAVINGS  = 1019;
+const SEMESTER_PLAN_CODE = "EF-06";
+const SEMESTER_PLAN_DURATION = "6 months";
 const SEMESTER_CHECKOUT = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
 
 const WHATSAPP_ACADEMIC = "https://wa.me/919790873069?text=Hi%2C%20I%27m%20interested%20in%20the%20Academic%20plan%20for%2010%2B%20students";
 
+// ─── Shared event params helper ────────────────────────────────────────────
+function commonParams() {
+  return {
+    ...getIdentityParameters(),
+    ...getSessionLifecycleParameters(),
+    ...getCurrentUTMParameters(),
+    ...getFirstTouchParameters(),
+    ...getLastTouchParameters(),
+    ...detectAiReferral(typeof document !== "undefined" ? document.referrer : ""),
+    ...getDeviceContext(),
+    page: "embedded-systems",
+    page_type: "course",
+    course_name:     COURSE_NAME,
+    course_slug:     COURSE_SLUG,
+    course_type:     COURSE_TYPE,
+    course_category: COURSE_CATEGORY,
+  };
+}
+
+// ─── Sub-components ────────────────────────────────────────────────────────
 function CopyCode() {
   const [copied, setCopied] = useState(false);
   const handleCopy = (e: React.MouseEvent) => {
@@ -76,76 +116,155 @@ function WhatsAppIcon() {
   );
 }
 
+// ─── Main component ────────────────────────────────────────────────────────
 export default function IndependenceDayOfferSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [starterUrl, setStarterUrl] = useState(STARTER_CHECKOUT);
+  const [starterUrl,  setStarterUrl]  = useState(STARTER_CHECKOUT);
   const [semesterUrl, setSemesterUrl] = useState(SEMESTER_CHECKOUT);
 
+  // Build tracked checkout URLs client-side
   useEffect(() => {
-    setStarterUrl(buildTrackedCheckoutUrl(STARTER_CHECKOUT, "plans_section_starter"));
-    setSemesterUrl(buildTrackedCheckoutUrl(SEMESTER_CHECKOUT, "plans_section_semester"));
+    setStarterUrl(buildTrackedCheckoutUrl(STARTER_CHECKOUT, "plans_section_starter", COURSE_SLUG, STARTER_PLAN_CODE));
+    setSemesterUrl(buildTrackedCheckoutUrl(SEMESTER_CHECKOUT, "plans_section_semester", COURSE_SLUG, SEMESTER_PLAN_CODE));
   }, []);
 
+  // pricing_viewed — fires once when section scrolls into view
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
     let fired = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (fired || !entries[0].isIntersecting) return;
         fired = true;
-        const attribution = getCampaignEventParameters();
-        const identity = getIdentityParameters();
+        const viewCount = incrementPricingViewCount();
         track("pricing_viewed", {
-          page: "embedded-systems",
-          section: "plans",
+          ...commonParams(),
+          section_name:   "plans",
+          component_name: "IndependenceDayOfferSection",
           offer_code: OFFER_CODE,
-          ...attribution,
-          ...identity,
+          price:           STARTER_OFFER,
+          original_price:  STARTER_ORIGINAL,
+          discount_amount: STARTER_ORIGINAL - STARTER_OFFER,
+          discount_percent: 20,
+          currency: "INR",
+          pricing_view_count: viewCount,
         });
         observer.disconnect();
       },
       { threshold: 0.2 },
     );
+
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  const trackEnroll = (plan: "starter" | "semester") => {
-    const isStarter = plan === "starter";
-    const attribution = getCampaignEventParameters();
-    const identity = getIdentityParameters();
-    track("enroll_clicked", {
-      page: "embedded-systems",
-      plan,
-      plan_code: isStarter ? "EF-01" : "EF-06",
+  // plan_selected — fires when user hovers/focuses a plan CTA (intent signal)
+  const trackPlanSelected = (plan: "starter" | "semester") => {
+    const isStarter   = plan === "starter";
+    const planCode    = isStarter ? STARTER_PLAN_CODE : SEMESTER_PLAN_CODE;
+    const price       = isStarter ? STARTER_OFFER     : SEMESTER_OFFER;
+    const origPrice   = isStarter ? STARTER_ORIGINAL  : SEMESTER_ORIGINAL;
+    const duration    = isStarter ? STARTER_PLAN_DURATION : SEMESTER_PLAN_DURATION;
+    const selCount    = incrementPlanSelectionCount();
+
+    track("plan_selected", {
+      ...commonParams(),
+      section_name:   "plans",
+      component_name: "IndependenceDayOfferSection",
+      plan:            plan,
+      plan_name:       isStarter ? "Starter" : "Semester",
+      plan_code:       planCode,
+      plan_type:       "subscription",
+      plan_duration:   duration,
+      access_duration: duration,
+      price,
+      original_price:  origPrice,
+      discount_amount: origPrice - price,
+      discount_percent: 20,
+      currency: "INR",
       offer_code: OFFER_CODE,
-      price: isStarter ? STARTER_OFFER : SEMESTER_OFFER,
-      currency: "INR",
-      cta_location: "plans_section",
-      ...attribution,
-      ...identity,
+      plan_selection_count: selCount,
     });
-    metaEvent("InitiateCheckout", {
-      content_name: "Embedded Systems Foundation Course",
-      content_type: isStarter ? "EF-01" : "EF-06",
-      value: isStarter ? STARTER_OFFER : SEMESTER_OFFER,
+  };
+
+  // enroll_clicked
+  const trackEnroll = (
+    plan: "starter" | "semester",
+    ctaName: string,
+    ctaText: string,
+  ) => {
+    const isStarter   = plan === "starter";
+    const planCode    = isStarter ? STARTER_PLAN_CODE : SEMESTER_PLAN_CODE;
+    const price       = isStarter ? STARTER_OFFER     : SEMESTER_OFFER;
+    const origPrice   = isStarter ? STARTER_ORIGINAL  : SEMESTER_ORIGINAL;
+    const duration    = isStarter ? STARTER_PLAN_DURATION : SEMESTER_PLAN_DURATION;
+    const clickCount  = incrementEnrollClickCount();
+    const pricingViews = getPricingViewCount();
+    const planSelects  = getPlanSelectionCount();
+
+    track("enroll_clicked", {
+      ...commonParams(),
+      section_name:   "plans",
+      component_name: "IndependenceDayOfferSection",
+
+      plan:            plan,
+      plan_name:       isStarter ? "Starter" : "Semester",
+      plan_code:       planCode,
+      plan_type:       "subscription",
+      plan_duration:   duration,
+      access_duration: duration,
+
+      price,
+      original_price:  origPrice,
+      discount_amount: origPrice - price,
+      discount_percent: 20,
       currency: "INR",
-      num_items: 1,
+      offer_code: OFFER_CODE,
+
+      cta_name:        ctaName,
+      cta_text:        ctaText,
+      cta_location:    "plans_section",
+      cta_position:    "plans_section",
+      cta_type:        "enrollment",
+      cta_variant:     "primary",
+      cta_destination: "tagmango-checkout",
+      checkout_destination: isStarter ? STARTER_CHECKOUT : SEMESTER_CHECKOUT,
+
+      enroll_click_count:           clickCount,
+      pricing_views_before_purchase: pricingViews,
+      plan_selections_before_purchase: planSelects,
+    });
+
+    // Meta InitiateCheckout — preserved exactly, no changes
+    metaEvent("InitiateCheckout", {
+      content_name: COURSE_NAME,
+      content_type: planCode,
+      value:        price,
+      currency:     "INR",
+      num_items:    1,
     });
   };
 
   const trackAcademic = () => {
-    const attribution = getCampaignEventParameters();
-    const identity = getIdentityParameters();
-    track("enroll_clicked", {
-      page: "embedded-systems",
-      plan: "academic",
-      plan_code: "EF-EDU",
-      offer_code: OFFER_CODE,
-      cta_location: "plans_section",
-      ...attribution,
-      ...identity,
+    const clickCount = incrementEnrollClickCount();
+    track("whatsapp_cta_clicked", {
+      ...commonParams(),
+      section_name:   "plans",
+      component_name: "IndependenceDayOfferSection",
+      plan:           "academic",
+      plan_name:      "Academic",
+      plan_code:      "EF-EDU",
+      plan_type:      "institutional",
+      cta_name:       "academic-whatsapp",
+      cta_text:       "Contact on WhatsApp",
+      cta_location:   "plans_section",
+      cta_position:   "plans_section",
+      cta_type:       "whatsapp",
+      cta_variant:    "secondary",
+      cta_destination: WHATSAPP_ACADEMIC,
+      enroll_click_count: clickCount,
     });
   };
 
@@ -163,13 +282,11 @@ export default function IndependenceDayOfferSection() {
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-amber-400/10 blur-3xl" />
 
           <div className="relative">
-            {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FFC400]/30 bg-[#FFC400]/10 px-3.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
               {isIndependenceDay && <span>🇮🇳</span>}
               {isIndependenceDay ? "Independence Day Offer" : "20% Discount Offer"}
             </div>
 
-            {/* Title + subtitle */}
             <h2 className="mt-3 font-display text-3xl font-black leading-tight text-white sm:text-4xl">
               Choose Your Plan
             </h2>
@@ -180,7 +297,6 @@ export default function IndependenceDayOfferSection() {
               Valid until August 31, 2026 · Apply code at checkout
             </p>
 
-            {/* Steps + copy code */}
             <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <ol className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
                 {["Select a plan below", "Enter code at checkout", "Pay 20% less"].map((step, i) => (
@@ -242,11 +358,15 @@ export default function IndependenceDayOfferSection() {
 
           <a
             href={starterUrl}
-            onClick={() => trackEnroll("starter")}
+            onClick={() => trackEnroll("starter", "starter-enroll", `Enroll — ₹${STARTER_OFFER}`)}
+            onMouseEnter={() => trackPlanSelected("starter")}
             target="_blank"
             rel="noopener noreferrer"
             data-cta-name="starter-enroll"
             data-cta-position="plans-section"
+            data-course-slug={COURSE_SLUG}
+            data-plan-code={STARTER_PLAN_CODE}
+            data-plan-name="Starter"
             className="mt-auto pt-6 block rounded-full border-2 border-text bg-surface py-3 text-center text-sm font-black text-text transition hover:bg-text hover:text-white"
           >
             Enroll — ₹{STARTER_OFFER}
@@ -314,11 +434,15 @@ export default function IndependenceDayOfferSection() {
 
           <a
             href={semesterUrl}
-            onClick={() => trackEnroll("semester")}
+            onClick={() => trackEnroll("semester", "semester-enroll", `Enroll — ₹${SEMESTER_OFFER.toLocaleString("en-IN")}`)}
+            onMouseEnter={() => trackPlanSelected("semester")}
             target="_blank"
             rel="noopener noreferrer"
             data-cta-name="semester-enroll"
             data-cta-position="plans-section"
+            data-course-slug={COURSE_SLUG}
+            data-plan-code={SEMESTER_PLAN_CODE}
+            data-plan-name="Semester"
             className="mt-6 block rounded-full border-2 border-text bg-cta py-3 text-center text-sm font-black text-text shadow-[0_3px_0_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-amber-300 active:translate-y-0.5 active:shadow-none"
           >
             Enroll — ₹{SEMESTER_OFFER.toLocaleString("en-IN")}
@@ -360,6 +484,9 @@ export default function IndependenceDayOfferSection() {
             rel="noopener noreferrer"
             data-cta-name="academic-whatsapp"
             data-cta-position="plans-section"
+            data-course-slug={COURSE_SLUG}
+            data-plan-code="EF-EDU"
+            data-plan-name="Academic"
             className="mt-auto pt-6 inline-flex items-center justify-center gap-2 rounded-full border-2 border-text bg-surface py-3 text-center text-sm font-black text-text transition hover:bg-text hover:text-white"
           >
             <WhatsAppIcon />

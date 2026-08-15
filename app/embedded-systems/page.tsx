@@ -146,7 +146,16 @@ export default function EmbeddedSystemsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <PageAnalytics page="embedded-systems" contentName="Embedded Systems Foundation Course" contentCategory="Course" />
+      <PageAnalytics
+        page="embedded-systems"
+        contentName="Embedded Systems Foundation Course"
+        contentCategory="Course"
+        pageType="course"
+        courseName="Embedded Systems Foundation Course"
+        courseSlug="embedded-systems"
+        courseType="foundation"
+        courseCategory="Electronics"
+      />
       <div className="mx-auto max-w-4xl px-4 pt-4 sm:px-6">
         <a href="/courses" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-muted transition hover:bg-surfaceRaised hover:text-text">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -160,6 +169,7 @@ export default function EmbeddedSystemsPage() {
       <WhoIsThisFor />
       <Prerequisites />
       <TestimonialSlider
+        id="testimonials"
         items={testimonialsBottom}
         heading="Real Stories. Real Results."
       />

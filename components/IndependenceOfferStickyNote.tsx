@@ -1,26 +1,38 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { track } from "@/lib/analytics";
+import { track, getDeviceContext } from "@/lib/analytics";
 import {
   buildTrackedCheckoutUrl,
-  getCampaignEventParameters,
   getIdentityParameters,
+  getSessionLifecycleParameters,
+  getCurrentUTMParameters,
+  getFirstTouchParameters,
+  getLastTouchParameters,
+  detectAiReferral,
+  incrementEnrollClickCount,
 } from "@/lib/campaignTracking";
+
+const COURSE_NAME     = "Embedded Systems Foundation Course";
+const COURSE_SLUG     = "embedded-systems";
+const COURSE_TYPE     = "foundation";
+const COURSE_CATEGORY = "Electronics";
 
 const OFFER_DEADLINE = "2026-08-31T23:59:59+05:30";
 const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
 
-const STARTER_ORIGINAL = 639;
-const STARTER_OFFER = Math.round(STARTER_ORIGINAL * 0.8);
-const STARTER_CHECKOUT = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
-const STARTER_PER_DAY = Math.round(STARTER_OFFER / 30);
+const STARTER_ORIGINAL   = 639;
+const STARTER_OFFER      = Math.round(STARTER_ORIGINAL * 0.8);
+const STARTER_CHECKOUT   = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
+const STARTER_PER_DAY    = Math.round(STARTER_OFFER / 30);
+const STARTER_PLAN_CODE  = "EF-01";
 
-const SEMESTER_ORIGINAL = 2559;
-const SEMESTER_OFFER = Math.round(SEMESTER_ORIGINAL * 0.8);
-const SEMESTER_CHECKOUT = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
-const SEMESTER_PER_DAY = Math.round(SEMESTER_OFFER / 180);
-const SEMESTER_DISCOUNT = Math.round((1 - SEMESTER_OFFER / (STARTER_OFFER * 6)) * 100);
+const SEMESTER_ORIGINAL  = 2559;
+const SEMESTER_OFFER     = Math.round(SEMESTER_ORIGINAL * 0.8);
+const SEMESTER_CHECKOUT  = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
+const SEMESTER_PER_DAY   = Math.round(SEMESTER_OFFER / 180);
+const SEMESTER_DISCOUNT  = Math.round((1 - SEMESTER_OFFER / (STARTER_OFFER * 6)) * 100);
+const SEMESTER_PLAN_CODE = "EF-06";
 
 type CountState = { days: number; hours: number; minutes: number; seconds: number; expired: boolean };
 
@@ -92,27 +104,125 @@ function CopyableCode({ code }: { code: string }) {
   );
 }
 
+interface PlanConfig {
+  planName: string;
+  planCode: string;
+  planType: string;
+  planDuration: string;
+  planDurationDays: number;
+  price: number;
+  originalPrice: number;
+  rawCheckoutUrl: string;
+  ctaName: string;
+  ctaText: string;
+  ctaPosition: string;
+}
+
 export default function IndependenceOfferStickyNote() {
   const { days, hours, minutes, seconds, expired } = useCountdown(OFFER_DEADLINE);
+
+  const [starterUrl, setStarterUrl]   = useState(STARTER_CHECKOUT);
+  const [semesterUrl, setSemesterUrl] = useState(SEMESTER_CHECKOUT);
+
+  useEffect(() => {
+    setStarterUrl(buildTrackedCheckoutUrl(STARTER_CHECKOUT,  "sticky_bar_starter",  COURSE_SLUG, STARTER_PLAN_CODE));
+    setSemesterUrl(buildTrackedCheckoutUrl(SEMESTER_CHECKOUT, "sticky_bar_semester", COURSE_SLUG, SEMESTER_PLAN_CODE));
+  }, []);
+
   if (expired) return null;
 
-  const handleClick = (plan: string, rawUrl: string, ctaName: string) => {
-    const attribution = getCampaignEventParameters();
-    const identity = getIdentityParameters();
-    const trackedUrl = buildTrackedCheckoutUrl(rawUrl, `sticky_bar_${plan}`);
+  const handleEnrollClick = (plan: PlanConfig, trackedUrl: string) => {
+    const clickCount = incrementEnrollClickCount();
+
     track("enroll_clicked", {
-      page: "embedded-systems",
-      plan,
-      plan_code: plan === "starter" ? "EF-01" : "EF-06",
-      offer_code: OFFER_CODE,
-      price: plan === "starter" ? STARTER_OFFER : SEMESTER_OFFER,
-      currency: "INR",
-      cta_location: "sticky_bar",
-      cta_name: ctaName,
-      ...attribution,
-      ...identity,
+      // Page context
+      page:           "embedded-systems",
+      page_type:      "course",
+      page_url:       typeof window !== "undefined" ? window.location.href : "not_available",
+
+      // Course context
+      course_name:     COURSE_NAME,
+      course_slug:     COURSE_SLUG,
+      course_type:     COURSE_TYPE,
+      course_category: COURSE_CATEGORY,
+
+      // Plan details
+      plan_name:          plan.planName,
+      plan_code:          plan.planCode,
+      plan_type:          plan.planType,
+      plan_duration:      plan.planDuration,
+      plan_duration_days: plan.planDurationDays,
+      price:              plan.price,
+      currency:           "INR",
+      original_price:     plan.originalPrice,
+      discount_amount:    plan.originalPrice - plan.price,
+      discount_percent:   Math.round((1 - plan.price / plan.originalPrice) * 100),
+
+      // Offer context
+      offer_code:     OFFER_CODE,
+      offer_type:     "independence_day",
+
+      // CTA details
+      cta_name:        plan.ctaName,
+      cta_text:        plan.ctaText,
+      cta_location:    "sticky_bar",
+      cta_position:    plan.ctaPosition,
+      cta_type:        "button",
+      cta_variant:     plan.planCode === SEMESTER_PLAN_CODE ? "primary" : "secondary",
+      cta_destination: trackedUrl,
+
+      // Behavior counters
+      enroll_click_count: clickCount,
+
+      // Identity
+      ...getIdentityParameters(),
+
+      // Session lifecycle
+      ...getSessionLifecycleParameters(),
+
+      // Current UTMs
+      ...getCurrentUTMParameters(),
+
+      // Full attribution
+      ...getFirstTouchParameters(),
+      ...getLastTouchParameters(),
+
+      // AI referral
+      ...detectAiReferral(typeof document !== "undefined" ? document.referrer : ""),
+
+      // Device context
+      ...getDeviceContext(),
     });
+
     window.open(trackedUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const starterPlan: PlanConfig = {
+    planName:        "Starter",
+    planCode:        STARTER_PLAN_CODE,
+    planType:        "self_paced",
+    planDuration:    "1 Month",
+    planDurationDays: 30,
+    price:           STARTER_OFFER,
+    originalPrice:   STARTER_ORIGINAL,
+    rawCheckoutUrl:  STARTER_CHECKOUT,
+    ctaName:         "starter-enroll",
+    ctaText:         "Enroll — Starter",
+    ctaPosition:     "sticky-bar",
+  };
+
+  const semesterPlan: PlanConfig = {
+    planName:        "Semester",
+    planCode:        SEMESTER_PLAN_CODE,
+    planType:        "self_paced",
+    planDuration:    "6 Months",
+    planDurationDays: 180,
+    price:           SEMESTER_OFFER,
+    originalPrice:   SEMESTER_ORIGINAL,
+    rawCheckoutUrl:  SEMESTER_CHECKOUT,
+    ctaName:         "semester-enroll",
+    ctaText:         "Enroll — Semester",
+    ctaPosition:     "sticky-bar",
   };
 
   return (
@@ -126,10 +236,9 @@ export default function IndependenceOfferStickyNote() {
       >
         <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-emerald-700 bg-[#0A3D1F] shadow-[0_-8px_40px_rgba(10,61,31,0.45)]">
 
-          {/* Desktop layout — full bar */}
+          {/* Desktop layout */}
           <div className="hidden sm:flex sm:items-center sm:gap-4 sm:px-5 sm:py-3.5">
 
-            {/* Offer label + countdown */}
             <div className="flex shrink-0 items-center gap-3">
               <div className="flex flex-col">
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-emerald-300">
@@ -150,14 +259,16 @@ export default function IndependenceOfferStickyNote() {
               </div>
             </div>
 
-            {/* Enroll buttons */}
             <div className="flex flex-1 justify-end gap-3">
               {/* Starter */}
               <button
                 type="button"
                 data-cta-name="starter-enroll"
                 data-cta-position="sticky-bar"
-                onClick={() => handleClick("starter", STARTER_CHECKOUT, "starter-enroll")}
+                data-course-slug={COURSE_SLUG}
+                data-plan-code={STARTER_PLAN_CODE}
+                data-plan-name="Starter"
+                onClick={() => handleEnrollClick(starterPlan, starterUrl)}
                 className="flex flex-col items-start rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-left transition hover:bg-white/18"
               >
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Starter · 1 Month</span>
@@ -173,7 +284,10 @@ export default function IndependenceOfferStickyNote() {
                 type="button"
                 data-cta-name="semester-enroll"
                 data-cta-position="sticky-bar"
-                onClick={() => handleClick("semester", SEMESTER_CHECKOUT, "semester-enroll")}
+                data-course-slug={COURSE_SLUG}
+                data-plan-code={SEMESTER_PLAN_CODE}
+                data-plan-name="Semester"
+                onClick={() => handleEnrollClick(semesterPlan, semesterUrl)}
                 className="relative flex flex-col items-start rounded-xl border border-[#FFC400]/60 bg-[#FFC400]/15 px-4 py-2 text-left transition hover:bg-[#FFC400]/25"
               >
                 <div className="absolute -top-2 right-2 rounded-full bg-[#FFC400] px-2 py-0.5 text-[9px] font-extrabold text-[#0A3D1F]">
@@ -189,7 +303,7 @@ export default function IndependenceOfferStickyNote() {
             </div>
           </div>
 
-          {/* Mobile layout — compact bar: just countdown + offer label */}
+          {/* Mobile layout */}
           <div className="flex items-center gap-3 px-4 py-2.5 sm:hidden">
             <div className="flex items-center gap-1">
               <Digit val={days} label="D" />
@@ -208,7 +322,13 @@ export default function IndependenceOfferStickyNote() {
               type="button"
               data-cta-name="semester-enroll"
               data-cta-position="sticky-bar-mobile"
-              onClick={() => handleClick("semester", SEMESTER_CHECKOUT, "semester-enroll-mobile")}
+              data-course-slug={COURSE_SLUG}
+              data-plan-code={SEMESTER_PLAN_CODE}
+              data-plan-name="Semester"
+              onClick={() => handleEnrollClick(
+                { ...semesterPlan, ctaName: "semester-enroll-mobile", ctaText: "Enroll", ctaPosition: "sticky-bar-mobile" },
+                semesterUrl,
+              )}
               className="shrink-0 rounded-lg bg-[#FFC400] px-3 py-1.5 text-[11px] font-extrabold text-[#0A3D1F] transition hover:bg-amber-300"
             >
               Enroll
