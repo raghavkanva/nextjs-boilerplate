@@ -59,7 +59,7 @@ export default function Footer() {
     <footer className="border-t border-slate-200 bg-[#0A3D1F]">
       {/* Main columns */}
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
