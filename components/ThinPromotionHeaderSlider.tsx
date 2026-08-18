@@ -4,7 +4,6 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  CalendarDays,
   Gift,
 } from "lucide-react";
 
@@ -33,23 +32,6 @@ const promotions = [
     href: "https://courses.etalvis.com/courses",
     cta: "View Offer",
     icon: Gift,
-    background: BG,
-    foreground: FG,
-    hoverBackground: HOVER,
-    iconBackground: ICON_BG,
-    mutedText: MUTED,
-    buttonStyle: BTN,
-    arrowStyle: ARROW,
-  },
-  {
-    id: "resume-session",
-    text:
-      "Upcoming live session: Build an outstanding resume for core electronics jobs.",
-    mobileText: "Core Electronics Resume Workshop",
-    extra: "Sunday August 16 · Join for ₹159",
-    href: "https://courses.etalvis.com/resume-session",
-    cta: "Join Now",
-    icon: CalendarDays,
     background: BG,
     foreground: FG,
     hoverBackground: HOVER,

@@ -22,17 +22,6 @@ const slides = [
     badgeSub: "OFF",
   },
   {
-    id: "resume-session",
-    eyebrow: "Upcoming Live Session",
-    title: "Build a Resume for Core Electronics Jobs",
-    detail: "Sunday, August 16, 2026 · 11 AM to 1 PM IST",
-    note: "Workshop fee: ₹159 · Led by Balajee Seshadri",
-    href: "https://courses.etalvis.com/workshop",
-    cta: "Join Workshop",
-    badge: "₹159",
-    badgeSub: "SEAT",
-  },
-  {
     id: "embedded-systems",
     eyebrow: "10 Foundation Courses",
     title: "From Electronics to ARM. Built for Core Jobs.",
