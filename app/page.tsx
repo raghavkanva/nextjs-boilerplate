@@ -39,13 +39,13 @@ function IndependenceOfferStrip() {
               Independence Day Offer
             </p>
 
-            <h2 className="font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl">
-              Pay Only 80% on All Plans
+            <h2 className="font-display text-xl font-black leading-tight text-slate-900 sm:text-2xl">
+              Get 20% Discount on All Plans
             </h2>
 
             <p className="mt-2 break-words text-sm leading-6 text-slate-700 sm:text-base">
               Use code{" "}
-              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-slate-950 hover:text-ember" />
+              <CopyCode code="INDIA_80TH_INDEPENDENCE_DAY" className="text-[#0A3D1F] hover:text-emerald-800" />
               <span className="hidden sm:inline">
                 {" "}
                 · Valid until August 31, 2026
@@ -57,7 +57,7 @@ function IndependenceOfferStrip() {
             </p>
           </div>
 
-          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-slate-950 bg-amber-300 px-5 text-sm font-black text-slate-950 shadow-[0_4px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-200 group-active:translate-y-1 group-active:shadow-none sm:self-center">
+          <span className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-full border-2 border-[#0A3D1F] bg-[#0A3D1F] px-5 text-sm font-black text-[#FFC400] shadow-[0_4px_0_rgba(0,0,0,0.3)] transition group-hover:-translate-y-0.5 group-hover:bg-emerald-900 group-active:translate-y-1 group-active:shadow-none sm:self-center">
             See Offer
 
             <svg

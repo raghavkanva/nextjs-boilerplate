@@ -9,7 +9,7 @@ import ResumeSessionTracking from "@/components/ResumeSessionTracking";
 export const metadata: Metadata = {
   title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
   description:
-    "A live online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Sunday, August 16, 2026, 11 AM to 1 PM IST. Rs. 80.",
+    "A live online session by Balajee Seshadri on building a resume that gets core electronics companies to call. Sunday, August 16, 2026, 11 AM to 1 PM IST. Rs. 159.",
   keywords: [
     "resume for core electronics jobs",
     "electronics resume tips",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Live online session by Balajee Seshadri. Sunday, August 16, 2026, 11 AM to 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session by Balajee Seshadri. Sunday, August 16, 2026, 11 AM to 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 159.",
     url: "https://courses.etalvis.com/resume-session",
     siteName: "eTalVis",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Master the Art of Crafting an Outstanding Resume | eTalVis",
     description:
-      "Live online session. Sunday, August 16, 2026, 11 AM – 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 80.",
+      "Live online session. Sunday, August 16, 2026, 11 AM – 1 PM IST. Build a resume that gets core electronics companies to call. Rs. 159.",
     images: ["https://courses.etalvis.com/images/icon.png"],
   },
   alternates: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 const CHECKOUT_URL = "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942ae7d6";
-const PRICE = 80;
+const PRICE = 159;
 
 const topics = [
   {

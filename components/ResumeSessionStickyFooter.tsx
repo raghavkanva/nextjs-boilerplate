@@ -7,7 +7,7 @@ const CHECKOUT_URL =
   "https://learn.etalvis.com/web/checkout/6a705fab512af2dc942ae7d6";
 
 const DEADLINE_ISO = "2026-08-16T13:00:00+05:30";
-const PRICE = 80;
+const PRICE = 159;
 
 type CountdownState = {
   days: number;

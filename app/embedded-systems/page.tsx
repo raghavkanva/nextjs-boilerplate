@@ -3,6 +3,7 @@ import PageAnalytics from "@/components/PageAnalytics";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import PlansGrid from "@/components/Plans";
+import IndependenceDayOfferSection from "@/components/IndependenceDayOfferSection";
 import Prerequisites from "@/components/Prerequisites";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FAQ from "@/components/FAQ";
@@ -103,7 +104,7 @@ function ProgramHero() {
       </div>
       <h1 className="font-display font-extrabold text-3xl md:text-5xl leading-[1.2] mb-4 text-text">
         Embedded Systems{" "}
-        <span className="text-[#0A3D1F]">Foundation Course</span>
+        <span className="text-[#78350F]">Foundation Course</span>
       </h1>
       <p className="max-w-2xl mx-auto mb-3 text-base md:text-lg text-text font-semibold leading-relaxed">
         Built for core electronics students who want real understanding.
@@ -122,6 +123,8 @@ function ProgramHero() {
       </div>
       <a
         href="#plans"
+        data-cta-name="hero-enroll"
+        data-cta-position="hero"
         className="inline-block px-8 py-4 rounded-full bg-cta text-black border-2 border-text font-display font-bold text-lg hover:bg-text hover:text-white transition-colors"
       >
         Enroll Today
@@ -143,7 +146,16 @@ export default function EmbeddedSystemsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <PageAnalytics page="embedded-systems" contentName="Embedded Systems Foundation Course" contentCategory="Course" />
+      <PageAnalytics
+        page="embedded-systems"
+        contentName="Embedded Systems Foundation Course"
+        contentCategory="Course"
+        pageType="course"
+        courseName="Embedded Systems Foundation Course"
+        courseSlug="embedded-systems"
+        courseType="foundation"
+        courseCategory="Electronics"
+      />
       <div className="mx-auto max-w-4xl px-4 pt-4 sm:px-6">
         <a href="/courses" className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-muted transition hover:bg-surfaceRaised hover:text-text">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -152,15 +164,12 @@ export default function EmbeddedSystemsPage() {
       </div>
       <ProgramHero />
       <CourseCarousel />
-      <PlansGrid
-        id="plans"
-        heading="Choose How Long You Want Access"
-        subline="Same 10 courses in every plan. Pick the timeframe that fits how you learn."
-      />
+      <IndependenceDayOfferSection />
       <InstructorStrip />
       <WhoIsThisFor />
       <Prerequisites />
       <TestimonialSlider
+        id="testimonials"
         items={testimonialsBottom}
         heading="Real Stories. Real Results."
       />

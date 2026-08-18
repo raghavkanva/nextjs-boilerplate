@@ -42,8 +42,6 @@ function CopyableOfferCode() {
 
 const STARTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
 const SEMESTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
-const RESUME_SESSION_URL = "https://courses.etalvis.com/resume-session";
-
 const individualCourses = [
   { number: 1, title: "Electronics Foundation", url: "https://learn.etalvis.com/l/eedf109260" },
   { number: 2, title: "C Programming", url: "https://learn.etalvis.com/l/4b28c4d3e7" },
@@ -61,7 +59,7 @@ export default function Footer() {
     <footer className="border-t border-slate-200 bg-[#0A3D1F]">
       {/* Main columns */}
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -182,7 +180,7 @@ export default function Footer() {
                     <span className="font-display text-base font-black text-white">₹2,047</span>
                     <span className="text-[10px] text-white/30 line-through">₹2,559</span>
                   </div>
-                  <p className="mt-0.5 text-[10px] text-white/40">Includes mock interview + resume help</p>
+                  <p className="mt-0.5 text-[10px] text-white/40">Includes mock interview</p>
                 </a>
               </li>
               <li>
@@ -196,42 +194,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Upcoming Sessions */}
-          <div>
-            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
-              Upcoming Sessions
-            </h3>
-            <p className="mt-0.5 text-[10px] text-white/40">Live online workshops</p>
-            <div className="mt-4">
-              <a
-                href={RESUME_SESSION_URL}
-                className="group block rounded-xl border border-white/10 bg-white/5 px-3.5 py-4 transition hover:border-white/20 hover:bg-white/10"
-              >
-                <span className="inline-flex rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white/80">
-                  Upcoming
-                </span>
-                <p className="mt-2 text-sm font-bold leading-snug text-white">
-                  Resume Preparation for Core Electronics Jobs
-                </p>
-                <p className="mt-1.5 text-[11px] text-white/50">Sunday, August 16, 2026</p>
-                <p className="text-[11px] text-white/50">11 AM to 1 PM IST · ₹80</p>
-                <p className="mt-2 text-[11px] font-semibold text-[#FFC400] group-hover:underline">
-                  Register &rarr;
-                </p>
-              </a>
-            </div>
-            <div className="mt-5">
-              <p className="text-xs text-white/40">More workshops to be announced.</p>
-              <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 block text-xs font-semibold text-white/80 transition hover:text-white"
-              >
-                Follow Balajee Seshadri on LinkedIn &rarr;
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* How to Redeem */}
@@ -242,7 +204,7 @@ export default function Footer() {
                 Independence Day Offer · Valid until August 31, 2026
               </p>
               <p className="mt-1 text-sm font-bold text-white">
-                How to redeem your 80% discount
+                How to redeem your discount
               </p>
               <ol className="mt-2 flex flex-col gap-1 text-[11px] text-white/60 sm:flex-row sm:items-center sm:gap-4">
                 <li className="flex items-center gap-1.5">
@@ -257,7 +219,7 @@ export default function Footer() {
                 <li className="hidden sm:block text-white/20">&#8594;</li>
                 <li className="flex items-center gap-1.5">
                   <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">3</span>
-                  Pay only 80%
+                  Pay the discounted price
                 </li>
               </ol>
             </div>

@@ -36,6 +36,33 @@ function ChevronRight() {
   );
 }
 
+const AVATAR_PALETTE = [
+  { bg: "#78350F", text: "#FFC400" },
+  { bg: "#1E3A5F", text: "#60A5FA" },
+  { bg: "#3B1F63", text: "#C084FC" },
+  { bg: "#064E3B", text: "#34D399" },
+  { bg: "#7C1D1D", text: "#FCA5A5" },
+  { bg: "#1F2937", text: "#F9FAFB" },
+];
+
+function InitialsAvatar({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? "")
+    .join("");
+  const palette = AVATAR_PALETTE[name.charCodeAt(0) % AVATAR_PALETTE.length];
+  return (
+    <div
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-black"
+      style={{ background: palette.bg, color: palette.text }}
+      aria-hidden="true"
+    >
+      {initials}
+    </div>
+  );
+}
+
 function TestimonialCard({ item }: { item: Testimonial }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -50,22 +77,27 @@ function TestimonialCard({ item }: { item: Testimonial }) {
         <meta itemProp="name" content={item.name} />
       </div>
 
-      <div className="flex items-center gap-1.5 mb-0.5">
-        <span
-          className="font-bold text-text text-base"
-          style={{ display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical", overflow: "hidden" }}
-        >
-          {item.name}
-        </span>
-        <IconVerified />
-      </div>
+      <div className="flex items-center gap-2.5 mb-2">
+        <InitialsAvatar name={item.name} />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1">
+            <span
+              className="font-bold text-text text-sm"
+              style={{ display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+            >
+              {item.name}
+            </span>
+            <IconVerified />
+          </div>
 
-      <p
-        className="text-mutedDim text-sm mb-3"
-        style={{ minHeight: "32px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
-      >
-        {item.title}
-      </p>
+          <p
+            className="text-mutedDim text-xs"
+            style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          >
+            {item.title}
+          </p>
+        </div>
+      </div>
 
       <div className="mb-4 flex-1" style={{ minHeight: "80px" }}>
         <p

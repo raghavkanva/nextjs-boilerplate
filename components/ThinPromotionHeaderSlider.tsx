@@ -4,11 +4,13 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  CalendarDays,
   Gift,
 } from "lucide-react";
 
 import { usePromotionSlider } from "./PromotionSliderContext";
+
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
 
 const BG = "bg-[#0A3D1F]";
 const FG = "text-white";
@@ -22,29 +24,14 @@ const promotions = [
   {
     id: "independence-offer",
     text:
-      "India enters its 80th year of Independence! Pay only 80% on all plans.",
-    mobileText: "Pay only 80% on all plans",
+      isIndependenceDay
+        ? "India enters its 80th year of Independence! Get 20% discount on all plans."
+        : "Get 20% discount on all eTalVis plans. Code: INDIA_80TH_INDEPENDENCE_DAY.",
+    mobileText: isIndependenceDay ? "Independence Day — 20% Discount" : "Get 20% discount on all plans",
     extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
     href: "https://courses.etalvis.com/courses",
     cta: "View Offer",
     icon: Gift,
-    background: BG,
-    foreground: FG,
-    hoverBackground: HOVER,
-    iconBackground: ICON_BG,
-    mutedText: MUTED,
-    buttonStyle: BTN,
-    arrowStyle: ARROW,
-  },
-  {
-    id: "resume-session",
-    text:
-      "Upcoming live session: Build an outstanding resume for core electronics jobs.",
-    mobileText: "Core Electronics Resume Workshop",
-    extra: "Sunday August 16 · Join for ₹80",
-    href: "https://courses.etalvis.com/resume-session",
-    cta: "Join Now",
-    icon: CalendarDays,
     background: BG,
     foreground: FG,
     hoverBackground: HOVER,

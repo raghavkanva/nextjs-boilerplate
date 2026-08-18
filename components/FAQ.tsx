@@ -23,7 +23,7 @@ export default function FAQ({
   const data = items ?? courseFaqs;
 
   return (
-    <section className="max-w-3xl mx-auto px-6 py-6 md:py-8">
+    <section id="faq" className="max-w-3xl mx-auto px-6 py-6 md:py-8">
       <h2 className="font-display font-semibold text-2xl md:text-3xl text-text text-center mb-10">
         {heading}
       </h2>

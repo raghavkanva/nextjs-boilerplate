@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const RESUME_SESSION_URL = "https://courses.etalvis.com/resume-session";
 const EMBEDDED_PROGRAM_URL = "https://courses.etalvis.com/courses";
 
 const programStats = [
@@ -16,49 +15,6 @@ export default function PremiumProgramCards() {
   return (
     <section className="relative bg-white py-10 sm:py-14">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 sm:px-6">
-
-        {/* Resume session card */}
-        <a
-          href={RESUME_SESSION_URL}
-          className="group relative flex flex-col overflow-hidden rounded-[24px] border-2 border-[#0A3D1F] shadow-[0_8px_32px_rgba(10,61,31,0.15)] transition hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(10,61,31,0.22)] active:translate-y-0 sm:flex-row"
-        >
-          {/* Left color panel */}
-          <div className="relative flex shrink-0 flex-col justify-center overflow-hidden bg-gradient-to-br from-[#0A3D1F] via-[#145A32] to-[#0A3D1F] px-7 py-8 sm:w-56 sm:py-10">
-            <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-300/20 blur-2xl" />
-            <div aria-hidden="true" className="pointer-events-none absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-amber-400/15 blur-2xl" />
-            <span className="relative inline-flex rounded-full bg-[#FFC400] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0A3D1F]">
-              Live Session
-            </span>
-            <p className="relative mt-4 font-display text-4xl font-black leading-none text-white">₹80</p>
-            <p className="relative mt-1 text-xs font-semibold text-emerald-200/70">per seat · limited capacity</p>
-          </div>
-
-          {/* Right content */}
-          <div className="flex flex-1 flex-col justify-center gap-4 bg-white px-6 py-7">
-            <div>
-              <div className="flex flex-wrap gap-3 text-xs font-semibold text-slate-600">
-                <span className="inline-flex items-center gap-1.5">
-                  <CalendarDays className="h-3.5 w-3.5 text-[#16A34A]" />
-                  Sunday, August 16, 2026
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock3 className="h-3.5 w-3.5 text-[#16A34A]" />
-                  11 AM to 1 PM IST
-                </span>
-              </div>
-              <h2 className="mt-2 font-display text-xl font-black leading-tight text-slate-950 sm:text-2xl">
-                Resume Preparation for Core Electronics Jobs
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                A focused live session on building a resume that works for core electronics roles. Led by Balajee Seshadri. Direct feedback, no generic templates.
-              </p>
-            </div>
-            <span className="inline-flex w-fit items-center gap-2 rounded-xl border-2 border-slate-950 bg-[#FFC400] px-5 py-2.5 text-sm font-black text-slate-950 shadow-[0_3px_0_#0f172a] transition group-hover:-translate-y-0.5 group-hover:bg-amber-300 group-active:translate-y-0.5 group-active:shadow-none">
-              Register for ₹80
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </span>
-          </div>
-        </a>
 
         {/* Embedded systems card */}
         <a

@@ -1,7 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { plans, type Plan } from "@/data/content";
 import { track, metaEvent } from "@/lib/analytics";
+
+const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
+
+const offerPrices: Record<string, { price: number; perDay: number; perDayLabel: string; savings?: string }> = {
+  "EF-01": { price: 511,  perDay: 17, perDayLabel: "≈₹17/day" },
+  "EF-06": { price: 2047, perDay: 11, perDayLabel: "≈₹11/day", savings: "Save ₹1,019 vs buying 6 Starter plans" },
+};
 
 function BookIcon() {
   return (
@@ -117,27 +127,62 @@ function getHighlightIcon(title: string) {
   return <ChatIcon />;
 }
 
-function handlePlanClick(plan: Plan) {
-  const price = plan.price ?? 0;
-  track("plan_enroll_click", {
-    plan_code: plan.code,
-    plan_name: plan.name,
-    price,
-    currency: "INR",
-    page: "embedded-systems",
-  });
-  metaEvent("InitiateCheckout", {
-    content_name: plan.name,
-    content_type: plan.code,
-    value: price,
-    currency: "INR",
-    num_items: 1,
-  });
+function CopyOfferCode() {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(OFFER_CODE).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+  };
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      title="Click to copy"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-[#FFC400]/50 bg-[#FFC400]/12 px-3 py-1.5 font-mono text-xs font-bold text-[#FFC400] transition hover:bg-[#FFC400]/22"
+    >
+      {OFFER_CODE}
+      <span aria-label={copied ? "Copied" : "Copy code"}>
+        {copied ? (
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        ) : (
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="5" y="1" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+            <rect x="2" y="4" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" fill="rgba(255,196,0,0.08)" />
+          </svg>
+        )}
+      </span>
+    </button>
+  );
 }
 
 function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: string }) {
   const isPopular = plan.tag === "Popular";
   const isAcademic = plan.tag === "For Institutions";
+  const offer = offerPrices[plan.code];
+  const displayPrice = offer ? offer.price : plan.price;
+
+  const handleClick = () => {
+    const price = displayPrice ?? 0;
+    track("plan_enroll_click", {
+      plan_code: plan.code,
+      plan_name: plan.name,
+      price,
+      currency: "INR",
+      page: "embedded-systems",
+    });
+    metaEvent("InitiateCheckout", {
+      content_name: plan.name,
+      content_type: plan.code,
+      value: price,
+      currency: "INR",
+      num_items: 1,
+    });
+  };
 
   return (
     <div
@@ -152,25 +197,51 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
       )}
 
       <h3 className="font-display font-bold text-2xl text-text mb-1">{plan.name}</h3>
-      <p className="text-muted text-sm mb-4">{plan.duration}</p>
+      <p className="text-muted text-sm mb-3">{plan.duration}</p>
 
+      {/* Price display */}
       {plan.price !== null ? (
-        <div className="font-display font-extrabold text-3xl text-text mb-6">
-          ₹{plan.price.toLocaleString("en-IN")}
+        <div className="mb-2">
+          {offer ? (
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span className="font-display font-extrabold text-3xl text-text">
+                ₹{offer.price.toLocaleString("en-IN")}
+              </span>
+              <span className="text-lg text-muted line-through">
+                ₹{plan.price.toLocaleString("en-IN")}
+              </span>
+              <span className="ml-1 rounded-full bg-amber/10 px-2 py-0.5 text-[10px] font-bold text-amber">
+                {offer.perDayLabel}
+              </span>
+            </div>
+          ) : (
+            <div className="font-display font-extrabold text-3xl text-text">
+              ₹{plan.price.toLocaleString("en-IN")}
+            </div>
+          )}
+          {offer?.savings && (
+            <p className="mt-1 text-[11px] font-semibold text-amber">{offer.savings}</p>
+          )}
+          {offer && (
+            <p className="mt-1 text-[10px] text-mutedDim">
+              Independence offer · Code:{" "}
+              <span className="font-mono font-bold text-text">{OFFER_CODE}</span>
+            </p>
+          )}
         </div>
       ) : (
-        <div className="font-display font-extrabold text-2xl text-text mb-6">
+        <div className="font-display font-extrabold text-2xl text-text mb-3">
           Custom Pricing
         </div>
       )}
 
       {previousPlanName && (
-        <p className="text-sm font-semibold text-muted mb-3">
+        <p className="text-sm font-semibold text-muted mb-3 mt-2">
           All of {previousPlanName}, and:
         </p>
       )}
 
-      <ul className="space-y-3 mb-6">
+      <ul className="space-y-3 mb-6 mt-3">
         {plan.features.map((feature, i) => (
           <li key={i} className="flex items-start gap-2 text-sm text-muted">
             {getFeatureIcon(feature)}
@@ -198,14 +269,14 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
               href={plan.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handlePlanClick(plan)}
+              onClick={handleClick}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
             >
               <WhatsAppIcon /> Contact on WhatsApp
             </a>
             <a
               href={plan.emailUrl}
-              onClick={() => handlePlanClick(plan)}
+              onClick={handleClick}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-text border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
             >
               <EmailIcon /> Email Us
@@ -214,10 +285,10 @@ function PlanCard({ plan, previousPlanName }: { plan: Plan; previousPlanName?: s
         ) : plan.checkoutUrl ? (
           <a
             href={plan.checkoutUrl}
-            onClick={() => handlePlanClick(plan)}
+            onClick={handleClick}
             className="inline-block text-center px-6 py-3 rounded-full bg-cta text-black border-2 border-text font-display font-bold hover:bg-text hover:text-white transition-colors"
           >
-            Enroll, {plan.name}
+            Enroll{offer ? ` — ₹${offer.price.toLocaleString("en-IN")}` : `, ${plan.name}`}
           </a>
         ) : null}
       </div>
@@ -233,14 +304,55 @@ type PlansGridProps = {
 
 export default function PlansGrid({ id, heading, subline }: PlansGridProps) {
   return (
-    <section id={id} className="max-w-6xl mx-auto px-6 py-10 md:py-12">
-      <h2 className="font-display font-bold text-3xl md:text-4xl text-text text-center mb-2">
-        {heading}
-      </h2>
-      {subline && (
-        <p className="text-muted text-center mb-10">{subline}</p>
-      )}
+    <section id={id} className="max-w-6xl mx-auto px-4 py-10 md:py-12 sm:px-6">
 
+      {/* Independence Day Offer banner */}
+      <div className="mb-8 overflow-hidden rounded-2xl bg-[#0A3D1F]">
+        <div className="relative px-6 py-6 sm:px-8 sm:py-7">
+          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-emerald-400/15 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
+          <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFC400]/30 bg-[#FFC400]/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
+                {isIndependenceDay && <span>🇮🇳</span>}
+                {isIndependenceDay ? "Independence Day Offer" : "20% Discount Offer"}
+              </div>
+              <h2 className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+                {heading}
+              </h2>
+              {subline && (
+                <p className="mt-1 text-sm text-white/60">{subline}</p>
+              )}
+              <p className="mt-1 text-xs text-white/40">Valid until August 31, 2026 · Apply code at checkout</p>
+            </div>
+            <div className="flex flex-col items-start gap-1 sm:items-end sm:shrink-0">
+              <p className="text-[10px] text-white/35">Click to copy your code</p>
+              <CopyOfferCode />
+            </div>
+          </div>
+        </div>
+
+        {/* How to redeem */}
+        <div className="border-t border-white/10 px-6 py-4 sm:px-8">
+          <ol className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+            {["Select a plan below", "Enter code at checkout", "Pay 20% less"].map((step, i) => (
+              <li key={step} className="flex items-center gap-2">
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[9px] font-black text-[#0A3D1F]">
+                  {i + 1}
+                </span>
+                <span className="text-xs text-white/60">{step}</span>
+                {i < 2 && (
+                  <svg className="hidden shrink-0 sm:block" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {/* Plan cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {plans.map((plan, i) => (
           <PlanCard

@@ -4,28 +4,22 @@ import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePromotionSlider } from "./PromotionSliderContext";
 
+const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
+const isIndependenceDay = typeof window !== "undefined"
+  ? Date.now() <= INDEPENDENCE_END_MS
+  : true;
+
 const slides = [
   {
     id: "independence-offer",
-    eyebrow: "80th Independence Year Offer",
-    title: "Pay Only 80% on All Plans",
+    eyebrow: isIndependenceDay ? "80th Independence Year Offer" : "20% Discount Offer",
+    title: "Get 20% Discount on All Plans",
     detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
     note: "Valid until August 31, 2026",
     href: "https://courses.etalvis.com/courses",
     cta: "Explore Plans",
-    badge: "80%",
+    badge: "20%",
     badgeSub: "OFF",
-  },
-  {
-    id: "resume-session",
-    eyebrow: "Upcoming Live Session",
-    title: "Build a Resume for Core Electronics Jobs",
-    detail: "Sunday, August 16, 2026 · 11 AM to 1 PM IST",
-    note: "Workshop fee: ₹80 · Led by Balajee Seshadri",
-    href: "https://courses.etalvis.com/workshop",
-    cta: "Join Workshop",
-    badge: "₹80",
-    badgeSub: "SEAT",
   },
   {
     id: "embedded-systems",
@@ -116,7 +110,7 @@ export default function PromoBannerSlider() {
 
                   {/* Text */}
                   <div className="min-w-0 flex-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/15 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.10em] text-white sm:text-[11px]">
+                    <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.10em] text-white/70 sm:text-[11px]">
                       {slide.eyebrow}
                     </div>
 
