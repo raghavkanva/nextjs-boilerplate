@@ -10,8 +10,8 @@ import {
   useState,
 } from "react";
 
-export const PROMOTION_COUNT = 3;
-export const SLIDE_DURATION_MS = 5000;
+export const PROMOTION_COUNT = 2;
+export const SLIDE_DURATION_MS = 6000;
 
 type PromotionSliderContextValue = {
   activePromotion: number;
