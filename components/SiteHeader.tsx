@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 
 import NavBar from "@/components/NavBar";
-import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
 
 const HIDDEN_HEADER_ROUTES = ["/resume-session", "/embedded-starter-pack"];
 
@@ -18,12 +17,5 @@ export default function SiteHeader() {
     return null;
   }
 
-  const isHomepage = pathname === "/";
-
-  return (
-    <>
-      {isHomepage && <ThinPromotionHeaderSlider />}
-      <NavBar />
-    </>
-  );
+  return <NavBar />;
 }

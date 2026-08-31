@@ -126,6 +126,7 @@ export default function Footer() {
             <a href="https://etalvis.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">eTalVis Main Website</a>
             <a href="/" className="transition hover:text-white">Home</a>
             <a href="/courses" className="transition hover:text-white">Courses</a>
+            <a href="/embedded-starter-pack" className="transition hover:text-white">Embedded Starter Pack</a>
             <a href="/embedded-systems#plans" className="transition hover:text-white">Plans</a>
             <a href="/individual-courses" className="transition hover:text-white">Individual Courses</a>
             <a href="/workshop" className="transition hover:text-white">Workshops</a>

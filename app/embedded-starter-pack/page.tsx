@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronDown, ExternalLink } from "lucide-react";
+import Footer from "@/components/Footer";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -30,8 +31,8 @@ const C_SECTIONS = [
 
 const FAQ_ITEMS = [
   {
-    q: "Who is the Embedded Starter Pack for?",
-    a: "The pack is designed for Electronics Engineering students and beginners who are interested in entering the Embedded Systems field and want to strengthen their Electronics and C Programming foundations first.",
+    q: "Who is this pack for?",
+    a: "The pack is designed for Electronics Engineering students and beginners who are interested in the Embedded Systems field and want to strengthen their Electronics and C Programming foundations first.",
   },
   {
     q: "What courses are included?",
@@ -39,78 +40,79 @@ const FAQ_ITEMS = [
   },
   {
     q: "How long can I access the courses?",
-    a: "The Embedded Starter Pack is valid for 2 months from purchase.",
+    a: "The pack is valid for 2 months from the date of purchase.",
   },
   {
     q: "Where can I watch the courses?",
-    a: "After purchasing the pack, visit learn.etalvis.com or use the eTalVis Android or iOS app.",
+    a: "After purchasing, visit learn.etalvis.com or use the eTalVis Android or iOS app.",
   },
   {
-    q: "Do I need Embedded Systems knowledge before joining?",
-    a: "No. This pack is intended as a starting point for students who are interested in Embedded Systems.",
+    q: "Do I need prior knowledge before joining?",
+    a: "No. This pack is intended as a starting point for students who are interested in the field and want to build their foundations first.",
   },
   {
     q: "Why are Electronics and C Programming included together?",
-    a: "Embedded Systems combines hardware understanding with programming. Electronics builds the hardware foundation, while C Programming builds the programming and logic foundation.",
+    a: "Working with hardware requires an understanding of Electronics. Writing software for it requires C Programming. These are the two starting foundations.",
   },
   {
-    q: "Does this pack contain the full Embedded Systems Foundation Course?",
-    a: "No. This Starter Pack contains two foundation courses: Electronics Foundation and C Programming Foundation. It is designed as an entry point before moving deeper into Embedded Systems learning.",
+    q: "Does this pack include the full Foundation Course?",
+    a: "No. This pack contains two foundation courses: Electronics Foundation and C Programming Foundation. It is designed as an entry point.",
   },
   {
-    q: "What should I do after completing these courses?",
-    a: "After strengthening these two foundations, you can continue into deeper Embedded Systems topics and the broader eTalVis Embedded Systems learning pathway.",
+    q: "What comes after completing these courses?",
+    a: "After strengthening these two foundations, you can continue into deeper topics through the eTalVis learning pathway.",
   },
 ];
 
 // ─── Design helpers ──────────────────────────────────────────────────────────
 
 const LABEL =
-  "font-mono text-[11px] uppercase tracking-[0.14em] text-[#22C55E] font-medium";
+  "font-mono text-[13px] uppercase tracking-[0.1em] text-[#64748B] font-medium";
 
-// ─── SVG 1: Noise → Clarity ──────────────────────────────────────────────────
+// ─── SVG: Noise → Clarity (mobile-friendly) ──────────────────────────────────
 
 function NoiseToClarityDiagram() {
   return (
     <svg
-      viewBox="0 0 700 320"
+      viewBox="0 0 420 260"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full max-w-2xl mx-auto"
-      aria-label="Diagram showing how advanced Embedded Systems topics converge into two foundations: Electronics and C Programming"
+      className="w-full max-w-xl mx-auto"
+      aria-label="Diagram showing how advanced topics converge into two foundations: Electronics and C Programming"
       role="img"
     >
-      {/* Muted upper nodes */}
+      {/* Top label */}
+      <text x={210} y={18} textAnchor="middle" fill="#9CA3AF" fontSize={10} fontFamily="monospace" letterSpacing={1} fontWeight={500}>
+        LATER TOPICS
+      </text>
+
+      {/* Upper nodes - condensed */}
       {[
-        { x: 80, y: 30, label: "ARM" },
-        { x: 200, y: 18, label: "RTOS" },
-        { x: 330, y: 30, label: "GPIO" },
-        { x: 450, y: 18, label: "PROTOCOLS" },
-        { x: 580, y: 30, label: "MCU" },
-        { x: 130, y: 75, label: "TIMERS" },
-        { x: 265, y: 68, label: "PROJECTS" },
-        { x: 400, y: 75, label: "NETWORKING" },
-        { x: 530, y: 68, label: "INTERFACES" },
-      ].map(({ x, y, label }) => (
+        { x: 55, label: "ARM" },
+        { x: 130, label: "RTOS" },
+        { x: 210, label: "GPIO" },
+        { x: 290, label: "PROTOCOLS" },
+        { x: 365, label: "MCU" },
+      ].map(({ x, label }) => (
         <g key={label}>
           <rect
-            x={x - 38}
-            y={y - 12}
-            width={label.length * 7 + 8}
-            height={24}
-            rx={6}
+            x={x - 30}
+            y={26}
+            width={label.length * 7 + 4}
+            height={22}
+            rx={5}
             fill="#F4F7F5"
             stroke="#E5E7EB"
             strokeWidth={1}
           />
           <text
-            x={x + (label.length * 7 + 8) / 2 - 38}
-            y={y + 5}
+            x={x + (label.length * 7 + 4) / 2 - 30}
+            y={41}
             textAnchor="middle"
             fill="#9CA3AF"
             fontSize={9}
             fontFamily="monospace"
-            letterSpacing={1}
+            letterSpacing={0.8}
             fontWeight={500}
           >
             {label}
@@ -118,99 +120,49 @@ function NoiseToClarityDiagram() {
         </g>
       ))}
 
-      {/* Converging lines from top nodes to two anchor points */}
-      {[80, 200, 330, 450, 580, 130, 265, 400, 530].map((x, i) => {
-        const srcY = i < 5 ? 42 : 80;
-        const destX = i < 4 || i === 5 || i === 6 ? 220 : 480;
-        return (
-          <line
-            key={i}
-            x1={x + 10}
-            y1={srcY}
-            x2={destX}
-            y2={210}
-            stroke="#E5E7EB"
-            strokeWidth={1}
-            strokeLinecap="round"
-          />
-        );
-      })}
+      {/* Converging lines */}
+      {[55, 130, 210].map((x) => (
+        <line key={x} x1={x + 5} y1={48} x2={140} y2={150} stroke="#E5E7EB" strokeWidth={1} strokeLinecap="round" />
+      ))}
+      {[210, 290, 365].map((x) => (
+        <line key={x} x1={x + 5} y1={48} x2={280} y2={150} stroke="#E5E7EB" strokeWidth={1} strokeLinecap="round" />
+      ))}
 
-      {/* Active convergence lines to foundation nodes */}
-      <line x1={220} y1={210} x2={220} y2={238} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
-      <line x1={480} y1={210} x2={480} y2={238} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
+      {/* Active convergence lines */}
+      <line x1={140} y1={150} x2={140} y2={170} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
+      <line x1={280} y1={150} x2={280} y2={170} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
 
       {/* Foundation nodes */}
-      {/* Electronics */}
-      <rect x={140} y={238} width={160} height={40} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
-      <text x={220} y={263} textAnchor="middle" fill="#15803D" fontSize={11} fontFamily="monospace" letterSpacing={1} fontWeight={700}>
+      <rect x={60} y={170} width={160} height={44} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
+      <text x={140} y={189} textAnchor="middle" fill="#15803D" fontSize={11} fontFamily="monospace" letterSpacing={0.8} fontWeight={700}>
         ELECTRONICS
       </text>
+      <text x={140} y={205} textAnchor="middle" fill="#15803D" fontSize={9} fontFamily="monospace" letterSpacing={0.6} fontWeight={500}>
+        FOUNDATION
+      </text>
 
-      {/* C Programming */}
-      <rect x={400} y={238} width={160} height={40} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
-      <text x={480} y={263} textAnchor="middle" fill="#15803D" fontSize={11} fontFamily="monospace" letterSpacing={1} fontWeight={700}>
+      <rect x={200} y={170} width={160} height={44} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
+      <text x={280} y={189} textAnchor="middle" fill="#15803D" fontSize={11} fontFamily="monospace" letterSpacing={0.8} fontWeight={700}>
         C PROGRAMMING
       </text>
+      <text x={280} y={205} textAnchor="middle" fill="#15803D" fontSize={9} fontFamily="monospace" letterSpacing={0.6} fontWeight={500}>
+        FOUNDATION
+      </text>
 
-      {/* Lines to Embedded Systems node */}
-      <line x1={220} y1={278} x2={350} y2={300} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
-      <line x1={480} y1={278} x2={350} y2={300} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
+      {/* Lines to bottom node */}
+      <line x1={140} y1={214} x2={210} y2={240} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
+      <line x1={280} y1={214} x2={210} y2={240} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
 
-      {/* Embedded Systems Journey node */}
-      <rect x={245} y={300} width={210} height={16} rx={8} fill="#22C55E" />
-      <text x={350} y={312} textAnchor="middle" fill="white" fontSize={9} fontFamily="monospace" letterSpacing={1} fontWeight={700}>
-        EMBEDDED SYSTEMS JOURNEY
+      {/* Bottom node */}
+      <rect x={120} y={240} width={180} height={16} rx={8} fill="#22C55E" />
+      <text x={210} y={252} textAnchor="middle" fill="white" fontSize={9} fontFamily="monospace" letterSpacing={0.8} fontWeight={700}>
+        YOUR JOURNEY BEGINS HERE
       </text>
     </svg>
   );
 }
 
-// ─── SVG 2: Hardware + Software Merge ────────────────────────────────────────
-
-function HardwareSoftwareMerge() {
-  return (
-    <svg
-      viewBox="0 0 560 180"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full max-w-xl mx-auto"
-      aria-label="Electronics and C Programming converging toward a foundation for Embedded Systems"
-      role="img"
-    >
-      {/* Electronics block */}
-      <rect x={20} y={30} width={180} height={80} rx={12} fill="#F4F7F5" stroke="#22C55E" strokeWidth={1.5} />
-      {/* Circuit icon lines */}
-      <line x1={50} y1={70} x2={70} y2={70} stroke="#22C55E" strokeWidth={1.5} strokeLinecap="round" />
-      <circle cx={80} cy={70} r={8} stroke="#22C55E" strokeWidth={1.5} fill="none" />
-      <line x1={88} y1={70} x2={108} y2={70} stroke="#22C55E" strokeWidth={1.5} strokeLinecap="round" />
-      <line x1={80} y1={62} x2={80} y2={50} stroke="#E5E7EB" strokeWidth={1} strokeLinecap="round" />
-      <line x1={80} y1={78} x2={80} y2={90} stroke="#E5E7EB" strokeWidth={1} strokeLinecap="round" />
-      <text x={110} y={56} fill="#111827" fontSize={10} fontFamily="monospace" letterSpacing={0.5} fontWeight={600}>ELECTRONICS</text>
-      <text x={38} y={100} fill="#6B7280" fontSize={8} fontFamily="monospace" letterSpacing={0.5}>HARDWARE UNDERSTANDING</text>
-
-      {/* C Programming block */}
-      <rect x={360} y={30} width={180} height={80} rx={12} fill="#F4F7F5" stroke="#22C55E" strokeWidth={1.5} />
-      {/* Code icon */}
-      <text x={375} y={62} fill="#22C55E" fontSize={14} fontFamily="monospace" fontWeight={700}>{"{"}</text>
-      <text x={388} y={62} fill="#6B7280" fontSize={9} fontFamily="monospace">int x = 0;</text>
-      <text x={375} y={76} fill="#6B7280" fontSize={9} fontFamily="monospace">  *ptr = &x;</text>
-      <text x={375} y={90} fill="#22C55E" fontSize={14} fontFamily="monospace" fontWeight={700}>{"}"}</text>
-      <text x={375} y={104} fill="#6B7280" fontSize={8} fontFamily="monospace" letterSpacing={0.5}>PROGRAMMING LOGIC</text>
-
-      {/* Converging arrows */}
-      <line x1={200} y1={70} x2={248} y2={110} stroke="#22C55E" strokeWidth={1.5} strokeLinecap="round" />
-      <line x1={360} y1={70} x2={312} y2={110} stroke="#22C55E" strokeWidth={1.5} strokeLinecap="round" />
-
-      {/* Foundation node */}
-      <rect x={200} y={115} width={160} height={38} rx={10} fill="#22C55E" />
-      <text x={280} y={130} textAnchor="middle" fill="white" fontSize={9} fontFamily="monospace" letterSpacing={0.8} fontWeight={700}>FOUNDATION FOR</text>
-      <text x={280} y={144} textAnchor="middle" fill="white" fontSize={9} fontFamily="monospace" letterSpacing={0.8} fontWeight={700}>EMBEDDED SYSTEMS</text>
-    </svg>
-  );
-}
-
-// ─── SVG 3: Learning Path ─────────────────────────────────────────────────────
+// ─── SVG: Learning Path ───────────────────────────────────────────────────────
 
 function StarterLearningPath() {
   return (
@@ -219,35 +171,28 @@ function StarterLearningPath() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full"
-      aria-label="Learning path: Step 1 Electronics, Step 2 C Programming, then future Embedded Systems stages"
+      aria-label="Learning path: Step 1 Electronics, Step 2 C Programming, then future stages"
       role="img"
     >
-      {/* Included label */}
       <text x={10} y={14} fill="#22C55E" fontSize={8} fontFamily="monospace" letterSpacing={1} fontWeight={700}>INCLUDED IN STARTER PACK</text>
 
-      {/* Step 01 - active */}
       <rect x={10} y={22} width={140} height={64} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
       <text x={24} y={42} fill="#22C55E" fontSize={9} fontFamily="monospace" letterSpacing={1} fontWeight={700}>STEP_01</text>
       <text x={24} y={58} fill="#111827" fontSize={11} fontFamily="sans-serif" fontWeight={700}>Electronics</text>
       <text x={24} y={73} fill="#4B5563" fontSize={9} fontFamily="monospace">Foundation</text>
 
-      {/* Arrow */}
       <line x1={150} y1={54} x2={168} y2={54} stroke="#22C55E" strokeWidth={2} strokeLinecap="round" />
       <polyline points="164,49 169,54 164,59" stroke="#22C55E" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
-      {/* Step 02 - active */}
       <rect x={170} y={22} width={140} height={64} rx={10} fill="#ECFDF3" stroke="#22C55E" strokeWidth={2} />
       <text x={184} y={42} fill="#22C55E" fontSize={9} fontFamily="monospace" letterSpacing={1} fontWeight={700}>STEP_02</text>
       <text x={184} y={58} fill="#111827" fontSize={11} fontFamily="sans-serif" fontWeight={700}>C Programming</text>
       <text x={184} y={73} fill="#4B5563" fontSize={9} fontFamily="monospace">Foundation</text>
 
-      {/* Dashed separator */}
       <line x1={312} y1={54} x2={340} y2={54} stroke="#D1D5DB" strokeWidth={1.5} strokeLinecap="round" strokeDasharray="4 3" />
 
-      {/* Future label */}
       <text x={344} y={14} fill="#9CA3AF" fontSize={8} fontFamily="monospace" letterSpacing={1} fontWeight={600}>YOUR NEXT LEARNING STAGES</text>
 
-      {/* Future nodes - muted */}
       {[
         { x: 344, label1: "Embedded", label2: "Hardware" },
         { x: 464, label1: "Protocols", label2: "+ GPIO" },
@@ -275,24 +220,21 @@ function MiniNav() {
       aria-label="Page navigation"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Logo */}
         <a href="/" aria-label="eTalVis home" className="flex items-center gap-2">
           <Image
-            src="/images/etalvis-logo.png"
+            src="/images/icon.png"
             alt="eTalVis"
-            width={96}
-            height={28}
-            className="h-7 w-auto"
+            width={36}
+            height={36}
+            className="h-8 w-auto"
             priority
           />
         </a>
 
-        {/* Center label (hidden on mobile) */}
         <span className="hidden sm:block font-mono text-[11px] uppercase tracking-[0.12em] text-[#6B7280]">
           Embedded Starter Pack
         </span>
 
-        {/* Right: price + CTA */}
         <div className="flex items-center gap-3">
           <span className="hidden sm:block font-mono text-sm text-[#111827] font-medium">
             ₹239 · 2 Months
@@ -324,19 +266,22 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
 
         {/* LEFT: content */}
         <div className="flex-1 min-w-0 lg:max-w-[58%]">
-          {/* Eyebrow */}
-          <div className={`${LABEL} mb-4`}>
+          {/* Product title — Sora, prominent */}
+          <p
+            className="font-display font-semibold mb-4"
+            style={{ fontSize: "clamp(20px, 2.5vw, 24px)", color: "#15803D" }}
+          >
             eTalVis Embedded Starter Pack
-          </div>
+          </p>
 
           {/* H1 */}
           <h1 className="font-display font-extrabold text-[36px] leading-[1.1] tracking-[-0.02em] text-[#111827] sm:text-[48px] lg:text-[58px] lg:leading-[1.05]">
-            Every Electronics Engineering Student's First Step Starts Here.
+            Every Electronics Engineering Student&apos;s First Step Starts Here.
           </h1>
 
           {/* Supporting copy */}
           <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] sm:text-[18px] max-w-xl">
-            If Embedded Systems is the field you want to explore, begin by
+            If the Embedded Systems field is where you are headed, begin by
             strengthening the two foundations that come first: Electronics and
             C Programming.
           </p>
@@ -347,7 +292,12 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
               <span className="font-mono text-[10px] font-bold text-[#22C55E] mt-0.5 shrink-0">01</span>
               <div>
                 <div className="font-display font-semibold text-[15px] text-[#111827]">Electronics Foundation Course</div>
-                <div className="font-mono text-[10px] text-[#6B7280] mt-0.5">Hardware understanding</div>
+                <div
+                  className="font-display font-semibold mt-0.5"
+                  style={{ fontSize: "12px", color: "#64748B" }}
+                >
+                  Hardware understanding
+                </div>
               </div>
             </div>
 
@@ -359,17 +309,19 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
               <span className="font-mono text-[10px] font-bold text-[#22C55E] mt-0.5 shrink-0">02</span>
               <div>
                 <div className="font-display font-semibold text-[15px] text-[#111827]">C Programming Foundation Course</div>
-                <div className="font-mono text-[10px] text-[#6B7280] mt-0.5">Programming logic</div>
+                <div
+                  className="font-display font-semibold mt-0.5"
+                  style={{ fontSize: "12px", color: "#64748B" }}
+                >
+                  Programming logic
+                </div>
               </div>
             </div>
           </div>
 
           {/* Price + validity */}
           <div className="mt-7 flex flex-wrap items-center gap-4">
-            <div className="flex items-baseline gap-2">
-              <span className="font-display text-[38px] font-extrabold text-[#111827] leading-none">₹239</span>
-              <span className="font-mono text-[12px] text-[#6B7280]">one time</span>
-            </div>
+            <span className="font-display text-[38px] font-extrabold text-[#111827] leading-none">₹239</span>
             <div className="rounded-full border border-[#E5E7EB] bg-white px-3 py-1.5">
               <span className="font-mono text-[11px] text-[#4B5563] font-medium">2 Months Access</span>
             </div>
@@ -387,16 +339,15 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
             </a>
           </div>
 
-          {/* Microcopy */}
-          <p className="mt-3 font-mono text-[11px] text-[#9CA3AF]">
-            Access via learn.etalvis.com · eTalVis Android &amp; iOS apps after purchase
+          {/* Audience microcopy — no platform links */}
+          <p className="mt-3 text-[13px] text-[#9CA3AF]">
+            For ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches.
           </p>
         </div>
 
         {/* RIGHT: Balajee photo */}
         <div className="flex flex-col items-center lg:items-start lg:max-w-[42%] shrink-0">
           <div className="relative">
-            {/* Subtle green background glow */}
             <div
               aria-hidden="true"
               className="absolute -inset-6 rounded-2xl bg-[#ECFDF3]"
@@ -413,19 +364,23 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
             </div>
           </div>
 
-          {/* Attribution */}
+          {/* Caption — grouped immediately below photo */}
           <div className="mt-4 text-center lg:text-left">
             <div className="font-display font-bold text-[17px] text-[#111827]">
               Balajee Seshadri
             </div>
-            <div className="font-mono text-[11px] text-[#22C55E] mt-0.5 uppercase tracking-[0.1em]">
+            <div
+              className="font-mono font-medium mt-0.5 uppercase tracking-[0.1em]"
+              style={{ fontSize: "12px", color: "#64748B" }}
+            >
               40+ Years in Electronics
             </div>
             <div className="mt-1 text-[13px] text-[#6B7280]">
-              Your guide to building the fundamentals first.
+              Guiding students to build the fundamentals first.
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -434,47 +389,22 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
 // ─── Section: You Don't Need Everything ──────────────────────────────────────
 
 function NoiseToClaritySection() {
-  const advancedTerms = [
-    "ARM", "RTOS", "GPIO", "Microcontrollers", "Protocols",
-    "Timers", "Interfacing", "Embedded Linux", "Networking", "Projects",
-  ];
-
   return (
     <section className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className={`${LABEL} mb-4 text-center`}>The First Decision</div>
 
-        <h2 className="font-display font-extrabold text-[30px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[38px] lg:text-[44px]">
+        <h2 className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827] text-center"
+          style={{ fontSize: "clamp(30px, 4vw, 40px)" }}>
           You Don&apos;t Need to Start With Everything.
         </h2>
 
         <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-          When students first look at Embedded Systems, they see dozens of
-          topics at once.
-        </p>
-
-        {/* Floating technical term tags */}
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
-          {advancedTerms.map((term) => (
-            <span
-              key={term}
-              className="font-mono text-[11px] px-3 py-1.5 rounded-full bg-[#F4F7F5] border border-[#E5E7EB] text-[#9CA3AF] tracking-wide"
-            >
-              {term}
-            </span>
-          ))}
-        </div>
-
-        <p className="mt-8 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-          But that does not mean you should learn everything first.
-        </p>
-
-        <p className="mt-2 text-[19px] font-display font-bold text-[#111827] text-center">
-          Start with the foundation.
+          Start with the foundations that make the later technical concepts easier to understand.
         </p>
 
         {/* Foundation highlight */}
-        <div className="mt-6 flex items-center justify-center gap-4">
+        <div className="mt-8 flex items-center justify-center gap-4">
           <div className="font-display font-bold text-[16px] text-[#111827] px-5 py-3 rounded-xl bg-[#ECFDF3] border border-[#22C55E]">
             Electronics
           </div>
@@ -485,7 +415,7 @@ function NoiseToClaritySection() {
         </div>
 
         {/* SVG diagram */}
-        <div className="mt-12">
+        <div className="mt-12 overflow-x-auto">
           <NoiseToClarityDiagram />
         </div>
       </div>
@@ -500,32 +430,31 @@ function WhyTheseTwoSection() {
     <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
       <div className={`${LABEL} mb-4 text-center`}>Foundation_01 + Foundation_02</div>
 
-      <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px] lg:text-[42px]">
+      <h2 className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827] text-center"
+        style={{ fontSize: "clamp(26px, 3.5vw, 40px)" }}>
         Why Electronics and C Programming?
       </h2>
 
       <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-        Embedded Systems brings hardware and software together. To understand
-        the hardware side, you need Electronics fundamentals. To express logic
-        and work with software, you need C Programming fundamentals.
-      </p>
-
-      <p className="mt-2 text-[15px] text-[#6B7280] text-center">
-        That is why the Starter Pack begins with both.
+        Working with hardware requires an understanding of Electronics. Writing
+        software for it requires C Programming. These are the two starting
+        foundations — that is why the pack begins with both.
       </p>
 
       {/* Two-column editorial */}
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {/* Electronics */}
         <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
-          <div className="font-mono text-[10px] text-[#22C55E] uppercase tracking-[0.14em] font-bold mb-3">
-            01
-          </div>
-          <h3 className="font-display font-bold text-[20px] text-[#111827] mb-2">
+          <div className="font-mono text-[10px] text-[#22C55E] uppercase tracking-[0.14em] font-bold mb-3">01</div>
+          <h3 className="font-display font-bold text-[#111827] mb-2"
+            style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
             Electronics Foundation
           </h3>
+          <p className="font-display font-semibold text-[18px] text-[#22C55E] mb-3">
+            Hardware Understanding
+          </p>
           <p className="text-[14px] text-[#4B5563] leading-relaxed mb-5">
-            Understand what happens in the hardware.
+            Understand what happens in the hardware before writing code for it.
           </p>
           <div className="w-10 h-px bg-[#E5E7EB] mb-5" />
           <ul className="space-y-2">
@@ -540,14 +469,16 @@ function WhyTheseTwoSection() {
 
         {/* C Programming */}
         <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
-          <div className="font-mono text-[10px] text-[#22C55E] uppercase tracking-[0.14em] font-bold mb-3">
-            02
-          </div>
-          <h3 className="font-display font-bold text-[20px] text-[#111827] mb-2">
+          <div className="font-mono text-[10px] text-[#22C55E] uppercase tracking-[0.14em] font-bold mb-3">02</div>
+          <h3 className="font-display font-bold text-[#111827] mb-2"
+            style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
             C Programming Foundation
           </h3>
+          <p className="font-display font-semibold text-[18px] text-[#22C55E] mb-3">
+            Programming Logic
+          </p>
           <p className="text-[14px] text-[#4B5563] leading-relaxed mb-5">
-            Build programming logic from the fundamentals.
+            Build programming logic from the fundamentals up.
           </p>
           <div className="w-10 h-px bg-[#E5E7EB] mb-5" />
           <ul className="space-y-2">
@@ -558,15 +489,22 @@ function WhyTheseTwoSection() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 font-mono text-[11px] text-[#22C55E]">
-            200+ problems to solve
+          {/* Editorial stat */}
+          <div className="mt-6 flex items-baseline gap-2">
+            <span
+              className="font-display font-extrabold text-[#111827] leading-none"
+              style={{ fontSize: "clamp(32px, 4vw, 40px)" }}
+            >
+              200+
+            </span>
+            <span
+              className="font-display font-semibold text-[#4B5563]"
+              style={{ fontSize: "clamp(16px, 2vw, 20px)" }}
+            >
+              Problems to Solve
+            </span>
           </div>
         </div>
-      </div>
-
-      {/* SVG merge diagram */}
-      <div className="mt-12">
-        <HardwareSoftwareMerge />
       </div>
     </section>
   );
@@ -581,7 +519,7 @@ function InsideThePackSection() {
     <section className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
-          Inside the Embedded Starter Pack
+          Inside the Starter Pack
         </h2>
         <p className="mt-3 text-[16px] text-[#6B7280] text-center">
           Two foundation courses. One clear starting point.
@@ -601,7 +539,7 @@ function InsideThePackSection() {
                     Electronics Foundation Course
                   </h3>
                   <p className="mt-1 text-[14px] text-[#4B5563] leading-relaxed">
-                    Build the basic Electronics knowledge needed before moving deeper into Embedded Systems.
+                    Build the Electronics knowledge needed before moving deeper into the field.
                   </p>
                 </div>
               </div>
@@ -646,9 +584,9 @@ function InsideThePackSection() {
                     C Programming Foundation Course
                   </h3>
                   <p className="mt-1 text-[14px] text-[#4B5563] leading-relaxed">
-                    Build programming logic and strengthen the C concepts used throughout Embedded Systems learning.
+                    Build programming logic and strengthen the C concepts used throughout the learning path.
                   </p>
-                  <span className="mt-2 inline-block font-mono text-[10px] text-[#22C55E]">
+                  <span className="mt-2 inline-block font-mono text-[11px] text-[#64748B]">
                     200+ problems to solve
                   </span>
                 </div>
@@ -694,22 +632,16 @@ function LearningPathSection() {
       <div className={`${LABEL} mb-4 text-center`}>Your_Path</div>
 
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
-        Your Embedded Systems Journey Does Not Have to Start With Everything.
+        You Only Need to Know What Comes First.
       </h2>
 
       <p className="mt-4 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-        You only need to know what comes first.
+        The pack is designed to help you complete the first two foundation steps before moving further.
       </p>
 
-      {/* Path SVG */}
       <div className="mt-10 overflow-x-auto">
         <StarterLearningPath />
       </div>
-
-      <p className="mt-8 text-[15px] text-[#6B7280] text-center max-w-2xl mx-auto leading-relaxed">
-        The Embedded Starter Pack is designed to help you complete the first
-        two foundation steps before moving further.
-      </p>
     </section>
   );
 }
@@ -724,7 +656,10 @@ function WhyStartHereSection() {
           {/* Text */}
           <div className="flex-1 min-w-0">
             <div className={`${LABEL} mb-4`}>Why Start Here?</div>
-            <h2 className="font-display font-extrabold text-[26px] leading-tight tracking-[-0.02em] text-[#111827] sm:text-[32px]">
+            <h2
+              className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827]"
+              style={{ fontSize: "clamp(30px, 4vw, 42px)" }}
+            >
               Why Start With The Fundamentals?
             </h2>
 
@@ -738,21 +673,22 @@ function WhyStartHereSection() {
                 weak, the later topics become harder to understand.
               </p>
               <p>
-                That is why this Starter Pack begins with the basics first.
+                That is why this pack begins with the basics first.
               </p>
             </div>
 
-            {/* Attribution */}
             <div className="mt-8 border-l-2 border-[#22C55E] pl-5">
               <div className="font-display font-bold text-[16px] text-[#111827]">
                 Balajee Seshadri
               </div>
-              <div className="font-mono text-[11px] text-[#22C55E] mt-0.5 uppercase tracking-[0.1em]">
+              <div
+                className="font-mono font-medium mt-0.5 uppercase tracking-[0.1em]"
+                style={{ fontSize: "12px", color: "#64748B" }}
+              >
                 40+ Years in Electronics
               </div>
             </div>
 
-            {/* LinkedIn link */}
             <a
               href={LINKEDIN_URL}
               target="_blank"
@@ -785,26 +721,30 @@ function WhyStartHereSection() {
 
 function WhoIsThisForSection() {
   const items = [
-    "You are studying Electronics Engineering, ECE, EEE or a related discipline.",
-    "You are interested in Embedded Systems.",
+    "You are studying Electronics Engineering, ECE, EEE, EIE or a related branch.",
+    "You are interested in working in the Embedded Systems field.",
     "You are not sure where to begin.",
     "You want to strengthen your Electronics basics.",
-    "You want to strengthen your C Programming fundamentals.",
+    "You want to understand C Programming from the ground up.",
     "You prefer understanding the fundamentals before moving into advanced topics.",
+    "You have tried to start with microcontrollers or projects and found the concepts unclear.",
+    "You want a structured, self-paced learning path.",
+    "You are looking for an affordable and clear starting point.",
   ];
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
         Is This Your First Step?
       </h2>
 
-      <p className="mt-4 text-[16px] leading-[1.65] text-[#4B5563] text-center">
-        This Starter Pack is designed for students who want to begin Embedded
-        Systems with the fundamentals in place.
+      <p className="mt-4 text-[16px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
+        This pack is for students who want to enter the field with a proper
+        foundation in place. If any of the following describes you, this is
+        where to begin.
       </p>
 
-      <ul className="mt-8 space-y-3">
+      <ul className="mt-8 grid gap-3 sm:grid-cols-2">
         {items.map((item) => (
           <li
             key={item}
@@ -818,14 +758,6 @@ function WhoIsThisForSection() {
           </li>
         ))}
       </ul>
-
-      {/* Honest note */}
-      <div className="mt-8 rounded-xl border border-[#E5E7EB] bg-white px-5 py-4">
-        <p className="text-[14px] text-[#6B7280] leading-relaxed">
-          <span className="font-semibold text-[#111827]">Already confident in both Electronics and C Programming?</span>{" "}
-          This Starter Pack may be too basic for you.
-        </p>
-      </div>
     </section>
   );
 }
@@ -833,15 +765,14 @@ function WhoIsThisForSection() {
 // ─── Section: Testimonials ────────────────────────────────────────────────────
 
 function TestimonialsSection() {
-  const featured = {
-    name: "Raghu Prakash",
-    title: "Course graduate",
-    quote:
-      "Balajee sir delivered clear, well-organized online sessions that built a strong and practical understanding of C programming, electronics, and embedded concepts.",
-    link: "https://www.linkedin.com/posts/raghu-prakash-775331380_i-successfully-completed-the-etalvis-c-activity-7416447756665270272-XWXK/?skipRedirect=true",
-  };
-
-  const secondary = [
+  const testimonials = [
+    {
+      name: "Raghu Prakash",
+      title: "Course graduate",
+      quote:
+        "Balajee sir delivered clear, well-organized online sessions that built a strong and practical understanding of C programming, electronics, and embedded concepts.",
+      link: "https://www.linkedin.com/posts/raghu-prakash-775331380_i-successfully-completed-the-etalvis-c-activity-7416447756665270272-XWXK/?skipRedirect=true",
+    },
     {
       name: "Tarang Srivas",
       title: "M.Tech VLSI & Embedded, IIT Jammu · Engineer at Silicon Labs",
@@ -853,7 +784,7 @@ function TestimonialsSection() {
       name: "Arivenkkataram ASJ",
       title: "Course graduate",
       quote:
-        "The Balajee Seshadri embedded systems course gave me the initial spark to explore embedded systems more deeply and to start thinking beyond ready-made libraries.",
+        "The course gave me the initial spark to explore the field more deeply and to start thinking beyond ready-made libraries.",
       link: "https://www.linkedin.com/in/arivenkkataram-asj/",
     },
   ];
@@ -861,46 +792,36 @@ function TestimonialsSection() {
   return (
     <section className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[32px]">
+        <div className={`${LABEL} mb-4 text-center`}>Students</div>
+        <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[34px]">
           What Students Are Saying
         </h2>
 
-        {/* Featured testimonial */}
-        <div className="mt-8 rounded-2xl bg-white border border-[#E5E7EB] p-7 sm:p-9">
-          <svg className="h-7 w-7 text-[#22C55E] mb-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
-          <blockquote className="text-[18px] leading-[1.7] text-[#111827] font-medium">
-            &ldquo;{featured.quote}&rdquo;
-          </blockquote>
-          <div className="mt-5 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#ECFDF3] border border-[#22C55E] flex items-center justify-center font-mono text-[11px] text-[#22C55E] font-bold">
-              {featured.name[0]}
-            </div>
-            <div>
-              <div className="font-display font-semibold text-[14px] text-[#111827]">{featured.name}</div>
-              <div className="text-[12px] text-[#6B7280]">{featured.title}</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Secondary testimonials */}
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          {secondary.map((t) => (
-            <div key={t.name} className="rounded-xl bg-white border border-[#E5E7EB] p-5">
-              <blockquote className="text-[14px] leading-[1.7] text-[#374151]">
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {testimonials.map((t) => (
+            <a
+              key={t.name}
+              href={t.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col rounded-2xl bg-white border border-[#E5E7EB] p-6 transition hover:shadow-md hover:-translate-y-0.5"
+            >
+              <svg className="h-6 w-6 text-[#22C55E] mb-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <blockquote className="flex-1 text-[15px] leading-[1.7] text-[#374151]">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <div className="mt-4 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-[#ECFDF3] border border-[#22C55E] flex items-center justify-center font-mono text-[9px] text-[#22C55E] font-bold">
+              <div className="mt-5 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#ECFDF3] border border-[#22C55E] flex items-center justify-center font-mono text-[11px] text-[#22C55E] font-bold shrink-0">
                   {t.name[0]}
                 </div>
                 <div>
-                  <div className="font-semibold text-[13px] text-[#111827]">{t.name}</div>
+                  <div className="font-display font-semibold text-[13px] text-[#111827]">{t.name}</div>
                   <div className="text-[11px] text-[#6B7280]">{t.title}</div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -946,19 +867,6 @@ function ProductSection() {
             <div className="font-display text-[42px] font-extrabold text-[#111827] leading-none">₹239</div>
             <div className="flex flex-col gap-1">
               <span className="font-mono text-[11px] text-[#6B7280]">2 Months Access</span>
-              <span className="font-mono text-[11px] text-[#6B7280]">One time payment</span>
-            </div>
-          </div>
-
-          {/* Access via */}
-          <div className="py-5 border-b border-[#E5E7EB]">
-            <div className="font-mono text-[10px] text-[#6B7280] uppercase tracking-wide mb-3">Access after purchase via</div>
-            <div className="flex flex-wrap gap-2">
-              {["learn.etalvis.com", "eTalVis Android App", "eTalVis iOS App"].map((p) => (
-                <span key={p} className="font-mono text-[11px] px-3 py-1.5 rounded-full bg-[#F4F7F5] border border-[#E5E7EB] text-[#4B5563]">
-                  {p}
-                </span>
-              ))}
             </div>
           </div>
 
@@ -970,13 +878,30 @@ function ProductSection() {
               rel="noopener noreferrer"
               className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
-              Get the Embedded Starter Pack
+              Get the Starter Pack
             </a>
-            <p className="mt-3 text-center font-mono text-[11px] text-[#9CA3AF]">
-              After purchase, sign in and start learning through the eTalVis platform or mobile apps.
-            </p>
           </div>
         </div>
+      </div>
+
+      {/* Bulk purchase */}
+      <div className="mt-8 rounded-2xl border border-[#E5E7EB] bg-[#F4F7F5] px-6 py-6">
+        <div className={`${LABEL} mb-2`}>Institutions</div>
+        <h3 className="font-display font-bold text-[17px] text-[#111827] mb-2">
+          Bulk Access for Academic Institutions
+        </h3>
+        <p className="text-[14px] text-[#4B5563] leading-relaxed mb-4">
+          If you are an institution looking to provide this foundation pack to
+          a batch of students, reach out to discuss bulk access options.
+        </p>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border-2 border-[#111827] bg-white px-5 py-2.5 text-[13px] font-bold text-[#111827] transition hover:-translate-y-0.5 hover:shadow-sm"
+        >
+          Contact on WhatsApp
+        </a>
       </div>
     </section>
   );
@@ -1036,7 +961,7 @@ function FinalCtaSection() {
       </h2>
 
       <div className="mt-7 flex flex-col items-center gap-3">
-        <div className="flex items-center gap-4 text-[15px] text-[#4B5563]">
+        <div className="flex flex-wrap justify-center items-center gap-4 text-[15px] text-[#4B5563]">
           <span className="font-display font-semibold text-[#111827]">Electronics Foundation</span>
           <span className="font-mono text-[#22C55E] font-bold">+</span>
           <span className="font-display font-semibold text-[#111827]">C Programming Foundation</span>
@@ -1056,53 +981,6 @@ function FinalCtaSection() {
   );
 }
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-
-function LandingFooter() {
-  return (
-    <footer className="bg-[#F4F7F5] border-t border-[#E5E7EB]">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-          {/* Brand */}
-          <div className="max-w-xs">
-            <Image
-              src="/images/etalvis-logo.png"
-              alt="eTalVis"
-              width={88}
-              height={26}
-              className="h-6 w-auto mb-3"
-              loading="lazy"
-            />
-            <p className="text-[13px] text-[#6B7280] leading-relaxed">
-              Building strong foundations for Embedded Systems learning.
-            </p>
-          </div>
-
-          {/* Links */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-[#6B7280]">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#111827] transition">
-              WhatsApp
-            </a>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#111827] transition">
-              LinkedIn
-            </a>
-            <a href="/privacy-policy" className="hover:text-[#111827] transition">Privacy Policy</a>
-            <a href="/terms" className="hover:text-[#111827] transition">Terms</a>
-            <a href="/refund-policy" className="hover:text-[#111827] transition">Refund Policy</a>
-            <a href={`mailto:info@etalvis.com`} className="hover:text-[#111827] transition">Contact</a>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t border-[#E5E7EB] pt-6">
-          <p className="text-[12px] text-[#9CA3AF]">
-            &copy; {new Date().getFullYear()} eTalVis. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 // ─── Sticky Mobile CTA ────────────────────────────────────────────────────────
 
 function StickyCTA({ visible }: { visible: boolean }) {
@@ -1117,7 +995,7 @@ function StickyCTA({ visible }: { visible: boolean }) {
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <div className="font-display font-semibold text-[13px] text-[#111827] leading-tight">
-              Embedded Starter Pack
+              eTalVis Embedded Starter Pack
             </div>
             <div className="font-mono text-[11px] text-[#6B7280] mt-0.5">
               ₹239 · 2 Months
@@ -1160,34 +1038,24 @@ export default function EmbeddedStarterPack() {
   }, []);
 
   return (
-    <>
-      {/* Page metadata */}
-      <title>Embedded Starter Pack | Electronics + C Programming | eTalVis</title>
-      <meta
-        name="description"
-        content="Start your Embedded Systems learning journey with Electronics Foundation and C Programming Foundation. eTalVis Embedded Starter Pack: 2 courses, 2 months access, ₹239."
-      />
+    <div className="min-h-screen bg-[#F8F8F4]">
+      <MiniNav />
+      <HeroSection heroRef={heroRef} />
+      <NoiseToClaritySection />
+      <WhyTheseTwoSection />
+      <InsideThePackSection />
+      <LearningPathSection />
+      <WhyStartHereSection />
+      <WhoIsThisForSection />
+      <TestimonialsSection />
+      <ProductSection />
+      <FAQSection />
+      <FinalCtaSection />
+      <Footer />
 
-      <div className="min-h-screen bg-[#F8F8F4]">
-        <MiniNav />
-        <HeroSection heroRef={heroRef} />
-        <NoiseToClaritySection />
-        <WhyTheseTwoSection />
-        <InsideThePackSection />
-        <LearningPathSection />
-        <WhyStartHereSection />
-        <WhoIsThisForSection />
-        <TestimonialsSection />
-        <ProductSection />
-        <FAQSection />
-        <FinalCtaSection />
-        <LandingFooter />
+      <div aria-hidden="true" className="h-20" />
 
-        {/* Spacer for sticky bar */}
-        <div aria-hidden="true" className="h-20" />
-
-        <StickyCTA visible={stickyCTAVisible} />
-      </div>
-    </>
+      <StickyCTA visible={stickyCTAVisible} />
+    </div>
   );
 }

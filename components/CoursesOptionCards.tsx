@@ -19,30 +19,34 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
         className="group relative flex flex-col overflow-hidden rounded-[28px] border-2 border-[#111827] shadow-[0_8px_32px_rgba(17,24,39,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,24,39,0.20)] active:translate-y-0 sm:flex-row"
         style={{ background: "#F8F8F4" }}
       >
-        {/* Left accent block */}
+        {/* Left accent block — product identity focus */}
         <div
           className="relative flex h-44 shrink-0 items-center justify-center overflow-hidden sm:h-auto sm:w-56"
           style={{ background: "#ECFDF3" }}
         >
           <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-green-200/50 blur-2xl" />
-          <div className="relative flex flex-col items-center gap-2 px-6 py-6">
+          <div className="relative flex flex-col items-start gap-1.5 px-6 py-6">
             <span
-              className="font-mono text-[11px] uppercase tracking-[0.15em] font-medium"
+              className="font-mono text-[10px] uppercase tracking-[0.15em] font-medium"
               style={{ color: "#15803D" }}
             >
-              Entry Point
+              eTalVis
             </span>
             <span
-              className="font-display text-4xl font-black leading-none"
+              className="font-display text-[17px] font-extrabold leading-tight"
+              style={{ color: "#111827" }}
+            >
+              Embedded<br />Starter Pack
+            </span>
+            <div className="mt-1 flex flex-col gap-0.5">
+              <span className="font-mono text-[10px]" style={{ color: "#4B5563" }}>Electronics +</span>
+              <span className="font-mono text-[10px]" style={{ color: "#4B5563" }}>C Programming</span>
+            </div>
+            <span
+              className="mt-2 font-display font-bold text-[15px]"
               style={{ color: "#111827" }}
             >
               ₹239
-            </span>
-            <span
-              className="font-body text-sm"
-              style={{ color: "#4B5563" }}
-            >
-              2 Months Access
             </span>
           </div>
         </div>
