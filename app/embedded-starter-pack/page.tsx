@@ -743,9 +743,8 @@ function WhoIsThisForSection() {
       </h2>
 
       <p className="mt-4 text-[16px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-        This pack is for students and professionals who want to enter the field
-        with the right foundation in place. If any of the following describes
-        you, this is where to begin.
+        The first goal is to build the foundations properly. If any of the
+        following describes you, this is where to begin.
       </p>
 
       {/* Students */}
