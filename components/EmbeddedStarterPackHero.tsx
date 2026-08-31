@@ -85,7 +85,7 @@ export default function EmbeddedStarterPackHero() {
         className="w-full"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:py-20 lg:py-24 sm:px-8 lg:px-10">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
             {/* ── LEFT ─────────────────────────────────────────────────── */}
             <div className="flex-[1.2] min-w-0">
