@@ -2,12 +2,98 @@
 
 import { track } from "@/lib/analytics";
 
+const STARTER_PACK_URL = "https://learn.etalvis.com/web/checkout/6a95416cc8cef8fac0b83a48";
+
 type Props = {
   starterPrice: number;
 };
 
 export default function CoursesOptionCards({ starterPrice }: Props) {
   return (
+    <div className="flex flex-col gap-5">
+
+      {/* ── Embedded Starter Pack — featured row ── */}
+      <a
+        href="/embedded-starter-pack"
+        onClick={() => track("courses_option_click", { option: "starter_pack", page: "courses" })}
+        className="group relative flex flex-col overflow-hidden rounded-[28px] border-2 border-[#111827] shadow-[0_8px_32px_rgba(17,24,39,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,24,39,0.20)] active:translate-y-0 sm:flex-row"
+        style={{ background: "#F8F8F4" }}
+      >
+        {/* Left accent block */}
+        <div
+          className="relative flex h-44 shrink-0 items-center justify-center overflow-hidden sm:h-auto sm:w-56"
+          style={{ background: "#ECFDF3" }}
+        >
+          <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-green-200/50 blur-2xl" />
+          <div className="relative flex flex-col items-center gap-2 px-6 py-6">
+            <span
+              className="font-mono text-[11px] uppercase tracking-[0.15em] font-medium"
+              style={{ color: "#15803D" }}
+            >
+              Entry Point
+            </span>
+            <span
+              className="font-display text-4xl font-black leading-none"
+              style={{ color: "#111827" }}
+            >
+              ₹239
+            </span>
+            <span
+              className="font-body text-sm"
+              style={{ color: "#4B5563" }}
+            >
+              2 Months Access
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col gap-3 px-6 py-6">
+          <div>
+            <p
+              className="font-mono text-[11px] uppercase tracking-[0.14em] font-medium"
+              style={{ color: "#16A34A" }}
+            >
+              Embedded Starter Pack
+            </p>
+            <h2 className="mt-1 font-display text-xl font-black leading-tight text-[#111827]">
+              Every Electronics Engineering Student&apos;s First Step Starts Here.
+            </h2>
+            <p className="mt-2 text-sm leading-5 text-[#4B5563]">
+              Electronics Foundation Course + C Programming Foundation Course. The two foundations Embedded Systems begins with.
+            </p>
+          </div>
+
+          <ul className="space-y-1.5 text-xs text-[#4B5563]">
+            {[
+              "01 Electronics Foundation Course",
+              "02 C Programming Foundation Course",
+              "For ECE, EEE, EIE, Mechatronics, Electrical & related branches",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <span className="h-4 w-4 shrink-0 text-[#16A34A]">
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-2 flex items-center gap-3">
+            <span
+              className="inline-flex items-center justify-center rounded-full border-2 border-[#111827] px-6 py-2.5 text-sm font-black text-[#111827] shadow-[0_3px_0_#111827] transition group-hover:-translate-y-0.5 group-hover:bg-[#F4B800] group-active:translate-y-0.5 group-active:shadow-none"
+              style={{ background: "#FFC400" }}
+            >
+              Start Here · ₹239
+            </span>
+            <span className="text-xs text-[#6B7280]">2 months access</span>
+          </div>
+        </div>
+      </a>
+
+      {/* ── Existing two cards ── */}
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
       {/* Bundle Course card */}
       <a
@@ -132,6 +218,7 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
           </div>
         </div>
       </a>
+    </div>
     </div>
   );
 }
