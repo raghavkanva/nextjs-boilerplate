@@ -365,8 +365,8 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
             </div>
           </div>
 
-          {/* Caption — grouped immediately below photo */}
-          <div className="mt-4 text-center lg:text-left">
+          {/* Caption */}
+          <div className="mt-10 text-center lg:text-left">
             <div className="font-display font-bold text-[17px] text-[#111827]">
               Balajee Seshadri
             </div>
