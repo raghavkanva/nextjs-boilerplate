@@ -4,6 +4,20 @@ export const metadata: Metadata = {
   title: "Embedded Systems Starter Pack Course | Electronics + C Programming | eTalVis",
   description:
     "Start your Embedded Systems learning with the Electronics Foundation Course and C Programming Foundation Course. The eTalVis Embedded Starter Pack includes 2 courses with 2 months access for ₹239.",
+  twitter: {
+    card: "summary_large_image",
+    title: "eTalVis Embedded Starter Pack · ₹239",
+    description:
+      "Electronics + C Programming Foundation Courses. The right foundation for Embedded Systems. 2 months access, 200+ problems.",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "eTalVis",
+    title: "eTalVis Embedded Starter Pack — Electronics + C Programming · ₹239",
+    description:
+      "Electronics Foundation Course + C Programming Foundation Course. Built for ECE, EEE, EIE and related branches. Start building the right way.",
+    url: "https://etalvis.com/embedded-starter-pack",
+  },
 };
 
 const courseSchema = {
