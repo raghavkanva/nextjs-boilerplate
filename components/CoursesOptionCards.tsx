@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { track } from "@/lib/analytics";
 
 const STARTER_PACK_URL = "https://learn.etalvis.com/web/checkout/6a95416cc8cef8fac0b83a48";
@@ -19,35 +20,49 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
         className="group relative flex flex-col overflow-hidden rounded-[28px] border-2 border-[#111827] shadow-[0_8px_32px_rgba(17,24,39,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,24,39,0.20)] active:translate-y-0 sm:flex-row"
         style={{ background: "#F8F8F4" }}
       >
-        {/* Left accent block — product identity focus */}
+        {/* Thumbnail — full-width on mobile, left sidebar on sm+ */}
         <div
-          className="relative flex h-44 shrink-0 items-center justify-center overflow-hidden sm:h-auto sm:w-56"
-          style={{ background: "#ECFDF3" }}
+          className="relative shrink-0 overflow-hidden sm:h-auto sm:w-56"
+          style={{ background: "#0A3D1F", minHeight: "220px" }}
         >
-          <div aria-hidden="true" className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-green-200/50 blur-2xl" />
-          <div className="relative flex flex-col items-start gap-1.5 px-6 py-6">
-            <span
-              className="font-mono text-[10px] uppercase tracking-[0.15em] font-medium"
-              style={{ color: "#15803D" }}
-            >
-              eTalVis
-            </span>
-            <span
-              className="font-display text-[17px] font-extrabold leading-tight"
-              style={{ color: "#111827" }}
-            >
-              Embedded<br />Starter Pack
-            </span>
-            <div className="mt-1 flex flex-col gap-0.5">
-              <span className="font-mono text-[10px]" style={{ color: "#4B5563" }}>Electronics +</span>
-              <span className="font-mono text-[10px]" style={{ color: "#4B5563" }}>C Programming</span>
+          {/* Balajee photo — full bleed */}
+          <Image
+            src="/images/balajee-formal.png"
+            alt="Balajee Seshadri, Instructor"
+            fill
+            className="object-cover object-top opacity-40"
+            sizes="(max-width: 640px) 100vw, 224px"
+          />
+
+          {/* Green gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(10,61,31,0.85) 0%, rgba(21,128,61,0.60) 100%)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Content over photo */}
+          <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:justify-center">
+            <div className="flex flex-col gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] font-medium text-[#86EFAC]">
+                eTalVis
+              </span>
+              <span className="font-display text-[22px] font-extrabold leading-tight text-white sm:text-[18px]">
+                Embedded<br />Starter Pack
+              </span>
+              <div className="flex flex-col gap-0.5">
+                <span className="font-mono text-[10px] text-white/70">Electronics +</span>
+                <span className="font-mono text-[10px] text-white/70">C Programming</span>
+              </div>
             </div>
-            <span
-              className="mt-2 font-display font-bold text-[15px]"
-              style={{ color: "#111827" }}
-            >
-              ₹239
-            </span>
+            <div className="mt-4 sm:mt-6">
+              <span className="inline-block rounded-full bg-[#FFC400] px-4 py-1.5 font-display text-[15px] font-black text-[#111827]">
+                ₹239
+              </span>
+            </div>
           </div>
         </div>
 
