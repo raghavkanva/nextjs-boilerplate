@@ -90,10 +90,10 @@ export default function EmbeddedStarterPackHero() {
             {/* ── LEFT ─────────────────────────────────────────────────── */}
             <div className="flex-[1.2] min-w-0">
 
-              {/* Eyebrow */}
+              {/* Product title */}
               <p
-                className="font-mono text-[11px] uppercase tracking-[0.16em] font-medium mb-5"
-                style={{ color: "#15803D" }}
+                className="font-display font-bold mb-5"
+                style={{ fontSize: "clamp(22px, 2.8vw, 28px)", color: "#15803D" }}
               >
                 eTalVis Embedded Starter Pack
               </p>

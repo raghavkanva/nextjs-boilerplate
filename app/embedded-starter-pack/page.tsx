@@ -339,8 +339,8 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
             </a>
           </div>
 
-          {/* Audience microcopy — no platform links */}
-          <p className="mt-3 text-[13px] text-[#9CA3AF]">
+          {/* Audience microcopy */}
+          <p className="mt-3 text-[13px] font-semibold text-[#6B7280]">
             For ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches.
           </p>
         </div>
@@ -358,7 +358,8 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
                 alt="Balajee Seshadri, eTalVis instructor"
                 width={420}
                 height={520}
-                className="relative z-10 w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] object-cover rounded-xl"
+                className="relative z-10 w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[400px] rounded-xl"
+                style={{ objectFit: "contain" }}
                 priority
               />
             </div>
@@ -414,10 +415,6 @@ function NoiseToClaritySection() {
           </div>
         </div>
 
-        {/* SVG diagram */}
-        <div className="mt-12 overflow-x-auto">
-          <NoiseToClarityDiagram />
-        </div>
       </div>
     </section>
   );
@@ -720,7 +717,7 @@ function WhyStartHereSection() {
 // ─── Section: Who Is This For ─────────────────────────────────────────────────
 
 function WhoIsThisForSection() {
-  const items = [
+  const studentItems = [
     "You are studying Electronics Engineering, ECE, EEE, EIE or a related branch.",
     "You are interested in working in the Embedded Systems field.",
     "You are not sure where to begin.",
@@ -732,6 +729,13 @@ function WhoIsThisForSection() {
     "You are looking for an affordable and clear starting point.",
   ];
 
+  const switcherItems = [
+    "You are from a software, mechanical, or non-core background and want to move into Electronics or Embedded Systems.",
+    "You are preparing for technical interviews in the Electronics or Embedded Systems field and need to strengthen your fundamentals.",
+    "You want to build the foundational knowledge required before applying for roles in embedded hardware or firmware.",
+    "You are a working professional looking to upskill in Electronics and C Programming at your own pace.",
+  ];
+
   return (
     <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
@@ -739,13 +743,14 @@ function WhoIsThisForSection() {
       </h2>
 
       <p className="mt-4 text-[16px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-        This pack is for students who want to enter the field with a proper
-        foundation in place. If any of the following describes you, this is
-        where to begin.
+        This pack is for students and professionals who want to enter the field
+        with the right foundation in place. If any of the following describes
+        you, this is where to begin.
       </p>
 
+      {/* Students */}
       <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-        {items.map((item) => (
+        {studentItems.map((item) => (
           <li
             key={item}
             className="flex items-start gap-3 rounded-xl bg-[#F4F7F5] border border-[#E5E7EB] px-5 py-4"
@@ -758,6 +763,24 @@ function WhoIsThisForSection() {
           </li>
         ))}
       </ul>
+
+      {/* Professionals switching domains */}
+      <div className="mt-8">
+        <div className={`${LABEL} mb-4`}>Also for professionals</div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {switcherItems.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 rounded-xl bg-white border border-[#E5E7EB] px-5 py-4"
+            >
+              <svg className="h-4 w-4 shrink-0 mt-0.5 text-[#15803D]" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-[15px] text-[#374151] leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
@@ -994,7 +1017,7 @@ function StickyCTA({ visible }: { visible: boolean }) {
       <div className="mx-auto max-w-lg overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-[0_-6px_28px_rgba(15,23,42,0.15)]">
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
-            <div className="font-display font-semibold text-[13px] text-[#111827] leading-tight">
+            <div className="font-display font-bold text-[14px] text-[#111827] leading-tight">
               eTalVis Embedded Starter Pack
             </div>
             <div className="font-mono text-[11px] text-[#6B7280] mt-0.5">
