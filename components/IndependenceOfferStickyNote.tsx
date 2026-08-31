@@ -207,7 +207,7 @@ export default function IndependenceOfferStickyNote() {
     originalPrice:   STARTER_ORIGINAL,
     rawCheckoutUrl:  STARTER_CHECKOUT,
     ctaName:         "starter-enroll",
-    ctaText:         "Enroll — Starter",
+    ctaText:         "Enroll: Starter",
     ctaPosition:     "sticky-bar",
   };
 
@@ -221,7 +221,7 @@ export default function IndependenceOfferStickyNote() {
     originalPrice:   SEMESTER_ORIGINAL,
     rawCheckoutUrl:  SEMESTER_CHECKOUT,
     ctaName:         "semester-enroll",
-    ctaText:         "Enroll — Semester",
+    ctaText:         "Enroll: Semester",
     ctaPosition:     "sticky-bar",
   };
 
@@ -231,7 +231,7 @@ export default function IndependenceOfferStickyNote() {
       <div aria-hidden="true" className="h-[72px] sm:h-[96px]" />
 
       <aside
-        aria-label="Independence Day offer — enroll now"
+        aria-label="Independence Day offer, enroll now"
         className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 sm:px-4 sm:pb-3"
       >
         <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-emerald-700 bg-[#0A3D1F] shadow-[0_-8px_40px_rgba(10,61,31,0.45)]">
@@ -315,7 +315,7 @@ export default function IndependenceOfferStickyNote() {
               <Digit val={seconds} label="S" />
             </div>
             <div className="flex-1">
-              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer — 20% Discount</p>
+              <p className="text-xs font-extrabold text-[#FFC400]">Independence Offer · 20% Discount</p>
               <p className="mt-0.5 text-[10px] text-white/50">Valid until Aug 31 · Code: <CopyableCode code={OFFER_CODE} /></p>
             </div>
             <button

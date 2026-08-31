@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 const courseListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Embedded Systems Foundation — Individual Courses",
+  name: "Embedded Systems Foundation: Individual Courses",
   description:
     "9 individually available foundation courses from the Embedded Systems Foundation Course by eTalVis.",
   itemListElement: courses
@@ -116,7 +116,7 @@ export default function IndividualCoursesPage() {
           <a href="/embedded-systems" className="underline underline-offset-2 hover:text-amber/80">
             See the bundle course
           </a>{" "}
-          — starts at ₹639.
+          , starting at ₹639.
         </p>
       </section>
 

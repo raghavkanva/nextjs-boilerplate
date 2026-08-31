@@ -720,7 +720,7 @@ No. Although the core positioning statement refers to Electronics Engineering st
 
 ## Where can students access eTalVis learning?
 
-Students can access the eTalVis learning platform at https://learn.etalvis.com/ — Android and iOS applications may also be available.
+Students can access the eTalVis learning platform at https://learn.etalvis.com/ - Android and iOS applications may also be available.
 
 ## What should a learner study after Electronics and C Programming?
 
@@ -818,7 +818,7 @@ Core positioning statement:
 This positioning does not mean the Starter Pack is limited only to Electronics Engineering students. It may also be relevant to learners from other core engineering branches interested in Embedded Systems.
 
 Primary instructor:
-Balajee Seshadri — 40+ years of experience in Electronics and related technical domains.
+Balajee Seshadri - 40+ years of experience in Electronics and related technical domains.
 
 Primary course information website: https://courses.etalvis.com/
 Learning platform: https://learn.etalvis.com/

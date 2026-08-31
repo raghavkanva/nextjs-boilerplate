@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "eTalVis Embedded Starter Pack — Electronics + C Programming Foundation Courses · ₹239";
+  "eTalVis Embedded Starter Pack: Electronics + C Programming Foundation Courses · ₹239";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -24,78 +24,93 @@ export default async function Image() {
           width: 1200,
           height: 630,
           display: "flex",
-          background: "#0A3D1F",
+          background: "#F7F7F2",
           fontFamily: "sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
+        {/* Subtle dot-grid pattern via repeating radial gradient */}
         <div
           style={{
             position: "absolute",
-            top: -120,
-            left: -80,
-            width: 700,
-            height: 700,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -100,
-            right: 280,
-            width: 500,
-            height: 500,
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(21,128,61,0.22) 0%, transparent 70%)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: 60,
-            bottom: 60,
-            left: 660,
-            width: 1,
-            background: "rgba(255,255,255,0.08)",
+            inset: 0,
+            backgroundImage:
+              "radial-gradient(circle, #D1D5DB 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            opacity: 0.45,
             display: "flex",
           }}
         />
 
+        {/* Soft green bleed on right edge */}
+        <div
+          style={{
+            position: "absolute",
+            right: -60,
+            top: -60,
+            width: 480,
+            height: 480,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 70%)",
+            display: "flex",
+          }}
+        />
+
+        {/* Left green accent bar */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: 6,
+            background: "#15803D",
+            display: "flex",
+          }}
+        />
+
+        {/* ══════════════ LEFT CONTENT ══════════════ */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: "56px 52px 52px 64px",
-            width: 660,
+            padding: "60px 48px 60px 72px",
+            width: 680,
             position: "relative",
             zIndex: 2,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <img src={iconSrc} width={40} height={40} alt="" style={{ borderRadius: 8 }} />
+          {/* Brand row */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <img
+              src={iconSrc}
+              width={36}
+              height={36}
+              alt=""
+              style={{ borderRadius: 6 }}
+            />
             <span
               style={{
-                color: "rgba(255,255,255,0.70)",
-                fontSize: 20,
-                fontWeight: 700,
-                letterSpacing: "0.02em",
+                color: "#15803D",
+                fontSize: 18,
+                fontWeight: 800,
+                letterSpacing: "0.01em",
               }}
             >
               eTalVis
             </span>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          {/* Main content */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            {/* Eyebrow */}
             <span
               style={{
-                color: "#86EFAC",
-                fontSize: 14,
+                color: "#64748B",
+                fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
@@ -104,86 +119,98 @@ export default async function Image() {
               Embedded Starter Pack
             </span>
 
+            {/* Big headline */}
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap",
-                fontSize: 52,
-                fontWeight: 800,
-                color: "#FFFFFF",
-                lineHeight: 1.08,
-                letterSpacing: "-0.02em",
+                flexDirection: "column",
+                gap: 0,
               }}
             >
-              <span>The Right Foundation&nbsp;</span>
-              <span style={{ color: "#4ADE80" }}>First.</span>
-            </div>
-
-            <div
-              style={{
-                fontSize: 20,
-                color: "rgba(255,255,255,0.62)",
-                lineHeight: 1.5,
-                maxWidth: 480,
-                display: "flex",
-              }}
-            >
-              Electronics + C Programming. 200+ problems. For ECE, EEE, EIE and related branches.
-            </div>
-
-            <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
-              <div
+              <span
                 style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  borderRadius: 100,
-                  padding: "8px 18px",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "rgba(255,255,255,0.80)",
-                  letterSpacing: "0.01em",
-                  display: "flex",
+                  fontSize: 64,
+                  fontWeight: 900,
+                  color: "#111827",
+                  lineHeight: 1.0,
+                  letterSpacing: "-0.03em",
                 }}
               >
-                Electronics Foundation
+                The Right
+              </span>
+              <span
+                style={{
+                  fontSize: 64,
+                  fontWeight: 900,
+                  color: "#15803D",
+                  lineHeight: 1.0,
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                Foundation First.
+              </span>
+            </div>
+
+            {/* Two course lines */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+                marginTop: 4,
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#22C55E",
+                    display: "flex",
+                  }}
+                />
+                <span style={{ fontSize: 17, color: "#374151", fontWeight: 600 }}>
+                  Electronics Foundation Course
+                </span>
               </div>
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  borderRadius: 100,
-                  padding: "8px 18px",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "rgba(255,255,255,0.80)",
-                  letterSpacing: "0.01em",
-                  display: "flex",
-                }}
-              >
-                C Programming Foundation
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#22C55E",
+                    display: "flex",
+                  }}
+                />
+                <span style={{ fontSize: 17, color: "#374151", fontWeight: 600 }}>
+                  C Programming Foundation Course
+                </span>
               </div>
             </div>
           </div>
 
+          {/* Price + CTA */}
           <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
             <div
               style={{
                 background: "#FFC400",
                 borderRadius: 100,
-                padding: "12px 28px",
-                fontSize: 22,
+                padding: "13px 30px",
+                fontSize: 20,
                 fontWeight: 900,
                 color: "#111827",
-                border: "2.5px solid #111827",
+                border: "2px solid #111827",
                 display: "flex",
                 alignItems: "center",
               }}
             >
-              ₹239 · Start Here
+              Start Here · ₹239
             </div>
             <span
               style={{
-                color: "rgba(255,255,255,0.40)",
+                color: "#9CA3AF",
                 fontSize: 14,
                 fontWeight: 500,
               }}
@@ -193,12 +220,13 @@ export default async function Image() {
           </div>
         </div>
 
+        {/* ══════════════ RIGHT — photo ══════════════ */}
         <div
           style={{
             position: "absolute",
             right: 0,
             top: 0,
-            width: 540,
+            width: 520,
             height: 630,
             display: "flex",
             overflow: "hidden",
@@ -212,33 +240,38 @@ export default async function Image() {
               bottom: 0,
               left: "50%",
               transform: "translateX(-50%)",
-              width: 420,
-              height: 420,
+              width: 440,
+              height: 440,
               objectFit: "cover",
               objectPosition: "center top",
             }}
           />
+          {/* Left edge blend into light bg */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(to right, #0A3D1F 0%, transparent 35%)",
+              background:
+                "linear-gradient(to right, #F7F7F2 0%, transparent 40%)",
               display: "flex",
             }}
           />
+          {/* Bottom fade */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(to top, #0A3D1F 0%, transparent 40%)",
+              background:
+                "linear-gradient(to top, #F7F7F2 0%, transparent 35%)",
               display: "flex",
             }}
           />
+          {/* Instructor label */}
           <div
             style={{
               position: "absolute",
-              bottom: 40,
-              right: 40,
+              bottom: 36,
+              right: 36,
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-end",
@@ -247,18 +280,17 @@ export default async function Image() {
           >
             <span
               style={{
-                fontSize: 18,
+                fontSize: 16,
                 fontWeight: 700,
-                color: "#FFFFFF",
-                letterSpacing: "0.01em",
+                color: "#111827",
               }}
             >
               Balajee Seshadri
             </span>
             <span
               style={{
-                fontSize: 13,
-                color: "rgba(255,255,255,0.55)",
+                fontSize: 12,
+                color: "#6B7280",
                 fontWeight: 500,
               }}
             >

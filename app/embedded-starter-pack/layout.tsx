@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "eTalVis",
-    title: "eTalVis Embedded Starter Pack — Electronics + C Programming · ₹239",
+    title: "eTalVis Embedded Starter Pack: Electronics + C Programming · ₹239",
     description:
       "Electronics Foundation Course + C Programming Foundation Course. Built for ECE, EEE, EIE and related branches. Start building the right way.",
     url: "https://etalvis.com/embedded-starter-pack",
@@ -28,7 +28,7 @@ const courseSchema = {
       "@id": "https://etalvis.com/embedded-starter-pack#course",
       "name": "eTalVis Embedded Starter Pack",
       "description":
-        "The eTalVis Embedded Starter Pack includes two foundation courses — Electronics Foundation Course and C Programming Foundation Course — designed to give Embedded Systems beginners a proper start. Covers 200+ hands-on problems across electronics fundamentals and C programming logic.",
+        "The eTalVis Embedded Starter Pack includes two foundation courses: Electronics Foundation Course and C Programming Foundation Course. Designed to give Embedded Systems beginners a proper start. Covers 200+ hands-on problems across electronics fundamentals and C programming logic.",
       "url": "https://etalvis.com/embedded-starter-pack",
       "provider": {
         "@type": "Organization",

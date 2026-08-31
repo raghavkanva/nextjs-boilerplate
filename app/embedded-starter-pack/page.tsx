@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
+import { track, metaEvent } from "@/lib/analytics";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -63,6 +64,23 @@ const FAQ_ITEMS = [
     a: "After strengthening these two foundations, you can continue into deeper topics through the eTalVis learning pathway.",
   },
 ];
+
+function handleCTA(location: string) {
+  track("esp_cta_click", {
+    location,
+    content_name: "Embedded Starter Pack",
+    content_type: "ESP",
+    value: 239,
+    currency: "INR",
+  });
+  metaEvent("InitiateCheckout", {
+    content_name: "Embedded Starter Pack",
+    content_type: "ESP",
+    value: 239,
+    currency: "INR",
+    num_items: 1,
+  });
+}
 
 // ─── Design helpers ──────────────────────────────────────────────────────────
 
@@ -243,6 +261,7 @@ function MiniNav() {
             href={CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleCTA("mini_nav")}
             className="inline-flex items-center rounded-full bg-[#FFC400] px-4 py-1.5 text-sm font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_2px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
           >
             Start Your Foundation
@@ -333,6 +352,7 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
               href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleCTA("hero")}
               className="inline-flex items-center justify-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
               Start Your Foundation
@@ -435,7 +455,7 @@ function WhyTheseTwoSection() {
       <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
         Working with hardware requires an understanding of Electronics. Writing
         software for it requires C Programming. These are the two starting
-        foundations — that is why the pack begins with both.
+        foundations. That is why the pack begins with both.
       </p>
 
       {/* Two-column editorial */}
@@ -898,6 +918,7 @@ function ProductSection() {
               href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleCTA("product_section")}
               className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
               Get the Starter Pack
@@ -920,6 +941,7 @@ function ProductSection() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => track("esp_bulk_inquiry_click", { location: "product_section" })}
           className="inline-flex items-center gap-2 rounded-full border-2 border-[#111827] bg-white px-5 py-2.5 text-[13px] font-bold text-[#111827] transition hover:-translate-y-0.5 hover:shadow-sm"
         >
           Contact on WhatsApp
@@ -946,7 +968,13 @@ function FAQSection() {
             <div key={i}>
               <button
                 type="button"
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                onClick={() => {
+                  const next = openIndex === i ? null : i;
+                  setOpenIndex(next);
+                  if (next !== null) {
+                    track("esp_faq_open", { question: item.q, index: i });
+                  }
+                }}
                 aria-expanded={openIndex === i}
                 className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-[#F9FAFB] transition"
               >
@@ -995,6 +1023,7 @@ function FinalCtaSection() {
         href={CHECKOUT_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => handleCTA("final_cta")}
         className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FFC400] px-10 py-4 text-[17px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
       >
         Start Your Foundation
@@ -1028,6 +1057,7 @@ function StickyCTA({ visible }: { visible: boolean }) {
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={visible ? 0 : -1}
+            onClick={() => handleCTA("sticky_cta")}
             className="shrink-0 inline-flex items-center rounded-full bg-[#FFC400] px-5 py-2.5 text-[13px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_2px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
           >
             Start Learning
@@ -1043,6 +1073,21 @@ function StickyCTA({ visible }: { visible: boolean }) {
 export default function EmbeddedStarterPack() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [stickyCTAVisible, setStickyCTAVisible] = useState(false);
+
+  useEffect(() => {
+    track("esp_page_view", {
+      content_name: "Embedded Starter Pack",
+      content_category: "Landing Page",
+      value: 239,
+      currency: "INR",
+    });
+    metaEvent("ViewContent", {
+      content_name: "Embedded Starter Pack",
+      content_type: "ESP",
+      value: 239,
+      currency: "INR",
+    });
+  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;

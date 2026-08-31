@@ -7,14 +7,7 @@ import { plans } from "@/data/content";
 const starterPlan = plans.find((p) => p.code === "EF-01")!;
 const semesterPlan = plans.find((p) => p.code === "EF-06")!;
 
-const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
-
-const offerPrices: Record<string, { offer: number; perDay: number; perDayLabel: string }> = {
-  "1month":  { offer: 511,  perDay: 17, perDayLabel: "≈₹17/day" },
-  "6months": { offer: 2047, perDay: 11, perDayLabel: "≈₹11/day · Includes mock interview" },
-};
-
-const SEMESTER_SAVINGS = 3066 - 2047; // vs buying 6 Starter plans at ₹511 each
+const SEMESTER_SAVINGS = 3066 - 2559; // vs buying 6 Starter plans at ₹639 each
 
 type Duration = "1month" | "6months";
 
@@ -108,27 +101,20 @@ export default function CompleteCoursePanel() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-[#FFC400]/30 bg-[#FFC400]/8 px-4 py-3 text-center">
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-amber">
-              Independence Offer · Until Aug 31
-            </p>
-            <div className="mt-1 flex items-baseline justify-center gap-2">
+          <div className="rounded-xl border border-line bg-surfaceRaised px-4 py-3 text-center">
+            <div className="flex items-baseline justify-center gap-2">
               <span className="font-display text-4xl font-black text-text">
-                ₹{offerPrices[selected].offer.toLocaleString("en-IN")}
-              </span>
-              <span className="text-base text-muted line-through">
                 ₹{(active.plan.price ?? 0).toLocaleString("en-IN")}
               </span>
             </div>
-            <p className="mt-0.5 text-xs text-muted">{offerPrices[selected].perDayLabel}</p>
+            <p className="mt-0.5 text-xs text-muted">
+              {selected === "6months" ? "≈₹14/day · Includes mock interview" : "≈₹21/day"}
+            </p>
             {selected === "6months" && (
               <p className="mt-1 text-[11px] font-semibold text-amber">
                 Save ₹{SEMESTER_SAVINGS.toLocaleString("en-IN")} vs 6 Starter plans
               </p>
             )}
-            <p className="mt-1.5 text-[10px] text-mutedDim">
-              Code: <span className="font-mono font-bold text-text">{OFFER_CODE}</span>
-            </p>
           </div>
 
           {active.plan.checkoutUrl ? (
@@ -139,7 +125,7 @@ export default function CompleteCoursePanel() {
               rel="noopener noreferrer"
               className="block w-full rounded-xl border-2 border-text bg-cta py-3 text-center text-sm font-black text-text shadow-[0_4px_0_#0f172a] transition hover:-translate-y-0.5 hover:bg-amber-300 active:translate-y-1 active:shadow-none"
             >
-              Enroll Today — ₹{offerPrices[selected].offer.toLocaleString("en-IN")}
+              Enroll Today · ₹{(active.plan.price ?? 0).toLocaleString("en-IN")}
             </a>
           ) : null}
 

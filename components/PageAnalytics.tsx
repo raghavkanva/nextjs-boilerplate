@@ -152,8 +152,7 @@ export default function PageAnalytics({
           track("pricing_viewed", {
             ...baseParams,
             section_name:     "plans",
-            component_name:   "IndependenceDayOfferSection",
-            offer_code:       "INDIA_80TH_INDEPENDENCE_DAY",
+            component_name:   "PlansSection",
             pricing_view_count: viewCount,
             ...getCampaignEventParameters(),
             ...getIdentityParameters(),
