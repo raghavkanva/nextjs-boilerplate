@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-export const PROMOTION_COUNT = 3;
+export const PROMOTION_COUNT = 1;
 export const SLIDE_DURATION_MS = 5000;
 
 type PromotionSliderContextValue = {

@@ -3,7 +3,6 @@ import PageAnalytics from "@/components/PageAnalytics";
 import CourseCarousel from "@/components/CourseCarousel";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import PlansGrid from "@/components/Plans";
-import IndependenceDayOfferSection from "@/components/IndependenceDayOfferSection";
 import Prerequisites from "@/components/Prerequisites";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FAQ from "@/components/FAQ";
@@ -11,7 +10,6 @@ import AssessmentNote from "@/components/AssessmentNote";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import InstructorStrip from "@/components/InstructorStrip";
-import IndependenceOfferStickyNote from "@/components/IndependenceOfferStickyNote";
 import { testimonialsBottom, plans } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -164,7 +162,6 @@ export default function EmbeddedSystemsPage() {
       </div>
       <ProgramHero />
       <CourseCarousel />
-      <IndependenceDayOfferSection />
       <InstructorStrip />
       <WhoIsThisFor />
       <Prerequisites />
@@ -177,7 +174,6 @@ export default function EmbeddedSystemsPage() {
       <AssessmentNote />
       <FinalCta />
       <Footer />
-      <IndependenceOfferStickyNote />
     </main>
   );
 }

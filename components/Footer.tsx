@@ -1,68 +1,20 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { site } from "@/data/content";
 import { track } from "@/lib/analytics";
 
-const OFFER_CODE = "INDIA_80TH_INDEPENDENCE_DAY";
-
-function CopyableOfferCode() {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(OFFER_CODE).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-  return (
-    <button
-      type="button"
-      onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-[#FFC400]/40 bg-[#FFC400]/10 px-3 py-1.5 font-mono text-xs font-bold text-[#FFC400] transition hover:bg-[#FFC400]/20"
-      title="Click to copy code"
-    >
-      {OFFER_CODE}
-      <span aria-label={copied ? "Copied" : "Copy"}>
-        {copied ? (
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8l3 3 7-7" stroke="#FFC400" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ) : (
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <rect x="5" y="1" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-            <rect x="2" y="4" width="9" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.4" fill="rgba(255,196,0,0.1)" />
-          </svg>
-        )}
-      </span>
-    </button>
-  );
-}
-
-const STARTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
-const SEMESTER_OFFER_URL = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
-const individualCourses = [
-  { number: 1, title: "Electronics Foundation", url: "https://learn.etalvis.com/l/eedf109260" },
-  { number: 2, title: "C Programming", url: "https://learn.etalvis.com/l/4b28c4d3e7" },
-  { number: 3, title: "Embedded Hardware", url: "https://learn.etalvis.com/l/0b97f73bd7" },
-  { number: 4, title: "Embedded Software: GPIO", url: "https://learn.etalvis.com/l/6c0d984628" },
-  { number: 5, title: "Embedded Software: Controllers", url: "https://learn.etalvis.com/l/df34c72b59" },
-  { number: 7, title: "Microprocessor Internals", url: "https://learn.etalvis.com/l/e4cfa288cc" },
-  { number: 8, title: "8085 Microprocessor", url: "https://learn.etalvis.com/l/0efdd02bd7" },
-  { number: 9, title: "ARM Controller", url: "https://learn.etalvis.com/l/d782debf8a" },
-  { number: 10, title: "Networking Concepts", url: "https://learn.etalvis.com/l/aa5ecd6e5b" },
-];
+const STARTER_URL = "https://learn.etalvis.com/web/checkout/69dc8903dd89f7865bd71d26";
+const SEMESTER_URL = "https://learn.etalvis.com/web/checkout/6a49ecd60fd4ddf81d3f24ca";
 
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-[#0A3D1F]">
-      {/* Main columns */}
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
 
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div>
             <a
               href="https://etalvis.com"
               target="_blank"
@@ -121,31 +73,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Individual Courses */}
-          <div>
-            <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
-              Individual Courses
-            </h3>
-            <p className="mt-0.5 text-[10px] text-white/40">3-month access · ₹319 each</p>
-            <ul className="mt-4 space-y-2.5">
-              {individualCourses.map((c) => (
-                <li key={c.number}>
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-2 text-sm text-white/60 transition hover:text-white"
-                  >
-                    <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded text-[9px] font-black text-[#0A3D1F]" style={{ background: "#FFC400" }}>
-                      {c.number}
-                    </span>
-                    <span className="font-medium leading-snug">{c.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Bundle Plans */}
           <div>
             <h3 className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#FFC400]">
@@ -155,30 +82,27 @@ export default function Footer() {
             <ul className="mt-4 space-y-4">
               <li>
                 <a
-                  href={STARTER_OFFER_URL}
+                  href={STARTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group block rounded-xl border border-white/10 bg-white/5 px-3.5 py-3 transition hover:border-white/20 hover:bg-white/10"
                 >
                   <p className="text-[10px] font-extrabold uppercase tracking-wider text-white/80">Starter · 1 Month</p>
                   <div className="mt-1 flex items-baseline gap-1.5">
-                    <span className="font-display text-base font-black text-white">₹511</span>
-                    <span className="text-[10px] text-white/30 line-through">₹639</span>
+                    <span className="font-display text-base font-black text-white">₹639</span>
                   </div>
-                  <p className="mt-0.5 text-[10px] text-white/40">Independence offer · Code: INDIA_80TH_INDEPENDENCE_DAY</p>
                 </a>
               </li>
               <li>
                 <a
-                  href={SEMESTER_OFFER_URL}
+                  href={SEMESTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group block rounded-xl border border-[#FFC400]/30 bg-[#FFC400]/10 px-3.5 py-3 transition hover:border-[#FFC400]/50 hover:bg-[#FFC400]/15"
                 >
                   <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#FFC400]">Semester · 6 Months</p>
                   <div className="mt-1 flex items-baseline gap-1.5">
-                    <span className="font-display text-base font-black text-white">₹2,047</span>
-                    <span className="text-[10px] text-white/30 line-through">₹2,559</span>
+                    <span className="font-display text-base font-black text-white">₹2,559</span>
                   </div>
                   <p className="mt-0.5 text-[10px] text-white/40">Includes mock interview</p>
                 </a>
@@ -194,40 +118,6 @@ export default function Footer() {
             </ul>
           </div>
 
-        </div>
-
-        {/* How to Redeem */}
-        <div className="mt-10 rounded-2xl border border-[#FFC400]/20 bg-[#FFC400]/8 px-5 py-5 sm:px-7">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#FFC400]">
-                Independence Day Offer · Valid until August 31, 2026
-              </p>
-              <p className="mt-1 text-sm font-bold text-white">
-                How to redeem your discount
-              </p>
-              <ol className="mt-2 flex flex-col gap-1 text-[11px] text-white/60 sm:flex-row sm:items-center sm:gap-4">
-                <li className="flex items-center gap-1.5">
-                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">1</span>
-                  Select a plan
-                </li>
-                <li className="hidden sm:block text-white/20">&#8594;</li>
-                <li className="flex items-center gap-1.5">
-                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">2</span>
-                  Enter code at checkout
-                </li>
-                <li className="hidden sm:block text-white/20">&#8594;</li>
-                <li className="flex items-center gap-1.5">
-                  <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFC400] text-[8px] font-black text-[#0A3D1F]">3</span>
-                  Pay the discounted price
-                </li>
-              </ol>
-            </div>
-            <div className="flex flex-col items-start gap-1 sm:items-end">
-              <p className="text-[10px] text-white/40">Click to copy code</p>
-              <CopyableOfferCode />
-            </div>
-          </div>
         </div>
 
         {/* Bottom bar */}
@@ -246,7 +136,7 @@ export default function Footer() {
             <p>© {new Date().getFullYear()} eTalVis. All rights reserved.</p>
             <p className="mt-0.5">
               Built by{" "}
-              <a href="https://www.linkedin.com/in/raghavkanva/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white/80/60 hover:text-white transition">
+              <a href="https://www.linkedin.com/in/raghavkanva/" target="_blank" rel="noopener noreferrer" className="font-semibold text-white/80 hover:text-white transition">
                 Raghav Kanva
               </a>
             </p>
