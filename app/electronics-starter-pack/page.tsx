@@ -446,10 +446,10 @@ function InsideThePackSection() {
   return (
     <section id="esp-inside" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
+        <h2 className="font-display font-extrabold text-[32px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[40px]">
           Inside the Starter Pack
         </h2>
-        <p className="mt-3 text-[16px] text-[#6B7280] text-center">
+        <p className="mt-3 text-[18px] text-[#6B7280] text-center">
           Two foundation courses. One clear starting point.
         </p>
 
@@ -459,18 +459,18 @@ function InsideThePackSection() {
           {/* Electronics card */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
             <div className="p-7 border-l-4 border-[#22C55E] flex-1">
-              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-2">
+              <div className="text-[13px] font-bold text-[#15803D] uppercase tracking-wide mb-2">
                 Electronics
               </div>
-              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
+              <h3 className="font-display font-bold text-[20px] text-[#111827] mb-3">
                 Electronics Foundation Course
               </h3>
-              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
+              <p className="text-[15px] text-[#4B5563] leading-relaxed mb-6">
                 Build the Electronics knowledge needed before moving deeper into the field.
               </p>
-              <div className="border-t border-[#E5E7EB] pt-5 space-y-2">
+              <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
                 {ELECTRONICS_SECTIONS.map((s) => (
-                  <div key={s} className="text-[13px] text-[#4B5563]">{s}</div>
+                  <div key={s} className="text-[14px] font-medium text-[#374151]">{s}</div>
                 ))}
               </div>
             </div>
@@ -479,21 +479,21 @@ function InsideThePackSection() {
           {/* C Programming card */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
             <div className="p-7 border-l-4 border-[#22C55E] flex-1">
-              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-2">
+              <div className="text-[13px] font-bold text-[#15803D] uppercase tracking-wide mb-2">
                 Programming
               </div>
-              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
+              <h3 className="font-display font-bold text-[20px] text-[#111827] mb-3">
                 C Programming Foundation Course
               </h3>
-              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-1">
+              <p className="text-[15px] text-[#4B5563] leading-relaxed mb-1">
                 Build programming logic and strengthen the C concepts used throughout the learning path.
               </p>
-              <span className="inline-block text-[12px] text-[#15803D] font-semibold mb-5">
+              <span className="inline-block text-[13px] text-[#15803D] font-bold mb-5">
                 200+ problems to solve
               </span>
-              <div className="border-t border-[#E5E7EB] pt-5 space-y-2">
+              <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
                 {C_SECTIONS.map((s) => (
-                  <div key={s} className="text-[13px] text-[#4B5563]">{s}</div>
+                  <div key={s} className="text-[14px] font-medium text-[#374151]">{s}</div>
                 ))}
               </div>
             </div>
