@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Electronics Starter Pack | Electronics + C Programming Foundation | eTalVis",
+  title: "Electronics Starter Pack · Rs. 239 | eTalVis",
   description:
-    "Start your Electronics journey with the Electronics Foundation Course and C Programming Foundation Course. The eTalVis Electronics Starter Pack includes 2 foundation courses for students heading into Embedded Systems or VLSI Design. 2 months access for Rs. 239.",
+    "Electronics + C Programming foundation courses for ECE students heading into Embedded Systems or VLSI Design. 2 months access for Rs. 239.",
   twitter: {
     card: "summary_large_image",
     title: "eTalVis Electronics Starter Pack · Rs. 239",
     description:
-      "Electronics + C Programming Foundation Courses. The right foundation for Embedded Systems and VLSI Design. 2 months access, 200+ problems.",
-    images: ["https://etalvis.com/images/esp-og.jpg"],
+      "Electronics + C Programming foundations for ECE students. The right start for Embedded Systems or VLSI Design. Rs. 239, 2 months.",
+    images: ["https://courses.etalvis.com/images/esp-og.jpg"],
   },
   openGraph: {
     type: "website",
     siteName: "eTalVis",
-    title: "eTalVis Electronics Starter Pack: Electronics + C Programming · Rs. 239",
+    title: "eTalVis Electronics Starter Pack · Rs. 239",
     description:
-      "Electronics Foundation Course + C Programming Foundation Course. Built for ECE, EEE, EIE and related branches heading into Embedded Systems or VLSI Design.",
-    url: "https://etalvis.com/embedded-starter-pack",
+      "Electronics + C Programming foundations for ECE students heading into Embedded Systems or VLSI Design. Rs. 239, 2 months access.",
+    url: "https://courses.etalvis.com/embedded-starter-pack",
     images: [
       {
-        url: "https://etalvis.com/images/esp-og.jpg",
+        url: "https://courses.etalvis.com/images/esp-og.jpg",
         width: 1200,
         height: 630,
-        alt: "eTalVis Electronics Starter Pack: Electronics + C Programming Foundation Courses",
+        alt: "eTalVis Electronics Starter Pack — Electronics and C Programming Foundation Courses",
       },
     ],
   },
