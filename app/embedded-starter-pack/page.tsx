@@ -5,6 +5,12 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import { track, metaEvent } from "@/lib/analytics";
+import {
+  captureCampaignData,
+  buildTrackedCheckoutUrl,
+  getCampaignEventParameters,
+  getIdentityParameters,
+} from "@/lib/campaignTracking";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -12,6 +18,8 @@ const CHECKOUT_URL =
   "https://learn.etalvis.com/web/checkout/6a95416cc8cef8fac0b83a48";
 const LINKEDIN_URL = "https://www.linkedin.com/in/balajeeseshadri/";
 const WHATSAPP_URL = "https://wa.me/919790873099";
+const COURSE_SLUG = "embedded-starter-pack";
+const PLAN_CODE = "ESP";
 
 const ELECTRONICS_SECTIONS = [
   "Electrical Fundamentals",
@@ -65,30 +73,37 @@ const FAQ_ITEMS = [
   },
 ];
 
+const BASE_TRACK_PARAMS = {
+  content_name: "Embedded Starter Pack",
+  content_type: PLAN_CODE,
+  course_slug: COURSE_SLUG,
+  value: 239,
+  currency: "INR",
+};
+
 function handleCTA(location: string) {
   track("esp_cta_click", {
+    ...BASE_TRACK_PARAMS,
     location,
-    content_name: "Embedded Starter Pack",
-    content_type: "ESP",
-    value: 239,
-    currency: "INR",
+    ...getCampaignEventParameters(),
+    ...getIdentityParameters(),
   });
   metaEvent("InitiateCheckout", {
     content_name: "Embedded Starter Pack",
-    content_type: "ESP",
+    content_type: PLAN_CODE,
     value: 239,
     currency: "INR",
     num_items: 1,
   });
 }
 
-// Eyebrow label — readable, branded
+// Eyebrow label
 const EYEBROW =
   "text-[14px] font-semibold text-[#15803D] tracking-[0.06em] uppercase";
 
 // ─── MiniNav ─────────────────────────────────────────────────────────────────
 
-function MiniNav() {
+function MiniNav({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <nav
       className="sticky top-0 z-50 w-full bg-white border-b border-[#E5E7EB]"
@@ -111,7 +126,7 @@ function MiniNav() {
             ₹239 · 2 Months
           </span>
           <a
-            href={CHECKOUT_URL}
+            href={checkoutUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => handleCTA("mini_nav")}
@@ -127,9 +142,16 @@ function MiniNav() {
 
 // ─── HeroSection ─────────────────────────────────────────────────────────────
 
-function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) {
+function HeroSection({
+  heroRef,
+  checkoutUrl,
+}: {
+  heroRef: React.RefObject<HTMLDivElement>;
+  checkoutUrl: string;
+}) {
   return (
     <section
+      id="esp-hero"
       ref={heroRef}
       className="mx-auto max-w-6xl px-4 pt-10 pb-14 sm:px-6 sm:pt-14 lg:pt-16 lg:pb-20"
       aria-label="Hero"
@@ -185,7 +207,7 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
           {/* CTA */}
           <div className="mt-6">
             <a
-              href={CHECKOUT_URL}
+              href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("hero")}
@@ -233,7 +255,7 @@ function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) 
 
 function WhyTheseTwoSection() {
   return (
-    <section className="border-y border-[#E5E7EB] bg-white py-16 sm:py-20">
+    <section id="esp-why" className="border-y border-[#E5E7EB] bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className={`${EYEBROW} mb-4 text-center`}>The Two Foundations</div>
 
@@ -251,7 +273,6 @@ function WhyTheseTwoSection() {
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {/* Electronics */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
             <h3
               className="font-display font-bold text-[#111827] mb-2"
@@ -275,7 +296,6 @@ function WhyTheseTwoSection() {
             </ul>
           </div>
 
-          {/* C Programming */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
             <h3
               className="font-display font-bold text-[#111827] mb-2"
@@ -322,7 +342,7 @@ function WhyTheseTwoSection() {
 
 function InsideThePackSection() {
   return (
-    <section className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
+    <section id="esp-inside" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
           Inside the Starter Pack
@@ -332,7 +352,6 @@ function InsideThePackSection() {
         </p>
 
         <div className="mt-10 space-y-4">
-          {/* Course 01 */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden">
             <div className="p-6 border-l-4 border-[#22C55E]">
               <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
@@ -348,15 +367,12 @@ function InsideThePackSection() {
             <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
               <ul className="space-y-2">
                 {ELECTRONICS_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563]">
-                    {s}
-                  </li>
+                  <li key={s} className="text-[13px] text-[#4B5563]">{s}</li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Course 02 */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden">
             <div className="p-6 border-l-4 border-[#22C55E]">
               <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
@@ -375,9 +391,7 @@ function InsideThePackSection() {
             <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
               <ul className="space-y-2">
                 {C_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563]">
-                    {s}
-                  </li>
+                  <li key={s} className="text-[13px] text-[#4B5563]">{s}</li>
                 ))}
               </ul>
             </div>
@@ -388,19 +402,17 @@ function InsideThePackSection() {
   );
 }
 
-// ─── Section: Why Start Here (Balajee) ───────────────────────────────────────
+// ─── Section: Why Start Here ──────────────────────────────────────────────────
 
 function WhyStartHereSection() {
   return (
-    <section className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
+    <section id="esp-instructor" className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
 
-          {/* Text */}
           <div className="flex-1 min-w-0">
             <div className={`${EYEBROW} mb-6`}>Why Start Here?</div>
 
-            {/* Editorial quote with CSS large quote mark */}
             <div className="relative">
               <span
                 aria-hidden="true"
@@ -437,6 +449,14 @@ function WhyStartHereSection() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                track("esp_linkedin_click", {
+                  ...BASE_TRACK_PARAMS,
+                  location: "instructor_section",
+                  ...getCampaignEventParameters(),
+                  ...getIdentityParameters(),
+                })
+              }
               className="mt-5 inline-flex items-center gap-1.5 text-[13px] text-[#6B7280] hover:text-[#111827] transition underline underline-offset-2"
             >
               View Balajee Seshadri on LinkedIn
@@ -444,7 +464,6 @@ function WhyStartHereSection() {
             </a>
           </div>
 
-          {/* Photo */}
           <div className="flex justify-center lg:justify-end shrink-0">
             <Image
               src="/images/balajee-formal.png"
@@ -480,7 +499,7 @@ function WhoIsThisForSection() {
   ];
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
+    <section id="esp-who" className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
       <div className={`${EYEBROW} mb-4 text-center`}>Who Is This For?</div>
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
         Is This Your First Step?
@@ -539,7 +558,7 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
+    <section id="esp-testimonials" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className={`${EYEBROW} mb-4 text-center`}>Students</div>
         <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[34px]">
@@ -553,6 +572,14 @@ function TestimonialsSection() {
               href={t.link}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                track("esp_testimonial_click", {
+                  ...BASE_TRACK_PARAMS,
+                  student_name: t.name,
+                  ...getCampaignEventParameters(),
+                  ...getIdentityParameters(),
+                })
+              }
               className="flex flex-col rounded-2xl bg-white border border-[#E5E7EB] p-6 transition hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="border-t-2 border-[#22C55E] pt-5 flex-1">
@@ -578,9 +605,9 @@ function TestimonialsSection() {
 
 // ─── Section: Product / CTA card ─────────────────────────────────────────────
 
-function ProductSection() {
+function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <section id="esp-product" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
         Start With The Right Foundation.
       </h2>
@@ -617,7 +644,7 @@ function ProductSection() {
 
           <div className="pt-6">
             <a
-              href={CHECKOUT_URL}
+              href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("product_section")}
@@ -629,8 +656,7 @@ function ProductSection() {
         </div>
       </div>
 
-      {/* Bulk */}
-      <div className="mt-8 rounded-2xl border border-[#E5E7EB] bg-[#F4F7F5] px-6 py-6">
+      <div id="esp-bulk" className="mt-8 rounded-2xl border border-[#E5E7EB] bg-[#F4F7F5] px-6 py-6">
         <div className={`${EYEBROW} mb-2`}>Institutions</div>
         <h3 className="font-display font-bold text-[17px] text-[#111827] mb-2">
           Bulk Access for Academic Institutions
@@ -643,7 +669,14 @@ function ProductSection() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => track("esp_bulk_inquiry_click", { location: "product_section" })}
+          onClick={() =>
+            track("esp_bulk_inquiry_click", {
+              ...BASE_TRACK_PARAMS,
+              location: "product_section",
+              ...getCampaignEventParameters(),
+              ...getIdentityParameters(),
+            })
+          }
           className="inline-flex items-center gap-2 rounded-full border-2 border-[#111827] bg-white px-5 py-2.5 text-[13px] font-bold text-[#111827] transition hover:-translate-y-0.5 hover:shadow-sm"
         >
           Contact on WhatsApp
@@ -653,11 +686,11 @@ function ProductSection() {
   );
 }
 
-// ─── Section: FAQ (all visible by default) ────────────────────────────────────
+// ─── Section: FAQ ─────────────────────────────────────────────────────────────
 
 function FAQSection() {
   return (
-    <section className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
+    <section id="esp-faq" className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[32px]">
           Questions Before You Start?
@@ -680,9 +713,9 @@ function FAQSection() {
 
 // ─── Section: Final CTA ───────────────────────────────────────────────────────
 
-function FinalCtaSection() {
+function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 text-center">
+    <section id="esp-final" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 text-center">
       <div className={`${EYEBROW} mb-4`}>Your First Step</div>
 
       <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] sm:text-[36px] lg:text-[42px]">
@@ -694,7 +727,7 @@ function FinalCtaSection() {
       </p>
 
       <a
-        href={CHECKOUT_URL}
+        href={checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => handleCTA("final_cta")}
@@ -708,7 +741,13 @@ function FinalCtaSection() {
 
 // ─── Sticky Mobile CTA ────────────────────────────────────────────────────────
 
-function StickyCTA({ visible }: { visible: boolean }) {
+function StickyCTA({
+  visible,
+  checkoutUrl,
+}: {
+  visible: boolean;
+  checkoutUrl: string;
+}) {
   return (
     <div
       className={`fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-4 transition-all duration-300 ${
@@ -727,7 +766,7 @@ function StickyCTA({ visible }: { visible: boolean }) {
             </div>
           </div>
           <a
-            href={CHECKOUT_URL}
+            href={checkoutUrl}
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={visible ? 0 : -1}
@@ -747,50 +786,167 @@ function StickyCTA({ visible }: { visible: boolean }) {
 export default function EmbeddedStarterPack() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [stickyCTAVisible, setStickyCTAVisible] = useState(false);
+  const [checkoutUrl, setCheckoutUrl] = useState(CHECKOUT_URL);
 
+  // ── Boot: campaign capture + page view + tracked URL ────────────────────
   useEffect(() => {
+    captureCampaignData();
+
+    const trackedUrl = buildTrackedCheckoutUrl(
+      CHECKOUT_URL,
+      "esp_landing",
+      COURSE_SLUG,
+      PLAN_CODE,
+    );
+    setCheckoutUrl(trackedUrl);
+
+    const campaignParams = getCampaignEventParameters();
+    const identityParams = getIdentityParameters();
+
     track("esp_page_view", {
-      content_name: "Embedded Starter Pack",
+      ...BASE_TRACK_PARAMS,
       content_category: "Landing Page",
-      value: 239,
-      currency: "INR",
+      ...campaignParams,
+      ...identityParams,
     });
     metaEvent("ViewContent", {
       content_name: "Embedded Starter Pack",
-      content_type: "ESP",
+      content_type: PLAN_CODE,
       value: 239,
       currency: "INR",
     });
   }, []);
 
+  // ── Sticky CTA visibility ────────────────────────────────────────────────
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
+    let wasVisible = false;
     const observer = new IntersectionObserver(
-      ([entry]) => setStickyCTAVisible(!entry.isIntersecting),
+      ([entry]) => {
+        const heroGone = !entry.isIntersecting;
+        setStickyCTAVisible(heroGone);
+        if (heroGone && !wasVisible) {
+          wasVisible = true;
+          track("esp_sticky_cta_shown", {
+            ...BASE_TRACK_PARAMS,
+            ...getCampaignEventParameters(),
+            ...getIdentityParameters(),
+          });
+        }
+      },
       { threshold: 0.1 },
     );
     observer.observe(hero);
     return () => observer.disconnect();
   }, []);
 
+  // ── Section view tracking ────────────────────────────────────────────────
+  useEffect(() => {
+    const sections: Array<{ id: string; name: string }> = [
+      { id: "esp-why",          name: "why_foundations" },
+      { id: "esp-inside",       name: "inside_pack" },
+      { id: "esp-instructor",   name: "instructor" },
+      { id: "esp-who",          name: "who_for" },
+      { id: "esp-testimonials", name: "testimonials" },
+      { id: "esp-product",      name: "product_card" },
+      { id: "esp-bulk",         name: "bulk_inquiry" },
+      { id: "esp-faq",          name: "faq" },
+      { id: "esp-final",        name: "final_cta" },
+    ];
+
+    const cleanups: Array<() => void> = [];
+
+    for (const { id, name } of sections) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      let fired = false;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (fired || !entry.isIntersecting) return;
+          fired = true;
+          track("esp_section_viewed", {
+            ...BASE_TRACK_PARAMS,
+            section_name: name,
+            ...getCampaignEventParameters(),
+            ...getIdentityParameters(),
+          });
+          obs.disconnect();
+        },
+        { threshold: 0.25 },
+      );
+      obs.observe(el);
+      cleanups.push(() => obs.disconnect());
+    }
+
+    return () => cleanups.forEach((fn) => fn());
+  }, []);
+
+  // ── Scroll depth ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    const milestones = [25, 50, 75, 100];
+    const fired = new Set<number>();
+
+    function onScroll() {
+      const scrolled =
+        (window.scrollY + window.innerHeight) /
+        document.documentElement.scrollHeight *
+        100;
+
+      for (const pct of milestones) {
+        if (!fired.has(pct) && scrolled >= pct) {
+          fired.add(pct);
+          track("esp_scroll_depth", {
+            ...BASE_TRACK_PARAMS,
+            scroll_depth_pct: pct,
+            ...getCampaignEventParameters(),
+            ...getIdentityParameters(),
+          });
+        }
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // ── Time on page milestones ──────────────────────────────────────────────
+  useEffect(() => {
+    const milestones = [30, 60, 120, 180, 300];
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
+    for (const seconds of milestones) {
+      const t = setTimeout(() => {
+        track("esp_time_on_page", {
+          ...BASE_TRACK_PARAMS,
+          seconds_on_page: seconds,
+          ...getCampaignEventParameters(),
+          ...getIdentityParameters(),
+        });
+      }, seconds * 1000);
+      timers.push(t);
+    }
+
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F8F8F4]">
-      <MiniNav />
-      <HeroSection heroRef={heroRef} />
+      <MiniNav checkoutUrl={checkoutUrl} />
+      <HeroSection heroRef={heroRef} checkoutUrl={checkoutUrl} />
       <WhyTheseTwoSection />
       <InsideThePackSection />
       <WhyStartHereSection />
       <WhoIsThisForSection />
       <TestimonialsSection />
-      <ProductSection />
+      <ProductSection checkoutUrl={checkoutUrl} />
       <FAQSection />
-      <FinalCtaSection />
+      <FinalCtaSection checkoutUrl={checkoutUrl} />
       <Footer />
 
       <div aria-hidden="true" className="h-20" />
 
-      <StickyCTA visible={stickyCTAVisible} />
+      <StickyCTA visible={stickyCTAVisible} checkoutUrl={checkoutUrl} />
     </div>
   );
 }
