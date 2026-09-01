@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Electronics + C Programming foundation courses for ECE students heading into Embedded Systems or VLSI Design. 2 months access for Rs. 239.",
   twitter: {
     card: "summary_large_image",
-    title: "eTalVis Electronics Starter Pack · Rs. 239",
+    title: "Electronics Starter Pack | eTalVis",
     description:
       "Electronics + C Programming foundations for ECE students. The right start for Embedded Systems or VLSI Design. Rs. 239, 2 months.",
     images: ["https://courses.etalvis.com/images/esp-og.jpg"],
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "eTalVis",
-    title: "eTalVis Electronics Starter Pack · Rs. 239",
+    title: "Electronics Starter Pack | eTalVis",
     description:
       "Electronics + C Programming foundations for ECE students heading into Embedded Systems or VLSI Design. Rs. 239, 2 months access.",
     url: "https://courses.etalvis.com/embedded-starter-pack",
