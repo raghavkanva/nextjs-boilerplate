@@ -385,17 +385,9 @@ function WhyTheseTwoSection() {
             <p className="font-display font-semibold text-[17px] text-[#22C55E] mb-4">
               Hardware Understanding
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-relaxed mb-5">
+            <p className="text-[14px] text-[#4B5563] leading-relaxed">
               Understand what happens in the hardware before writing code for it.
             </p>
-            <div className="w-10 h-px bg-[#E5E7EB] mb-5" />
-            <ul className="space-y-2.5">
-              {ELECTRONICS_SECTIONS.map((topic) => (
-                <li key={topic} className="text-[14px] text-[#4B5563] leading-relaxed">
-                  {topic}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
@@ -408,18 +400,10 @@ function WhyTheseTwoSection() {
             <p className="font-display font-semibold text-[17px] text-[#22C55E] mb-4">
               Programming Logic
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-relaxed mb-5">
+            <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
               Build programming logic from the fundamentals up.
             </p>
-            <div className="w-10 h-px bg-[#E5E7EB] mb-5" />
-            <ul className="space-y-2.5">
-              {C_SECTIONS.map((topic) => (
-                <li key={topic} className="text-[14px] text-[#4B5563] leading-relaxed">
-                  {topic}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex items-baseline gap-2">
+            <div className="flex items-baseline gap-2">
               <span
                 className="font-display font-extrabold text-[#111827] leading-none"
                 style={{ fontSize: "clamp(32px, 4vw, 40px)" }}
@@ -857,7 +841,7 @@ function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
         </p>
         <div className="flex items-center justify-center gap-3">
           <a
-            href={`https://wa.me/?text=${encodeURIComponent("Hey! Found this eTalVis Electronics Starter Pack — Electronics + C Programming foundations for Rs. 239. Might be useful if you're heading into Embedded Systems or VLSI: https://courses.etalvis.com/electronics-starter-pack?utm_source=whatsapp&utm_medium=share&utm_campaign=esp_share")}`}
+            href={`https://wa.me/?text=${encodeURIComponent("Hey! Found this eTalVis Electronics Starter Pack. Electronics + C Programming foundations for Rs. 239. Might be useful if you're heading into Embedded Systems or VLSI: https://courses.etalvis.com/electronics-starter-pack?utm_source=whatsapp&utm_medium=share&utm_campaign=esp_share")}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("esp_share_click", { ...BASE_TRACK_PARAMS, platform: "whatsapp", location: "final_cta", ...getCampaignEventParameters(), ...getIdentityParameters() })}
