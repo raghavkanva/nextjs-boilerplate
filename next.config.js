@@ -13,6 +13,11 @@ const nextConfig = {
         destination: "/courses",
         permanent: true,
       },
+      {
+        source: "/embedded-starter-pack",
+        destination: "/electronics-starter-pack",
+        permanent: true,
+      },
     ];
   },
 };

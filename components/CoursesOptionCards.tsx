@@ -15,7 +15,7 @@ export default function CoursesOptionCards({ starterPrice }: Props) {
 
       {/* ── Embedded Starter Pack — featured row ── */}
       <a
-        href="/embedded-starter-pack"
+        href="/electronics-starter-pack"
         onClick={() => track("courses_option_click", { option: "starter_pack", page: "courses" })}
         className="group relative flex flex-col overflow-hidden rounded-[28px] border-2 border-[#111827] shadow-[0_8px_32px_rgba(17,24,39,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,24,39,0.20)] active:translate-y-0 sm:flex-row"
         style={{ background: "#F8F8F4" }}

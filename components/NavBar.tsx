@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Workshops", href: "/workshop" },
 ];
 
-const STARTER_PACK_HREF = "/embedded-starter-pack";
+const STARTER_PACK_HREF = "/electronics-starter-pack";
 
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);

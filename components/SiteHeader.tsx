@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 import NavBar from "@/components/NavBar";
 
-const HIDDEN_HEADER_ROUTES = ["/resume-session", "/embedded-starter-pack"];
+const HIDDEN_HEADER_ROUTES = ["/resume-session", "/electronics-starter-pack"];
 
 export default function SiteHeader() {
   const pathname = usePathname();

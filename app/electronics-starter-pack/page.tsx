@@ -18,7 +18,7 @@ const CHECKOUT_URL =
   "https://learn.etalvis.com/web/checkout/6a95416cc8cef8fac0b83a48";
 const LINKEDIN_URL = "https://www.linkedin.com/in/balajeeseshadri/";
 const WHATSAPP_URL = "https://wa.me/919790873099";
-const COURSE_SLUG = "embedded-starter-pack";
+const COURSE_SLUG = "electronics-starter-pack";
 const PLAN_CODE = "ESP";
 
 const ELECTRONICS_SECTIONS = [

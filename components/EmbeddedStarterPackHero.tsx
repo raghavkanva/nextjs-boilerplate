@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { track, metaEvent } from "@/lib/analytics";
 
-const CHECKOUT_URL = "/embedded-starter-pack";
+const CHECKOUT_URL = "/electronics-starter-pack";
 
 function handleCTA(location: string) {
   track("esp_cta_click", { location });
