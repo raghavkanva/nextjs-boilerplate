@@ -849,6 +849,42 @@ function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
       >
         Start Your Foundation
       </a>
+
+      {/* Social share */}
+      <div className="mt-10 pt-8 border-t border-[#E5E7EB]">
+        <p className="text-[13px] font-semibold text-[#6B7280] uppercase tracking-[0.06em] mb-4">
+          Share with a friend
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent("Hey! Found this eTalVis Electronics Starter Pack — Electronics + C Programming foundations for Rs. 239. Might be useful if you're heading into Embedded Systems or VLSI: https://courses.etalvis.com/electronics-starter-pack?utm_source=whatsapp&utm_medium=share&utm_campaign=esp_share")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("esp_share_click", { ...BASE_TRACK_PARAMS, platform: "whatsapp", location: "final_cta", ...getCampaignEventParameters(), ...getIdentityParameters() })}
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[14px] font-bold text-white border-2 border-[#128C7E] transition hover:-translate-y-0.5 hover:opacity-90"
+            style={{ background: "#25D366" }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.862L0 24l6.305-1.654A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.875 9.875 0 01-5.032-1.378l-.36-.214-3.742.981.998-3.648-.235-.374A9.853 9.853 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.468 0 9.882 4.415 9.882 9.882 0 5.468-4.414 9.882-9.882 9.882z"/>
+            </svg>
+            Share on WhatsApp
+          </a>
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://courses.etalvis.com/electronics-starter-pack?utm_source=linkedin&utm_medium=share&utm_campaign=esp_share")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("esp_share_click", { ...BASE_TRACK_PARAMS, platform: "linkedin", location: "final_cta", ...getCampaignEventParameters(), ...getIdentityParameters() })}
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[14px] font-bold text-white border-2 border-[#004182] transition hover:-translate-y-0.5 hover:opacity-90"
+            style={{ background: "#0A66C2" }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            Share on LinkedIn
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
