@@ -3,9 +3,8 @@
 import { usePathname } from "next/navigation";
 
 import NavBar from "@/components/NavBar";
-import ThinPromotionHeaderSlider from "@/components/ThinPromotionHeaderSlider";
 
-const HIDDEN_HEADER_ROUTES = ["/resume-session"];
+const HIDDEN_HEADER_ROUTES = ["/resume-session", "/electronics-starter-pack"];
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -18,12 +17,5 @@ export default function SiteHeader() {
     return null;
   }
 
-  const isHomepage = pathname === "/";
-
-  return (
-    <>
-      {isHomepage && <ThinPromotionHeaderSlider />}
-      <NavBar />
-    </>
-  );
+  return <NavBar />;
 }

@@ -4,13 +4,9 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Gift,
 } from "lucide-react";
 
 import { usePromotionSlider } from "./PromotionSliderContext";
-
-const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
-const isIndependenceDay = typeof window !== "undefined" ? Date.now() <= INDEPENDENCE_END_MS : true;
 
 const BG = "bg-[#0A3D1F]";
 const FG = "text-white";
@@ -22,28 +18,8 @@ const ARROW = "bg-white/15 text-white hover:bg-white/25";
 
 const promotions = [
   {
-    id: "independence-offer",
-    text:
-      isIndependenceDay
-        ? "India enters its 80th year of Independence! Get 20% discount on all plans."
-        : "Get 20% discount on all eTalVis plans. Code: INDIA_80TH_INDEPENDENCE_DAY.",
-    mobileText: isIndependenceDay ? "Independence Day — 20% Discount" : "Get 20% discount on all plans",
-    extra: "Code: INDIA_80TH_INDEPENDENCE_DAY",
-    href: "https://courses.etalvis.com/courses",
-    cta: "View Offer",
-    icon: Gift,
-    background: BG,
-    foreground: FG,
-    hoverBackground: HOVER,
-    iconBackground: ICON_BG,
-    mutedText: MUTED,
-    buttonStyle: BTN,
-    arrowStyle: ARROW,
-  },
-  {
     id: "embedded-systems",
-    text:
-      "10 foundation courses in electronics, C programming, and embedded systems.",
+    text: "10 foundation courses in electronics, C programming, and embedded systems.",
     mobileText: "10 Embedded Systems Foundation Courses",
     extra: "Pre-recorded · Self-paced · Doubts on WhatsApp",
     href: "https://courses.etalvis.com/courses",

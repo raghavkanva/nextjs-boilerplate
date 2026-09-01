@@ -72,7 +72,9 @@ function TestimonialCard({ item }: { item: Testimonial }) {
       itemType="https://schema.org/Review"
       className="snap-center shrink-0 w-[85%] sm:w-[46%] lg:w-[23%] rounded-2xl border-2 border-text bg-white p-6 flex flex-col"
     >
-      <meta itemProp="itemReviewed" content="eTalVis Embedded Systems Foundation Courses" />
+      <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Course">
+        <meta itemProp="name" content="eTalVis Embedded Systems Foundation Courses" />
+      </div>
       <div itemProp="author" itemScope itemType="https://schema.org/Person">
         <meta itemProp="name" content={item.name} />
       </div>

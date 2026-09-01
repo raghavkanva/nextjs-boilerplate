@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 const courseListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Embedded Systems Foundation Course — Individual Courses",
+  name: "Embedded Systems Foundation Course: Individual Courses",
   description:
     "9 individually available foundation courses from the Embedded Systems Foundation Course by eTalVis.",
   itemListElement: courses

@@ -272,7 +272,7 @@ export default function IndependenceDayOfferSection() {
     <section
       ref={sectionRef}
       id="plans"
-      aria-label="Independence Day Offer — Choose Your Plan"
+      aria-label="Independence Day Offer: Choose Your Plan"
       className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8"
     >
       {/* Green offer header */}
@@ -358,7 +358,7 @@ export default function IndependenceDayOfferSection() {
 
           <a
             href={starterUrl}
-            onClick={() => trackEnroll("starter", "starter-enroll", `Enroll — ₹${STARTER_OFFER}`)}
+            onClick={() => trackEnroll("starter", "starter-enroll", `Enroll · ₹${STARTER_OFFER}`)}
             onMouseEnter={() => trackPlanSelected("starter")}
             target="_blank"
             rel="noopener noreferrer"
@@ -369,7 +369,7 @@ export default function IndependenceDayOfferSection() {
             data-plan-name="Starter"
             className="mt-auto pt-6 block rounded-full border-2 border-text bg-surface py-3 text-center text-sm font-black text-text transition hover:bg-text hover:text-white"
           >
-            Enroll — ₹{STARTER_OFFER}
+            Enroll · ₹{STARTER_OFFER}
           </a>
         </div>
 
@@ -434,7 +434,7 @@ export default function IndependenceDayOfferSection() {
 
           <a
             href={semesterUrl}
-            onClick={() => trackEnroll("semester", "semester-enroll", `Enroll — ₹${SEMESTER_OFFER.toLocaleString("en-IN")}`)}
+            onClick={() => trackEnroll("semester", "semester-enroll", `Enroll · ₹${SEMESTER_OFFER.toLocaleString("en-IN")}`)}
             onMouseEnter={() => trackPlanSelected("semester")}
             target="_blank"
             rel="noopener noreferrer"
@@ -445,7 +445,7 @@ export default function IndependenceDayOfferSection() {
             data-plan-name="Semester"
             className="mt-6 block rounded-full border-2 border-text bg-cta py-3 text-center text-sm font-black text-text shadow-[0_3px_0_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-amber-300 active:translate-y-0.5 active:shadow-none"
           >
-            Enroll — ₹{SEMESTER_OFFER.toLocaleString("en-IN")}
+            Enroll · ₹{SEMESTER_OFFER.toLocaleString("en-IN")}
           </a>
         </div>
 

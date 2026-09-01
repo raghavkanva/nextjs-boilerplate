@@ -4,23 +4,7 @@ import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePromotionSlider } from "./PromotionSliderContext";
 
-const INDEPENDENCE_END_MS = new Date("2026-08-15T23:59:59+05:30").getTime();
-const isIndependenceDay = typeof window !== "undefined"
-  ? Date.now() <= INDEPENDENCE_END_MS
-  : true;
-
 const slides = [
-  {
-    id: "independence-offer",
-    eyebrow: isIndependenceDay ? "80th Independence Year Offer" : "20% Discount Offer",
-    title: "Get 20% Discount on All Plans",
-    detail: "Use code: INDIA_80TH_INDEPENDENCE_DAY",
-    note: "Valid until August 31, 2026",
-    href: "https://courses.etalvis.com/courses",
-    cta: "Explore Plans",
-    badge: "20%",
-    badgeSub: "OFF",
-  },
   {
     id: "embedded-systems",
     eyebrow: "10 Foundation Courses",

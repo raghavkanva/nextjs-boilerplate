@@ -11,6 +11,8 @@ const navLinks = [
   { label: "Workshops", href: "/workshop" },
 ];
 
+const STARTER_PACK_HREF = "/electronics-starter-pack";
+
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -34,6 +36,13 @@ export default function NavBar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={STARTER_PACK_HREF}
+            className="ml-2 rounded-full px-4 py-1.5 text-sm font-bold transition-colors hover:bg-[#F4B800]"
+            style={{ background: "#FFC400", color: "#111827", border: "2px solid #111827" }}
+          >
+            Starter Pack
+          </Link>
         </nav>
 
         <button
@@ -59,6 +68,14 @@ export default function NavBar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={STARTER_PACK_HREF}
+            onClick={() => setMobileOpen(false)}
+            className="mt-1 flex items-center rounded-full px-4 py-2.5 text-sm font-bold"
+            style={{ background: "#FFC400", color: "#111827", border: "2px solid #111827" }}
+          >
+            Starter Pack · ₹239
+          </Link>
         </nav>
       )}
     </header>
