@@ -458,54 +458,44 @@ function InsideThePackSection() {
 
           {/* Electronics card */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
-            <div className="p-6 border-l-4 border-[#22C55E] flex-1">
-              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
+            <div className="p-7 border-l-4 border-[#22C55E] flex-1">
+              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-2">
                 Electronics
               </div>
-              <h3 className="font-display font-bold text-[17px] text-[#111827]">
+              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
                 Electronics Foundation Course
               </h3>
-              <p className="mt-2 text-[14px] text-[#4B5563] leading-relaxed">
+              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
                 Build the Electronics knowledge needed before moving deeper into the field.
               </p>
-            </div>
-            <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
-              <ul className="space-y-2">
+              <div className="border-t border-[#E5E7EB] pt-5 space-y-2">
                 {ELECTRONICS_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563] flex items-start gap-2">
-                    <span className="text-[#22C55E] font-bold leading-snug mt-px">·</span>
-                    {s}
-                  </li>
+                  <div key={s} className="text-[13px] text-[#4B5563]">{s}</div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
           {/* C Programming card */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
-            <div className="p-6 border-l-4 border-[#22C55E] flex-1">
-              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
+            <div className="p-7 border-l-4 border-[#22C55E] flex-1">
+              <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-2">
                 Programming
               </div>
-              <h3 className="font-display font-bold text-[17px] text-[#111827]">
+              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
                 C Programming Foundation Course
               </h3>
-              <p className="mt-2 text-[14px] text-[#4B5563] leading-relaxed">
+              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-1">
                 Build programming logic and strengthen the C concepts used throughout the learning path.
               </p>
-              <span className="mt-2 inline-block text-[12px] text-[#64748B] font-semibold">
+              <span className="inline-block text-[12px] text-[#15803D] font-semibold mb-5">
                 200+ problems to solve
               </span>
-            </div>
-            <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
-              <ul className="space-y-2">
+              <div className="border-t border-[#E5E7EB] pt-5 space-y-2">
                 {C_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563] flex items-start gap-2">
-                    <span className="text-[#22C55E] font-bold leading-snug mt-px">·</span>
-                    {s}
-                  </li>
+                  <div key={s} className="text-[13px] text-[#4B5563]">{s}</div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
@@ -605,15 +595,15 @@ function WhoIsThisForSection() {
   const audiences = [
     {
       heading: "ECE and Electronics students heading into Embedded Systems or VLSI Design.",
-      body: "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation — if you want to work in embedded hardware, firmware, or VLSI, these two foundations come first.",
+      body: "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation. If you want to work in embedded hardware, firmware, or VLSI, these two foundations come first.",
     },
     {
       heading: "Students who tried advanced topics and found them unclear.",
-      body: "Whether it is RTOS, GPIO, digital logic, or chip design — Electronics and C Programming sit underneath all of it. Building those foundations first is what makes every next step clearer.",
+      body: "Whether it is RTOS, GPIO, digital logic, or chip design, Electronics and C Programming sit underneath all of it. Building those foundations first is what makes every next step clearer.",
     },
     {
       heading: "Professionals moving from software or non-core backgrounds.",
-      body: "From software, mechanical, or unrelated fields into embedded hardware, firmware, or VLSI design — this is the structured starting point before advanced concepts.",
+      body: "From software, mechanical, or unrelated fields into embedded hardware, firmware, or VLSI design. This is the structured starting point before advanced concepts.",
     },
   ];
 
