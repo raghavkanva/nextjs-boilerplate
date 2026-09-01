@@ -95,7 +95,7 @@ export default function EmbeddedStarterPackHero() {
                 className="font-display font-bold mb-5"
                 style={{ fontSize: "clamp(22px, 2.8vw, 28px)", color: "#15803D" }}
               >
-                eTalVis Embedded Starter Pack
+                eTalVis Electronics Starter Pack
               </p>
 
               {/* Headline */}
@@ -124,9 +124,9 @@ export default function EmbeddedStarterPackHero() {
                 className="font-body text-lg leading-relaxed mb-8 max-w-[560px]"
                 style={{ color: "#4B5563" }}
               >
-                If Embedded Systems is the field you want to explore, start by
-                strengthening the two foundations that come first: Electronics
-                and C Programming.
+                If Embedded Systems or VLSI Design is the field you want to
+                explore, start by strengthening the two foundations that come
+                first: Electronics and C Programming.
               </p>
 
               {/* Course pair */}
@@ -237,8 +237,8 @@ export default function EmbeddedStarterPackHero() {
                   <p className="font-body text-sm mt-0.5" style={{ color: "#4B5563" }}>
                     40+ Years in Electronics
                   </p>
-                  <p className="font-body text-xs mt-0.5" style={{ color: "#6B7280" }}>
-                    Guiding students to build the fundamentals first.
+                  <p className="font-display font-bold text-sm mt-1" style={{ color: "#111827" }}>
+                    Making Electronics Talents Visible to Industry
                   </p>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function EmbeddedStarterPackHero() {
         <div className="mx-auto max-w-4xl px-5 py-3 flex items-center justify-between gap-4">
           <div className="min-w-0">
             <p className="font-display font-semibold text-sm text-[#111827] leading-tight">
-              Embedded Starter Pack
+              Electronics Starter Pack
             </p>
             <p className="font-body text-xs text-[#6B7280] mt-0.5">
               ₹239 · 2 Months Access

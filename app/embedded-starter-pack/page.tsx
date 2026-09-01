@@ -41,7 +41,7 @@ const C_SECTIONS = [
 const FAQ_ITEMS = [
   {
     q: "Who is this pack for?",
-    a: "The pack is designed for Electronics Engineering students and beginners who are interested in the Embedded Systems field and want to strengthen their Electronics and C Programming foundations first.",
+    a: "The pack is designed for Electronics Engineering students who are interested in Embedded Systems or VLSI Design and want to build the right foundation before going deeper. It is suited for ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches.",
   },
   {
     q: "What courses are included?",
@@ -57,11 +57,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do I need prior knowledge before joining?",
-    a: "No. This pack is intended as a starting point for students who are interested in the field and want to build their foundations first.",
+    a: "No. This pack is intended as a starting point for students who want to build their foundations first before going deeper into any Electronics path.",
   },
   {
     q: "Why are Electronics and C Programming included together?",
-    a: "Working with hardware requires an understanding of Electronics. Writing software for it requires C Programming. These are the two starting foundations.",
+    a: "Whether you are heading into Embedded Systems or VLSI Design, both paths start from the same place. Electronics fundamentals to understand the hardware. C Programming to write for it. That is why the pack includes both.",
   },
   {
     q: "Does this pack include the full Foundation Course?",
@@ -74,22 +74,118 @@ const FAQ_ITEMS = [
 ];
 
 const BASE_TRACK_PARAMS = {
-  content_name: "Embedded Starter Pack",
+  content_name: "Electronics Starter Pack",
   content_type: PLAN_CODE,
   course_slug: COURSE_SLUG,
   value: 239,
   currency: "INR",
 };
 
+// ─── Module-level mutable tracking state ──────────────────────────────────────
+// These are set in useEffect and read at click time — safe in a client component.
+let _pageStartTime = 0;
+let _maxScrollDepth = 0;
+
+// ─── Extended URL builder ─────────────────────────────────────────────────────
+
+function buildExtendedUrl(trackedUrl: string): string {
+  try {
+    const url = new URL(trackedUrl);
+
+    // Device
+    const w = window.innerWidth;
+    url.searchParams.set(
+      "etv_device",
+      w < 768 ? "mobile" : w < 1024 ? "tablet" : "desktop",
+    );
+
+    // Locale and timezone
+    url.searchParams.set("etv_browser_lang", navigator.language || "");
+    url.searchParams.set(
+      "etv_timezone",
+      Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+    );
+
+    // Conversion time signals
+    const now = new Date();
+    url.searchParams.set("etv_hour_of_day", String(now.getHours()));
+    url.searchParams.set(
+      "etv_day_of_week",
+      ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][
+        now.getDay()
+      ],
+    );
+
+    // Referrer (hostname only to keep URL short)
+    try {
+      url.searchParams.set(
+        "etv_referrer_host",
+        document.referrer ? new URL(document.referrer).hostname : "direct",
+      );
+    } catch {
+      url.searchParams.set("etv_referrer_host", "direct");
+    }
+    url.searchParams.set("etv_entry_page", window.location.pathname);
+
+    // First-touch attribution from localStorage
+    try {
+      const ft = JSON.parse(
+        localStorage.getItem("etalvis_first_touch") || "{}",
+      );
+      if (ft.utm_source)
+        url.searchParams.set("etv_first_touch_source", ft.utm_source);
+      if (ft.utm_medium)
+        url.searchParams.set("etv_first_touch_medium", ft.utm_medium);
+      if (ft.utm_campaign)
+        url.searchParams.set("etv_first_touch_campaign", ft.utm_campaign);
+      if (ft.touch_timestamp) {
+        const days = Math.floor(
+          (Date.now() - new Date(ft.touch_timestamp).getTime()) / 86400000,
+        );
+        url.searchParams.set("etv_days_since_first_visit", String(days));
+      }
+    } catch {}
+
+    // Visit count and return visitor
+    try {
+      const firstSeen = localStorage.getItem("etalvis_first_seen_at");
+      if (firstSeen) url.searchParams.set("etv_first_visit_date", firstSeen);
+
+      const sessionNum = parseInt(
+        localStorage.getItem("etalvis_session_number") || "0",
+        10,
+      );
+      url.searchParams.set("etv_visit_count", String(sessionNum));
+      url.searchParams.set(
+        "etv_return_visitor",
+        sessionNum > 1 ? "true" : "false",
+      );
+    } catch {}
+
+    return url.toString();
+  } catch {
+    return trackedUrl;
+  }
+}
+
+// ─── CTA handler ─────────────────────────────────────────────────────────────
+
 function handleCTA(location: string) {
+  const timeOnPage =
+    _pageStartTime > 0
+      ? Math.round((Date.now() - _pageStartTime) / 1000)
+      : 0;
+
   track("esp_cta_click", {
     ...BASE_TRACK_PARAMS,
     location,
+    time_on_page_seconds: timeOnPage,
+    max_scroll_depth_pct: _maxScrollDepth,
     ...getCampaignEventParameters(),
     ...getIdentityParameters(),
   });
   metaEvent("InitiateCheckout", {
-    content_name: "Embedded Starter Pack",
+    content_name: "Electronics Starter Pack",
     content_type: PLAN_CODE,
     value: 239,
     currency: "INR",
@@ -97,9 +193,9 @@ function handleCTA(location: string) {
   });
 }
 
-// Eyebrow label
+// Eyebrow label — used for small section chips (not the product title)
 const EYEBROW =
-  "text-[14px] font-semibold text-[#15803D] tracking-[0.06em] uppercase";
+  "text-[13px] font-semibold text-[#15803D] tracking-[0.06em] uppercase";
 
 // ─── MiniNav ─────────────────────────────────────────────────────────────────
 
@@ -123,7 +219,7 @@ function MiniNav({ checkoutUrl }: { checkoutUrl: string }) {
 
         <div className="flex items-center gap-3">
           <span className="hidden sm:block text-sm text-[#111827] font-medium">
-            ₹239 · 2 Months
+            Rs. 239 · 2 Months
           </span>
           <a
             href={checkoutUrl}
@@ -160,16 +256,22 @@ function HeroSection({
 
         {/* LEFT */}
         <div className="flex-1 min-w-0 lg:max-w-[58%]">
-          <p className={`${EYEBROW} mb-4`}>eTalVis Embedded Starter Pack</p>
 
-          <h1 className="font-display font-extrabold text-[36px] leading-[1.1] tracking-[-0.02em] text-[#111827] sm:text-[48px] lg:text-[58px] lg:leading-[1.05]">
+          {/* Product title — big and bold */}
+          <p className="font-display font-extrabold text-[22px] sm:text-[26px] text-[#15803D] tracking-[-0.01em] mb-4">
+            eTalVis Electronics Starter Pack
+          </p>
+
+          {/* H1 — supporting, not dominant */}
+          <h1 className="font-display font-extrabold text-[26px] leading-[1.15] tracking-[-0.02em] text-[#111827] sm:text-[34px] lg:text-[40px] lg:leading-[1.1]">
             Every Electronics Engineering Student&apos;s First Step Starts Here.
           </h1>
 
-          <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] sm:text-[18px] max-w-xl">
-            If the Embedded Systems field is where you are headed, begin by
-            strengthening the two foundations that come first: Electronics and
-            C Programming.
+          {/* Subtitle — bigger, bolder, updated copy */}
+          <p className="mt-5 text-[19px] sm:text-[21px] font-semibold leading-[1.6] text-[#374151] max-w-xl">
+            If Embedded Systems or VLSI Design is the field you want to explore,
+            start by strengthening the two foundations that come first:
+            Electronics and C Programming.
           </p>
 
           {/* Course pair */}
@@ -195,7 +297,7 @@ function HeroSection({
           {/* Price */}
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <span className="font-display text-[38px] font-extrabold text-[#111827] leading-none">
-              ₹239
+              Rs. 239
             </span>
             <div className="rounded-full border border-[#E5E7EB] bg-white px-3 py-1.5">
               <span className="text-[13px] text-[#4B5563] font-medium">
@@ -233,15 +335,15 @@ function HeroSection({
             style={{ objectFit: "contain" }}
             priority
           />
-          <div className="mt-6 text-center lg:text-left">
+          <div className="mt-5 text-center lg:text-left">
             <div className="font-display font-bold text-[17px] text-[#111827]">
               Balajee Seshadri
             </div>
             <div className="text-[13px] text-[#64748B] mt-0.5 font-medium">
               40+ Years in Electronics
             </div>
-            <div className="mt-1 text-[13px] text-[#6B7280]">
-              Guiding students to build the fundamentals first.
+            <div className="font-display font-bold text-[14px] text-[#111827] mt-1">
+              Making Electronics Talents Visible to Industry
             </div>
           </div>
         </div>
@@ -267,9 +369,9 @@ function WhyTheseTwoSection() {
         </h2>
 
         <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-          Working with hardware requires an understanding of Electronics. Writing
-          software for it requires C Programming. These are the two starting
-          foundations. That is why the pack begins with both.
+          Whether you are heading into Embedded Systems or VLSI Design,
+          Electronics and C Programming are the two foundations the field starts
+          from. That is why the pack begins with both.
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -351,51 +453,62 @@ function InsideThePackSection() {
           Two foundation courses. One clear starting point.
         </p>
 
-        <div className="mt-10 space-y-4">
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden">
-            <div className="p-6 border-l-4 border-[#22C55E]">
+        {/* Two-column premium layout on sm+ */}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+
+          {/* Electronics card */}
+          <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
+            <div className="p-6 border-l-4 border-[#22C55E] flex-1">
               <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
                 Electronics
               </div>
               <h3 className="font-display font-bold text-[17px] text-[#111827]">
                 Electronics Foundation Course
               </h3>
-              <p className="mt-1 text-[14px] text-[#4B5563] leading-relaxed">
+              <p className="mt-2 text-[14px] text-[#4B5563] leading-relaxed">
                 Build the Electronics knowledge needed before moving deeper into the field.
               </p>
             </div>
             <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
               <ul className="space-y-2">
                 {ELECTRONICS_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563]">{s}</li>
+                  <li key={s} className="text-[13px] text-[#4B5563] flex items-start gap-2">
+                    <span className="text-[#22C55E] font-bold leading-snug mt-px">·</span>
+                    {s}
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden">
-            <div className="p-6 border-l-4 border-[#22C55E]">
+          {/* C Programming card */}
+          <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
+            <div className="p-6 border-l-4 border-[#22C55E] flex-1">
               <div className="text-[12px] font-semibold text-[#15803D] uppercase tracking-wide mb-1">
                 Programming
               </div>
               <h3 className="font-display font-bold text-[17px] text-[#111827]">
                 C Programming Foundation Course
               </h3>
-              <p className="mt-1 text-[14px] text-[#4B5563] leading-relaxed">
+              <p className="mt-2 text-[14px] text-[#4B5563] leading-relaxed">
                 Build programming logic and strengthen the C concepts used throughout the learning path.
               </p>
-              <span className="mt-2 inline-block text-[12px] text-[#64748B] font-medium">
+              <span className="mt-2 inline-block text-[12px] text-[#64748B] font-semibold">
                 200+ problems to solve
               </span>
             </div>
             <div className="border-t border-[#E5E7EB] px-6 py-5 bg-[#F9FAFB]">
               <ul className="space-y-2">
                 {C_SECTIONS.map((s) => (
-                  <li key={s} className="text-[13px] text-[#4B5563]">{s}</li>
+                  <li key={s} className="text-[13px] text-[#4B5563] flex items-start gap-2">
+                    <span className="text-[#22C55E] font-bold leading-snug mt-px">·</span>
+                    {s}
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -411,7 +524,10 @@ function WhyStartHereSection() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
 
           <div className="flex-1 min-w-0">
-            <div className={`${EYEBROW} mb-6`}>Why Start Here?</div>
+            {/* Section heading — very big */}
+            <h2 className="font-display font-extrabold text-[36px] sm:text-[48px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
+              Why Start Here?
+            </h2>
 
             <div className="relative">
               <span
@@ -424,7 +540,7 @@ function WhyStartHereSection() {
               <div className="relative space-y-4 text-[17px] leading-[1.75] text-[#374151]">
                 <p>
                   Students often want to move directly into microcontrollers,
-                  protocols or projects.
+                  chip design, or advanced projects.
                 </p>
                 <p>
                   But when the foundation in Electronics and C Programming is
@@ -442,6 +558,9 @@ function WhyStartHereSection() {
               </div>
               <div className="text-[13px] text-[#64748B] mt-0.5 font-medium">
                 40+ Years in Electronics
+              </div>
+              <div className="font-display font-bold text-[14px] text-[#111827] mt-1">
+                Making Electronics Talents Visible to Industry
               </div>
             </div>
 
@@ -485,24 +604,26 @@ function WhyStartHereSection() {
 function WhoIsThisForSection() {
   const audiences = [
     {
-      heading: "Electronics and ECE students heading into Embedded Systems.",
-      body: "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation — if you want to work in embedded hardware or firmware, these two foundations come first.",
+      heading: "ECE and Electronics students heading into Embedded Systems or VLSI Design.",
+      body: "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation — if you want to work in embedded hardware, firmware, or VLSI, these two foundations come first.",
     },
     {
       heading: "Students who tried advanced topics and found them unclear.",
-      body: "Microcontrollers, RTOS, GPIO, protocols — these topics require Electronics and C Programming underneath. Building those foundations first makes everything else fall into place.",
+      body: "Whether it is RTOS, GPIO, digital logic, or chip design — Electronics and C Programming sit underneath all of it. Building those foundations first is what makes every next step clearer.",
     },
     {
       heading: "Professionals moving from software or non-core backgrounds.",
-      body: "From software, mechanical, or unrelated fields into embedded hardware or firmware — this is the structured starting point before advanced concepts.",
+      body: "From software, mechanical, or unrelated fields into embedded hardware, firmware, or VLSI design — this is the structured starting point before advanced concepts.",
     },
   ];
 
   return (
     <section id="esp-who" className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
-      <div className={`${EYEBROW} mb-4 text-center`}>Who Is This For?</div>
-      <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
-        Is This Your First Step?
+      <div className={`${EYEBROW} mb-4 text-center`}>Audience</div>
+
+      {/* Section heading — very big */}
+      <h2 className="font-display font-extrabold text-[36px] sm:text-[52px] lg:text-[60px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
+        Who Is This For?
       </h2>
 
       <div className="mt-12 divide-y divide-[#E5E7EB] border-y border-[#E5E7EB]">
@@ -543,7 +664,7 @@ function TestimonialsSection() {
     },
     {
       name: "Tarang Srivas",
-      title: "M.Tech VLSI & Embedded, IIT Jammu · Engineer at Silicon Labs",
+      title: "M.Tech VLSI and Embedded, IIT Jammu · Engineer at Silicon Labs",
       quote:
         "I used to rely on high-level programming with Arduino, STM, and ESP boards, but your teachings helped me understand how things actually work under the hood.",
       link: "https://www.linkedin.com/in/tarang-srivas-b192ab213/",
@@ -603,7 +724,7 @@ function TestimonialsSection() {
   );
 }
 
-// ─── Section: Product / CTA card ─────────────────────────────────────────────
+// ─── Section: Product card ────────────────────────────────────────────────────
 
 function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
@@ -616,7 +737,7 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
         <div className="bg-[#ECFDF3] border-b border-[#E5E7EB] px-7 py-5">
           <div className={`${EYEBROW} mb-1`}>Product</div>
           <h3 className="font-display font-extrabold text-[20px] text-[#111827]">
-            eTalVis Embedded Starter Pack
+            eTalVis Electronics Starter Pack
           </h3>
         </div>
 
@@ -637,7 +758,7 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
 
           <div className="flex flex-wrap items-center gap-4 pb-6 border-b border-[#E5E7EB]">
             <div className="font-display text-[42px] font-extrabold text-[#111827] leading-none">
-              ₹239
+              Rs. 239
             </div>
             <span className="text-[13px] text-[#6B7280] font-medium">2 Months Access</span>
           </div>
@@ -716,10 +837,13 @@ function FAQSection() {
 function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <section id="esp-final" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 text-center">
-      <div className={`${EYEBROW} mb-4`}>Your First Step</div>
+      {/* "Your First Step" — large display */}
+      <p className="font-display font-extrabold text-[40px] sm:text-[52px] text-[#15803D] leading-tight tracking-[-0.02em] mb-5">
+        Your First Step
+      </p>
 
-      <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] sm:text-[36px] lg:text-[42px]">
-        ₹239. Two months. The foundations that make everything else click.
+      <h2 className="font-display font-extrabold text-[24px] leading-tight tracking-[-0.01em] text-[#111827] sm:text-[30px] lg:text-[36px]">
+        The two foundations every Electronics path starts from.
       </h2>
 
       <p className="mt-5 text-[15px] text-[#4B5563]">
@@ -751,7 +875,9 @@ function StickyCTA({
   return (
     <div
       className={`fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-5 sm:pb-4 transition-all duration-300 ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+        visible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-full opacity-0 pointer-events-none"
       }`}
       aria-hidden={!visible}
     >
@@ -759,10 +885,10 @@ function StickyCTA({
         <div className="flex items-center justify-between gap-3 px-4 py-3">
           <div className="min-w-0">
             <div className="font-display font-bold text-[14px] text-[#111827] leading-tight">
-              eTalVis Embedded Starter Pack
+              eTalVis Electronics Starter Pack
             </div>
             <div className="text-[11px] text-[#6B7280] mt-0.5">
-              ₹239 · 2 Months
+              Rs. 239 · 2 Months
             </div>
           </div>
           <a
@@ -781,6 +907,36 @@ function StickyCTA({
   );
 }
 
+// ─── WhatsApp Float Button ────────────────────────────────────────────────────
+
+function WhatsAppFloatButton({ stickyCTAVisible }: { stickyCTAVisible: boolean }) {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Balajee sir on WhatsApp"
+      onClick={() =>
+        track("esp_whatsapp_float_click", {
+          ...BASE_TRACK_PARAMS,
+          location: "float_button",
+          ...getCampaignEventParameters(),
+          ...getIdentityParameters(),
+        })
+      }
+      className={`fixed right-4 z-[51] transition-all duration-300 ${
+        stickyCTAVisible ? "bottom-[84px]" : "bottom-5"
+      }`}
+    >
+      <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-2 border-white hover:scale-110 transition-transform" style={{ background: "#25D366" }}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </div>
+    </a>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function EmbeddedStarterPack() {
@@ -788,17 +944,19 @@ export default function EmbeddedStarterPack() {
   const [stickyCTAVisible, setStickyCTAVisible] = useState(false);
   const [checkoutUrl, setCheckoutUrl] = useState(CHECKOUT_URL);
 
-  // ── Boot: campaign capture + page view + tracked URL ────────────────────
+  // ── Boot: campaign capture + page view + extended tracked URL ────────────
   useEffect(() => {
+    _pageStartTime = Date.now();
+
     captureCampaignData();
 
-    const trackedUrl = buildTrackedCheckoutUrl(
+    const baseTracked = buildTrackedCheckoutUrl(
       CHECKOUT_URL,
       "esp_landing",
       COURSE_SLUG,
       PLAN_CODE,
     );
-    setCheckoutUrl(trackedUrl);
+    setCheckoutUrl(buildExtendedUrl(baseTracked));
 
     const campaignParams = getCampaignEventParameters();
     const identityParams = getIdentityParameters();
@@ -810,7 +968,7 @@ export default function EmbeddedStarterPack() {
       ...identityParams,
     });
     metaEvent("ViewContent", {
-      content_name: "Embedded Starter Pack",
+      content_name: "Electronics Starter Pack",
       content_type: PLAN_CODE,
       value: 239,
       currency: "INR",
@@ -889,9 +1047,11 @@ export default function EmbeddedStarterPack() {
 
     function onScroll() {
       const scrolled =
-        (window.scrollY + window.innerHeight) /
-        document.documentElement.scrollHeight *
+        ((window.scrollY + window.innerHeight) /
+          document.documentElement.scrollHeight) *
         100;
+
+      if (scrolled > _maxScrollDepth) _maxScrollDepth = Math.round(scrolled);
 
       for (const pct of milestones) {
         if (!fired.has(pct) && scrolled >= pct) {
@@ -944,8 +1104,10 @@ export default function EmbeddedStarterPack() {
       <FinalCtaSection checkoutUrl={checkoutUrl} />
       <Footer />
 
+      {/* Spacer so sticky CTA never covers content */}
       <div aria-hidden="true" className="h-20" />
 
+      <WhatsAppFloatButton stickyCTAVisible={stickyCTAVisible} />
       <StickyCTA visible={stickyCTAVisible} checkoutUrl={checkoutUrl} />
     </div>
   );

@@ -1,22 +1,31 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Embedded Systems Starter Pack Course | Electronics + C Programming | eTalVis",
+  title: "Electronics Starter Pack | Electronics + C Programming Foundation | eTalVis",
   description:
-    "Start your Embedded Systems learning with the Electronics Foundation Course and C Programming Foundation Course. The eTalVis Embedded Starter Pack includes 2 courses with 2 months access for ₹239.",
+    "Start your Electronics journey with the Electronics Foundation Course and C Programming Foundation Course. The eTalVis Electronics Starter Pack includes 2 foundation courses for students heading into Embedded Systems or VLSI Design. 2 months access for Rs. 239.",
   twitter: {
     card: "summary_large_image",
-    title: "eTalVis Embedded Starter Pack · ₹239",
+    title: "eTalVis Electronics Starter Pack · Rs. 239",
     description:
-      "Electronics + C Programming Foundation Courses. The right foundation for Embedded Systems. 2 months access, 200+ problems.",
+      "Electronics + C Programming Foundation Courses. The right foundation for Embedded Systems and VLSI Design. 2 months access, 200+ problems.",
+    images: ["https://etalvis.com/images/esp-og.jpg"],
   },
   openGraph: {
     type: "website",
     siteName: "eTalVis",
-    title: "eTalVis Embedded Starter Pack: Electronics + C Programming · ₹239",
+    title: "eTalVis Electronics Starter Pack: Electronics + C Programming · Rs. 239",
     description:
-      "Electronics Foundation Course + C Programming Foundation Course. Built for ECE, EEE, EIE and related branches. Start building the right way.",
+      "Electronics Foundation Course + C Programming Foundation Course. Built for ECE, EEE, EIE and related branches heading into Embedded Systems or VLSI Design.",
     url: "https://etalvis.com/embedded-starter-pack",
+    images: [
+      {
+        url: "https://etalvis.com/images/esp-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "eTalVis Electronics Starter Pack: Electronics + C Programming Foundation Courses",
+      },
+    ],
   },
 };
 
@@ -26,9 +35,9 @@ const courseSchema = {
     {
       "@type": "Course",
       "@id": "https://etalvis.com/embedded-starter-pack#course",
-      "name": "eTalVis Embedded Starter Pack",
+      "name": "eTalVis Electronics Starter Pack",
       "description":
-        "The eTalVis Embedded Starter Pack includes two foundation courses: Electronics Foundation Course and C Programming Foundation Course. Designed to give Embedded Systems beginners a proper start. Covers 200+ hands-on problems across electronics fundamentals and C programming logic.",
+        "The eTalVis Electronics Starter Pack includes two foundation courses: Electronics Foundation Course and C Programming Foundation Course. Designed for students heading into Embedded Systems, VLSI Design, or any other Electronics path. Build the foundations before going deeper. Covers 200+ hands-on problems across electronics fundamentals and C programming logic.",
       "url": "https://etalvis.com/embedded-starter-pack",
       "provider": {
         "@type": "Organization",
@@ -49,7 +58,7 @@ const courseSchema = {
         "@type": "Person",
         "@id": "https://etalvis.com#balajee",
         "name": "Balajee Seshadri",
-        "description": "Electronics educator with 40+ years of experience guiding students to build fundamentals first.",
+        "description": "Electronics educator with 40+ years of experience. Making Electronics Talents Visible to Industry.",
         "image": "https://etalvis.com/images/balajee-formal.png"
       },
       "hasCourseInstance": [
@@ -79,7 +88,8 @@ const courseSchema = {
       "teaches": [
         "Electronics fundamentals",
         "C Programming",
-        "Embedded Systems foundations"
+        "Embedded Systems foundations",
+        "VLSI Design foundations"
       ],
       "coursePrerequisites": "No prior knowledge required",
       "inLanguage": "en",
@@ -123,7 +133,7 @@ const courseSchema = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Embedded Starter Pack",
+          "name": "Electronics Starter Pack",
           "item": "https://etalvis.com/embedded-starter-pack"
         }
       ]
@@ -134,26 +144,26 @@ const courseSchema = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Who is the Embedded Starter Pack for?",
+          "name": "Who is the Electronics Starter Pack for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The pack is designed for students from ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches who are beginning their Embedded Systems journey. It is also suited for professionals switching into the electronics domain."
+            "text": "The pack is designed for students from ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches who are heading into Embedded Systems or VLSI Design and want to build the right foundation first."
           }
         },
         {
           "@type": "Question",
-          "name": "What is included in the Embedded Starter Pack?",
+          "name": "What is included in the Electronics Starter Pack?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Embedded Starter Pack includes two courses: Electronics Foundation Course and C Programming Foundation Course. Both provide 2 months of access and cover 200+ problems to solve."
+            "text": "The Electronics Starter Pack includes two courses: Electronics Foundation Course and C Programming Foundation Course. Both provide 2 months of access and cover 200+ problems to solve."
           }
         },
         {
           "@type": "Question",
-          "name": "How much does the Embedded Starter Pack cost?",
+          "name": "How much does the Electronics Starter Pack cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Embedded Starter Pack costs ₹239 and includes 2 months of access to both courses."
+            "text": "The Electronics Starter Pack costs Rs. 239 and includes 2 months of access to both courses."
           }
         },
         {
