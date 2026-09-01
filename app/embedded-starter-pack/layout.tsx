@@ -81,7 +81,6 @@ const courseSchema = {
         "C Programming",
         "Embedded Systems foundations"
       ],
-      "numberOfCredits": 2,
       "coursePrerequisites": "No prior knowledge required",
       "inLanguage": "en",
       "audience": {
@@ -107,6 +106,7 @@ const courseSchema = {
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://etalvis.com/embedded-starter-pack#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -130,6 +130,7 @@ const courseSchema = {
     },
     {
       "@type": "FAQPage",
+      "@id": "https://etalvis.com/embedded-starter-pack#faq",
       "mainEntity": [
         {
           "@type": "Question",
