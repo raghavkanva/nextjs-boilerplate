@@ -451,7 +451,7 @@ function InsideThePackSection() {
 
 // ─── Section: Sounds Like You ────────────────────────────────────────────────
 
-function SoundsLikeYouSection() {
+function SoundsLikeYouSection({ checkoutUrl }: { checkoutUrl: string }) {
   const questions = [
     "I have an electronics interview coming up, but I do not know which fundamentals to revise first.",
     "Placements are getting closer, and I am worried that my electronics and C programming basics are still not strong enough.",
@@ -526,6 +526,17 @@ function SoundsLikeYouSection() {
         <p className="text-[16px] sm:text-[18px] font-semibold text-[#111827] text-center max-w-[672px] mx-auto mt-10">
           If even one of these sounds like you, the Electronics Starter Pack is where you should begin.
         </p>
+        <div className="mt-8 flex justify-center">
+          <a
+            href={checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => handleCTA("sounds_cta")}
+            className="inline-flex items-center rounded-full bg-[#FFC400] px-7 py-3.5 text-[15px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+          >
+            Start Learning for Rs. 239
+          </a>
+        </div>
       </div>
       <style>{`
         @keyframes esp-fade-up {
@@ -1369,7 +1380,7 @@ function StickyCTA({
             <div className="font-display font-bold text-[14px] text-[#111827] leading-tight">
               eTalVis Electronics Starter Pack
             </div>
-            <div className="text-[11px] text-[#6B7280] mt-0.5">
+            <div className="text-[12.5px] font-extrabold text-[#111827] mt-0.5 tracking-tight">
               Rs. 239 · 2 Months
             </div>
           </div>
@@ -1578,7 +1589,7 @@ export default function EmbeddedStarterPack() {
     <div className="min-h-screen bg-[#F8F8F4]">
       <MiniNav checkoutUrl={checkoutUrl} />
       <HeroSection heroRef={heroRef} checkoutUrl={checkoutUrl} />
-      <SoundsLikeYouSection />
+      <SoundsLikeYouSection checkoutUrl={checkoutUrl} />
       <WhyStartHereSection checkoutUrl={checkoutUrl} />
       <InsideThePackSection />
       <HoursSection />
