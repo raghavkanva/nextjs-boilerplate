@@ -274,24 +274,131 @@ function HeroSection({
             Electronics and C Programming.
           </p>
 
-          {/* Course pair */}
-          <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
-            <div className="border-l-2 border-[#22C55E] pl-4">
-              <div className="font-display font-semibold text-[15px] text-[#111827]">
-                Electronics Foundation Course
-              </div>
-              <div className="text-[13px] text-[#64748B] mt-0.5">
-                Hardware understanding
-              </div>
-            </div>
-            <div className="border-l-2 border-[#22C55E] pl-4">
-              <div className="font-display font-semibold text-[15px] text-[#111827]">
-                C Programming Foundation Course
-              </div>
-              <div className="text-[13px] text-[#64748B] mt-0.5">
-                Programming logic
-              </div>
-            </div>
+          {/* Course pair — animated SVG banner */}
+          <div className="mt-7 w-full max-w-[480px]">
+            <svg viewBox="0 0 390 152" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Electronics Foundation Course and C Programming Foundation Course">
+              <defs>
+                <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#69A884"/>
+                  <stop offset="34%" stopColor="#76B58F"/>
+                  <stop offset="68%" stopColor="#82BE99"/>
+                  <stop offset="100%" stopColor="#6EAA87"/>
+                </linearGradient>
+                <linearGradient id="ambientWash" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#DFF2E6" stopOpacity="0.10"/>
+                  <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.035"/>
+                  <stop offset="100%" stopColor="#E9F5ED" stopOpacity="0.08"/>
+                </linearGradient>
+                <linearGradient id="topSheen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.16"/>
+                  <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0"/>
+                </linearGradient>
+                <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+                  <feDropShadow dx="0" dy="7" stdDeviation="11" floodColor="#24553B" floodOpacity="0.13"/>
+                </filter>
+                <filter id="objectShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="#244736" floodOpacity="0.18"/>
+                </filter>
+                <linearGradient id="scribbleGreen" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#E4FFE9"/>
+                  <stop offset="55%" stopColor="#B9F0C9"/>
+                  <stop offset="100%" stopColor="#F2FFF5"/>
+                </linearGradient>
+                <linearGradient id="scribbleBlue" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#E5F4FF"/>
+                  <stop offset="55%" stopColor="#C2DFFF"/>
+                  <stop offset="100%" stopColor="#F3F9FF"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="4" y="5" width="382" height="142" rx="25" fill="url(#bgMain)" stroke="#8EC2A3" filter="url(#shadow)"/>
+              <rect x="4" y="5" width="382" height="142" rx="25" fill="url(#ambientWash)"/>
+              <path d="M28 6 H362 C376 6 385 16 385 30 V47 C297 25 99 28 5 55 V30 C5 16 15 6 28 6Z" fill="url(#topSheen)" opacity="0.55"/>
+
+              {/* Electronics student */}
+              <g transform="translate(21 17)">
+                <g>
+                  <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.2s" repeatCount="indefinite"/>
+                  <circle cx="28" cy="23" r="12.5" fill="#DCA37C"/>
+                  <path d="M16 22 C17 9 36 7 40 20 C35 15 24 14 16 22Z" fill="#23302B"/>
+                  <path d="M9 62 C11 43 18 37 28 37 C39 37 45 44 47 62Z" fill="#23875A"/>
+                  <path d="M22 38 L28 45 L34 38" fill="#F0FAF4"/>
+                  <path d="M42 46 C49 47 53 51 58 55" stroke="#DCA37C" strokeWidth="4.6" strokeLinecap="round"/>
+                  <circle cx="59" cy="56" r="2.8" fill="#DCA37C"/>
+                </g>
+                <g transform="translate(47 39)" filter="url(#objectShadow)">
+                  <rect x="-3" y="38" width="70" height="5" rx="2.5" fill="#7D8A84"/>
+                  <rect x="1" y="9" width="62" height="31" rx="7" fill="#FAFBF8"/>
+                  <g fill="#B4BBB6" opacity="0.8">
+                    <circle cx="8" cy="15" r="1"/><circle cx="14" cy="15" r="1"/><circle cx="20" cy="15" r="1"/>
+                    <circle cx="26" cy="15" r="1"/><circle cx="32" cy="15" r="1"/><circle cx="38" cy="15" r="1"/>
+                    <circle cx="44" cy="15" r="1"/><circle cx="50" cy="15" r="1"/><circle cx="56" cy="15" r="1"/>
+                    <circle cx="8" cy="32" r="1"/><circle cx="14" cy="32" r="1"/><circle cx="20" cy="32" r="1"/>
+                    <circle cx="26" cy="32" r="1"/><circle cx="32" cy="32" r="1"/><circle cx="38" cy="32" r="1"/>
+                    <circle cx="44" cy="32" r="1"/><circle cx="50" cy="32" r="1"/><circle cx="56" cy="32" r="1"/>
+                  </g>
+                  <rect x="25" y="20" width="15" height="9" rx="2" fill="#24302B"/>
+                  <path d="M8 23 H17" stroke="#6C776F" strokeWidth="1.2"/>
+                  <rect x="17" y="20.5" width="11" height="5" rx="2.5" fill="#D2AD70"/>
+                  <path d="M28 23 H33" stroke="#6C776F" strokeWidth="1.2"/>
+                  <circle cx="49" cy="22" r="3.3" fill="#49D87F">
+                    <animate attributeName="opacity" values="0.35;1;0.35" dur="1.6s" repeatCount="indefinite"/>
+                  </circle>
+                  <path d="M12 18 C20 4 39 4 48 17" stroke="#3DBD73" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+                  <path d="M18 30 C25 36 44 35 53 27" stroke="#E9A93E" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+                  <g transform="translate(50 -2)">
+                    <rect width="17" height="22" rx="4" fill="#303B36"/>
+                    <rect x="3" y="3" width="11" height="6" rx="2" fill="#B8DFC6"/>
+                    <circle cx="8.5" cy="15" r="3" fill="#7D8983"/>
+                  </g>
+                </g>
+              </g>
+
+              <text x="20" y="128" fill="#FFFFFF" fontFamily="'Plus Jakarta Sans','Manrope','Avenir Next','Inter',sans-serif" fontSize="16.3" fontWeight="800" letterSpacing="-0.45">Electronics</text>
+              <path d="M20 136 C28 134.7 35 138.1 43 135.8 C51 133.7 60 137.2 68 135.4 C76 133.9 84 136.8 93 135.2" fill="none" stroke="url(#scribbleGreen)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;0.35;0.82;1" dur="5.5s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Centre plus */}
+              <g transform="translate(195 70)" filter="url(#objectShadow)">
+                <circle r="18" fill="#FFFFFF">
+                  <animate attributeName="r" values="17;18.7;17" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                <text x="0" y="1" textAnchor="middle" dominantBaseline="middle" fill="#4E8567" fontFamily="'Plus Jakarta Sans','Manrope','Inter',sans-serif" fontSize="21" fontWeight="700">+</text>
+              </g>
+
+              {/* C Programming student */}
+              <g transform="translate(222 17)">
+                <g>
+                  <animateTransform attributeName="transform" type="translate" values="0 -1;0 2;0 -1" dur="4.5s" repeatCount="indefinite"/>
+                  <circle cx="27" cy="23" r="12.5" fill="#C88D67"/>
+                  <path d="M15 22 C16 9 35 7 39 20 C34 15 23 14 15 22Z" fill="#252D35"/>
+                  <path d="M8 62 C10 43 17 37 27 37 C38 37 44 44 46 62Z" fill="#3E6EA9"/>
+                  <path d="M40 47 C47 49 51 53 56 57" stroke="#C88D67" strokeWidth="4.5" strokeLinecap="round"/>
+                  <path d="M16 48 C13 53 11 56 9 58" stroke="#C88D67" strokeWidth="4.5" strokeLinecap="round"/>
+                </g>
+                <g transform="translate(45 39)" filter="url(#objectShadow)">
+                  <rect x="0" y="0" width="61" height="38" rx="7" fill="#334A64"/>
+                  <rect x="5" y="5" width="51" height="28" rx="4" fill="#172231"/>
+                  <circle cx="10" cy="9" r="1.2" fill="#FF8585"/>
+                  <circle cx="14" cy="9" r="1.2" fill="#FFD16A"/>
+                  <circle cx="18" cy="9" r="1.2" fill="#77DA99"/>
+                  <rect x="10" y="15" width="20" height="2.2" rx="1.1" fill="#82C9FF"/>
+                  <rect x="13" y="20" width="29" height="2.2" rx="1.1" fill="#A7B8FF"/>
+                  <rect x="13" y="25" width="18" height="2.2" rx="1.1" fill="#7BE0A5"/>
+                  <rect x="34" y="25" width="2" height="4" rx="1" fill="#FFFFFF">
+                    <animate attributeName="opacity" values="0;1;0" dur="0.9s" repeatCount="indefinite"/>
+                  </rect>
+                  <path d="M-5 39 H66 L59 46 H2Z" fill="#DCE3E9"/>
+                  <rect x="22" y="40.5" width="17" height="2.2" rx="1.1" fill="#A2AFBC"/>
+                </g>
+              </g>
+
+              <text x="221" y="128" fill="#FFFFFF" fontFamily="'Plus Jakarta Sans','Manrope','Avenir Next','Inter',sans-serif" fontSize="15.3" fontWeight="800" letterSpacing="-0.5">C Programming</text>
+              <path d="M221 136 C231 134.6 240 138.1 249 135.8 C259 133.8 268 137.4 278 135.3 C288 133.9 299 137 310 135.1 C320 134 329 136.5 338 135.2" fill="none" stroke="url(#scribbleBlue)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;0.35;0.82;1" dur="5.8s" begin="0.35s" repeatCount="indefinite"/>
+              </path>
+            </svg>
           </div>
 
           {/* Price */}
