@@ -462,7 +462,7 @@ function HeroSection({
             <div className="font-display font-bold text-[15px] text-[#111827]">
               Balajee Seshadri
             </div>
-            <div className="text-[12px] font-medium mt-0.5 text-[#64748B]">
+            <div className="text-[14px] font-bold mt-0.5 text-[#64748B]">
               40+ Years in Electronics
             </div>
             <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
@@ -684,7 +684,7 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                   <div className="font-display font-bold text-[15px] text-[#111827]">
                     Balajee Seshadri
                   </div>
-                  <div className="text-[12px] text-[#64748B] mt-0.5 font-medium">
+                  <div className="text-[14px] font-bold mt-0.5 text-[#64748B]">
                     40+ Years in Electronics
                   </div>
                   <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
