@@ -275,7 +275,22 @@ function HeroSection({
 
           {/* Course pair — animated SVG banner */}
           <div className="mt-7 w-full max-w-[480px]">
-            <svg viewBox="0 0 390 152" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Electronics Foundation Course and C Programming Foundation Course">
+            {/* Visually hidden course names for screen readers and search engines.
+                The SVG text elements inside are not reliably exposed to assistive technology. */}
+            <p className="sr-only">
+              Electronics Foundation Course: Electrical Fundamentals, Electronics Fundamentals, Number Systems, Digital Electronics.
+              C Programming Foundation Course: Introduction to Programming, Introduction to C Programming, Simple Programming Practice,
+              Decision Making and Loops, Arrays, Strings, and Pointers, Structures, Storage Class.
+            </p>
+            <svg
+              viewBox="0 0 390 152"
+              width="100%"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="esp-hero-svg-title esp-hero-svg-desc"
+            >
+              <title id="esp-hero-svg-title">Electronics Foundation Course and C Programming Foundation Course</title>
+              <desc id="esp-hero-svg-desc">Two animated students, one studying electronics fundamentals on a laptop and one coding in C on a terminal, joined by a plus symbol representing both courses in the eTalVis Electronics Starter Pack.</desc>
               <defs>
                 <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#69A884"/>

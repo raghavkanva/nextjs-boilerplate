@@ -10,8 +10,6 @@ import {
 import "./globals.css";
 
 import {
-  buildCourseSchema,
-  buildFaqSchema,
   buildOrganizationSchema,
   buildPersonSchema,
 } from "@/lib/schema";
@@ -59,11 +57,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Organization and Person are globally relevant across all routes.
+  // Page-specific Course, FAQ, and BreadcrumbList schemas are injected by each route's own layout.
   const schemas = [
     buildOrganizationSchema(),
     buildPersonSchema(),
-    buildCourseSchema(),
-    buildFaqSchema(),
   ];
 
   return (

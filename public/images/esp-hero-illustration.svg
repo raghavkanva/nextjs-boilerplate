@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 152" width="390" height="152" role="img" aria-labelledby="esp-title esp-desc">
+  <title id="esp-title">Electronics Foundation Course and C Programming Foundation Course</title>
+  <desc id="esp-desc">Illustration of two students, one studying electronics fundamentals and one coding in C, joined by a plus symbol, representing the two foundation courses in the eTalVis Electronics Starter Pack.</desc>
+
+  <!-- Background -->
+  <rect x="4" y="5" width="382" height="142" rx="25" fill="#76B58F" stroke="#8EC2A3"/>
+
+  <!-- Electronics student area -->
+  <circle cx="55" cy="44" r="13" fill="#DCA37C"/>
+  <path d="M43 43 C44 30 63 28 67 41 C62 36 51 35 43 43Z" fill="#23302B"/>
+  <path d="M36 83 C38 64 45 58 55 58 C66 58 72 65 74 83Z" fill="#23875A"/>
+  <!-- Laptop -->
+  <rect x="74" y="49" width="62" height="31" rx="7" fill="#FAFBF8" stroke="#D8DDD9"/>
+  <rect x="78" y="53" width="54" height="23" rx="3" fill="#E8EDE9"/>
+  <rect x="95" y="60" width="15" height="9" rx="2" fill="#24302B"/>
+  <!-- Monitor glow -->
+  <circle cx="120" cy="43" r="4" fill="#49D87F" opacity="0.7"/>
+
+  <!-- Plus connector -->
+  <circle cx="195" cy="76" r="18" fill="#FFFFFF" opacity="0.92"/>
+  <text x="195" y="76" text-anchor="middle" dominant-baseline="middle" fill="#4E8567" font-family="'Plus Jakarta Sans','Inter',sans-serif" font-size="21" font-weight="700">+</text>
+
+  <!-- C Programming student area -->
+  <circle cx="280" cy="44" r="13" fill="#C88D67"/>
+  <path d="M268 43 C269 30 288 28 292 41 C287 36 276 35 268 43Z" fill="#252D35"/>
+  <path d="M261 83 C263 64 270 58 280 58 C291 58 297 65 299 83Z" fill="#3E6EA9"/>
+  <!-- Terminal screen -->
+  <rect x="252" y="49" width="61" height="38" rx="7" fill="#334A64"/>
+  <rect x="257" y="54" width="51" height="28" rx="4" fill="#172231"/>
+  <rect x="262" y="64" width="20" height="2" rx="1" fill="#82C9FF"/>
+  <rect x="265" y="69" width="29" height="2" rx="1" fill="#A7B8FF"/>
+  <rect x="265" y="74" width="18" height="2" rx="1" fill="#7BE0A5"/>
+
+  <!-- Course labels -->
+  <text x="88" y="128" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans','Inter',sans-serif" font-size="14" font-weight="800" letter-spacing="-0.3">Electronics</text>
+  <text x="296" y="128" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans','Inter',sans-serif" font-size="13" font-weight="800" letter-spacing="-0.3">C Programming</text>
+</svg>

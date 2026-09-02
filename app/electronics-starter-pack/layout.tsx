@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Electronics Starter Pack · Rs. 239 | eTalVis",
   description:
     "Electronics + C Programming foundation courses for ECE students heading into Embedded Systems or VLSI Design. 2 months access.",
+  alternates: {
+    canonical: "/electronics-starter-pack",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Electronics Starter Pack | eTalVis",
@@ -23,22 +26,24 @@ export const metadata: Metadata = {
         url: "https://courses.etalvis.com/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "eTalVis Electronics Starter Pack — Electronics and C Programming Foundation Courses",
+        alt: "eTalVis Electronics Starter Pack: Electronics and C Programming Foundation Courses",
       },
     ],
   },
 };
 
-const courseSchema = {
+// Course, breadcrumb, FAQ, and hero ImageObject schema for this page only.
+// The root layout provides Organization and Person schemas globally.
+const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "@id": "https://etalvis.com/embedded-starter-pack#course",
+      "@id": "https://courses.etalvis.com/electronics-starter-pack#course",
       "name": "eTalVis Electronics Starter Pack",
       "description":
-        "The eTalVis Electronics Starter Pack includes two foundation courses: Electronics Foundation Course and C Programming Foundation Course. Designed for students heading into Embedded Systems, VLSI Design, or any other Electronics path. Build the foundations before going deeper. Covers 200+ hands-on problems across electronics fundamentals and C programming logic.",
-      "url": "https://etalvis.com/embedded-starter-pack",
+        "Two foundation courses for electronics engineering students: the Electronics Foundation Course (electrical fundamentals, electronics fundamentals, number systems, digital electronics) and the C Programming Foundation Course (introduction through structures and storage class, with 200+ practice problems). Intended for students preparing for Embedded Systems or VLSI Design.",
+      "url": "https://courses.etalvis.com/electronics-starter-pack",
       "provider": {
         "@type": "Organization",
         "@id": "https://etalvis.com#org",
@@ -46,7 +51,7 @@ const courseSchema = {
         "url": "https://etalvis.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://etalvis.com/images/icon.png"
+          "url": "https://courses.etalvis.com/images/icon.png"
         },
         "contactPoint": {
           "@type": "ContactPoint",
@@ -58,21 +63,20 @@ const courseSchema = {
         "@type": "Person",
         "@id": "https://etalvis.com#balajee",
         "name": "Balajee Seshadri",
-        "description": "Electronics educator with 40+ years of experience. Making Electronics Talents Visible to Industry.",
-        "image": "https://etalvis.com/images/balajee-formal.png"
+        "description": "Electronics educator with 40+ years of industry experience.",
+        "image": "https://courses.etalvis.com/images/balajee-formal.png",
+        "sameAs": "https://www.linkedin.com/in/balajeeseshadri/"
       },
       "hasCourseInstance": [
         {
           "@type": "CourseInstance",
           "name": "Electronics Foundation Course",
-          "courseMode": "online",
-          "courseWorkload": "PT60H"
+          "courseMode": "online"
         },
         {
           "@type": "CourseInstance",
           "name": "C Programming Foundation Course",
-          "courseMode": "online",
-          "courseWorkload": "PT60H"
+          "courseMode": "online"
         }
       ],
       "offers": {
@@ -80,16 +84,20 @@ const courseSchema = {
         "price": "239",
         "priceCurrency": "INR",
         "availability": "https://schema.org/InStock",
-        "validFrom": "2024-01-01",
         "category": "Education",
         "url": "https://learn.etalvis.com/web/checkout/6a95416cc8cef8fac0b83a48"
       },
       "educationalLevel": "Beginner",
       "teaches": [
-        "Electronics fundamentals",
-        "C Programming",
-        "Embedded Systems foundations",
-        "VLSI Design foundations"
+        "Electrical Fundamentals",
+        "Electronics Fundamentals",
+        "Number Systems",
+        "Digital Electronics",
+        "Introduction to C Programming",
+        "Decision Making and Loops",
+        "Arrays, Strings, and Pointers",
+        "Structures",
+        "Storage Class"
       ],
       "coursePrerequisites": "No prior knowledge required",
       "inLanguage": "en",
@@ -98,13 +106,6 @@ const courseSchema = {
         "educationalRole": "student",
         "audienceType":
           "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related core engineering branches"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "120",
-        "bestRating": "5",
-        "worstRating": "1"
       }
     },
     {
@@ -116,78 +117,115 @@ const courseSchema = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://etalvis.com/embedded-starter-pack#breadcrumb",
+      "@id": "https://courses.etalvis.com/electronics-starter-pack#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://etalvis.com"
+          "item": "https://courses.etalvis.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Courses",
-          "item": "https://etalvis.com/courses"
+          "item": "https://courses.etalvis.com/courses"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Electronics Starter Pack",
-          "item": "https://etalvis.com/embedded-starter-pack"
+          "item": "https://courses.etalvis.com/electronics-starter-pack"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://etalvis.com/embedded-starter-pack#faq",
+      "@id": "https://courses.etalvis.com/electronics-starter-pack#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Who is the Electronics Starter Pack for?",
+          "name": "Who is this pack for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The pack is designed for students from ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches who are heading into Embedded Systems or VLSI Design and want to build the right foundation first."
+            "text": "The pack is designed for Electronics Engineering students who are interested in Embedded Systems or VLSI Design and want to build the right foundation before going deeper. It is suited for ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches."
           }
         },
         {
           "@type": "Question",
-          "name": "What is included in the Electronics Starter Pack?",
+          "name": "What courses are included?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Electronics Starter Pack includes two courses: Electronics Foundation Course and C Programming Foundation Course. Both provide 2 months of access and cover 200+ problems to solve."
+            "text": "The Starter Pack includes the Electronics Foundation Course and the C Programming Foundation Course."
           }
         },
         {
           "@type": "Question",
-          "name": "How much does the Electronics Starter Pack cost?",
+          "name": "How long can I access the courses?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Electronics Starter Pack costs Rs. 239 and includes 2 months of access to both courses."
+            "text": "The pack is valid for 2 months from the date of purchase."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I access the courses on mobile?",
+          "name": "Where can I watch the courses?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The courses are accessible via learn.etalvis.com and the eTalVis Android and iOS apps."
+            "text": "After purchasing, visit learn.etalvis.com or use the eTalVis Android or iOS app."
           }
         },
         {
           "@type": "Question",
-          "name": "Is there a bulk purchase option?",
+          "name": "Do I need prior knowledge before joining?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. For bulk purchases (colleges, labs, or groups), contact eTalVis directly via WhatsApp at +91 9790873099."
+            "text": "No. This pack is intended as a starting point for students who want to build their foundations first before going deeper into any Electronics path."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are Electronics and C Programming included together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whether you are heading into Embedded Systems or VLSI Design, both paths start from the same place. Electronics fundamentals to understand the hardware. C Programming to write for it. That is why the pack includes both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this pack include the full Foundation Course?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This pack contains two foundation courses: Electronics Foundation and C Programming Foundation. It is designed as an entry point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What comes after completing these courses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After strengthening these two foundations, you can continue into deeper topics through the eTalVis learning pathway."
           }
         }
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://courses.etalvis.com/electronics-starter-pack#hero-illustration",
+      "name": "Electronics Foundation Course and C Programming Foundation Course illustration",
+      "description":
+        "Illustration showing two students, one studying electronics fundamentals and one coding in C, joined by a plus symbol, representing the two foundation courses in the eTalVis Electronics Starter Pack.",
+      "contentUrl": "https://courses.etalvis.com/images/esp-hero-illustration.svg",
+      "encodingFormat": "image/svg+xml",
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "https://courses.etalvis.com/electronics-starter-pack"
+      }
     }
   ]
 };
 
-export default function EmbeddedStarterPackLayout({
+export default function ElectronicsStarterPackLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -196,7 +234,7 @@ export default function EmbeddedStarterPackLayout({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
       {children}
     </>
