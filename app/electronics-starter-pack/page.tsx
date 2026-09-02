@@ -282,6 +282,7 @@ function HeroSection({
               C Programming Foundation Course: Introduction to Programming, Introduction to C Programming, Simple Programming Practice,
               Decision Making and Loops, Arrays, Strings, and Pointers, Structures, Storage Class.
             </p>
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTA("hero_svg")} className="block cursor-pointer" aria-label="Start learning Electronics and C Programming">
             <svg
               viewBox="0 0 390 152"
               width="100%"
@@ -413,6 +414,7 @@ function HeroSection({
                 <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;0.35;0.82;1" dur="5.8s" begin="0.35s" repeatCount="indefinite"/>
               </path>
             </svg>
+            </a>
           </div>
 
           {/* Price */}
@@ -746,8 +748,7 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                   </filter>
                 </defs>
 
-                <rect x="4" y="5" width="382" height="214" rx="27"
-                  fill="url(#wsh-bgA)" stroke="#DFEAE3" filter="url(#wsh-shadowA)" />
+                <rect x="4" y="5" width="382" height="214" rx="27" fill="url(#wsh-bgA)" stroke="#DFEAE3" filter="url(#wsh-shadowA)" />
 
                 <g fill="none" stroke="#15803D" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" opacity="0.035">
                   <path d="M17 24H40V16H55" />
@@ -779,8 +780,7 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                     <rect x="38" y="17" width="16" height="16" rx="3" fill="none" stroke="#6366F1" strokeWidth="1.4" />
                     <path d="M40 21H47V25H52M40 30H44V27H52" fill="none" stroke="#6366F1" strokeWidth="1.3" strokeLinecap="round" />
                     <path d="M36 15H56" stroke="#60A5FA" strokeWidth="1.4" strokeLinecap="round">
-                      <animateTransform attributeName="transform" type="translate"
-                        values="0 0;0 20;0 0" dur="2.8s" begin="3.6s" repeatCount="indefinite" />
+                      <animateTransform attributeName="transform" type="translate" values="0 0;0 20;0 0" dur="2.8s" begin="3.6s" repeatCount="indefinite" />
                     </path>
                   </g>
 
@@ -794,9 +794,9 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                   </g>
                 </g>
 
-                <text x="73" y="88" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">MCU</text>
-                <text x="195" y="88" textAnchor="middle" fill="#4F46E5" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Chip Design</text>
-                <text x="317" y="88" textAnchor="middle" fill="#B45309" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Projects</text>
+                <text x="73" y="88" textAnchor="middle" fill="#176B3A" fontFamily="Inter,Arial,sans-serif" fontSize="10.5" fontWeight="700">MCU</text>
+                <text x="195" y="88" textAnchor="middle" fill="#4F46E5" fontFamily="Inter,Arial,sans-serif" fontSize="10.5" fontWeight="700">Chip Design</text>
+                <text x="317" y="88" textAnchor="middle" fill="#B45309" fontFamily="Inter,Arial,sans-serif" fontSize="10.5" fontWeight="700">Projects</text>
 
                 <g transform="translate(195 112)" filter="url(#wsh-miniA)">
                   <circle r="11" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="2" />
@@ -808,20 +808,59 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                 <g filter="url(#wsh-miniA)">
                   <g transform="translate(99 148)">
                     <rect width="78" height="31" rx="10" fill="#ECFDF3" stroke="#22C55E" />
-                    <text x="39" y="20" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.4" fontWeight="700">Electronics</text>
+                    <text x="39" y="20" textAnchor="middle" fill="#176B3A" fontFamily="Inter,Arial,sans-serif" fontSize="9.4" fontWeight="700">Electronics</text>
                   </g>
                   <g transform="translate(219 148)">
                     <rect width="92" height="31" rx="10" fill="#EAF3FF" stroke="#3B82F6" />
-                    <text x="46" y="20" textAnchor="middle" fill="#315F95" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.2" fontWeight="700">C Programming</text>
+                    <text x="46" y="20" textAnchor="middle" fill="#315F95" fontFamily="Inter,Arial,sans-serif" fontSize="9.2" fontWeight="700">C Programming</text>
                   </g>
                 </g>
 
+                <g transform="translate(198 163)">
+                  <g>
+                    <animateTransform attributeName="transform" type="scale" values=".9;1.08;1" dur="2.8s" repeatCount="indefinite" />
+                    <circle r="10.5" fill="#17392B" />
+                    <path d="M-4.5 0H4.5M0-4.5V4.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+                  </g>
+                </g>
+
+                {/* Electronics → midpoint */}
+                <path d="M138 148 C147 133 163 118 184 113" fill="none" stroke="#22C55E" strokeWidth="2.7" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.28;.55;1" dur="5.8s" repeatCount="indefinite" />
+                </path>
+
+                {/* C Programming → midpoint */}
+                <path d="M265 148 C252 132 230 117 206 113" fill="none" stroke="#3B82F6" strokeWidth="2.7" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.28;.55;1" dur="5.8s" repeatCount="indefinite" />
+                </path>
+
+                {/* moving green signal */}
+                <circle r="4" fill="#22C55E">
+                  <animateMotion dur="5.8s" repeatCount="indefinite" keyTimes="0;.28;.55;1" keyPoints="0;1;1;0" calcMode="linear" path="M138 148 C147 133 163 118 184 113" />
+                </circle>
+
+                {/* moving blue signal */}
+                <circle r="4" fill="#3B82F6">
+                  <animateMotion dur="5.8s" repeatCount="indefinite" keyTimes="0;.28;.55;1" keyPoints="0;1;1;0" calcMode="linear" path="M265 148 C252 132 230 117 206 113" />
+                </circle>
+
+                {/* midpoint activation ring */}
+                <circle cx="195" cy="112" r="15" fill="none" stroke="#14B8A6" strokeWidth="1.5" opacity="0">
+                  <animate attributeName="r" values="11;11;17;17" keyTimes="0;.28;.42;1" dur="5.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0;0;.45;0" keyTimes="0;.28;.38;.62" dur="5.8s" repeatCount="indefinite" />
+                </circle>
+
+                {/* midpoint → MCU */}
                 <path d="M195 101 C164 98 130 90 103 75" fill="none" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
                   <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.37;.65;.82;1" dur="5.8s" repeatCount="indefinite" />
                 </path>
+
+                {/* midpoint → CHIP */}
                 <path d="M195 101 V75" fill="none" stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
                   <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.42;.69;.84;1" dur="5.8s" repeatCount="indefinite" />
                 </path>
+
+                {/* midpoint → PROJECT */}
                 <path d="M195 101 C229 98 264 90 287 75" fill="none" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
                   <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.47;.73;.87;1" dur="5.8s" repeatCount="indefinite" />
                 </path>
@@ -848,7 +887,7 @@ function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
                   </g>
                 </g>
 
-                <text x="195" y="205" textAnchor="middle" fill="#151A17" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.2" fontWeight="700" letterSpacing="-0.15">
+                <text x="195" y="205" textAnchor="middle" fill="#151A17" fontFamily="'Sora','Plus Jakarta Sans','Inter',Arial,sans-serif" fontSize="11.2" fontWeight="750" letterSpacing="-0.15">
                   Start here
                 </text>
                 <path d="M195 194 V183" fill="none" stroke="#202622" strokeWidth="1.4" strokeLinecap="round" strokeDasharray="2 4" opacity=".45">
