@@ -289,10 +289,10 @@ function HeroSection({
               aria-label="Start learning Electronics and C Programming"
             >
               <img
-                src="/images/electronics-c-programming-foundations.svg"
+                src="/images/electronics-c-programming-hero.svg"
                 alt="Electronics Foundation Course and C Programming Foundation Course"
-                width={860}
-                height={240}
+                width={390}
+                height={152}
                 className="w-full h-auto"
                 loading="lazy"
                 decoding="async"
@@ -359,106 +359,7 @@ function HeroSection({
   );
 }
 
-// ─── Section: Why These Two ───────────────────────────────────────────────────
-
-function WhyTheseTwoSection() {
-  return (
-    <section id="esp-why" className="border-y border-[#E5E7EB] bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className={`${EYEBROW} mb-4 text-center`}>WHAT YOU WILL LEARN</div>
-
-        <h2
-          className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827] text-center"
-          style={{ fontSize: "32px" }}
-        >
-          Two Courses Included
-        </h2>
-
-        <p className="mt-4 text-[14px] leading-[1.65] text-[#4B5563] text-center max-w-xl mx-auto">
-          Learn the Electronics concepts and C programming skills needed before
-          advanced subjects.
-        </p>
-
-        {/* Two-course layout */}
-        <div className="mt-14 sm:flex sm:gap-16 lg:gap-20">
-
-          {/* ── Electronics Foundation ── */}
-          <div className="sm:flex-1">
-            <div className="h-[3px] w-8 bg-[#22C55E] rounded-full mb-6" />
-            <h3
-              className="font-display font-bold text-[#111827] mb-1.5"
-              style={{ fontSize: "clamp(18px, 2.5vw, 22px)" }}
-            >
-              Electronics Foundation
-            </h3>
-            <p className="text-[11px] font-bold text-[#15803D] uppercase tracking-[0.07em] mb-4">
-              Hardware Understanding
-            </p>
-            <p className="text-[15px] font-semibold text-[#374151] leading-[1.6] mb-6">
-              Understand electronic circuits, number systems and digital electronics.
-            </p>
-            <div className="space-y-[11px]">
-              {ELECTRONICS_SECTIONS.map((s) => (
-                <div key={s} className="flex items-start gap-2.5">
-                  <span
-                    className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#22C55E]"
-                    aria-hidden="true"
-                  />
-                  <span className="text-[14px] font-semibold leading-[1.5] text-[#374151]">{s}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ── C Programming Foundation ── */}
-          <div className="mt-12 pt-12 border-t border-[#E5E7EB] sm:mt-0 sm:pt-0 sm:border-0 sm:flex-1">
-            <div className="h-[3px] w-8 bg-[#3B82F6] rounded-full mb-6" />
-            <h3
-              className="font-display font-bold text-[#111827] mb-1.5"
-              style={{ fontSize: "clamp(18px, 2.5vw, 22px)" }}
-            >
-              C Programming Foundation
-            </h3>
-            <p className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-[0.07em] mb-4">
-              Programming Logic
-            </p>
-            <p className="text-[15px] font-semibold text-[#374151] leading-[1.6] mb-6">
-              Learn core C concepts and improve through regular programming practice.
-            </p>
-
-            {/* 200+ proof point */}
-            <div className="mb-6">
-              <div
-                className="font-display font-extrabold text-[#111827] leading-none"
-                style={{ fontSize: "36px" }}
-              >
-                200+
-              </div>
-              <div className="text-[13px] font-bold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
-                Problems to Solve
-              </div>
-            </div>
-
-            <div className="space-y-[11px]">
-              {C_SECTIONS.map((s) => (
-                <div key={s} className="flex items-start gap-2.5">
-                  <span
-                    className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#3B82F6]"
-                    aria-hidden="true"
-                  />
-                  <span className="text-[14px] font-semibold leading-[1.5] text-[#374151]">{s}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Section: Inside the Pack ─────────────────────────────────────────────────
+// ─── Section: Inside the Pack (merged) ───────────────────────────────────────
 
 function InsideThePackSection() {
   return (
@@ -471,7 +372,7 @@ function InsideThePackSection() {
           Two foundation courses. One clear starting point.
         </p>
 
-        {/* Two-column premium layout on sm+ */}
+        {/* Two-column layout on sm+ */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
 
           {/* Electronics card */}
@@ -486,33 +387,58 @@ function InsideThePackSection() {
               <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
                 Build the Electronics knowledge needed before moving deeper into the field.
               </p>
-              <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
-                {ELECTRONICS_SECTIONS.map((s) => (
-                  <div key={s} className="text-[14px] font-medium text-[#374151]">{s}</div>
-                ))}
+              <div className="border-t border-[#E5E7EB] pt-5">
+                <div className="font-display font-extrabold text-[18px] lg:text-[20px] text-[#111827] mb-4">
+                  Syllabus
+                </div>
+                <div className="space-y-[10px] sm:space-y-3">
+                  {ELECTRONICS_SECTIONS.map((s) => (
+                    <div key={s} className="flex items-start gap-2.5">
+                      <span className="mt-[5px] block h-[7px] w-[7px] shrink-0 rounded-full bg-[#16A34A]" aria-hidden="true" />
+                      <span className="text-[15px] lg:text-[16px] font-semibold text-[#111827] leading-[1.5]">
+                        {s}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* C Programming card */}
           <div className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden flex flex-col shadow-sm">
-            <div className="p-7 border-l-4 border-[#22C55E] flex-1">
-              <div className="text-[13px] font-bold text-[#15803D] uppercase tracking-wide mb-2">
+            <div className="p-7 border-l-4 border-[#3B82F6] flex-1">
+              <div className="text-[13px] font-bold text-[#3B82F6] uppercase tracking-wide mb-2">
                 Programming
               </div>
               <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
                 C Programming Foundation Course
               </h3>
-              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-1">
+              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-4">
                 Build programming logic and strengthen the C concepts used throughout the learning path.
               </p>
-              <span className="inline-block text-[13px] text-[#15803D] font-bold mb-5">
-                200+ problems to solve
-              </span>
-              <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
-                {C_SECTIONS.map((s) => (
-                  <div key={s} className="text-[14px] font-medium text-[#374151]">{s}</div>
-                ))}
+              <div className="mb-6">
+                <div className="font-display font-extrabold text-[#111827] leading-none" style={{ fontSize: "36px" }}>
+                  200+
+                </div>
+                <div className="text-[13px] font-bold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
+                  Problems to Solve
+                </div>
+              </div>
+              <div className="border-t border-[#E5E7EB] pt-5">
+                <div className="font-display font-extrabold text-[18px] lg:text-[20px] text-[#111827] mb-4">
+                  Syllabus
+                </div>
+                <div className="space-y-[10px] sm:space-y-3">
+                  {C_SECTIONS.map((s) => (
+                    <div key={s} className="flex items-start gap-2.5">
+                      <span className="mt-[5px] block h-[7px] w-[7px] shrink-0 rounded-full bg-[#16A34A]" aria-hidden="true" />
+                      <span className="text-[15px] lg:text-[16px] font-semibold text-[#111827] leading-[1.5]">
+                        {s}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -669,58 +595,90 @@ function HoursSection() {
 
 // ─── Section: Why Start Here ──────────────────────────────────────────────────
 
-function WhyStartHereSection() {
+function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
-    <section id="esp-why-start" className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
-      <div className="mx-auto max-w-[800px] px-4 sm:px-6">
-        <h2 className="font-display font-extrabold text-[29px] sm:text-[36px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
-          Why Start Here ?
-        </h2>
+    <section id="esp-why-start" className="bg-[#F0FDF4] border-y border-[#E5E7EB] py-16 sm:py-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="lg:flex lg:gap-14 lg:items-center">
 
-        <div className="space-y-4 text-[13px] font-semibold leading-[1.75] text-[#030303]">
-          <p>
-            Students often want to move directly into microcontrollers,
-            chip design, or advanced projects.
-          </p>
-          <p>
-            But when the foundation in Electronics and C Programming is
-            weak, the later topics become harder to understand.
-          </p>
-        </div>
+          {/* Left: text */}
+          <div className="flex-1 min-w-0">
+            <h2 className="font-display font-extrabold text-[29px] sm:text-[36px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
+              Why Start Here ?
+            </h2>
 
-        <p className="mt-4 text-[13px] font-bold leading-[1.75] text-[#17382A]">
-          That is why this pack begins with the basics first.
-        </p>
-
-        <div className="mt-10">
-          <div className="border-l-2 border-[#22C55E] pl-5">
-            <div className="font-display font-bold text-[15px] text-[#111827]">
-              Balajee Seshadri
+            <div className="space-y-4 text-[13px] font-semibold leading-[1.75] text-[#030303]">
+              <p>
+                Students often want to move directly into microcontrollers,
+                chip design, or advanced projects.
+              </p>
+              <p>
+                But when the foundation in Electronics and C Programming is
+                weak, the later topics become harder to understand.
+              </p>
             </div>
-            <div className="text-[14px] font-bold mt-0.5 text-[#64748B]">
-              40+ Years in Electronics
-            </div>
-            <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
-              Making Electronics Talents Visible to Industry
+
+            <p className="mt-4 text-[13px] font-bold leading-[1.75] text-[#17382A]">
+              That is why this pack begins with the basics first.
+            </p>
+
+            <div className="mt-10">
+              <div className="border-l-2 border-[#22C55E] pl-5">
+                <div className="mt-6">
+                  <div className="font-display font-extrabold text-[36px] lg:text-[46px] leading-[0.95] tracking-[-0.03em] text-[#16A34A]">
+                    40+
+                  </div>
+                  <div className="font-display font-extrabold text-[19px] lg:text-[23px] text-[#111827] leading-tight">
+                    Years in Electronics
+                  </div>
+                  <div className="text-[14px] font-bold text-[#111827] mt-2">Balajee Seshadri</div>
+                </div>
+                <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
+                  Making Electronics Talents Visible to Industry
+                </div>
+              </div>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  track("esp_linkedin_click", {
+                    ...BASE_TRACK_PARAMS,
+                    location: "instructor_section",
+                    ...getCampaignEventParameters(),
+                    ...getIdentityParameters(),
+                  })
+                }
+                className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-[#6B7280] hover:text-[#111827] transition underline underline-offset-2"
+              >
+                View Balajee Seshadri on LinkedIn
+                <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
             </div>
           </div>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              track("esp_linkedin_click", {
-                ...BASE_TRACK_PARAMS,
-                location: "instructor_section",
-                ...getCampaignEventParameters(),
-                ...getIdentityParameters(),
-              })
-            }
-            className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-[#6B7280] hover:text-[#111827] transition underline underline-offset-2"
-          >
-            View Balajee Seshadri on LinkedIn
-            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
+
+          {/* Right: SVG */}
+          <div className="shrink-0 mt-10 lg:mt-0 lg:w-[45%]">
+            <a
+              href={checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleCTA("wsh_svg")}
+              className="block cursor-pointer"
+              aria-label="Start your foundation"
+            >
+              <img
+                src="/images/why-start-here-foundation.svg"
+                alt="Electronics and C Programming foundations leading to MCU, Chip Design and Projects"
+                width={390}
+                height={224}
+                className="w-full h-auto"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1621,8 +1579,7 @@ export default function EmbeddedStarterPack() {
       <MiniNav checkoutUrl={checkoutUrl} />
       <HeroSection heroRef={heroRef} checkoutUrl={checkoutUrl} />
       <SoundsLikeYouSection />
-      <WhyStartHereSection />
-      <WhyTheseTwoSection />
+      <WhyStartHereSection checkoutUrl={checkoutUrl} />
       <InsideThePackSection />
       <HoursSection />
       <WhoIsThisForSection checkoutUrl={checkoutUrl} />

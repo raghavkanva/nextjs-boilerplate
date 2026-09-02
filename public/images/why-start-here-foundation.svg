@@ -1,0 +1,135 @@
+<svg viewBox="0 0 390 224" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBFDFB"/>
+      <stop offset="55%" stop-color="#F3F8F5"/>
+      <stop offset="100%" stop-color="#EDF5F1"/>
+    </linearGradient>
+    <linearGradient id="shirtA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+    <filter id="shadowA" x="-30%" y="-40%" width="160%" height="190%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#173527" flood-opacity="0.07"/>
+    </filter>
+    <filter id="miniA" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#173527" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect x="4" y="5" width="382" height="214" rx="27" fill="url(#bgA)" stroke="#DFEAE3" filter="url(#shadowA)"/>
+  <g fill="none" stroke="#15803D" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.035">
+    <path d="M17 24H40V16H55"/>
+    <circle cx="17" cy="24" r="1.5" fill="#15803D"/>
+    <circle cx="55" cy="16" r="1.5" fill="#15803D"/>
+    <path d="M92 22H101L107 13L113 35L120 22H133"/>
+    <rect x="324" y="19" width="28" height="24" rx="4"/>
+    <path d="M319 25H324M319 34H324M352 25H357M352 34H357"/>
+    <path d="M20 195H46V185H63"/>
+    <path d="M328 196H350V186H371"/>
+  </g>
+  <g filter="url(#miniA)">
+    <g transform="translate(27 23)">
+      <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#CFE5D6"/>
+      <rect x="34" y="14" width="24" height="23" rx="5" fill="#ECFDF3" stroke="#16A34A" stroke-width="2"/>
+      <g stroke="#16A34A" stroke-width="1.4" stroke-linecap="round">
+        <path d="M28 19H34M28 26H34M28 33H34"/>
+        <path d="M58 19H64M58 26H64M58 33H64"/>
+      </g>
+      <circle cx="46" cy="25.5" r="3" fill="#22C55E">
+        <animate attributeName="opacity" values=".25;1;.25" dur="1.5s" begin="3.4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <g transform="translate(149 23)">
+      <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#D9DDF1"/>
+      <rect x="32" y="11" width="28" height="28" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
+      <rect x="38" y="17" width="16" height="16" rx="3" fill="none" stroke="#6366F1" stroke-width="1.4"/>
+      <path d="M40 21H47V25H52M40 30H44V27H52" fill="none" stroke="#6366F1" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M36 15H56" stroke="#60A5FA" stroke-width="1.4" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 20;0 0" dur="2.8s" begin="3.6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(271 23)">
+      <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#F0DAAC"/>
+      <rect x="25" y="12" width="42" height="28" rx="6" fill="#FFF8E9" stroke="#F59E0B" stroke-width="1.6"/>
+      <path d="M31 18H41V24H50V34M31 34H39V29H60" fill="none" stroke="#F59E0B" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="60" cy="29" r="2.5" fill="#EF4444">
+        <animate attributeName="opacity" values=".2;1;.2" dur="1.4s" begin="3.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  <text x="73" y="88" text-anchor="middle" fill="#176B3A" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">MCU</text>
+  <text x="195" y="88" text-anchor="middle" fill="#4F46E5" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">Chip Design</text>
+  <text x="317" y="88" text-anchor="middle" fill="#B45309" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700">Projects</text>
+  <g transform="translate(195 112)" filter="url(#miniA)">
+    <circle r="11" fill="#FFFFFF" stroke="#14B8A6" stroke-width="2"/>
+    <circle r="3.6" fill="#14B8A6">
+      <animate attributeName="r" values="3;3;5;3" keyTimes="0;.35;.55;1" dur="5.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g filter="url(#miniA)">
+    <g transform="translate(99 148)">
+      <rect width="78" height="31" rx="10" fill="#ECFDF3" stroke="#22C55E"/>
+      <text x="39" y="20" text-anchor="middle" fill="#176B3A" font-family="Inter,Arial,sans-serif" font-size="9.4" font-weight="700">Electronics</text>
+    </g>
+    <g transform="translate(219 148)">
+      <rect width="92" height="31" rx="10" fill="#EAF3FF" stroke="#3B82F6"/>
+      <text x="46" y="20" text-anchor="middle" fill="#315F95" font-family="Inter,Arial,sans-serif" font-size="9.2" font-weight="700">C Programming</text>
+    </g>
+  </g>
+  <g transform="translate(198 163)">
+    <g>
+      <animateTransform attributeName="transform" type="scale" values=".9;1.08;1" dur="2.8s" repeatCount="indefinite"/>
+      <circle r="10.5" fill="#17392B"/>
+      <path d="M-4.5 0H4.5M0-4.5V4.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+  <path d="M138 148C147 133 163 118 184 113" fill="none" stroke="#22C55E" stroke-width="2.7" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.28;.55;1" dur="5.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M265 148C252 132 230 117 206 113" fill="none" stroke="#3B82F6" stroke-width="2.7" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.28;.55;1" dur="5.8s" repeatCount="indefinite"/>
+  </path>
+  <circle r="4" fill="#22C55E">
+    <animateMotion dur="5.8s" repeatCount="indefinite" keyTimes="0;.28;.55;1" keyPoints="0;1;1;0" calcMode="linear" path="M138 148C147 133 163 118 184 113"/>
+  </circle>
+  <circle r="4" fill="#3B82F6">
+    <animateMotion dur="5.8s" repeatCount="indefinite" keyTimes="0;.28;.55;1" keyPoints="0;1;1;0" calcMode="linear" path="M265 148C252 132 230 117 206 113"/>
+  </circle>
+  <circle cx="195" cy="112" r="15" fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0">
+    <animate attributeName="r" values="11;11;17;17" keyTimes="0;.28;.42;1" dur="5.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0;.45;0" keyTimes="0;.28;.38;.62" dur="5.8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M195 101C164 98 130 90 103 75" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.37;.65;.82;1" dur="5.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M195 101V75" fill="none" stroke="#6366F1" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.42;.69;.84;1" dur="5.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M195 101C229 98 264 90 287 75" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.47;.73;.87;1" dur="5.8s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="103" cy="75" r="3" fill="#22C55E">
+    <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.55;.68;.78;1" dur="5.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="195" cy="75" r="3" fill="#6366F1">
+    <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.60;.72;.82;1" dur="5.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="287" cy="75" r="3" fill="#F59E0B">
+    <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.65;.76;.86;1" dur="5.8s" repeatCount="indefinite"/>
+  </circle>
+  <g transform="translate(20 130)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.3s" repeatCount="indefinite"/>
+      <circle cx="27" cy="19" r="11.5" fill="#D6A079"/>
+      <path d="M15 18C16 7 35 5 39 18C34 13 23 12 15 18Z" fill="#24302B"/>
+      <path d="M8 58C10 39 17 33 27 33C38 33 45 41 47 58Z" fill="url(#shirtA)"/>
+      <path d="M21 34L27 41L33 34" fill="#F1F8F3"/>
+      <path d="M43 42C53 40 63 34 76 30" fill="none" stroke="#D6A079" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="77" cy="30" r="2.7" fill="#D6A079"/>
+    </g>
+  </g>
+  <text x="195" y="205" text-anchor="middle" fill="#151A17" font-family="'Sora','Plus Jakarta Sans','Inter',Arial,sans-serif" font-size="11.2" font-weight="750" letter-spacing="-0.15">Start here</text>
+  <path d="M195 194V183" fill="none" stroke="#202622" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 4" opacity=".45">
+    <animate attributeName="stroke-dashoffset" values="12;0" dur="1.8s" repeatCount="indefinite"/>
+  </path>
+</svg>
