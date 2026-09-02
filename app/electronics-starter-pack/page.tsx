@@ -509,7 +509,7 @@ function WhyTheseTwoSection() {
             <p className="text-[11px] font-bold text-[#15803D] uppercase tracking-[0.07em] mb-4">
               Hardware Understanding
             </p>
-            <p className="text-[13px] text-[#4B5563] leading-[1.6] mb-6">
+            <p className="text-[15px] font-semibold text-[#374151] leading-[1.6] mb-6">
               Understand electronic circuits, number systems and digital electronics.
             </p>
             <div className="space-y-[11px]">
@@ -519,7 +519,7 @@ function WhyTheseTwoSection() {
                     className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#22C55E]"
                     aria-hidden="true"
                   />
-                  <span className="text-[12px] leading-[1.5] text-[#374151]">{s}</span>
+                  <span className="text-[14px] font-semibold leading-[1.5] text-[#374151]">{s}</span>
                 </div>
               ))}
             </div>
@@ -537,7 +537,7 @@ function WhyTheseTwoSection() {
             <p className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-[0.07em] mb-4">
               Programming Logic
             </p>
-            <p className="text-[13px] text-[#4B5563] leading-[1.6] mb-6">
+            <p className="text-[15px] font-semibold text-[#374151] leading-[1.6] mb-6">
               Learn core C concepts and improve through regular programming practice.
             </p>
 
@@ -545,11 +545,11 @@ function WhyTheseTwoSection() {
             <div className="mb-6">
               <div
                 className="font-display font-extrabold text-[#111827] leading-none"
-                style={{ fontSize: "31px" }}
+                style={{ fontSize: "36px" }}
               >
                 200+
               </div>
-              <div className="text-[11px] font-semibold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
+              <div className="text-[13px] font-bold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
                 Problems to Solve
               </div>
             </div>
@@ -561,7 +561,7 @@ function WhyTheseTwoSection() {
                     className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#3B82F6]"
                     aria-hidden="true"
                   />
-                  <span className="text-[12px] leading-[1.5] text-[#374151]">{s}</span>
+                  <span className="text-[14px] font-semibold leading-[1.5] text-[#374151]">{s}</span>
                 </div>
               ))}
             </div>
