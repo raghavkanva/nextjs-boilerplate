@@ -214,8 +214,21 @@ const pageSchema = {
       "@id": "https://courses.etalvis.com/electronics-starter-pack#hero-illustration",
       "name": "Electronics Foundation Course and C Programming Foundation Course illustration",
       "description":
-        "Illustration showing two students, one studying electronics fundamentals and one coding in C, joined by a plus symbol, representing the two foundation courses in the eTalVis Electronics Starter Pack.",
-      "contentUrl": "https://courses.etalvis.com/images/esp-hero-illustration.svg",
+        "Illustration showing the Electronics Foundation Course and C Programming Foundation Course cards in the eTalVis Electronics Starter Pack.",
+      "contentUrl": "https://courses.etalvis.com/images/electronics-c-programming-foundations.svg",
+      "encodingFormat": "image/svg+xml",
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "https://courses.etalvis.com/electronics-starter-pack"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://courses.etalvis.com/electronics-starter-pack#hours-illustration",
+      "name": "Embedded Systems and VLSI 100+ Hours illustration",
+      "description":
+        "Animated illustration of a microcontroller, sensor, actuator, silicon wafer and transistor structures representing the 100+ hours of Embedded Systems and VLSI course content.",
+      "contentUrl": "https://courses.etalvis.com/images/embedded-vlsi-100-hours.svg",
       "encodingFormat": "image/svg+xml",
       "isPartOf": {
         "@type": "WebPage",
