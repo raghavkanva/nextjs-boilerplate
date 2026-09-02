@@ -258,17 +258,17 @@ function HeroSection({
         <div className="flex-1 min-w-0 lg:max-w-[58%]">
 
           {/* Product title — big and bold */}
-          <p className="font-display font-extrabold text-[22px] sm:text-[26px] text-[#15803D] tracking-[-0.01em] mb-4">
+          <p className="font-display font-extrabold text-[20px] sm:text-[23px] text-[#15803D] tracking-[-0.01em] mb-4">
             eTalVis Electronics Starter Pack
           </p>
 
           {/* H1 — supporting, not dominant */}
-          <h1 className="font-display font-extrabold text-[26px] leading-[1.15] tracking-[-0.02em] text-[#111827] sm:text-[34px] lg:text-[40px] lg:leading-[1.1]">
+          <h1 className="font-display font-extrabold text-[23px] leading-[1.15] tracking-[-0.02em] text-[#111827] sm:text-[31px] lg:text-[36px] lg:leading-[1.1]">
             Every Electronics Engineering Student&apos;s First Step Starts Here.
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-5 text-[16px] font-semibold leading-[1.65] text-[#374151] max-w-xl">
+          <p className="mt-5 text-[14px] font-semibold leading-[1.65] text-[#374151] max-w-xl">
             Planning to learn Embedded Systems or VLSI Design ? Begin with
             Electronics fundamentals and C programming.
           </p>
@@ -417,7 +417,7 @@ function HeroSection({
 
           {/* Price */}
           <div className="mt-7 flex flex-wrap items-center gap-4">
-            <span className="font-display text-[38px] font-extrabold text-[#111827] leading-none">
+            <span className="font-display text-[34px] font-extrabold text-[#111827] leading-none">
               Rs. 239
             </span>
             <div className="rounded-full border border-[#E5E7EB] bg-white px-3 py-1.5">
@@ -434,13 +434,13 @@ function HeroSection({
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("hero")}
-              className="inline-flex items-center justify-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+              className="inline-flex items-center justify-center rounded-full bg-[#FFC400] px-8 py-4 text-[14px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
               Start Your Foundation
             </a>
           </div>
 
-          <p className="mt-3 text-[13px] font-semibold text-[#6B7280]">
+          <p className="mt-3 text-[12px] font-semibold text-[#6B7280]">
             For ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches.
           </p>
         </div>
@@ -457,13 +457,13 @@ function HeroSection({
             priority
           />
           <div className="mt-5 text-center lg:text-left">
-            <div className="font-display font-bold text-[17px] text-[#111827]">
+            <div className="font-display font-bold text-[15px] text-[#111827]">
               Balajee Seshadri
             </div>
-            <div className="text-[13px] font-medium mt-0.5 text-[#64748B]">
+            <div className="text-[12px] font-medium mt-0.5 text-[#64748B]">
               40+ Years in Electronics
             </div>
-            <div className="font-display font-bold text-[14px] text-[#111827] mt-1">
+            <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
               Making Electronics Talents Visible to Industry
             </div>
           </div>
@@ -484,12 +484,12 @@ function WhyTheseTwoSection() {
 
         <h2
           className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827] text-center"
-          style={{ fontSize: "36px" }}
+          style={{ fontSize: "32px" }}
         >
           Two Courses Included
         </h2>
 
-        <p className="mt-4 text-[15px] leading-[1.65] text-[#4B5563] text-center max-w-xl mx-auto">
+        <p className="mt-4 text-[14px] leading-[1.65] text-[#4B5563] text-center max-w-xl mx-auto">
           Learn the Electronics concepts and C programming skills needed before
           advanced subjects.
         </p>
@@ -502,14 +502,14 @@ function WhyTheseTwoSection() {
             <div className="h-[3px] w-8 bg-[#22C55E] rounded-full mb-6" />
             <h3
               className="font-display font-bold text-[#111827] mb-1.5"
-              style={{ fontSize: "clamp(20px, 2.5vw, 24px)" }}
+              style={{ fontSize: "clamp(18px, 2.5vw, 22px)" }}
             >
               Electronics Foundation
             </h3>
-            <p className="text-[12px] font-bold text-[#15803D] uppercase tracking-[0.07em] mb-4">
+            <p className="text-[11px] font-bold text-[#15803D] uppercase tracking-[0.07em] mb-4">
               Hardware Understanding
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-[1.6] mb-6">
+            <p className="text-[13px] text-[#4B5563] leading-[1.6] mb-6">
               Understand electronic circuits, number systems and digital electronics.
             </p>
             <div className="space-y-[11px]">
@@ -519,7 +519,7 @@ function WhyTheseTwoSection() {
                     className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#22C55E]"
                     aria-hidden="true"
                   />
-                  <span className="text-[13px] leading-[1.5] text-[#374151]">{s}</span>
+                  <span className="text-[12px] leading-[1.5] text-[#374151]">{s}</span>
                 </div>
               ))}
             </div>
@@ -530,14 +530,14 @@ function WhyTheseTwoSection() {
             <div className="h-[3px] w-8 bg-[#3B82F6] rounded-full mb-6" />
             <h3
               className="font-display font-bold text-[#111827] mb-1.5"
-              style={{ fontSize: "clamp(20px, 2.5vw, 24px)" }}
+              style={{ fontSize: "clamp(18px, 2.5vw, 22px)" }}
             >
               C Programming Foundation
             </h3>
-            <p className="text-[12px] font-bold text-[#3B82F6] uppercase tracking-[0.07em] mb-4">
+            <p className="text-[11px] font-bold text-[#3B82F6] uppercase tracking-[0.07em] mb-4">
               Programming Logic
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-[1.6] mb-6">
+            <p className="text-[13px] text-[#4B5563] leading-[1.6] mb-6">
               Learn core C concepts and improve through regular programming practice.
             </p>
 
@@ -545,11 +545,11 @@ function WhyTheseTwoSection() {
             <div className="mb-6">
               <div
                 className="font-display font-extrabold text-[#111827] leading-none"
-                style={{ fontSize: "34px" }}
+                style={{ fontSize: "31px" }}
               >
                 200+
               </div>
-              <div className="text-[12px] font-semibold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
+              <div className="text-[11px] font-semibold text-[#4B5563] uppercase tracking-[0.05em] mt-1.5">
                 Problems to Solve
               </div>
             </div>
@@ -561,7 +561,7 @@ function WhyTheseTwoSection() {
                     className="mt-[7px] block h-[5px] w-[5px] shrink-0 rounded-full bg-[#3B82F6]"
                     aria-hidden="true"
                   />
-                  <span className="text-[13px] leading-[1.5] text-[#374151]">{s}</span>
+                  <span className="text-[12px] leading-[1.5] text-[#374151]">{s}</span>
                 </div>
               ))}
             </div>
@@ -579,10 +579,10 @@ function InsideThePackSection() {
   return (
     <section id="esp-inside" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <h2 className="font-display font-extrabold text-[32px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[40px]">
+        <h2 className="font-display font-extrabold text-[29px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
           Inside the Starter Pack
         </h2>
-        <p className="mt-3 text-[18px] text-[#6B7280] text-center">
+        <p className="mt-3 text-[16px] text-[#6B7280] text-center">
           Two foundation courses. One clear starting point.
         </p>
 
@@ -595,10 +595,10 @@ function InsideThePackSection() {
               <div className="text-[13px] font-bold text-[#15803D] uppercase tracking-wide mb-2">
                 Electronics
               </div>
-              <h3 className="font-display font-bold text-[20px] text-[#111827] mb-3">
+              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
                 Electronics Foundation Course
               </h3>
-              <p className="text-[15px] text-[#4B5563] leading-relaxed mb-6">
+              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
                 Build the Electronics knowledge needed before moving deeper into the field.
               </p>
               <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
@@ -615,10 +615,10 @@ function InsideThePackSection() {
               <div className="text-[13px] font-bold text-[#15803D] uppercase tracking-wide mb-2">
                 Programming
               </div>
-              <h3 className="font-display font-bold text-[20px] text-[#111827] mb-3">
+              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-3">
                 C Programming Foundation Course
               </h3>
-              <p className="text-[15px] text-[#4B5563] leading-relaxed mb-1">
+              <p className="text-[14px] text-[#4B5563] leading-relaxed mb-1">
                 Build programming logic and strengthen the C concepts used throughout the learning path.
               </p>
               <span className="inline-block text-[13px] text-[#15803D] font-bold mb-5">
@@ -640,248 +640,225 @@ function InsideThePackSection() {
 
 // ─── Section: Why Start Here ──────────────────────────────────────────────────
 
-function WhyStartHereSection() {
+function WhyStartHereSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <section id="esp-instructor" className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="lg:flex lg:gap-14 lg:items-start">
 
-        <h2 className="font-display font-extrabold text-[32px] sm:text-[40px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
-          Why Start Here ?
-        </h2>
+          {/* Left column */}
+          <div className="flex-1 min-w-0">
+            <h2 className="font-display font-extrabold text-[29px] sm:text-[36px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
+              Why Start Here ?
+            </h2>
 
-        <div className="space-y-4 text-[14px] font-semibold leading-[1.75] text-[#030303]">
-          <p>
-            Students often want to move directly into microcontrollers,
-            chip design, or advanced projects.
-          </p>
-          <p>
-            But when the foundation in Electronics and C Programming is
-            weak, the later topics become harder to understand.
-          </p>
-        </div>
+            <div className="space-y-4 text-[13px] font-semibold leading-[1.75] text-[#030303]">
+              <p>
+                Students often want to move directly into microcontrollers,
+                chip design, or advanced projects.
+              </p>
+              <p>
+                But when the foundation in Electronics and C Programming is
+                weak, the later topics become harder to understand.
+              </p>
+            </div>
 
-        {/* Why Start Here animated SVG */}
-        <svg
-          id="why-start-here-foundation-flow"
-          viewBox="0 0 390 224"
-          width="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          style={{ maxWidth: 430, height: "auto", display: "block", margin: "24px auto 22px" }}
-        >
-          <defs>
-            <linearGradient id="wsh-bgA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#FBFDFB" />
-              <stop offset="55%" stopColor="#F3F8F5" />
-              <stop offset="100%" stopColor="#EDF5F1" />
-            </linearGradient>
-            <linearGradient id="wsh-shirtA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#16A34A" />
-              <stop offset="100%" stopColor="#0F766E" />
-            </linearGradient>
-            <filter id="wsh-shadowA" x="-30%" y="-40%" width="160%" height="190%">
-              <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#173527" floodOpacity="0.07" />
-            </filter>
-            <filter id="wsh-miniA" x="-60%" y="-60%" width="220%" height="220%">
-              <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#173527" floodOpacity="0.12" />
-            </filter>
-          </defs>
+            <p className="mt-4 text-[13px] font-bold leading-[1.75] text-[#17382A]">
+              That is why this pack begins with the basics first.
+            </p>
 
-          {/* Background */}
-          <rect x="4" y="5" width="382" height="214" rx="27"
-            fill="url(#wsh-bgA)" stroke="#DFEAE3" filter="url(#wsh-shadowA)" />
-
-          {/* Soft circuit background */}
-          <g fill="none" stroke="#15803D" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" opacity="0.035">
-            <path d="M17 24H40V16H55" />
-            <circle cx="17" cy="24" r="1.5" fill="#15803D" />
-            <circle cx="55" cy="16" r="1.5" fill="#15803D" />
-            <path d="M92 22H101L107 13L113 35L120 22H133" />
-            <rect x="324" y="19" width="28" height="24" rx="4" />
-            <path d="M319 25H324M319 34H324M352 25H357M352 34H357" />
-            <path d="M20 195H46V185H63" />
-            <path d="M328 196H350V186H371" />
-          </g>
-
-          {/* Advanced destinations */}
-          <g filter="url(#wsh-miniA)">
-            {/* MCU */}
-            <g transform="translate(27 23)">
-              <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#CFE5D6" />
-              <rect x="34" y="14" width="24" height="23" rx="5" fill="#ECFDF3" stroke="#16A34A" strokeWidth="2" />
-              <g stroke="#16A34A" strokeWidth="1.4" strokeLinecap="round">
-                <path d="M28 19H34M28 26H34M28 33H34" />
-                <path d="M58 19H64M58 26H64M58 33H64" />
-              </g>
-              <circle cx="46" cy="25.5" r="3" fill="#22C55E">
-                <animate attributeName="opacity" values=".25;1;.25" dur="1.5s" begin="3.4s" repeatCount="indefinite" />
-              </circle>
-            </g>
-
-            {/* Chip Design */}
-            <g transform="translate(149 23)">
-              <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#D9DDF1" />
-              <rect x="32" y="11" width="28" height="28" rx="6" fill="#EEF2FF" stroke="#6366F1" strokeWidth="2" />
-              <rect x="38" y="17" width="16" height="16" rx="3" fill="none" stroke="#6366F1" strokeWidth="1.4" />
-              <path d="M40 21H47V25H52M40 30H44V27H52" fill="none" stroke="#6366F1" strokeWidth="1.3" strokeLinecap="round" />
-              <path d="M36 15H56" stroke="#60A5FA" strokeWidth="1.4" strokeLinecap="round">
-                <animateTransform attributeName="transform" type="translate"
-                  values="0 0;0 20;0 0" dur="2.8s" begin="3.6s" repeatCount="indefinite" />
-              </path>
-            </g>
-
-            {/* Project */}
-            <g transform="translate(271 23)">
-              <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#F0DAAC" />
-              <rect x="25" y="12" width="42" height="28" rx="6" fill="#FFF8E9" stroke="#F59E0B" strokeWidth="1.6" />
-              <path d="M31 18H41V24H50V34M31 34H39V29H60" fill="none" stroke="#F59E0B" strokeWidth="1.4" strokeLinecap="round" />
-              <circle cx="60" cy="29" r="2.5" fill="#EF4444">
-                <animate attributeName="opacity" values=".2;1;.2" dur="1.4s" begin="3.8s" repeatCount="indefinite" />
-              </circle>
-            </g>
-          </g>
-
-          <text x="73" y="88" textAnchor="middle" fill="#176B3A"
-            fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">MCU</text>
-          <text x="195" y="88" textAnchor="middle" fill="#4F46E5"
-            fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Chip Design</text>
-          <text x="317" y="88" textAnchor="middle" fill="#B45309"
-            fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Projects</text>
-
-          {/* Midpoint */}
-          <g transform="translate(195 112)" filter="url(#wsh-miniA)">
-            <circle r="11" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="2" />
-            <circle r="3.6" fill="#14B8A6">
-              <animate attributeName="r" values="3;3;5;3"
-                keyTimes="0;.35;.55;1" dur="5.8s" repeatCount="indefinite" />
-            </circle>
-          </g>
-
-          {/* Foundation boxes */}
-          <g filter="url(#wsh-miniA)">
-            {/* Electronics */}
-            <g transform="translate(99 148)">
-              <rect width="78" height="31" rx="10" fill="#ECFDF3" stroke="#22C55E" />
-              <text x="39" y="20" textAnchor="middle" fill="#176B3A"
-                fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.4" fontWeight="700">Electronics</text>
-            </g>
-            {/* C Programming */}
-            <g transform="translate(219 148)">
-              <rect width="92" height="31" rx="10" fill="#EAF3FF" stroke="#3B82F6" />
-              <text x="46" y="20" textAnchor="middle" fill="#315F95"
-                fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.2" fontWeight="700">C Programming</text>
-            </g>
-          </g>
-
-          {/* Paths from foundation to midpoint */}
-          {/* MCU path */}
-          <path d="M195 101 C164 98 130 90 103 75" fill="none" stroke="#22C55E"
-            strokeWidth="2.5" strokeLinecap="round" pathLength="100"
-            strokeDasharray="100" strokeDashoffset="100">
-            <animate attributeName="stroke-dashoffset" values="100;100;0;0;100"
-              keyTimes="0;.37;.65;.82;1" dur="5.8s" repeatCount="indefinite" />
-          </path>
-          {/* Chip path */}
-          <path d="M195 101 V75" fill="none" stroke="#6366F1"
-            strokeWidth="2.5" strokeLinecap="round" pathLength="100"
-            strokeDasharray="100" strokeDashoffset="100">
-            <animate attributeName="stroke-dashoffset" values="100;100;0;0;100"
-              keyTimes="0;.42;.69;.84;1" dur="5.8s" repeatCount="indefinite" />
-          </path>
-          {/* Project path */}
-          <path d="M195 101 C229 98 264 90 287 75" fill="none" stroke="#F59E0B"
-            strokeWidth="2.5" strokeLinecap="round" pathLength="100"
-            strokeDasharray="100" strokeDashoffset="100">
-            <animate attributeName="stroke-dashoffset" values="100;100;0;0;100"
-              keyTimes="0;.47;.73;.87;1" dur="5.8s" repeatCount="indefinite" />
-          </path>
-
-          {/* Endpoint pulses */}
-          <circle cx="103" cy="75" r="3" fill="#22C55E">
-            <animate attributeName="r" values="2;2;2;5;3"
-              keyTimes="0;.55;.68;.78;1" dur="5.8s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="195" cy="75" r="3" fill="#6366F1">
-            <animate attributeName="r" values="2;2;2;5;3"
-              keyTimes="0;.60;.72;.82;1" dur="5.8s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="287" cy="75" r="3" fill="#F59E0B">
-            <animate attributeName="r" values="2;2;2;5;3"
-              keyTimes="0;.65;.76;.86;1" dur="5.8s" repeatCount="indefinite" />
-          </circle>
-
-          {/* Student figure */}
-          <g transform="translate(20 130)">
-            <g>
-              <animateTransform attributeName="transform" type="translate"
-                values="0 1;0 -2;0 1" dur="4.3s" repeatCount="indefinite" />
-              <circle cx="27" cy="19" r="11.5" fill="#D6A079" />
-              <path d="M15 18 C16 7 35 5 39 18 C34 13 23 12 15 18Z" fill="#24302B" />
-              <path d="M8 58 C10 39 17 33 27 33 C38 33 45 41 47 58Z" fill="url(#wsh-shirtA)" />
-              <path d="M21 34L27 41L33 34" fill="#F1F8F3" />
-              <path d="M43 42 C53 40 63 34 76 30" fill="none" stroke="#D6A079" strokeWidth="4.5" strokeLinecap="round" />
-              <circle cx="77" cy="30" r="2.7" fill="#D6A079" />
-            </g>
-          </g>
-
-          {/* Start here label */}
-          <text x="195" y="205" textAnchor="middle" fill="#151A17"
-            fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif"
-            fontSize="11.2" fontWeight="700" letterSpacing="-0.15">
-            Start here
-          </text>
-          <path d="M195 194 V183" fill="none" stroke="#202622"
-            strokeWidth="1.4" strokeLinecap="round" strokeDasharray="2 4" opacity=".45">
-            <animate attributeName="stroke-dashoffset" values="12;0" dur="1.8s" repeatCount="indefinite" />
-          </path>
-        </svg>
-
-        <p className="text-[14px] font-bold leading-[1.75] text-[#17382A]">
-          That is why this pack begins with the basics first.
-        </p>
-
-        {/* Instructor block */}
-        <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
-          <Image
-            src="/images/balajee-formal.png"
-            alt="Balajee Seshadri, eTalVis instructor"
-            width={180}
-            height={220}
-            className="rounded-2xl w-full max-w-[140px] object-cover shadow-[0_8px_32px_rgba(15,23,42,0.12)] shrink-0"
-            loading="lazy"
-          />
-          <div>
-            <div className="border-l-2 border-[#22C55E] pl-5">
-              <div className="font-display font-bold text-[17px] text-[#111827]">
-                Balajee Seshadri
-              </div>
-              <div className="text-[13px] text-[#64748B] mt-0.5 font-medium">
-                40+ Years in Electronics
-              </div>
-              <div className="font-display font-bold text-[14px] text-[#111827] mt-1">
-                Making Electronics Talents Visible to Industry
+            {/* Instructor block */}
+            <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
+              <Image
+                src="/images/balajee-formal.png"
+                alt="Balajee Seshadri, eTalVis instructor"
+                width={180}
+                height={220}
+                className="rounded-2xl w-full max-w-[140px] object-cover shadow-[0_8px_32px_rgba(15,23,42,0.12)] shrink-0"
+                loading="lazy"
+              />
+              <div>
+                <div className="border-l-2 border-[#22C55E] pl-5">
+                  <div className="font-display font-bold text-[15px] text-[#111827]">
+                    Balajee Seshadri
+                  </div>
+                  <div className="text-[12px] text-[#64748B] mt-0.5 font-medium">
+                    40+ Years in Electronics
+                  </div>
+                  <div className="font-display font-bold text-[13px] text-[#111827] mt-1">
+                    Making Electronics Talents Visible to Industry
+                  </div>
+                </div>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    track("esp_linkedin_click", {
+                      ...BASE_TRACK_PARAMS,
+                      location: "instructor_section",
+                      ...getCampaignEventParameters(),
+                      ...getIdentityParameters(),
+                    })
+                  }
+                  className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-[#6B7280] hover:text-[#111827] transition underline underline-offset-2"
+                >
+                  View Balajee Seshadri on LinkedIn
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
               </div>
             </div>
+          </div>
+
+          {/* Right column — clickable SVG */}
+          <div className="shrink-0 mt-10 lg:mt-0 lg:w-[45%]">
             <a
-              href={LINKEDIN_URL}
+              href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() =>
-                track("esp_linkedin_click", {
-                  ...BASE_TRACK_PARAMS,
-                  location: "instructor_section",
-                  ...getCampaignEventParameters(),
-                  ...getIdentityParameters(),
-                })
-              }
-              className="mt-4 inline-flex items-center gap-1.5 text-[13px] text-[#6B7280] hover:text-[#111827] transition underline underline-offset-2"
+              onClick={() => handleCTA("wsh_svg")}
+              className="block cursor-pointer"
+              aria-label="Start your foundation"
             >
-              View Balajee Seshadri on LinkedIn
-              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+              <svg
+                id="why-start-here-foundation-flow"
+                viewBox="0 0 390 224"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                style={{ maxWidth: 500, height: "auto", display: "block", margin: "0 auto" }}
+              >
+                <defs>
+                  <linearGradient id="wsh-bgA" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#FBFDFB" />
+                    <stop offset="55%" stopColor="#F3F8F5" />
+                    <stop offset="100%" stopColor="#EDF5F1" />
+                  </linearGradient>
+                  <linearGradient id="wsh-shirtA" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#16A34A" />
+                    <stop offset="100%" stopColor="#0F766E" />
+                  </linearGradient>
+                  <filter id="wsh-shadowA" x="-30%" y="-40%" width="160%" height="190%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#173527" floodOpacity="0.07" />
+                  </filter>
+                  <filter id="wsh-miniA" x="-60%" y="-60%" width="220%" height="220%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#173527" floodOpacity="0.12" />
+                  </filter>
+                </defs>
+
+                <rect x="4" y="5" width="382" height="214" rx="27"
+                  fill="url(#wsh-bgA)" stroke="#DFEAE3" filter="url(#wsh-shadowA)" />
+
+                <g fill="none" stroke="#15803D" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" opacity="0.035">
+                  <path d="M17 24H40V16H55" />
+                  <circle cx="17" cy="24" r="1.5" fill="#15803D" />
+                  <circle cx="55" cy="16" r="1.5" fill="#15803D" />
+                  <path d="M92 22H101L107 13L113 35L120 22H133" />
+                  <rect x="324" y="19" width="28" height="24" rx="4" />
+                  <path d="M319 25H324M319 34H324M352 25H357M352 34H357" />
+                  <path d="M20 195H46V185H63" />
+                  <path d="M328 196H350V186H371" />
+                </g>
+
+                <g filter="url(#wsh-miniA)">
+                  <g transform="translate(27 23)">
+                    <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#CFE5D6" />
+                    <rect x="34" y="14" width="24" height="23" rx="5" fill="#ECFDF3" stroke="#16A34A" strokeWidth="2" />
+                    <g stroke="#16A34A" strokeWidth="1.4" strokeLinecap="round">
+                      <path d="M28 19H34M28 26H34M28 33H34" />
+                      <path d="M58 19H64M58 26H64M58 33H64" />
+                    </g>
+                    <circle cx="46" cy="25.5" r="3" fill="#22C55E">
+                      <animate attributeName="opacity" values=".25;1;.25" dur="1.5s" begin="3.4s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+
+                  <g transform="translate(149 23)">
+                    <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#D9DDF1" />
+                    <rect x="32" y="11" width="28" height="28" rx="6" fill="#EEF2FF" stroke="#6366F1" strokeWidth="2" />
+                    <rect x="38" y="17" width="16" height="16" rx="3" fill="none" stroke="#6366F1" strokeWidth="1.4" />
+                    <path d="M40 21H47V25H52M40 30H44V27H52" fill="none" stroke="#6366F1" strokeWidth="1.3" strokeLinecap="round" />
+                    <path d="M36 15H56" stroke="#60A5FA" strokeWidth="1.4" strokeLinecap="round">
+                      <animateTransform attributeName="transform" type="translate"
+                        values="0 0;0 20;0 0" dur="2.8s" begin="3.6s" repeatCount="indefinite" />
+                    </path>
+                  </g>
+
+                  <g transform="translate(271 23)">
+                    <rect width="92" height="52" rx="15" fill="#FFFFFF" stroke="#F0DAAC" />
+                    <rect x="25" y="12" width="42" height="28" rx="6" fill="#FFF8E9" stroke="#F59E0B" strokeWidth="1.6" />
+                    <path d="M31 18H41V24H50V34M31 34H39V29H60" fill="none" stroke="#F59E0B" strokeWidth="1.4" strokeLinecap="round" />
+                    <circle cx="60" cy="29" r="2.5" fill="#EF4444">
+                      <animate attributeName="opacity" values=".2;1;.2" dur="1.4s" begin="3.8s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </g>
+
+                <text x="73" y="88" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">MCU</text>
+                <text x="195" y="88" textAnchor="middle" fill="#4F46E5" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Chip Design</text>
+                <text x="317" y="88" textAnchor="middle" fill="#B45309" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="10.5" fontWeight="700">Projects</text>
+
+                <g transform="translate(195 112)" filter="url(#wsh-miniA)">
+                  <circle r="11" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="2" />
+                  <circle r="3.6" fill="#14B8A6">
+                    <animate attributeName="r" values="3;3;5;3" keyTimes="0;.35;.55;1" dur="5.8s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+
+                <g filter="url(#wsh-miniA)">
+                  <g transform="translate(99 148)">
+                    <rect width="78" height="31" rx="10" fill="#ECFDF3" stroke="#22C55E" />
+                    <text x="39" y="20" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.4" fontWeight="700">Electronics</text>
+                  </g>
+                  <g transform="translate(219 148)">
+                    <rect width="92" height="31" rx="10" fill="#EAF3FF" stroke="#3B82F6" />
+                    <text x="46" y="20" textAnchor="middle" fill="#315F95" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.2" fontWeight="700">C Programming</text>
+                  </g>
+                </g>
+
+                <path d="M195 101 C164 98 130 90 103 75" fill="none" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.37;.65;.82;1" dur="5.8s" repeatCount="indefinite" />
+                </path>
+                <path d="M195 101 V75" fill="none" stroke="#6366F1" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.42;.69;.84;1" dur="5.8s" repeatCount="indefinite" />
+                </path>
+                <path d="M195 101 C229 98 264 90 287 75" fill="none" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0;100" keyTimes="0;.47;.73;.87;1" dur="5.8s" repeatCount="indefinite" />
+                </path>
+
+                <circle cx="103" cy="75" r="3" fill="#22C55E">
+                  <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.55;.68;.78;1" dur="5.8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="195" cy="75" r="3" fill="#6366F1">
+                  <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.60;.72;.82;1" dur="5.8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="287" cy="75" r="3" fill="#F59E0B">
+                  <animate attributeName="r" values="2;2;2;5;3" keyTimes="0;.65;.76;.86;1" dur="5.8s" repeatCount="indefinite" />
+                </circle>
+
+                <g transform="translate(20 130)">
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.3s" repeatCount="indefinite" />
+                    <circle cx="27" cy="19" r="11.5" fill="#D6A079" />
+                    <path d="M15 18 C16 7 35 5 39 18 C34 13 23 12 15 18Z" fill="#24302B" />
+                    <path d="M8 58 C10 39 17 33 27 33 C38 33 45 41 47 58Z" fill="url(#wsh-shirtA)" />
+                    <path d="M21 34L27 41L33 34" fill="#F1F8F3" />
+                    <path d="M43 42 C53 40 63 34 76 30" fill="none" stroke="#D6A079" strokeWidth="4.5" strokeLinecap="round" />
+                    <circle cx="77" cy="30" r="2.7" fill="#D6A079" />
+                  </g>
+                </g>
+
+                <text x="195" y="205" textAnchor="middle" fill="#151A17" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.2" fontWeight="700" letterSpacing="-0.15">
+                  Start here
+                </text>
+                <path d="M195 194 V183" fill="none" stroke="#202622" strokeWidth="1.4" strokeLinecap="round" strokeDasharray="2 4" opacity=".45">
+                  <animate attributeName="stroke-dashoffset" values="12;0" dur="1.8s" repeatCount="indefinite" />
+                </path>
+              </svg>
             </a>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
@@ -889,51 +866,382 @@ function WhyStartHereSection() {
 
 // ─── Section: Who Is This For ─────────────────────────────────────────────────
 
-function WhoIsThisForSection() {
-  const audiences = [
-    {
-      heading: "ECE and Electronics students heading into Embedded Systems or VLSI Design.",
-      body: "ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation. If you want to work in embedded hardware, firmware, or VLSI, these two foundations come first.",
-    },
-    {
-      heading: "Students who tried advanced topics and found them unclear.",
-      body: "Whether it is RTOS, GPIO, digital logic, or chip design, Electronics and C Programming sit underneath all of it. Building those foundations first is what makes every next step clearer.",
-    },
-    {
-      heading: "Professionals moving from software or non-core backgrounds.",
-      body: "From software, mechanical, or unrelated fields into embedded hardware, firmware, or VLSI design. This is the structured starting point before advanced concepts.",
-    },
-  ];
-
+function WhoIsThisForSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
-    <section id="esp-who" className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
+    <section id="esp-who" className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
       <div className={`${EYEBROW} mb-4 text-center`}>BUILT FOR STUDENTS WHO WANT TO UNDERSTAND THE BASICS CLEARLY</div>
 
-      {/* Section heading — very big */}
-      <h2 className="font-display font-extrabold text-[36px] sm:text-[52px] lg:text-[60px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
+      <h2 className="font-display font-extrabold text-[32px] sm:text-[47px] lg:text-[54px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
         Who Is This For?
       </h2>
 
-      <div className="mt-12 divide-y divide-[#E5E7EB] border-y border-[#E5E7EB]">
-        {audiences.map((item, i) => (
-          <div key={i} className="py-8 flex flex-col gap-2 sm:flex-row sm:gap-12">
-            <div
-              className="shrink-0 font-display font-black text-[#ECFDF3] text-[40px] leading-none select-none hidden sm:block"
-              aria-hidden="true"
-              style={{ minWidth: "2rem" }}
-            >
-              {i + 1}
-            </div>
-            <div>
-              <h3 className="font-display font-bold text-[18px] text-[#111827] mb-2">
-                {item.heading}
-              </h3>
-              <p className="text-[14px] text-[#4B5563] leading-relaxed">
-                {item.body}
-              </p>
-            </div>
+      <div className="mt-14 space-y-16 sm:space-y-20">
+
+        {/* Audience 1: copy left / SVG right */}
+        <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-16">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display font-bold text-[16px] text-[#111827] mb-3">
+              ECE and Electronics students heading into Embedded Systems or VLSI Design.
+            </h3>
+            <p className="text-[13px] text-[#4B5563] leading-relaxed">
+              ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation. If you want to work in embedded hardware, firmware, or VLSI, these two foundations come first.
+            </p>
           </div>
-        ))}
+          <div className="shrink-0 w-full lg:w-[45%]">
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTA("who_svg_1")} className="block" aria-label="Start your foundation">
+              <svg viewBox="0 0 390 182" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a1bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F9FCFA"/>
+                    <stop offset="50%" stopColor="#F3F9F5"/>
+                    <stop offset="100%" stopColor="#EEF5F1"/>
+                  </linearGradient>
+                  <linearGradient id="a1shirt" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#16A34A"/>
+                    <stop offset="100%" stopColor="#0F766E"/>
+                  </linearGradient>
+                  <linearGradient id="a1embedded" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#22C55E"/>
+                    <stop offset="100%" stopColor="#15803D"/>
+                  </linearGradient>
+                  <linearGradient id="a1vlsi" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#60A5FA"/>
+                    <stop offset="100%" stopColor="#6366F1"/>
+                  </linearGradient>
+                  <linearGradient id="a1path" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#22C55E"/>
+                    <stop offset="50%" stopColor="#14B8A6"/>
+                    <stop offset="100%" stopColor="#4F7FD8"/>
+                  </linearGradient>
+                  <filter id="a1shadow" x="-30%" y="-40%" width="160%" height="190%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#173527" floodOpacity="0.07"/>
+                  </filter>
+                  <filter id="a1mini" x="-60%" y="-60%" width="220%" height="220%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#173527" floodOpacity="0.11"/>
+                  </filter>
+                </defs>
+                <rect x="4" y="5" width="382" height="172" rx="26" fill="url(#a1bg)" stroke="#E2ECE6" filter="url(#a1shadow)"/>
+                <g fill="none" stroke="#15803D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.055">
+                  <path d="M18 26 H26 L29 21 L34 31 L39 21 L44 31 L49 26 H58"/>
+                  <path d="M94 19H107M107 13V25M113 13V25M113 19H126"/>
+                  <rect x="299" y="18" width="26" height="22" rx="3"/>
+                  <path d="M294 23H299M294 30H299M325 23H330M325 30H330"/>
+                  <path d="M318 159H338V150H366"/>
+                </g>
+                <g transform="translate(22 36)">
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.3s" repeatCount="indefinite"/>
+                    <circle cx="29" cy="24" r="13" fill="#D6A079"/>
+                    <path d="M16 23 C17 9 38 7 42 21 C36 15 25 14 16 23Z" fill="#24302B"/>
+                    <rect x="24" y="35" width="10" height="8" rx="3" fill="#CF9973"/>
+                    <path d="M7 72 C9 48 17 41 29 41 C42 41 50 50 52 72Z" fill="url(#a1shirt)"/>
+                    <path d="M22 42 L29 50 L36 42" fill="#EFF8F2"/>
+                    <path d="M46 51 C56 52 64 49 73 44" stroke="#D6A079" strokeWidth="5" strokeLinecap="round" fill="none"/>
+                    <circle cx="74" cy="44" r="3" fill="#D6A079"/>
+                  </g>
+                </g>
+                <text x="22" y="132" fill="#17382A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="13" fontWeight="700">Electronics</text>
+                <path d="M100 78 C130 78 144 78 164 78 C181 78 188 86 198 86" fill="none" stroke="#D9E6DD" strokeWidth="6" strokeLinecap="round"/>
+                <path d="M100 78 C130 78 144 78 164 78 C181 78 188 86 198 86" fill="none" stroke="url(#a1path)" strokeWidth="3" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;0;0" keyTimes="0;.58;1" dur="4.8s" repeatCount="indefinite"/>
+                </path>
+                <circle r="5" fill="#14B8A6" filter="url(#a1mini)">
+                  <animateMotion dur="4.8s" repeatCount="indefinite" path="M100 78 C130 78 144 78 164 78 C181 78 188 86 198 86"/>
+                </circle>
+                <g transform="translate(198 86)" filter="url(#a1mini)">
+                  <circle r="12" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="2"/>
+                  <circle r="4" fill="#14B8A6">
+                    <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+                <path d="M198 86 C221 55 247 41 283 40" fill="none" stroke="#22C55E" strokeWidth="2.8" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0" keyTimes="0;.34;.72;1" dur="4.8s" repeatCount="indefinite"/>
+                </path>
+                <path d="M198 86 C222 113 248 128 283 129" fill="none" stroke="#6366F1" strokeWidth="2.8" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0" keyTimes="0;.44;.81;1" dur="4.8s" repeatCount="indefinite"/>
+                </path>
+                <g transform="translate(282 16)" filter="url(#a1mini)">
+                  <rect width="76" height="54" rx="15" fill="#FFFFFF" stroke="#C8E6D1"/>
+                  <rect x="24" y="14" width="28" height="26" rx="6" fill="#ECFDF3" stroke="#22C55E" strokeWidth="2"/>
+                  <rect x="31" y="21" width="14" height="12" rx="3" fill="url(#a1embedded)"/>
+                  <g stroke="#22C55E" strokeWidth="1.6" strokeLinecap="round">
+                    <path d="M18 20H24"/>
+                    <path d="M18 27H24"/>
+                    <path d="M18 34H24"/>
+                    <path d="M52 20H58"/>
+                    <path d="M52 27H58"/>
+                    <path d="M52 34H58"/>
+                  </g>
+                  <circle cx="38" cy="27" r="3" fill="#FFF">
+                    <animate attributeName="opacity" values=".35;1;.35" dur="1.3s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+                <text x="294" y="82" fill="#15803D" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.5" fontWeight="700">Embedded</text>
+                <g transform="translate(282 102)" filter="url(#a1mini)">
+                  <rect width="76" height="54" rx="15" fill="#FFFFFF" stroke="#D0D5F0"/>
+                  <rect x="23" y="11" width="30" height="30" rx="6" fill="#EEF2FF" stroke="#6366F1" strokeWidth="2"/>
+                  <rect x="29" y="17" width="18" height="18" rx="3" fill="url(#a1vlsi)" fillOpacity="0.18" stroke="#6366F1" strokeWidth="1.4"/>
+                  <g fill="none" stroke="#6366F1" strokeWidth="1.4" strokeLinecap="round">
+                    <path d="M31 21 H39 V25 H45"/>
+                    <path d="M31 31 H35 V28 H45"/>
+                    <path d="M34 18 V22"/>
+                    <path d="M43 31 V35"/>
+                  </g>
+                  <path d="M27 16 H49" stroke="#60A5FA" strokeWidth="1.6" strokeLinecap="round">
+                    <animateTransform attributeName="transform" type="translate" values="0 0;0 20;0 0" dur="3s" repeatCount="indefinite"/>
+                  </path>
+                </g>
+                <text x="307" y="166" fill="#4F46E5" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.5" fontWeight="700">VLSI</text>
+                <g opacity="0.12">
+                  <circle cx="133" cy="119" r="2.6" fill="#F59E0B">
+                    <animate attributeName="opacity" values=".08;.22;.08" dur="2.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="158" cy="136" r="2.6" fill="#3B82F6">
+                    <animate attributeName="opacity" values=".08;.22;.08" dur="2.8s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="238" cy="143" r="2.6" fill="#8B5CF6">
+                    <animate attributeName="opacity" values=".08;.22;.08" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Audience 2: SVG left / copy right */}
+        <div className="flex flex-col gap-7 lg:flex-row-reverse lg:items-center lg:gap-16">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display font-bold text-[16px] text-[#111827] mb-3">
+              Students who tried advanced topics and found them unclear.
+            </h3>
+            <p className="text-[13px] text-[#4B5563] leading-relaxed">
+              Whether it is RTOS, GPIO, digital logic, or chip design, Electronics and C Programming sit underneath all of it. Building those foundations first is what makes every next step clearer.
+            </p>
+          </div>
+          <div className="shrink-0 w-full lg:w-[45%]">
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTA("who_svg_2")} className="block" aria-label="Start your foundation">
+              <svg viewBox="0 0 390 188" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a2bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F9FCFA"/>
+                    <stop offset="52%" stopColor="#F4F9F6"/>
+                    <stop offset="100%" stopColor="#EEF5F1"/>
+                  </linearGradient>
+                  <linearGradient id="a2shirt" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#16A34A"/>
+                    <stop offset="100%" stopColor="#0F766E"/>
+                  </linearGradient>
+                  <linearGradient id="a2path" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#22C55E"/>
+                    <stop offset="55%" stopColor="#14B8A6"/>
+                    <stop offset="100%" stopColor="#3B82F6"/>
+                  </linearGradient>
+                  <filter id="a2shadow" x="-30%" y="-40%" width="160%" height="190%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#173527" floodOpacity="0.07"/>
+                  </filter>
+                  <filter id="a2mini" x="-60%" y="-60%" width="220%" height="220%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#173527" floodOpacity="0.12"/>
+                  </filter>
+                </defs>
+                <rect x="4" y="5" width="382" height="178" rx="26" fill="url(#a2bg)" stroke="#E1EAE4" filter="url(#a2shadow)"/>
+                <g fill="none" stroke="#15803D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.045">
+                  <rect x="22" y="20" width="28" height="24" rx="4"/>
+                  <path d="M17 26H22M17 34H22M50 26H55M50 34H55"/>
+                  <path d="M82 28 H93 L99 18 L107 40 L114 27 H128"/>
+                  <path d="M147 19 V34 H160 V42 H177"/>
+                  <circle cx="147" cy="19" r="1.6" fill="#15803D"/>
+                  <circle cx="177" cy="42" r="1.6" fill="#15803D"/>
+                  <path d="M211 18 H222 C238 18 238 38 222 38 H211 Z"/>
+                  <path d="M204 23H211M204 33H211M238 28H247"/>
+                </g>
+                <g transform="translate(18 44)">
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.4s" repeatCount="indefinite"/>
+                    <circle cx="30" cy="24" r="13" fill="#D6A079"/>
+                    <path d="M17 23 C18 9 39 7 43 21 C37 15 26 14 17 23Z" fill="#24302B"/>
+                    <rect x="25" y="35" width="10" height="8" rx="3" fill="#CF9973"/>
+                    <path d="M8 73 C10 49 18 42 30 42 C43 42 51 51 53 73Z" fill="url(#a2shirt)"/>
+                    <path d="M23 43 L30 51 L37 43" fill="#EFF8F2"/>
+                    <path d="M46 52 C54 50 60 47 66 42" stroke="#D6A079" strokeWidth="4.8" strokeLinecap="round" fill="none"/>
+                    <circle cx="67" cy="41" r="2.8" fill="#D6A079"/>
+                  </g>
+                </g>
+                <text x="20" y="139" fill="#17382A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="12.5" fontWeight="700">Advanced topics</text>
+                <g transform="translate(112 41)">
+                  <g fill="none" strokeLinecap="round" strokeWidth="2.2" opacity="0.72">
+                    <path d="M0 38 C18 10 34 66 52 30 C68 1 79 52 94 32" stroke="#F59E0B" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                      <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.32;.75;1" dur="5s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M3 51 C22 68 34 9 55 47 C72 74 80 16 96 50" stroke="#6366F1" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                      <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.35;.78;1" dur="5.3s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M9 22 C25 47 40 17 59 26 C73 33 81 58 98 21" stroke="#EF4444" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                      <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;.38;.8;1" dur="5.6s" repeatCount="indefinite"/>
+                    </path>
+                  </g>
+                  <g filter="url(#a2mini)">
+                    <circle cx="8" cy="37" r="6" fill="#FEF3C7" stroke="#F59E0B"/>
+                    <circle cx="48" cy="18" r="6" fill="#EEF2FF" stroke="#6366F1"/>
+                    <circle cx="96" cy="36" r="6" fill="#FEE2E2" stroke="#EF4444"/>
+                    <circle cx="55" cy="60" r="6" fill="#DBEAFE" stroke="#3B82F6"/>
+                  </g>
+                </g>
+                <path d="M216 85 C236 85 246 85 260 85" fill="none" stroke="#D5E4DB" strokeWidth="5" strokeLinecap="round"/>
+                <path d="M216 85 C236 85 246 85 260 85" fill="none" stroke="url(#a2path)" strokeWidth="3" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;100;0;0" keyTimes="0;.4;.72;1" dur="5.2s" repeatCount="indefinite"/>
+                </path>
+                <circle r="4.5" fill="#14B8A6">
+                  <animateMotion dur="5.2s" repeatCount="indefinite" path="M216 85 C236 85 246 85 260 85"/>
+                </circle>
+                <g transform="translate(264 31)" filter="url(#a2mini)">
+                  <rect width="98" height="118" rx="17" fill="#FFFFFF" stroke="#CFE3D6"/>
+                  <circle cx="49" cy="13" r="4.5" fill="#22C55E">
+                    <animate attributeName="r" values="4;5.5;4" dur="2.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <path d="M49 18 V28" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round"/>
+                  <rect x="12" y="29" width="74" height="23" rx="8" fill="#ECFDF3" stroke="#22C55E"/>
+                  <text x="49" y="44" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="9.3" fontWeight="700">Electronics</text>
+                  <path d="M49 52 V64" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round">
+                    <animate attributeName="stroke-width" values="1.8;2.7;1.8" dur="2s" repeatCount="indefinite"/>
+                  </path>
+                  <rect x="12" y="65" width="74" height="23" rx="8" fill="#EAF3FF" stroke="#3B82F6"/>
+                  <text x="49" y="80" textAnchor="middle" fill="#315F95" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="8.7" fontWeight="700">C Programming</text>
+                  <path d="M49 88 V100" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round"/>
+                  <circle cx="49" cy="103" r="4" fill="#3B82F6">
+                    <animate attributeName="opacity" values=".35;1;.35" dur="1.6s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+                <text x="313" y="164" textAnchor="middle" fill="#15803D" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.8" fontWeight="700">Clear basics</text>
+                <g fill="none" stroke="#14B8A6" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M231 80 l5 5 -5 5">
+                    <animate attributeName="opacity" values=".15;1;.15" dur="1.8s" repeatCount="indefinite"/>
+                  </path>
+                  <path d="M246 80 l5 5 -5 5">
+                    <animate attributeName="opacity" values=".15;1;.15" dur="1.8s" begin=".3s" repeatCount="indefinite"/>
+                  </path>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Audience 3: copy left / SVG right */}
+        <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-16">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display font-bold text-[16px] text-[#111827] mb-3">
+              Professionals moving from software or non-core backgrounds.
+            </h3>
+            <p className="text-[13px] text-[#4B5563] leading-relaxed">
+              From software, mechanical, or unrelated fields into embedded hardware, firmware, or VLSI design. This is the structured starting point before advanced concepts.
+            </p>
+          </div>
+          <div className="shrink-0 w-full lg:w-[45%]">
+            <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => handleCTA("who_svg_3")} className="block" aria-label="Start your foundation">
+              <svg viewBox="0 0 390 188" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="a3bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F9FCFA"/>
+                    <stop offset="52%" stopColor="#F4F8F6"/>
+                    <stop offset="100%" stopColor="#EEF4F1"/>
+                  </linearGradient>
+                  <linearGradient id="a3shirt" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#2563EB"/>
+                    <stop offset="100%" stopColor="#0F766E"/>
+                  </linearGradient>
+                  <linearGradient id="a3path" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3B82F6"/>
+                    <stop offset="50%" stopColor="#14B8A6"/>
+                    <stop offset="100%" stopColor="#22C55E"/>
+                  </linearGradient>
+                  <filter id="a3shadow" x="-30%" y="-40%" width="160%" height="190%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="9" floodColor="#173527" floodOpacity="0.07"/>
+                  </filter>
+                  <filter id="a3mini" x="-60%" y="-60%" width="220%" height="220%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#173527" floodOpacity="0.12"/>
+                  </filter>
+                </defs>
+                <rect x="4" y="5" width="382" height="178" rx="26" fill="url(#a3bg)" stroke="#E1EAE4" filter="url(#a3shadow)"/>
+                <g fill="none" stroke="#64748B" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.045">
+                  <rect x="18" y="20" width="33" height="22" rx="4"/>
+                  <path d="M13 45H56"/>
+                  <circle cx="101" cy="29" r="11"/>
+                  <circle cx="101" cy="29" r="4"/>
+                  <path d="M101 14V18M101 40V44M86 29H90M112 29H116"/>
+                  <path d="M157 22l-7 6 7 6M174 22l7 6-7 6"/>
+                  <path d="M168 19l-6 18"/>
+                  <path d="M224 28H252"/>
+                  <path d="M246 22l7 6-7 6"/>
+                  <rect x="302" y="18" width="28" height="24" rx="4"/>
+                  <path d="M297 24H302M297 32H302M330 24H335M330 32H335"/>
+                </g>
+                <g transform="translate(19 42)">
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0 1;0 -2;0 1" dur="4.4s" repeatCount="indefinite"/>
+                    <circle cx="30" cy="24" r="13" fill="#D3A079"/>
+                    <path d="M17 23 C18 9 39 7 43 21 C37 15 26 14 17 23Z" fill="#252E32"/>
+                    <rect x="25" y="35" width="10" height="8" rx="3" fill="#CC9974"/>
+                    <path d="M8 73 C10 49 18 42 30 42 C43 42 51 51 53 73Z" fill="url(#a3shirt)"/>
+                    <path d="M23 43 L30 51 L37 43" fill="#F1F5F9"/>
+                    <g transform="translate(-1 57)" filter="url(#a3mini)">
+                      <rect x="0" y="0" width="28" height="20" rx="5" fill="#FFFFFF" stroke="#64748B"/>
+                      <path d="M9 0V-4H19V0" fill="none" stroke="#64748B" strokeWidth="1.6"/>
+                      <path d="M0 8C8 12 20 12 28 8" fill="none" stroke="#64748B" strokeWidth="1.4"/>
+                    </g>
+                    <path d="M46 52 C56 51 63 48 71 43" stroke="#D3A079" strokeWidth="4.8" strokeLinecap="round" fill="none"/>
+                    <circle cx="72" cy="42" r="2.8" fill="#D3A079"/>
+                  </g>
+                </g>
+                <text x="20" y="141" fill="#243746" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="12.3" fontWeight="700">New direction</text>
+                <g transform="translate(101 49)">
+                  <g filter="url(#a3mini)">
+                    <rect x="0" y="0" width="42" height="31" rx="8" fill="#FFFFFF" stroke="#BDD4F4"/>
+                    <path d="M14 10l-6 5 6 5M28 10l6 5-6 5" fill="none" stroke="#3B82F6" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </g>
+                  <g transform="translate(7 48)" filter="url(#a3mini)">
+                    <circle cx="14" cy="14" r="13" fill="#FFFFFF" stroke="#E7B557"/>
+                    <circle cx="14" cy="14" r="5" fill="none" stroke="#F59E0B" strokeWidth="1.8"/>
+                    <path d="M14 0V5M14 23V28M0 14H5M23 14H28" stroke="#F59E0B" strokeWidth="1.6" strokeLinecap="round"/>
+                  </g>
+                </g>
+                <path d="M153 86 C174 86 185 86 201 86 C217 86 226 86 239 86" fill="none" stroke="#D8E2DE" strokeWidth="6" strokeLinecap="round"/>
+                <path d="M153 86 C174 86 185 86 201 86 C217 86 226 86 239 86" fill="none" stroke="url(#a3path)" strokeWidth="3" strokeLinecap="round" pathLength="100" strokeDasharray="100" strokeDashoffset="100">
+                  <animate attributeName="stroke-dashoffset" values="100;0;0" keyTimes="0;.62;1" dur="4.9s" repeatCount="indefinite"/>
+                </path>
+                <circle r="4.8" fill="#14B8A6" filter="url(#a3mini)">
+                  <animateMotion dur="4.9s" repeatCount="indefinite" path="M153 86 C174 86 185 86 201 86 C217 86 226 86 239 86"/>
+                </circle>
+                <g transform="translate(241 26)" filter="url(#a3mini)">
+                  <rect width="119" height="120" rx="18" fill="#FFFFFF" stroke="#CEE1D5"/>
+                  <circle cx="59.5" cy="15" r="4.5" fill="#22C55E">
+                    <animate attributeName="r" values="4;5.6;4" dur="2.2s" repeatCount="indefinite"/>
+                  </circle>
+                  <path d="M59.5 20V29" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round"/>
+                  <rect x="17" y="30" width="85" height="23" rx="8" fill="#ECFDF3" stroke="#22C55E"/>
+                  <text x="59.5" y="45" textAnchor="middle" fill="#176B3A" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="8.8" fontWeight="700">Embedded</text>
+                  <path d="M59.5 53V64" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round"/>
+                  <rect x="17" y="65" width="85" height="23" rx="8" fill="#E7F9F7" stroke="#14B8A6"/>
+                  <text x="59.5" y="80" textAnchor="middle" fill="#0F766E" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="8.8" fontWeight="700">Firmware</text>
+                  <path d="M59.5 88V99" stroke="#6366F1" strokeWidth="2" strokeLinecap="round"/>
+                  <rect x="17" y="100" width="85" height="14" rx="7" fill="#EEF2FF" stroke="#6366F1"/>
+                  <text x="59.5" y="110" textAnchor="middle" fill="#4F46E5" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="7.8" fontWeight="700">VLSI</text>
+                </g>
+                <text x="300" y="162" textAnchor="middle" fill="#15803D" fontFamily="'Sora','Plus Jakarta Sans','Inter',sans-serif" fontSize="11.6" fontWeight="700">Structured start</text>
+                <g opacity="0.10">
+                  <circle cx="178" cy="130" r="3" fill="#3B82F6">
+                    <animate attributeName="cy" values="130;126;130" dur="3.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="210" cy="143" r="3" fill="#22C55E">
+                    <animate attributeName="cy" values="143;139;143" dur="3.8s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="224" cy="122" r="3" fill="#8B5CF6">
+                    <animate attributeName="cy" values="122;118;122" dur="3.4s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );
@@ -970,7 +1278,7 @@ function TestimonialsSection() {
     <section id="esp-testimonials" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className={`${EYEBROW} mb-4 text-center`}>STUDENT FEEDBACK</div>
-        <h2 className="font-display font-extrabold text-[23px] leading-tight text-[#111827] text-center">
+        <h2 className="font-display font-extrabold text-[21px] leading-tight text-[#111827] text-center">
           What Students Say About Learning with Balajee Sir
         </h2>
 
@@ -992,7 +1300,7 @@ function TestimonialsSection() {
               className="flex flex-col rounded-2xl bg-white border border-[#E5E7EB] p-6 transition hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="border-t-2 border-[#22C55E] pt-5 flex-1">
-                <blockquote className="text-[15px] font-bold leading-[1.75] text-[#374151]">
+                <blockquote className="text-[14px] font-bold leading-[1.75] text-[#374151]">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
               </div>
@@ -1017,7 +1325,7 @@ function TestimonialsSection() {
 function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <section id="esp-product" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 className="font-display font-extrabold text-[32px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
+      <h2 className="font-display font-extrabold text-[29px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
         Start With The Right Foundation.<br />&amp;<br />Get Both Courses for ₹239
       </h2>
 
@@ -1044,10 +1352,10 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 pb-6 border-b border-[#E5E7EB]">
-            <div className="font-display text-[42px] font-extrabold text-[#111827] leading-none">
+            <div className="font-display text-[38px] font-extrabold text-[#111827] leading-none">
               Rs. 239
             </div>
-            <span className="text-[14px] font-medium text-[#6B7280]">2 Months Access</span>
+            <span className="text-[13px] font-medium text-[#6B7280]">2 Months Access</span>
           </div>
 
           <div className="pt-6">
@@ -1056,7 +1364,7 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("product_section")}
-              className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+              className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[14px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
               Get Both Courses for ₹239
             </a>
@@ -1100,17 +1408,17 @@ function FAQSection() {
   return (
     <section id="esp-faq" className="bg-white border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[32px]">
+        <h2 className="font-display font-extrabold text-[23px] leading-tight text-[#111827] text-center sm:text-[29px]">
           Questions Before You Start?
         </h2>
 
         <div className="mt-8 rounded-2xl border border-[#E5E7EB] overflow-hidden divide-y divide-[#E5E7EB]">
           {FAQ_ITEMS.map((item, i) => (
             <div key={i} className="px-6 py-5">
-              <p className="font-display font-semibold text-[15px] text-[#111827] leading-snug mb-2">
+              <p className="font-display font-semibold text-[14px] text-[#111827] leading-snug mb-2">
                 {item.q}
               </p>
-              <p className="text-[15px] leading-[1.7] text-[#4B5563]">{item.a}</p>
+              <p className="text-[13px] leading-[1.7] text-[#4B5563]">{item.a}</p>
             </div>
           ))}
         </div>
@@ -1125,15 +1433,15 @@ function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <section id="esp-final" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20 text-center">
       {/* "Your First Step" — large display */}
-      <p className="font-display font-extrabold text-[40px] sm:text-[52px] text-[#15803D] leading-tight tracking-[-0.02em] mb-5">
+      <p className="font-display font-extrabold text-[36px] sm:text-[47px] text-[#15803D] leading-tight tracking-[-0.02em] mb-5">
         Your First Step
       </p>
 
-      <h2 className="font-display font-extrabold text-[24px] leading-tight tracking-[-0.01em] text-[#111827] sm:text-[30px] lg:text-[36px]">
+      <h2 className="font-display font-extrabold text-[22px] leading-tight tracking-[-0.01em] text-[#111827] sm:text-[27px] lg:text-[32px]">
         The two foundations every Electronics path starts from.
       </h2>
 
-      <p className="mt-5 text-[15px] text-[#4B5563]">
+      <p className="mt-5 text-[14px] text-[#4B5563]">
         Electronics Foundation · C Programming Foundation · 2 Months Access
       </p>
 
@@ -1142,7 +1450,7 @@ function FinalCtaSection({ checkoutUrl }: { checkoutUrl: string }) {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => handleCTA("final_cta")}
-        className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FFC400] px-10 py-4 text-[17px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+        className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FFC400] px-10 py-4 text-[15px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
       >
         Start Your Foundation
       </a>
@@ -1418,8 +1726,8 @@ export default function EmbeddedStarterPack() {
       <MiniNav checkoutUrl={checkoutUrl} />
       <HeroSection heroRef={heroRef} checkoutUrl={checkoutUrl} />
       <WhyTheseTwoSection />
-      <WhyStartHereSection />
-      <WhoIsThisForSection />
+      <WhyStartHereSection checkoutUrl={checkoutUrl} />
+      <WhoIsThisForSection checkoutUrl={checkoutUrl} />
       <TestimonialsSection />
       <ProductSection checkoutUrl={checkoutUrl} />
       <FAQSection />
