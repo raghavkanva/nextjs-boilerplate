@@ -267,11 +267,10 @@ function HeroSection({
             Every Electronics Engineering Student&apos;s First Step Starts Here.
           </h1>
 
-          {/* Subtitle — bigger, bolder, updated copy */}
-          <p className="mt-5 text-[19px] sm:text-[21px] font-semibold leading-[1.6] text-[#374151] max-w-xl">
-            If Embedded Systems or VLSI Design is the field you want to explore,
-            start by strengthening the two foundations that come first:
-            Electronics and C Programming.
+          {/* Subtitle */}
+          <p className="mt-5 text-[19px] font-semibold leading-[1.6] max-w-xl" style={{ color: "#010101" }}>
+            Planning to learn Embedded Systems or VLSI Design ? Begin with
+            Electronics fundamentals and C programming.
           </p>
 
           {/* Course pair — animated SVG banner */}
@@ -426,7 +425,7 @@ function HeroSection({
             </a>
           </div>
 
-          <p className="mt-3 text-[13px] font-semibold text-[#6B7280]">
+          <p className="mt-3 text-[18px] font-semibold" style={{ color: "#080809" }}>
             For ECE, EEE, EIE, Mechatronics, Electrical, Instrumentation and related branches.
           </p>
         </div>
@@ -446,7 +445,7 @@ function HeroSection({
             <div className="font-display font-bold text-[17px] text-[#111827]">
               Balajee Seshadri
             </div>
-            <div className="text-[13px] text-[#64748B] mt-0.5 font-medium">
+            <div className="text-[20px] font-bold mt-0.5" style={{ color: "#050505" }}>
               40+ Years in Electronics
             </div>
             <div className="font-display font-bold text-[14px] text-[#111827] mt-1">
@@ -466,19 +465,18 @@ function WhyTheseTwoSection() {
   return (
     <section id="esp-why" className="border-y border-[#E5E7EB] bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className={`${EYEBROW} mb-4 text-center`}>The Two Foundations</div>
+        <div className={`${EYEBROW} mb-4 text-center`}>WHAT YOU WILL LEARN</div>
 
         <h2
           className="font-display font-extrabold leading-tight tracking-[-0.02em] text-[#111827] text-center"
-          style={{ fontSize: "clamp(26px, 3.5vw, 40px)" }}
+          style={{ fontSize: "36px" }}
         >
-          Why Electronics and C Programming?
+          Two Courses Included
         </h2>
 
-        <p className="mt-5 text-[17px] leading-[1.65] text-[#4B5563] text-center max-w-2xl mx-auto">
-          Whether you are heading into Embedded Systems or VLSI Design,
-          Electronics and C Programming are the two foundations the field starts
-          from. That is why the pack begins with both.
+        <p className="mt-5 text-[20px] font-semibold leading-[1.65] text-center max-w-2xl mx-auto" style={{ color: "#000000" }}>
+          Learn the Electronics concepts and C programming skills needed before
+          advanced subjects.
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -492,9 +490,14 @@ function WhyTheseTwoSection() {
             <p className="font-display font-semibold text-[17px] text-[#22C55E] mb-4">
               Hardware Understanding
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-relaxed">
-              Understand what happens in the hardware before writing code for it.
+            <p className="text-[20px] font-bold text-[#4B5563] leading-relaxed mb-5">
+              Understand electronic circuits, number systems and digital electronics.
             </p>
+            <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
+              {ELECTRONICS_SECTIONS.map((s) => (
+                <div key={s} className="text-[20px] font-bold text-[#374151]">{s}</div>
+              ))}
+            </div>
           </div>
 
           <div className="rounded-2xl border border-[#E5E7EB] bg-white p-7">
@@ -507,13 +510,13 @@ function WhyTheseTwoSection() {
             <p className="font-display font-semibold text-[17px] text-[#22C55E] mb-4">
               Programming Logic
             </p>
-            <p className="text-[14px] text-[#4B5563] leading-relaxed mb-6">
-              Build programming logic from the fundamentals up.
+            <p className="text-[20px] font-bold text-[#4B5563] leading-relaxed mb-4">
+              Learn core C concepts and improve through regular programming practice.
             </p>
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-baseline gap-2 mb-5">
               <span
                 className="font-display font-extrabold text-[#111827] leading-none"
-                style={{ fontSize: "clamp(32px, 4vw, 40px)" }}
+                style={{ fontSize: "36px" }}
               >
                 200+
               </span>
@@ -523,6 +526,11 @@ function WhyTheseTwoSection() {
               >
                 Problems to Solve
               </span>
+            </div>
+            <div className="border-t border-[#E5E7EB] pt-5 space-y-2.5">
+              {C_SECTIONS.map((s) => (
+                <div key={s} className="text-[20px] font-bold text-[#374151]">{s}</div>
+              ))}
             </div>
           </div>
         </div>
@@ -607,30 +615,21 @@ function WhyStartHereSection() {
           <div className="flex-1 min-w-0">
             {/* Section heading — very big */}
             <h2 className="font-display font-extrabold text-[36px] sm:text-[48px] leading-tight tracking-[-0.02em] text-[#111827] mb-8">
-              Why Start Here?
+              Why Start Here ?
             </h2>
 
-            <div className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -top-6 -left-2 font-display font-black leading-none select-none pointer-events-none"
-                style={{ fontSize: "120px", lineHeight: 1, color: "#ECFDF3" }}
-              >
-                &ldquo;
-              </span>
-              <div className="relative space-y-4 text-[17px] leading-[1.75] text-[#374151]">
-                <p>
-                  Students often want to move directly into microcontrollers,
-                  chip design, or advanced projects.
-                </p>
-                <p>
-                  But when the foundation in Electronics and C Programming is
-                  weak, the later topics become harder to understand.
-                </p>
-                <p className="font-semibold text-[#111827]">
-                  That is why this pack begins with the basics first.
-                </p>
-              </div>
+            <div className="space-y-4 text-[20px] font-semibold leading-[1.75]" style={{ color: "#030303" }}>
+              <p>
+                Students often want to move directly into microcontrollers,
+                chip design, or advanced projects.
+              </p>
+              <p>
+                But when the foundation in Electronics and C Programming is
+                weak, the later topics become harder to understand.
+              </p>
+              <p>
+                That is why this pack begins with the basics first.
+              </p>
             </div>
 
             <div className="mt-8 border-l-2 border-[#22C55E] pl-5">
@@ -700,7 +699,7 @@ function WhoIsThisForSection() {
 
   return (
     <section id="esp-who" className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
-      <div className={`${EYEBROW} mb-4 text-center`}>Audience</div>
+      <div className={`${EYEBROW} mb-4 text-center`}>BUILT FOR STUDENTS WHO WANT TO UNDERSTAND THE BASICS CLEARLY</div>
 
       {/* Section heading — very big */}
       <h2 className="font-display font-extrabold text-[36px] sm:text-[52px] lg:text-[60px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
@@ -721,7 +720,7 @@ function WhoIsThisForSection() {
               <h3 className="font-display font-bold text-[18px] text-[#111827] mb-2">
                 {item.heading}
               </h3>
-              <p className="text-[15px] text-[#4B5563] leading-relaxed">
+              <p className="text-[18px] font-bold text-[#4B5563] leading-relaxed">
                 {item.body}
               </p>
             </div>
@@ -762,9 +761,9 @@ function TestimonialsSection() {
   return (
     <section id="esp-testimonials" className="bg-[#F4F7F5] border-y border-[#E5E7EB] py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <div className={`${EYEBROW} mb-4 text-center`}>Students</div>
-        <h2 className="font-display font-extrabold text-[26px] leading-tight text-[#111827] text-center sm:text-[34px]">
-          What Students Are Saying
+        <div className={`${EYEBROW} mb-4 text-center`}>STUDENT FEEDBACK</div>
+        <h2 className="font-display font-extrabold text-[23px] leading-tight text-[#111827] text-center">
+          What Students Say About Learning with Balajee Sir
         </h2>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
@@ -785,7 +784,7 @@ function TestimonialsSection() {
               className="flex flex-col rounded-2xl bg-white border border-[#E5E7EB] p-6 transition hover:shadow-md hover:-translate-y-0.5"
             >
               <div className="border-t-2 border-[#22C55E] pt-5 flex-1">
-                <blockquote className="text-[15px] leading-[1.75] text-[#374151]">
+                <blockquote className="text-[15px] font-bold leading-[1.75] text-[#374151]">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
               </div>
@@ -810,13 +809,12 @@ function TestimonialsSection() {
 function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
   return (
     <section id="esp-product" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-      <h2 className="font-display font-extrabold text-[28px] leading-tight tracking-[-0.02em] text-[#111827] text-center sm:text-[36px]">
-        Start With The Right Foundation.
+      <h2 className="font-display font-extrabold text-[32px] leading-tight tracking-[-0.02em] text-[#111827] text-center">
+        Start With The Right Foundation.<br />&amp;<br />Get Both Courses for ₹239
       </h2>
 
       <div className="mt-8 rounded-2xl border-2 border-[#111827] bg-white overflow-hidden shadow-[0_4px_0_#111827]">
         <div className="bg-[#ECFDF3] border-b border-[#E5E7EB] px-7 py-5">
-          <div className={`${EYEBROW} mb-1`}>Product</div>
           <h3 className="font-display font-extrabold text-[20px] text-[#111827]">
             eTalVis Electronics Starter Pack
           </h3>
@@ -841,7 +839,7 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
             <div className="font-display text-[42px] font-extrabold text-[#111827] leading-none">
               Rs. 239
             </div>
-            <span className="text-[13px] text-[#6B7280] font-medium">2 Months Access</span>
+            <span className="text-[18px] font-bold text-[#6B7280]">2 Months Access</span>
           </div>
 
           <div className="pt-6">
@@ -850,9 +848,9 @@ function ProductSection({ checkoutUrl }: { checkoutUrl: string }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => handleCTA("product_section")}
-              className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[16px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
+              className="block w-full text-center rounded-full bg-[#FFC400] px-8 py-4 text-[20px] font-bold text-[#111827] border-2 border-[#111827] font-display shadow-[0_3px_0_#111827] transition hover:bg-[#F4B800] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none"
             >
-              Get the Starter Pack
+              Get Both Courses for ₹239
             </a>
           </div>
         </div>
@@ -1212,7 +1210,6 @@ export default function EmbeddedStarterPack() {
       <MiniNav checkoutUrl={checkoutUrl} />
       <HeroSection heroRef={heroRef} checkoutUrl={checkoutUrl} />
       <WhyTheseTwoSection />
-      <InsideThePackSection />
       <WhyStartHereSection />
       <WhoIsThisForSection />
       <TestimonialsSection />
